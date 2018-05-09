@@ -17,7 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="x4I-Wv-oHK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TaM-wX-sFx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="D16-FR-fm1"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="L01-nx-2qs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TaM-wX-sFx" firstAttribute="top" secondItem="ogF-S8-dhK" secondAttribute="top" id="G1K-CF-3Ns"/>
+                            <constraint firstItem="TaM-wX-sFx" firstAttribute="leading" secondItem="ogF-S8-dhK" secondAttribute="leading" id="dyo-2k-CGp"/>
+                            <constraint firstItem="ogF-S8-dhK" firstAttribute="bottom" secondItem="TaM-wX-sFx" secondAttribute="bottom" id="g1l-d6-93G"/>
+                            <constraint firstItem="ogF-S8-dhK" firstAttribute="trailing" secondItem="TaM-wX-sFx" secondAttribute="trailing" id="hU1-YO-1TF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ogF-S8-dhK"/>
                     </view>
                     <navigationItem key="navigationItem" title="小颜" id="eHq-Px-Mnj">
@@ -27,11 +43,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="newColorButton" destination="nkQ-0r-L1V" id="rf6-X1-2my"/>
+                        <outlet property="tableView" destination="TaM-wX-sFx" id="bPl-wI-kc2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449" y="99"/>
+            <point key="canvasLocation" x="448.80000000000001" y="98.50074962518741"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="jPY-N6-vAT">

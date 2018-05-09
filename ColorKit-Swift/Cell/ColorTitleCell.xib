@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="110" id="KGk-i7-Jjw" customClass="ColorTitleCell" customModule="ColorKit_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSQ-q4-vnW" userLabel="roundCornerView">
+                        <rect key="frame" x="24" y="24" width="291" height="85.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCj-a3-WX5">
+                                <rect key="frame" x="159.5" y="33" width="103.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exX-78-lWQ" userLabel="ColorCardView">
+                                <rect key="frame" x="21" y="15" width="54" height="54"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="exX-78-lWQ" secondAttribute="height" multiplier="1:1" id="JXR-zX-Mut"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nCj-a3-WX5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="exX-78-lWQ" secondAttribute="trailing" constant="80" id="6Ng-7r-Mdo"/>
+                            <constraint firstItem="exX-78-lWQ" firstAttribute="leading" secondItem="GSQ-q4-vnW" secondAttribute="leading" constant="21" id="ZIm-Kb-TMK"/>
+                            <constraint firstItem="nCj-a3-WX5" firstAttribute="centerY" secondItem="GSQ-q4-vnW" secondAttribute="centerY" id="b03-oo-PUm"/>
+                            <constraint firstItem="exX-78-lWQ" firstAttribute="centerY" secondItem="GSQ-q4-vnW" secondAttribute="centerY" id="oLu-0b-mua"/>
+                            <constraint firstItem="exX-78-lWQ" firstAttribute="top" secondItem="GSQ-q4-vnW" secondAttribute="top" constant="15" id="pvt-7O-Sf0"/>
+                            <constraint firstAttribute="trailing" secondItem="nCj-a3-WX5" secondAttribute="trailing" constant="28" id="v7H-Oc-cUM"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GSQ-q4-vnW" secondAttribute="trailing" constant="24" id="413-p9-XY3"/>
+                    <constraint firstItem="GSQ-q4-vnW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="hEi-VR-bCk"/>
+                    <constraint firstAttribute="bottom" secondItem="GSQ-q4-vnW" secondAttribute="bottom" id="pqY-Rf-6vs"/>
+                    <constraint firstItem="GSQ-q4-vnW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="sqe-CF-pM7"/>
+                    <constraint firstItem="GSQ-q4-vnW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="zzI-7u-Omd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="titleLabel" destination="nCj-a3-WX5" id="La1-3i-Oog"/>
+            </connections>
+            <point key="canvasLocation" x="-7" y="-80"/>
+        </tableViewCell>
+    </objects>
+</document>
