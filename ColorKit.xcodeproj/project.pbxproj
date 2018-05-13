@@ -27,6 +27,10 @@
 		4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D320A352D7006257E2 /* UITableView+Extension.swift */; };
 		4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D620A35327006257E2 /* NibLoadable.swift */; };
 		4C3B62D920A35327006257E2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D720A35327006257E2 /* Reusable.swift */; };
+		4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */; };
+		4C4CCC6B20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6A20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard */; };
+		4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */; };
+		4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */; };
 		4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C65366A209D426E006DFA0E /* BaseNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,10 @@
 		4C3B62D320A352D7006257E2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		4C3B62D620A35327006257E2 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		4C3B62D720A35327006257E2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailViewController.swift; sourceTree = "<group>"; };
+		4C4CCC6A20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorDetailVoewController.storyboard; sourceTree = "<group>"; };
+		4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailCell.swift; sourceTree = "<group>"; };
+		4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorDetailCell.xib; sourceTree = "<group>"; };
 		4C65366A209D426E006DFA0E /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +199,7 @@
 		4C17260A209B6AE000A1919D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C4CCC6720A885DC00DAC4C7 /* ColorDetail */,
 				4C653669209D4248006DFA0E /* Navi */,
 				4C17260D209B6B8800A1919D /* BaseViewController.swift */,
 			);
@@ -200,6 +209,7 @@
 		4C3B62CC20A33F66006257E2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4C4CCC6C20A886C500DAC4C7 /* Detail */,
 				4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */,
 				4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */,
 			);
@@ -213,6 +223,24 @@
 				4C3B62D720A35327006257E2 /* Reusable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4C4CCC6720A885DC00DAC4C7 /* ColorDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */,
+				4C4CCC6A20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard */,
+			);
+			path = ColorDetail;
+			sourceTree = "<group>";
+		};
+		4C4CCC6C20A886C500DAC4C7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */,
+				4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		4C653669209D4248006DFA0E /* Navi */ = {
@@ -373,7 +401,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
+				4C4CCC6B20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C1725F3209B65D800A1919D /* Assets.xcassets in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
@@ -413,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */,
+				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
 				4C1725EB209B65D800A1919D /* ViewController.swift in Sources */,
 				4C17260E209B6B8800A1919D /* BaseViewController.swift in Sources */,
 				4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */,
@@ -421,6 +452,7 @@
 				4C1725F1209B65D800A1919D /* ColorKit_Swift.xcdatamodeld in Sources */,
 				4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */,
 				4C1725E9209B65D700A1919D /* AppDelegate.swift in Sources */,
+				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

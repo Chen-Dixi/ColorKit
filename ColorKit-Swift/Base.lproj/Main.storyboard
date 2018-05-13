@@ -39,6 +39,9 @@
                     <navigationItem key="navigationItem" title="小颜" id="eHq-Px-Mnj">
                         <barButtonItem key="rightBarButtonItem" image="add" id="nkQ-0r-L1V">
                             <color key="tintColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="xyF-00-wib" kind="show" id="4NO-6j-i4w"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -48,7 +51,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448.80000000000001" y="98.50074962518741"/>
+            <point key="canvasLocation" x="340" y="99"/>
+        </scene>
+        <!--ColorDetailVoewController-->
+        <scene sceneID="A1Q-r5-tnD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ColorDetailVoewController" id="xyF-00-wib" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6P-x1-8hK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="98"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="jPY-N6-vAT">
