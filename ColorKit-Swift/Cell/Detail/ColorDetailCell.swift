@@ -34,4 +34,21 @@ class ColorDetailCell: UITableViewCell {
         let average = (red+green+blue)/3.0
         hexColorLabel.textColor = average>0.5 ? UIColor.black : UIColor.white
     }
+    
+    public func setColorInfo(color:Color){
+        let red32 = color.value(forKey: "r") as! Int32
+        let green32 = color.value(forKey: "g") as! Int32
+        let blue32 = color.value(forKey: "b") as! Int32
+        let name = color.value(forKey: "name") as? String
+        let r :CGFloat = CGFloat(red32)/255.0
+        
+        let g :CGFloat = CGFloat(green32)/255.0
+        let b :CGFloat = CGFloat(blue32)/255.0
+        
+        let average = (r+g+b)/3.0
+        hexColorLabel.textColor = average>0.5 ? UIColor.black : UIColor.white
+        backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
+        titleLabel.text = name
+        titleLabel.textColor = average>0.5 ? UIColor.black : UIColor.white
+    }
 }

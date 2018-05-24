@@ -16,6 +16,7 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         // Do any additional setup after loading the view.
         interactivePopGestureRecognizer?.delegate = self
         setNeedsStatusBarAppearanceUpdate()
+        navigationBar.tintColor = UIColor.NavigationBarTintColor()
         delegate = self
         // Do any additional setup after loading the view.
     }

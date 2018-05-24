@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ColorDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!{
@@ -14,11 +15,19 @@ class ColorDetailViewController: UIViewController {
             tableView.separatorStyle = .none
             tableView.rowHeight = 120
             tableView.tableFooterView = UIView()
+            tableView.showsVerticalScrollIndicator = false
             tableView.backgroundColor = UIColor.TableViewBackgroundColor();
         }
     }
     
-    fileprivate var colors:[UIColor] = [UIColor(red: 99.0/255.0, green: 164.0/255.0, blue: 192.0/255.0, alpha: 1), UIColor(red: 223.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)]
+    fileprivate var colors:[Color] = []
+    var project:Project!
+    
+    @IBAction func addRandomColor(_ sender: UIButton) {
+        addColor()
+    }
+    
+    
     fileprivate var titles = ["天空","太阳"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +36,31 @@ class ColorDetailViewController: UIViewController {
         tableView.registerNibOf(ColorDetailCell.self);
         tableView.backgroundColor = UIColor.TableViewBackgroundColor()
         
+           // UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.plain, target: self, action:#selector(self.addColor) )
+        //navigationItem.rightBarButtonItem = plusButton
+        
+        tableView.reloadData()
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let predicate = NSPredicate(format: "project = %@", project)
+        let fetchRequest = NSFetchRequest<Color>(entityName: "Color")
+        fetchRequest.predicate = predicate
+        
+        do {
+            colors = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +69,39 @@ class ColorDetailViewController: UIViewController {
         
     }
     
-
+    @objc
+    func addColor(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Color",
+                                       in: managedContext)!
+        let color = Color(entity: entity, insertInto: managedContext)
+        
+        let name = "test"
+        
+        let r :Int32 = Int32(arc4random() % 255)
+        let g:Int32 = Int32(arc4random() % 255)
+        let b:Int32 = Int32(arc4random() % 255)
+        color.setValue(name, forKey: "name")
+        color.setValue(r, forKey: "r")
+        color.setValue(g, forKey: "g")
+        color.setValue(b, forKey: "b")
+        color.setValue(project, forKey: "project")
+        do{
+            try managedContext.save()
+            colors.append(color)
+            tableView.reloadData()
+        } catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -64,8 +130,9 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ColorDetailCell = tableView.dequeueReusableCell();
-        cell.setBackgroundColor(color: colors[indexPath.row])
-        cell.titleLabel.text = titles[indexPath.row]
+        //cell.setBackgroundColor(color: colors[indexPath.row])
+       
+        cell.setColorInfo(color: colors[indexPath.row])
         return cell
     }
 }

@@ -28,7 +28,7 @@
 		4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D620A35327006257E2 /* NibLoadable.swift */; };
 		4C3B62D920A35327006257E2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D720A35327006257E2 /* Reusable.swift */; };
 		4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */; };
-		4C4CCC6B20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6A20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard */; };
+		4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */; };
 		4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */; };
 		4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */; };
 		4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C65366A209D426E006DFA0E /* BaseNavigationController.swift */; };
@@ -84,7 +84,7 @@
 		4C3B62D620A35327006257E2 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		4C3B62D720A35327006257E2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailViewController.swift; sourceTree = "<group>"; };
-		4C4CCC6A20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorDetailVoewController.storyboard; sourceTree = "<group>"; };
+		4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorDetailViewController.storyboard; sourceTree = "<group>"; };
 		4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailCell.swift; sourceTree = "<group>"; };
 		4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorDetailCell.xib; sourceTree = "<group>"; };
 		4C65366A209D426E006DFA0E /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */,
-				4C4CCC6A20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard */,
+				4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */,
 			);
 			path = ColorDetail;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 			files = (
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
-				4C4CCC6B20A8865E00DAC4C7 /* ColorDetailVoewController.storyboard in Resources */,
+				4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C1725F3209B65D800A1919D /* Assets.xcassets in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
@@ -697,7 +697,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A2GL8UZ838;
+				DEVELOPMENT_TEAM = 9RL6AH3SC8;
 				INFOPLIST_FILE = "ColorKit-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -720,7 +720,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A2GL8UZ838;
+				DEVELOPMENT_TEAM = 9RL6AH3SC8;
 				INFOPLIST_FILE = "ColorKit-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (

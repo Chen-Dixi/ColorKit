@@ -10,10 +10,10 @@
     <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="colors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Color" inverseName="project" inverseEntity="Color" syncable="YES"/>
+        <relationship name="colors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Color" inverseName="project" inverseEntity="Color" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-198" positionY="27" width="117" height="88"/>
         <element name="Color" positionX="25" positionY="50" width="128" height="118"/>
+        <element name="Project" positionX="-198" positionY="27" width="117" height="88"/>
     </elements>
 </model>

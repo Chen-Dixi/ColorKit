@@ -16,4 +16,8 @@ extension UIColor{
     class func TableViewBackgroundColor() -> UIColor{
         return UIColor(red: 235/255, green: 235/255, blue: 240/255, alpha: 1.00)
     }
+    
+    class func NavigationBarTintColor() -> UIColor{
+        return UIColor(red:74/255, green:74/255,blue:74/255,alpha:1.00)
+    }
 }

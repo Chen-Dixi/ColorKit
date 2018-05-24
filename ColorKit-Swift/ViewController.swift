@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 class ViewController: BaseViewController {
     
+    var projects:[Project]=[]
     
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -21,6 +22,28 @@ class ViewController: BaseViewController {
         }
     }
     
+    @IBAction func addProject(_ sender: UIBarButtonItem) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Project",
+                                       in: managedContext)!
+        let project = Project(entity: entity, insertInto: managedContext)
+        
+        
+        do{
+            try managedContext.save()
+            projects.append(project)
+            tableView.reloadData()
+        } catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     
     @IBOutlet weak var newColorButton: UIBarButtonItem!
     
@@ -29,8 +52,26 @@ class ViewController: BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.registerNibOf(ColorTitleCell.self);
-        
+        tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Project>(entityName: "Project")
+        
+        do {
+            projects = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,13 +86,19 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return projects.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer{
             tableView.deselectRow(at: indexPath, animated: false)
         }
+        
+        let sb = UIStoryboard(name: "ColorDetailViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! ColorDetailViewController
+        vc.project = projects[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
