@@ -51,4 +51,6 @@ class ColorDetailCell: UITableViewCell {
         titleLabel.text = name
         titleLabel.textColor = average>0.5 ? UIColor.black : UIColor.white
     }
+    
+    
 }

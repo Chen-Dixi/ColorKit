@@ -38,8 +38,9 @@ class ColorDetailViewController: UIViewController {
         
            // UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.plain, target: self, action:#selector(self.addColor) )
         //navigationItem.rightBarButtonItem = plusButton
-        
+        fetchColors()
         tableView.reloadData()
+        
     }
     
     
@@ -47,20 +48,7 @@ class ColorDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            return
-        }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let predicate = NSPredicate(format: "project = %@", project)
-        let fetchRequest = NSFetchRequest<Color>(entityName: "Color")
-        fetchRequest.predicate = predicate
-        
-        do {
-            colors = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +56,9 @@ class ColorDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
         
     }
+    
+    
+    
     
     @objc
     func addColor(){
@@ -99,8 +90,6 @@ class ColorDetailViewController: UIViewController {
         } catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
-        
     }
     /*
     // MARK: - Navigation
@@ -111,9 +100,27 @@ class ColorDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    //MARK: - CoreData fetch
+    private func fetchColors(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let predicate = NSPredicate(format: "project = %@", project)
+        let fetchRequest = NSFetchRequest<Color>(entityName: "Color")
+        
+        fetchRequest.predicate = predicate
+        
+        do {
+            colors = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 }
 
-extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate{
+extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -135,4 +142,6 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate{
         cell.setColorInfo(color: colors[indexPath.row])
         return cell
     }
+    
+    
 }

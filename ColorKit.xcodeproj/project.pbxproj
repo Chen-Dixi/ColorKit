@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7DC020B85DED006E4C25 /* Constant.swift */; };
 		4C1725C2209B64F800A1919D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1725C1209B64F800A1919D /* AppDelegate.m */; };
 		4C1725C5209B64F800A1919D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1725C4209B64F800A1919D /* ViewController.m */; };
 		4C1725C7209B64F900A1919D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1725C6209B64F900A1919D /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0D7DC020B85DED006E4C25 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4C1725BD209B64F800A1919D /* ColorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1725C0209B64F800A1919D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C1725C1209B64F800A1919D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0D7DBF20B85DD6006E4C25 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4C0D7DC020B85DED006E4C25 /* Constant.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		4C1725B4209B64F800A1919D = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +182,7 @@
 		4C1725E7209B65D700A1919D /* ColorKit-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4C0D7DBF20B85DD6006E4C25 /* Common */,
 				4C3B62D520A352ED006257E2 /* Protocol */,
 				4C3B62CC20A33F66006257E2 /* Cell */,
 				4CF6993E209D53C5003A659A /* Extension */,
@@ -451,6 +462,7 @@
 				4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */,
 				4C1725F1209B65D800A1919D /* ColorKit_Swift.xcdatamodeld in Sources */,
 				4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */,
+				4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */,
 				4C1725E9209B65D700A1919D /* AppDelegate.swift in Sources */,
 				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
