@@ -117,7 +117,12 @@ class ViewController: BaseViewController {
                 tableView.addSubview(snapshot)
                 snapshot.center = center
                 cell?.isHidden = true
+                UIView.animate(withDuration: 0.25) {
+                    snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 5.0)
+                    snapshot.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                }
             }
+            
         case .changed:
             guard let snapshot = snapshot else{
                 return
@@ -141,12 +146,21 @@ class ViewController: BaseViewController {
             
         case .ended:
             if let sourceIndexPath = sourceIndexPath{
-                let cell = tableView.cellForRow(at: sourceIndexPath)
-                cell?.isHidden = false
+                guard let cell = tableView.cellForRow(at: sourceIndexPath)else{
+                    return
+                }
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.snapshot?.center = cell.center
+                    
+                    self.snapshot?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                }) { (finished) in
+                    cell.isHidden = false
+                    self.sourceIndexPath = nil
+                    self.snapshot?.removeFromSuperview()
+                    self.snapshot = nil
+                }
             }
-            sourceIndexPath = nil
-            snapshot?.removeFromSuperview()
-            snapshot = nil
+            
         default:
             break
         }
@@ -178,7 +192,7 @@ class ViewController: BaseViewController {
         let snapshot = UIImageView(image: image)
         snapshot.layer.masksToBounds = false;
         snapshot.layer.cornerRadius = 0.0;
-        snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 0.0)
+        //snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 0.0)
         snapshot.layer.shadowRadius = 5.0;
         snapshot.layer.shadowOpacity = 0.4;
         return snapshot
