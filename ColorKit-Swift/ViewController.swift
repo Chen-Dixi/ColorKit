@@ -15,7 +15,7 @@ class ViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-            tableView.rowHeight = 130
+            tableView.rowHeight = 120
             tableView.tableFooterView = UIView(frame: footerFrame1)
             tableView.backgroundColor = UIColor.TableViewBackgroundColor();
             
@@ -23,26 +23,28 @@ class ViewController: BaseViewController {
     }
     
     @IBAction func addProject(_ sender: UIBarButtonItem) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            return
+        let alertController = UIAlertController(title: "添加项目", message: "输入项目名称", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "项目名称"
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let entity =
-            NSEntityDescription.entity(forEntityName: "Project",
-                                       in: managedContext)!
-        let project = Project(entity: entity, insertInto: managedContext)
-        
-        
-        do{
-            try managedContext.save()
-            projects.append(project)
-            tableView.reloadData()
-        } catch let error as NSError{
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "好的", style: .default, handler: {
+            action in
+            //也可以用下标的形式获取textField let login = alertController.textFields![0]
+            let first = alertController.textFields!.first!
+            if let name = first.text{
+                if name != ""{
+                    self.add(projectName: name)
+                }
+            }
+        })
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
+    
+    
     
     
     @IBOutlet weak var newColorButton: UIBarButtonItem!
@@ -55,8 +57,8 @@ class ViewController: BaseViewController {
         
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
-        
         tableView.addGestureRecognizer(longPressGesture)
+        
         fetchProject()
         tableView.reloadData()
     }
@@ -71,8 +73,9 @@ class ViewController: BaseViewController {
         guard let managedContext = managedContext else{
             return
         }
-        
+        let sortPredictor = NSSortDescriptor(key: "seq", ascending: true)
         let fetchRequest = NSFetchRequest<Project>(entityName: "Project")
+        fetchRequest.sortDescriptors = [sortPredictor]
         
         do {
             projects = try managedContext.fetch(fetchRequest)
@@ -96,6 +99,7 @@ class ViewController: BaseViewController {
     private var sourceIndexPath:IndexPath?
     private var snapshot:UIImageView?
     private var fingerOffSet:CGSize?
+    
     @objc
     func longPress(_ longPress:UILongPressGestureRecognizer){
         let state = longPress.state
@@ -108,18 +112,26 @@ class ViewController: BaseViewController {
             guard let indexPath = indexPath else{
                 return
             }
+            if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                tableView.deselectRow(at: selectedIndexPath, animated: false)
+            }
+            tableView.allowsSelection = false;
             sourceIndexPath = indexPath
-            let cell = tableView.cellForRow(at: indexPath)
-            snapshot = customSnapshotFromView(cell!)
-            let center = cell!.center
+            guard let cell = tableView.cellForRow(at: indexPath) else{
+                return
+            }
+            cell.isHighlighted = false
+            snapshot = customSnapshotFromView(cell)
+            let center = cell.center
             fingerOffSet = CGSize(width: center.x-position.x, height: center.y-position.y)
             if let snapshot = snapshot{
-                tableView.addSubview(snapshot)
                 snapshot.center = center
-                cell?.isHidden = true
+                tableView.addSubview(snapshot)
+
                 UIView.animate(withDuration: 0.25) {
                     snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 5.0)
                     snapshot.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                    cell.isHidden = true
                 }
             }
             
@@ -133,18 +145,22 @@ class ViewController: BaseViewController {
             let newCenter = CGPoint(x: position.x+fingerOffset.width , y: position.y+fingerOffset.height )
             snapshot.center = newCenter
             
-            if let indexPath = indexPath , let sourceIndexPath = sourceIndexPath{
-                if indexPath != sourceIndexPath{
+            if let indexPath = indexPath , let sourceIndexPath = sourceIndexPath,let managedContext = managedContext{
+                if indexPath != sourceIndexPath && !isScrollToEdge(){
                     projects.swapAt(indexPath.row, sourceIndexPath.row)
-                
+                    tableView.beginUpdates()
                     tableView.moveRow(at: sourceIndexPath, to: indexPath)
+                    swapOrder(source: sourceIndexPath, with: indexPath, context: managedContext)
+                    tableView.endUpdates()
+
                     self.sourceIndexPath = indexPath
                 }
             }
             
             
             
-        case .ended:
+        default:
+            tableView.allowsSelection = true;
             if let sourceIndexPath = sourceIndexPath{
                 guard let cell = tableView.cellForRow(at: sourceIndexPath)else{
                     return
@@ -157,12 +173,8 @@ class ViewController: BaseViewController {
                     cell.isHidden = false
                     self.sourceIndexPath = nil
                     self.snapshot?.removeFromSuperview()
-                    self.snapshot = nil
                 }
             }
-            
-        default:
-            break
         }
         
     }
@@ -184,10 +196,8 @@ class ViewController: BaseViewController {
     
     
     private func customSnapshotFromView(_ inputView:UIView)-> UIImageView{
-        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size,false,0)
-        inputView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        
+        let image = inputView.snapshotImage()
         
         let snapshot = UIImageView(image: image)
         snapshot.layer.masksToBounds = false;
@@ -196,6 +206,28 @@ class ViewController: BaseViewController {
         snapshot.layer.shadowRadius = 5.0;
         snapshot.layer.shadowOpacity = 0.4;
         return snapshot
+    }
+    
+    private func add(projectName name:String){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Project",
+                                       in: managedContext)!
+        let project = Project(entity: entity, insertInto: managedContext)
+        project.name = name
+        project.seq = Int32(projects.count)
+        do{
+            try managedContext.save()
+            projects.append(project)
+            tableView.reloadData()
+        } catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 
     private func delete(indexPath:IndexPath, context managedContext:NSManagedObjectContext){
@@ -218,6 +250,17 @@ class ViewController: BaseViewController {
             print("Could not delete. \(error), \(error.userInfo)")
         }
     }
+    
+    private func swapOrder(source:IndexPath,with target:IndexPath, context managedContext:NSManagedObjectContext){
+        let u = projects[source.row],v = projects[target.row]
+         (u.seq , v.seq) = (v.seq,u.seq)
+        do{
+           try managedContext.save()
+        }  catch let error as NSError {
+            print("Could not swap. \(error), \(error.userInfo)")
+        }
+    }
+    
 }
 
 extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate{
@@ -255,14 +298,11 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        projects.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-        tableView.reloadData()
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell : ColorTitleCell = tableView.dequeueReusableCell();
-        cell.titleLabel.text = "Alto's adventure"
+        cell.titleLabel.text = projects[indexPath.row].name
         
         return cell
     }
