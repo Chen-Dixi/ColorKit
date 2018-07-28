@@ -16,6 +16,7 @@ class ColorContainerViewController: BaseViewController {
     private var cardVC:ColorCardViewController!
     private var childSubView:[UIView] = []
     private var currenViewIndex:Int = 1
+    
     init(project:Project){
         self.project = project
         super.init(nibName: nil, bundle: nil)

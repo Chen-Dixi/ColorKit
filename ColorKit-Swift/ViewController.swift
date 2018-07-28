@@ -12,6 +12,9 @@ class ViewController: BaseViewController {
     
     var projects:[Project]=[]
     var managedContext:NSManagedObjectContext?
+    var impactFeedbackGenerator:UIImpactFeedbackGenerator? = UIImpactFeedbackGenerator(style: UIImpactFeedbackStyle.light)
+    var selectionFeedbackGenerator:UISelectionFeedbackGenerator? = UISelectionFeedbackGenerator()
+    
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -52,7 +55,8 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        impactFeedbackGenerator?.prepare()
+        selectionFeedbackGenerator?.prepare()
         tableView.registerNibOf(ColorTitleCell.self);
         
         
@@ -120,6 +124,8 @@ class ViewController: BaseViewController {
             guard let cell = tableView.cellForRow(at: indexPath) else{
                 return
             }
+            impactFeedbackGenerator?.impactOccurred()
+            
             cell.isHighlighted = false
             snapshot = customSnapshotFromView(cell)
             let center = cell.center
@@ -152,7 +158,7 @@ class ViewController: BaseViewController {
                     tableView.moveRow(at: sourceIndexPath, to: indexPath)
                     swapOrder(source: sourceIndexPath, with: indexPath, context: managedContext)
                     tableView.endUpdates()
-
+                    self.selectionFeedbackGenerator?.selectionChanged()
                     self.sourceIndexPath = indexPath
                 }
             }
@@ -173,11 +179,18 @@ class ViewController: BaseViewController {
                     cell.isHidden = false
                     self.sourceIndexPath = nil
                     self.snapshot?.removeFromSuperview()
+                    self.impactFeedbackGenerator?.impactOccurred()
                 }
             }
         }
         
     }
+
+    deinit {
+        impactFeedbackGenerator = nil
+        selectionFeedbackGenerator = nil
+    }
+    
     
     /*
      * 现在不做cell移动到顶部后 tableView 自动滑动
