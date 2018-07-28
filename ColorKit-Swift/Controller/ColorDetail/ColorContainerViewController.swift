@@ -17,6 +17,8 @@ class ColorContainerViewController: BaseViewController {
     private var childSubView:[UIView] = []
     private var currenViewIndex:Int = 1
     
+    var shakeFeedback:UINotificationFeedbackGenerator? = UINotificationFeedbackGenerator()
+    
     init(project:Project){
         self.project = project
         super.init(nibName: nil, bundle: nil)
@@ -31,6 +33,7 @@ class ColorContainerViewController: BaseViewController {
         let sb1 = UIStoryboard(name: "ColorDetailViewController", bundle: nil)
         let tableVC = sb1.instantiateInitialViewController() as! ColorDetailViewController
         tableVC.project = project
+        shakeFeedback?.prepare()
         // Do any additional setup after loading the view.
         setupUI()
     }
@@ -70,6 +73,13 @@ class ColorContainerViewController: BaseViewController {
     func switchVC(){
         currenViewIndex = 1-currenViewIndex
         view.bringSubview(toFront: childSubView[currenViewIndex])
+    }
+    
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if(motion == UIEventSubtype.motionShake){
+            shakeFeedback?.notificationOccurred(.success)
+            switchVC()
+        }
     }
     /*
     // MARK: - Navigation
