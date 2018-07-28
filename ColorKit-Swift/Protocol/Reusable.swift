@@ -27,6 +27,8 @@ extension UITableViewHeaderFooterView: Reusable {
     }
 }
 
+
+
 extension UICollectionReusableView: Reusable {
     
     static var reuseIdentifier: String {

@@ -31,7 +31,7 @@ class ViewController: BaseViewController {
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "好的", style: .default, handler: {
             action in
-            //也可以用下标的形式获取textField let login = alertController.textFields![0]
+            
             let first = alertController.textFields!.first!
             if let name = first.text{
                 if name != ""{
@@ -291,9 +291,10 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
             tableView.deselectRow(at: indexPath, animated: false)
         }
         
-        let sb = UIStoryboard(name: "ColorDetailViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! ColorDetailViewController
-        vc.project = projects[indexPath.row]
+        //let sb = UIStoryboard(name: "ColorCardViewController", bundle: nil)
+        //let vc = sb.instantiateInitialViewController() as! ColorCardViewController
+        let vc = ColorContainerViewController(project: projects[indexPath.row])
+        //vc.project = projects[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
         
     }

@@ -37,6 +37,21 @@
 		4C4081522109A840009BBD8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081512109A840009BBD8C /* main.m */; };
 		4C40815C2109A840009BBD8C /* ColorKit_ObjcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C40815B2109A840009BBD8C /* ColorKit_ObjcTests.m */; };
 		4C4081652109BDB9009BBD8C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081642109BDB9009BBD8C /* UIView+Extension.swift */; };
+		4C45C220210C20AD0048DAE8 /* ColorCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C45C21F210C20AD0048DAE8 /* ColorCardViewController.storyboard */; };
+		4C45C222210C20CD0048DAE8 /* ColorCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C221210C20CD0048DAE8 /* ColorCardViewController.swift */; };
+		4C45C22F210C36AC0048DAE8 /* VerticalCardSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C224210C36AB0048DAE8 /* VerticalCardSwiperView.swift */; };
+		4C45C230210C36AC0048DAE8 /* CardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C225210C36AB0048DAE8 /* CardDelegate.swift */; };
+		4C45C231210C36AC0048DAE8 /* VerticalCardSwiperFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C226210C36AB0048DAE8 /* VerticalCardSwiperFlowLayout.swift */; };
+		4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C227210C36AB0048DAE8 /* VerticalCardSwiper.swift */; };
+		4C45C233210C36AC0048DAE8 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C228210C36AB0048DAE8 /* CardCell.swift */; };
+		4C45C234210C36AC0048DAE8 /* CellSwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C229210C36AB0048DAE8 /* CellSwipeDirection.swift */; };
+		4C45C235210C36AC0048DAE8 /* PanDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C22A210C36AB0048DAE8 /* PanDirection.swift */; };
+		4C45C236210C36AC0048DAE8 /* VerticalCardSwiperDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C22B210C36AB0048DAE8 /* VerticalCardSwiperDatasource.swift */; };
+		4C45C237210C36AC0048DAE8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C22D210C36AC0048DAE8 /* Extensions.swift */; };
+		4C45C238210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C22E210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift */; };
+		4C45C23A210C407E0048DAE8 /* ColorCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C239210C407E0048DAE8 /* ColorCardCell.swift */; };
+		4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C45C23B210C40A00048DAE8 /* ColorCardCell.xib */; };
+		4C45C23E210C5EFC0048DAE8 /* ColorContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45C23D210C5EFC0048DAE8 /* ColorContainerViewController.swift */; };
 		4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */; };
 		4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */; };
 		4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */; };
@@ -116,6 +131,22 @@
 		4C40815B2109A840009BBD8C /* ColorKit_ObjcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorKit_ObjcTests.m; sourceTree = "<group>"; };
 		4C40815D2109A840009BBD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4081642109BDB9009BBD8C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4C45C21F210C20AD0048DAE8 /* ColorCardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorCardViewController.storyboard; sourceTree = "<group>"; };
+		4C45C221210C20CD0048DAE8 /* ColorCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCardViewController.swift; sourceTree = "<group>"; };
+		4C45C224210C36AB0048DAE8 /* VerticalCardSwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalCardSwiperView.swift; sourceTree = "<group>"; };
+		4C45C225210C36AB0048DAE8 /* CardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDelegate.swift; sourceTree = "<group>"; };
+		4C45C226210C36AB0048DAE8 /* VerticalCardSwiperFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalCardSwiperFlowLayout.swift; sourceTree = "<group>"; };
+		4C45C227210C36AB0048DAE8 /* VerticalCardSwiper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalCardSwiper.swift; sourceTree = "<group>"; };
+		4C45C228210C36AB0048DAE8 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		4C45C229210C36AB0048DAE8 /* CellSwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeDirection.swift; sourceTree = "<group>"; };
+		4C45C22A210C36AB0048DAE8 /* PanDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanDirection.swift; sourceTree = "<group>"; };
+		4C45C22B210C36AB0048DAE8 /* VerticalCardSwiperDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalCardSwiperDatasource.swift; sourceTree = "<group>"; };
+		4C45C22C210C36AC0048DAE8 /* VerticalCardSwiper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalCardSwiper.h; sourceTree = "<group>"; };
+		4C45C22D210C36AC0048DAE8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4C45C22E210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalCardSwiperDelegate.swift; sourceTree = "<group>"; };
+		4C45C239210C407E0048DAE8 /* ColorCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCardCell.swift; sourceTree = "<group>"; };
+		4C45C23B210C40A00048DAE8 /* ColorCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorCardCell.xib; sourceTree = "<group>"; };
+		4C45C23D210C5EFC0048DAE8 /* ColorContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorContainerViewController.swift; sourceTree = "<group>"; };
 		4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailViewController.swift; sourceTree = "<group>"; };
 		4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorDetailViewController.storyboard; sourceTree = "<group>"; };
 		4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailCell.swift; sourceTree = "<group>"; };
@@ -231,6 +262,7 @@
 		4C1725E7209B65D700A1919D /* ColorKit-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4C45C223210C36540048DAE8 /* VerticalCardSwiper */,
 				4C0D7DBF20B85DD6006E4C25 /* Common */,
 				4C3B62D520A352ED006257E2 /* Protocol */,
 				4C3B62CC20A33F66006257E2 /* Cell */,
@@ -311,11 +343,32 @@
 			path = "ColorKit-ObjcTests";
 			sourceTree = "<group>";
 		};
+		4C45C223210C36540048DAE8 /* VerticalCardSwiper */ = {
+			isa = PBXGroup;
+			children = (
+				4C45C228210C36AB0048DAE8 /* CardCell.swift */,
+				4C45C225210C36AB0048DAE8 /* CardDelegate.swift */,
+				4C45C229210C36AB0048DAE8 /* CellSwipeDirection.swift */,
+				4C45C22D210C36AC0048DAE8 /* Extensions.swift */,
+				4C45C22A210C36AB0048DAE8 /* PanDirection.swift */,
+				4C45C22C210C36AC0048DAE8 /* VerticalCardSwiper.h */,
+				4C45C227210C36AB0048DAE8 /* VerticalCardSwiper.swift */,
+				4C45C22B210C36AB0048DAE8 /* VerticalCardSwiperDatasource.swift */,
+				4C45C22E210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift */,
+				4C45C226210C36AB0048DAE8 /* VerticalCardSwiperFlowLayout.swift */,
+				4C45C224210C36AB0048DAE8 /* VerticalCardSwiperView.swift */,
+			);
+			path = VerticalCardSwiper;
+			sourceTree = "<group>";
+		};
 		4C4CCC6720A885DC00DAC4C7 /* ColorDetail */ = {
 			isa = PBXGroup;
 			children = (
 				4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */,
 				4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */,
+				4C45C21F210C20AD0048DAE8 /* ColorCardViewController.storyboard */,
+				4C45C221210C20CD0048DAE8 /* ColorCardViewController.swift */,
+				4C45C23D210C5EFC0048DAE8 /* ColorContainerViewController.swift */,
 			);
 			path = ColorDetail;
 			sourceTree = "<group>";
@@ -325,6 +378,8 @@
 			children = (
 				4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */,
 				4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */,
+				4C45C23B210C40A00048DAE8 /* ColorCardCell.xib */,
+				4C45C239210C407E0048DAE8 /* ColorCardCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -533,8 +588,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
+				4C45C220210C20AD0048DAE8 /* ColorCardViewController.storyboard in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
 				4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */,
+				4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C1725F3209B65D800A1919D /* Assets.xcassets in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
@@ -590,19 +647,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C45C22F210C36AC0048DAE8 /* VerticalCardSwiperView.swift in Sources */,
+				4C45C235210C36AC0048DAE8 /* PanDirection.swift in Sources */,
 				4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */,
 				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
+				4C45C234210C36AC0048DAE8 /* CellSwipeDirection.swift in Sources */,
 				4C1725EB209B65D800A1919D /* ViewController.swift in Sources */,
 				4C17260E209B6B8800A1919D /* BaseViewController.swift in Sources */,
+				4C45C238210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift in Sources */,
 				4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */,
+				4C45C23A210C407E0048DAE8 /* ColorCardCell.swift in Sources */,
 				4C3B62D920A35327006257E2 /* Reusable.swift in Sources */,
 				4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */,
 				4C1725F1209B65D800A1919D /* ColorKit_Swift.xcdatamodeld in Sources */,
+				4C45C231210C36AC0048DAE8 /* VerticalCardSwiperFlowLayout.swift in Sources */,
 				4C4081652109BDB9009BBD8C /* UIView+Extension.swift in Sources */,
 				4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */,
 				4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */,
+				4C45C230210C36AC0048DAE8 /* CardDelegate.swift in Sources */,
 				4C1725E9209B65D700A1919D /* AppDelegate.swift in Sources */,
+				4C45C233210C36AC0048DAE8 /* CardCell.swift in Sources */,
+				4C45C236210C36AC0048DAE8 /* VerticalCardSwiperDatasource.swift in Sources */,
+				4C45C23E210C5EFC0048DAE8 /* ColorContainerViewController.swift in Sources */,
+				4C45C237210C36AC0048DAE8 /* Extensions.swift in Sources */,
+				4C45C222210C20CD0048DAE8 /* ColorCardViewController.swift in Sources */,
 				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
+				4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,6 +958,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RL6AH3SC8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ColorKit-Swift",
+				);
 				INFOPLIST_FILE = "ColorKit-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -911,6 +985,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RL6AH3SC8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ColorKit-Swift",
+				);
 				INFOPLIST_FILE = "ColorKit-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
