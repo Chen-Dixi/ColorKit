@@ -61,6 +61,7 @@
 		4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */; };
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
 		4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */; };
+		4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */; };
 		4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F80B210DED5B00F9C294 /* SnapKit.framework */; };
 		4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -162,6 +163,7 @@
 		4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSliderView.swift; sourceTree = "<group>"; };
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test1ViewController.swift; path = Test/Test1ViewController.swift; sourceTree = "<group>"; };
+		4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateColorViewController.storyboard; sourceTree = "<group>"; };
 		4CE2F80B210DED5B00F9C294 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */,
+				4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */,
 			);
 			path = AppendColor;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */,
+				4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */,
 				4C1725F3209B65D800A1919D /* Assets.xcassets in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
 			);

@@ -20,7 +20,7 @@ class CapsuleSliderView: UIView {
     var capsuleMaskView:UIView!
     var opacityView:UIView!
     var valueLabel = UILabel()
-    
+    var slidingCallback:(Int)->Void = {_ in }
     private var startPosition:CGPoint?
     private var currentPosition:CGPoint?
     private var thisTouch:UITouch?
@@ -45,6 +45,12 @@ class CapsuleSliderView: UIView {
         }
     }
     
+    convenience  init(frame: CGRect, startValue originValue:Int, color color:UIColor, slidingCallback callback:@escaping (Int)->Void) {
+        self.init(frame: frame, startValue: originValue)
+        slidingCallback = callback
+        opacityView.backgroundColor = color
+        
+    }
     
     convenience init(frame:CGRect, startValue originValue:Int){
         self.init(frame:frame)
@@ -64,14 +70,14 @@ class CapsuleSliderView: UIView {
     }
     
     private func setupUI(){
-        capsuleMaskView = UIView(frame: bounds)
-        let y = bounds.height/3.0
+        capsuleMaskView = UIView()
         
-        opacityView = UIView(frame:CGRect(x: 0, y:y, width: bounds.width, height: bounds.height-y))
+        
+        opacityView = UIView()
         
         capsuleMaskView.backgroundColor = UIColor(red:199/255, green:199/255,blue:205/255,alpha:1.00)
         capsuleMaskView.layer.cornerRadius=8
-        opacityView.backgroundColor = UIColor.ColorKitGreen()
+        
         addSubview(capsuleMaskView)
         addSubview(opacityView)
        
@@ -87,6 +93,8 @@ class CapsuleSliderView: UIView {
     }
     
     override func layoutSubviews() {
+        capsuleMaskView.frame = bounds
+        capsuleMaskView.frame = bounds
         valueLabel.snp.makeConstraints { make in
             make.centerX.equalTo(capsuleMaskView.snp.centerX)
             make.bottom.equalTo(capsuleMaskView.snp.top).offset(-3)
@@ -109,8 +117,7 @@ class CapsuleSliderView: UIView {
             let dy = startPosition.y - pos.y
             let dValue = Int(255*dy/bounds.height)
             currentValue = max(minValue,min(maxValue , lastValue+dValue))
-            
-           
+            slidingCallback(currentValue)
         }
     }
     

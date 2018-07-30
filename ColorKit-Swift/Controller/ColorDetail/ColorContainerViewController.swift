@@ -30,9 +30,8 @@ class ColorContainerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let sb1 = UIStoryboard(name: "ColorDetailViewController", bundle: nil)
-        let tableVC = sb1.instantiateInitialViewController() as! ColorDetailViewController
-        tableVC.project = project
+        
+        
         shakeFeedback?.prepare()
         // Do any additional setup after loading the view.
         setupUI()
@@ -61,12 +60,18 @@ class ColorContainerViewController: BaseViewController {
         addChildViewController(tableVC)
         addChildViewController(cardVC)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "切换", style: .plain, target: self, action: #selector(switchVC))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加颜色", style: .plain, target: self, action: #selector(add))
     }
     
     private func updateFrame(){
         tableVC.view.frame = self.view.bounds
         cardVC.view.frame = self.view.bounds
+    }
+    @objc
+    func add(){
+        let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
