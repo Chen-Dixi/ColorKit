@@ -47,6 +47,7 @@ class ColorDetailCell: UITableViewCell {
         
         let average = (r+g+b)/3.0
         hexColorLabel.textColor = average>0.5 ? UIColor.black : UIColor.white
+        hexColorLabel.text = CommonUtil.hexColorString(red: red32, green: green32, blue: blue32)
         backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
         titleLabel.text = name
         titleLabel.textColor = average>0.5 ? UIColor.black : UIColor.white

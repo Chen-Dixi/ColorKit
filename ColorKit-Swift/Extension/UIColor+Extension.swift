@@ -20,4 +20,18 @@ extension UIColor{
     class func NavigationBarTintColor() -> UIColor{
         return UIColor(red:74/255, green:74/255,blue:74/255,alpha:1.00)
     }
+    
+    class func ColorKitRed() -> UIColor{
+        return UIColor(red:192/255, green:10/255,blue:23/255,alpha:1.00)
+    }
+    
+    class func ColorKitGreen() -> UIColor{
+        return UIColor(red:45/255, green:176/255,blue:101/255,alpha:1.00)
+    }
+    
+    class func ColorKitBlue() -> UIColor{
+        return UIColor(red:125/255, green:190/255,blue:240/255,alpha:1.00)
+    }
+    
+    
 }

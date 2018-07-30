@@ -10,6 +10,22 @@
 import UIKit
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
-
 let footerFrame1 = CGRect(x: 0, y: 0, width: screenWidth, height: 48)
-let screenRation = screenWidth/screenHeight
+let screenRatio = screenHeight / screenWidth
+
+struct Font_Light {
+    static let Size_24=UIFont(name: "PingFangSC-Light",size: 24)
+    static let Size_20=UIFont(name: "PingFangSC-Light",size: 20)
+    static let Size_17=UIFont(name: "PingFangSC-Light",size: 17)
+    static let Size_16=UIFont(name: "PingFangSC-Light",size: 16)
+    static let Size_15=UIFont(name: "PingFangSC-Light",size: 15)
+    static let Size_13=UIFont(name: "PingFangSC-Light",size: 13)
+    static let Size_12=UIFont(name: "PingFangSC-Light",size: 12)
+    static let Size_11=UIFont(name: "PingFangSC-Light", size: 11)
+}
+struct Font_Regular {
+    static let Size_17=UIFont(name:"PingFangSC-Regular",size: 17)
+    static let Size_15=UIFont(name:"PingFangSC-Regular",size: 15)
+    static let Size_11=UIFont(name:"PingFangSC-Regular",size: 11)
+    static let Size_12=UIFont(name:"PingFangSC-Regular",size: 12)
+}
