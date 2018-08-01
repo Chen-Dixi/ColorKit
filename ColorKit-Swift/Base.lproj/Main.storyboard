@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ygc-uu-FXt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EH2-d1-pbA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TaM-wX-sFx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="D16-FR-fm1"/>
@@ -37,7 +37,7 @@
                         <viewLayoutGuide key="safeArea" id="ogF-S8-dhK"/>
                     </view>
                     <navigationItem key="navigationItem" title="小颜" id="eHq-Px-Mnj">
-                        <barButtonItem key="rightBarButtonItem" image="add" id="nkQ-0r-L1V">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="nkQ-0r-L1V">
                             <color key="tintColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addProject:" destination="BYZ-38-t0r" id="ibX-wx-Ypo"/>
@@ -51,20 +51,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="99"/>
-        </scene>
-        <!--ColorDetailViewController-->
-        <scene sceneID="A1Q-r5-tnD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ColorDetailViewController" id="xyF-00-wib" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z6P-x1-8hK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="971" y="123"/>
+            <point key="canvasLocation" x="-354" y="902"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="jPY-N6-vAT">
             <objects>
                 <navigationController id="Ygc-uu-FXt" customClass="BaseNavigationController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="icon_card" id="uoc-f8-LoV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZhV-O7-H5q">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -77,10 +70,62 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzJ-HZ-Lns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="99"/>
+            <point key="canvasLocation" x="-353" y="192"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="9xi-wk-y2W">
+            <objects>
+                <navigationController id="BY2-KB-ifF" customClass="BaseNavigationController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="hcz-V5-7L7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hyC-Lz-zfB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cgp-5k-88S" kind="relationship" relationship="rootViewController" id="2if-eS-aXt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IS2-H4-VmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="191"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nqG-WO-8Xu">
+            <objects>
+                <viewController id="cgp-5k-88S" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="if0-pZ-TOD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ATm-Fu-cH0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t1w-ay-2kX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9by-4p-RJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="902"/>
+        </scene>
+        <!--Base Tab Bar Controller-->
+        <scene sceneID="GOi-QF-sTX">
+            <objects>
+                <tabBarController hidesBottomBarWhenPushed="YES" id="EH2-d1-pbA" customClass="BaseTabBarController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v0g-Lv-693">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ygc-uu-FXt" kind="relationship" relationship="viewControllers" id="gWa-kh-CAV"/>
+                        <segue destination="BY2-KB-ifF" kind="relationship" relationship="viewControllers" id="n2N-TG-e9d"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gtf-ZG-PQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82" y="-608"/>
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="30" height="30"/>
+        <image name="icon_card" width="30" height="30"/>
     </resources>
 </document>

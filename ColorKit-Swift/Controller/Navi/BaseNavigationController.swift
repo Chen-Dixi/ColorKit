@@ -17,6 +17,7 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         interactivePopGestureRecognizer?.delegate = self
         setNeedsStatusBarAppearanceUpdate()
         navigationBar.tintColor = UIColor.NavigationBarTintColor()
+        navigationBar.shadowImage = UIImage()
         delegate = self
         // Do any additional setup after loading the view.
     }
@@ -30,7 +31,9 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         if animated{
             interactivePopGestureRecognizer?.isEnabled = false
         }
-        
+        if viewControllers.count==1{
+            viewController.hidesBottomBarWhenPushed = true
+        }
         super.pushViewController(viewController, animated: animated)
     }
     

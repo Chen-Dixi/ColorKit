@@ -18,9 +18,9 @@ class ViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-            tableView.rowHeight = 120
+            tableView.rowHeight = 90
             tableView.tableFooterView = UIView(frame: footerFrame1)
-            tableView.backgroundColor = UIColor.TableViewBackgroundColor();
+            tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
             
         }
     }
@@ -263,6 +263,7 @@ class ViewController: BaseViewController {
             print("Could not delete. \(error), \(error.userInfo)")
         }
     }
+   
     
     private func swapOrder(source:IndexPath,with target:IndexPath, context managedContext:NSManagedObjectContext){
         let u = projects[source.row],v = projects[target.row]
@@ -307,6 +308,7 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         //let sb = UIStoryboard(name: "ColorCardViewController", bundle: nil)
         //let vc = sb.instantiateInitialViewController() as! ColorCardViewController
         let vc = ColorContainerViewController(project: projects[indexPath.row])
+        
         //vc.project = projects[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
         
@@ -317,7 +319,7 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         
         let cell : ColorTitleCell = tableView.dequeueReusableCell();
         cell.titleLabel.text = projects[indexPath.row].name
-        
+        cell.iconImageView.image = UIImage(named: "badge_game")
         return cell
     }
     

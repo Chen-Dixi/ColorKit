@@ -88,6 +88,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // vibrate
+    lazy var impactFeedbackLightGenerator:UIImpactFeedbackGenerator = {
+      return UIImpactFeedbackGenerator(style: UIImpactFeedbackStyle.light)
+    }()
+    
+    lazy var impactFeedbackMediumGenerator:UIImpactFeedbackGenerator = {
+        return UIImpactFeedbackGenerator(style: UIImpactFeedbackStyle.medium)
+    }()
+    
+    lazy var impactFeedbackHeavyGenerator:UIImpactFeedbackGenerator = {
+        return UIImpactFeedbackGenerator(style: UIImpactFeedbackStyle.heavy)
+    }()
 
+    lazy var selectionFeedbackGenerator:UISelectionFeedbackGenerator = {
+        return  UISelectionFeedbackGenerator()
+    }()
 }
 

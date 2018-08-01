@@ -12,6 +12,7 @@ let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 let footerFrame1 = CGRect(x: 0, y: 0, width: screenWidth, height: 48)
 let screenRatio = screenHeight / screenWidth
+let labelColorThreshold:CGFloat = 0.7
 
 struct Font_Light {
     static let Size_24=UIFont(name: "PingFangSC-Light",size: 24)

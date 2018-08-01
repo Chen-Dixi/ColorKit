@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TjH-pq-dCY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TjH-pq-dCY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,18 +26,9 @@
                                     <outlet property="delegate" destination="TjH-pq-dCY" id="58k-gj-SrI"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbs-LL-rUc">
-                                <rect key="frame" x="305" y="597" width="30" height="30"/>
-                                <state key="normal" image="add"/>
-                                <connections>
-                                    <action selector="addRandomColor:" destination="TjH-pq-dCY" eventType="touchUpInside" id="Qj2-L2-Dbt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SQR-I8-kxo" firstAttribute="trailing" secondItem="Fbs-LL-rUc" secondAttribute="trailing" constant="40" id="2QW-CI-tFm"/>
-                            <constraint firstItem="SQR-I8-kxo" firstAttribute="bottom" secondItem="Fbs-LL-rUc" secondAttribute="bottom" constant="40" id="9Ma-wx-JKu"/>
                             <constraint firstItem="SQR-I8-kxo" firstAttribute="bottom" secondItem="jbL-wV-0VB" secondAttribute="bottom" id="HJg-or-oZW"/>
                             <constraint firstItem="SQR-I8-kxo" firstAttribute="trailing" secondItem="jbL-wV-0VB" secondAttribute="trailing" id="Hbm-KX-fdj"/>
                             <constraint firstItem="jbL-wV-0VB" firstAttribute="top" secondItem="SQR-I8-kxo" secondAttribute="top" id="OLq-Ua-jvx"/>
@@ -54,7 +45,4 @@
             <point key="canvasLocation" x="-500" y="58"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="add" width="30" height="30"/>
-    </resources>
 </document>

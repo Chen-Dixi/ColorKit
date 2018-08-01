@@ -26,9 +26,7 @@ class CapsuleSliderView: UIView {
     private var thisTouch:UITouch?
     @IBInspectable public var currentValue:Int = 50{
         didSet{
-            let y = bounds.height * (1 - CGFloat(currentValue)/CGFloat(maxValue))
-            opacityView.frame = CGRect(x: 0, y:y, width: bounds.width, height: bounds.height-y)
-            valueLabel.text = "\(currentValue)"
+            
         }
     }
     
@@ -45,7 +43,7 @@ class CapsuleSliderView: UIView {
         }
     }
     
-    convenience  init(frame: CGRect, startValue originValue:Int, color color:UIColor, slidingCallback callback:@escaping (Int)->Void) {
+    convenience  init(frame: CGRect, startValue originValue:Int, color:UIColor, slidingCallback callback:@escaping (Int)->Void) {
         self.init(frame: frame, startValue: originValue)
         slidingCallback = callback
         opacityView.backgroundColor = color
@@ -92,13 +90,24 @@ class CapsuleSliderView: UIView {
         valueLabel.textAlignment = .center
     }
     
+    public func setCorderRaduis(radius:CGFloat){
+        opacityView.layer.cornerRadius = radius
+        capsuleMaskView.layer.cornerRadius = radius
+    }
+    
     override func layoutSubviews() {
         capsuleMaskView.frame = bounds
-        capsuleMaskView.frame = bounds
+        
         valueLabel.snp.makeConstraints { make in
             make.centerX.equalTo(capsuleMaskView.snp.centerX)
             make.bottom.equalTo(capsuleMaskView.snp.top).offset(-3)
         }
+        let y = bounds.height * (1 - CGFloat(currentValue)/CGFloat(maxValue))
+        opacityView.frame = CGRect(x: 0, y:y, width: bounds.width, height: bounds.height-y)
+        valueLabel.text = "\(currentValue)"
+        slidingCallback(currentValue)
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -117,7 +126,7 @@ class CapsuleSliderView: UIView {
             let dy = startPosition.y - pos.y
             let dValue = Int(255*dy/bounds.height)
             currentValue = max(minValue,min(maxValue , lastValue+dValue))
-            slidingCallback(currentValue)
+            setNeedsLayout()
         }
     }
     
@@ -129,6 +138,11 @@ class CapsuleSliderView: UIView {
         lastValue = currentValue
     }
     
+    public func  setBarValue(value:Int){
+        lastValue = value
+        currentValue = value
+    
+    }
     
     
 }

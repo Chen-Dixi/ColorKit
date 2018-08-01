@@ -61,16 +61,22 @@ class ColorContainerViewController: BaseViewController {
         addChildViewController(cardVC)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加颜色", style: .plain, target: self, action: #selector(add))
+        navigationItem.title = project.name
+        
     }
     
     private func updateFrame(){
         tableVC.view.frame = self.view.bounds
         cardVC.view.frame = self.view.bounds
+        
     }
     @objc
     func add(){
         let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+        vc.pickerType = .create
+        vc.project = project
+        vc.nextSeq = Int32(tableVC.colors.count)
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -33,10 +33,46 @@
                     <view key="view" contentMode="scaleToFill" id="Btj-hv-bEd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ff-SK-JzR">
+                                <rect key="frame" x="0.0" y="96" width="375" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="色卡名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tW-2m-rnW">
+                                        <rect key="frame" x="24" y="13" width="332" height="24"/>
+                                        <color key="textColor" red="0.31764705882352939" green="0.32156862745098036" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8tW-2m-rnW" firstAttribute="leading" secondItem="7Ff-SK-JzR" secondAttribute="leading" constant="24" id="4kt-Y7-Cun"/>
+                                    <constraint firstItem="8tW-2m-rnW" firstAttribute="centerY" secondItem="7Ff-SK-JzR" secondAttribute="centerY" id="7Gl-re-2EZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ixb-H0-mT5"/>
+                                    <constraint firstAttribute="trailing" secondItem="8tW-2m-rnW" secondAttribute="trailing" constant="19" id="Sb6-mI-RaH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M9v-UX-HGZ" firstAttribute="trailing" secondItem="7Ff-SK-JzR" secondAttribute="trailing" id="2EB-Jq-BO1"/>
+                            <constraint firstItem="7Ff-SK-JzR" firstAttribute="top" secondItem="M9v-UX-HGZ" secondAttribute="top" constant="32" id="8dy-cN-hb7"/>
+                            <constraint firstItem="7Ff-SK-JzR" firstAttribute="leading" secondItem="M9v-UX-HGZ" secondAttribute="leading" id="jFG-A7-rxg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M9v-UX-HGZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xxj-78-Pja"/>
+                    <navigationItem key="navigationItem" id="Xxj-78-Pja">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="hhA-RH-Qe2">
+                            <color key="tintColor" red="0.31764705879999999" green="0.32156862749999998" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="save:" destination="BM1-LJ-pBG" id="Zaf-83-fJM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="8tW-2m-rnW" id="13Q-mG-GFG"/>
+                        <outlet property="saveBtn" destination="hhA-RH-Qe2" id="Pww-se-XXq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjm-wP-N4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

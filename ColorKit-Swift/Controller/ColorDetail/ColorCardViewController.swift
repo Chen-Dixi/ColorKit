@@ -23,14 +23,15 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "updateData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "reorderData"), object: nil)
         cardSwiper.delegate = self
         cardSwiper.datasource = self
         // Do any additional setup after loading the view.
         
         cardSwiper.register(nib: UINib(nibName: "ColorCardCell", bundle: nil), forCellWithReuseIdentifier: "ColorCardCell")
         fetchColors()
-        
+        cardSwiper.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +39,10 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
         // Dispose of any resources that can be recreated.
     }
     
-
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "updateData"), object: nil)
+         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "reorderData"), object: nil)
+    }
     /*
     // MARK: - Navigation
 
@@ -59,6 +63,8 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
         let fetchRequest = NSFetchRequest<Color>(entityName: "Color")
         
         fetchRequest.predicate = predicate
+        let sortPredictor = NSSortDescriptor(key: "seq", ascending: true)
+        fetchRequest.sortDescriptors = [sortPredictor]
         
         do {
             colors = try managedContext.fetch(fetchRequest)
@@ -88,7 +94,12 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: CellSwipeDirection){
         
     }
-
+    
+    @objc
+    func refreshData(){
+        fetchColors()
+        cardSwiper.reloadData()
+    }
     
     
 }

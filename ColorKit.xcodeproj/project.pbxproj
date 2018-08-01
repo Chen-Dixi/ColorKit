@@ -28,6 +28,8 @@
 		4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D320A352D7006257E2 /* UITableView+Extension.swift */; };
 		4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D620A35327006257E2 /* NibLoadable.swift */; };
 		4C3B62D920A35327006257E2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D720A35327006257E2 /* Reusable.swift */; };
+		4C3B80EE211090B800B9AC58 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B80ED211090B800B9AC58 /* BaseTabBarController.swift */; };
+		4C3DD136210F521700723C34 /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DD135210F521700723C34 /* SafeDispatch.swift */; };
 		4C4081412109A83E009BBD8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081402109A83E009BBD8C /* AppDelegate.m */; };
 		4C4081442109A83E009BBD8C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081432109A83E009BBD8C /* ViewController.m */; };
 		4C4081472109A83E009BBD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4081452109A83E009BBD8C /* Main.storyboard */; };
@@ -62,6 +64,9 @@
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
 		4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */; };
 		4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */; };
+		4CC4758D2111B812008A135C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758C2111B812008A135C /* UIImage+Extension.swift */; };
+		4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */; };
+		4CC475912111EA3C008A135C /* Bades.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC475902111EA3C008A135C /* Bades.xcassets */; };
 		4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F80B210DED5B00F9C294 /* SnapKit.framework */; };
 		4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +128,8 @@
 		4C3B62D320A352D7006257E2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		4C3B62D620A35327006257E2 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		4C3B62D720A35327006257E2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		4C3B80ED211090B800B9AC58 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		4C3DD135210F521700723C34 /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafeDispatch.swift; path = ../../../../../dev/XiaoDi/XiaoDiKit/Helpers/SafeDispatch.swift; sourceTree = "<group>"; };
 		4C40813D2109A83E009BBD8C /* ColorKit-Objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorKit-Objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C40813F2109A83E009BBD8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C4081402109A83E009BBD8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -164,6 +171,9 @@
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test1ViewController.swift; path = Test/Test1ViewController.swift; sourceTree = "<group>"; };
 		4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateColorViewController.storyboard; sourceTree = "<group>"; };
+		4CC4758C2111B812008A135C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		4CC475902111EA3C008A135C /* Bades.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bades.xcassets; sourceTree = "<group>"; };
 		4CE2F80B210DED5B00F9C294 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +289,7 @@
 		4C1725E7209B65D700A1919D /* ColorKit-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4C3DD134210F51F700723C34 /* Helper */,
 				4C7C0EEE210EDA19002B4880 /* View */,
 				4C45C223210C36540048DAE8 /* VerticalCardSwiper */,
 				4C0D7DBF20B85DD6006E4C25 /* Common */,
@@ -290,6 +301,7 @@
 				4C1725EA209B65D800A1919D /* ViewController.swift */,
 				4C1725EC209B65D800A1919D /* Main.storyboard */,
 				4C1725F2209B65D800A1919D /* Assets.xcassets */,
+				4CC475902111EA3C008A135C /* Bades.xcassets */,
 				4C1725F4209B65D800A1919D /* LaunchScreen.storyboard */,
 				4C1725F7209B65D800A1919D /* Info.plist */,
 				4C1725EF209B65D800A1919D /* ColorKit_Swift.xcdatamodeld */,
@@ -312,6 +324,7 @@
 			children = (
 				4CE2F80D210DED9100F9C294 /* AppendColor */,
 				4C4CCC6720A885DC00DAC4C7 /* ColorDetail */,
+				4C3B80EC2110904E00B9AC58 /* Tab */,
 				4C653669209D4248006DFA0E /* Navi */,
 				4C17260D209B6B8800A1919D /* BaseViewController.swift */,
 			);
@@ -335,6 +348,22 @@
 				4C3B62D720A35327006257E2 /* Reusable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4C3B80EC2110904E00B9AC58 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				4C3B80ED211090B800B9AC58 /* BaseTabBarController.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		4C3DD134210F51F700723C34 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DD135210F521700723C34 /* SafeDispatch.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		4C40813E2109A83E009BBD8C /* ColorKit-Objc */ = {
@@ -444,6 +473,8 @@
 				4C3B62D120A34DF4006257E2 /* UIColor+Extension.swift */,
 				4C3B62D320A352D7006257E2 /* UITableView+Extension.swift */,
 				4C4081642109BDB9009BBD8C /* UIView+Extension.swift */,
+				4CC4758C2111B812008A135C /* UIImage+Extension.swift */,
+				4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -634,6 +665,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC475912111EA3C008A135C /* Bades.xcassets in Resources */,
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
 				4C45C220210C20AD0048DAE8 /* ColorCardViewController.storyboard in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
@@ -730,6 +762,8 @@
 				4C1725F1209B65D800A1919D /* ColorKit_Swift.xcdatamodeld in Sources */,
 				4C45C231210C36AC0048DAE8 /* VerticalCardSwiperFlowLayout.swift in Sources */,
 				4C4081652109BDB9009BBD8C /* UIView+Extension.swift in Sources */,
+				4C3B80EE211090B800B9AC58 /* BaseTabBarController.swift in Sources */,
+				4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */,
 				4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */,
 				4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */,
 				4C45C230210C36AC0048DAE8 /* CardDelegate.swift in Sources */,
@@ -741,6 +775,8 @@
 				4C45C237210C36AC0048DAE8 /* Extensions.swift in Sources */,
 				4C45C222210C20CD0048DAE8 /* ColorCardViewController.swift in Sources */,
 				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
+				4CC4758D2111B812008A135C /* UIImage+Extension.swift in Sources */,
+				4C3DD136210F521700723C34 /* SafeDispatch.swift in Sources */,
 				4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
 				4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */,
