@@ -20,13 +20,20 @@ class ColorDetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var bottomToolBar: UIToolbar!{
+        didSet{
+            bottomToolBar.setShadowImage(UIImage(), forToolbarPosition: UIBarPosition.bottom)
+        }
+    }
+    
     public var colors:[Color] = []
     var project:Project!
     
     
     var managedContext:NSManagedObjectContext?
     
-    fileprivate var titles = ["天空","太阳"]
+    private var oldOffset:CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -251,6 +258,14 @@ class ColorDetailViewController: UIViewController {
         fetchColors()
         tableView.reloadData()
     }
+    
+    
+    @IBAction func jumpToSetting(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "ProjectSettingViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! BaseNavigationController
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
@@ -302,5 +317,35 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         } catch let error as NSError {
             print("Could not delete. \(error), \(error.userInfo)")
         }
+    }
+    
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y > oldOffset){
+            //上滑 消失toolbar
+            UIView.animate(withDuration: 0.4, animations: {
+                if !self.bottomToolBar.isHidden{
+                    self.bottomToolBar.alpha = 0
+                }
+            }) { (finished) in
+                self.bottomToolBar.isHidden = true
+            }
+            
+        }else{
+            //下滑 显示toolbar
+            UIView.animate(withDuration: 0.4, animations: {
+                if self.bottomToolBar.isHidden{
+                    self.bottomToolBar.alpha = 1
+                }
+            }){ (finished) in
+                self.bottomToolBar.isHidden = false
+            }
+            
+        }
+        
+        
+        
+        oldOffset = scrollView.contentOffset.y
     }
 }

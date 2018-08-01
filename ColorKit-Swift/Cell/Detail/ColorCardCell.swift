@@ -15,6 +15,11 @@ class ColorCardCell : CardCell{
     
     @IBOutlet weak var valueLabel: UILabel!
     
+    @IBOutlet weak var redValueLabel: UILabel!
+    @IBOutlet weak var greenValueLabel: UILabel!
+    @IBOutlet weak var blueValueLabel: UILabel!
+    
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -43,5 +48,16 @@ class ColorCardCell : CardCell{
         valueLabel.text = CommonUtil.hexColorString(red: red32, green: green32, blue: blue32)
         nameLabel.text = name
         nameLabel.textColor = average>labelColorThreshold ? UIColor.black : UIColor.white
+        
+        redValueLabel.text = "R:  \(red32)"
+        redValueLabel.textColor = average > labelColorThreshold ? UIColor.black : UIColor.white
+        
+        greenValueLabel.text = "G:  \(green32)"
+        greenValueLabel.textColor = average > labelColorThreshold ? UIColor.black : UIColor.white
+        
+        blueValueLabel.text = "B:  \(blue32)"
+        blueValueLabel.textColor = average > labelColorThreshold ? UIColor.black : UIColor.white
+        
+        
     }
 }
