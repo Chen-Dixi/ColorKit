@@ -10,11 +10,12 @@ import UIKit
 
 class Test1ViewController: UIViewController {
 
-    @IBOutlet weak var slider: CapsuleSliderView!
+    
+    @IBOutlet weak var badgeBorder: BadgeBoardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        slider.currentValue = 50
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +24,9 @@ class Test1ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
     /*
     // MARK: - Navigation
 

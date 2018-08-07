@@ -14,7 +14,7 @@ class ColorDetailViewController: UIViewController {
         didSet{
             tableView.separatorStyle = .none
             tableView.rowHeight = 120
-            tableView.tableFooterView = UIView()
+            tableView.tableFooterView = UIView(frame: footerFrame1)
             tableView.showsVerticalScrollIndicator = false
             tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
         }
@@ -46,9 +46,11 @@ class ColorDetailViewController: UIViewController {
         tableView.addGestureRecognizer(longPressGesture)
            // UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.plain, target: self, action:#selector(self.addColor) )
         //navigationItem.rightBarButtonItem = plusButton
+        bottomToolBar.layer.shadowColor = UIColor.lightGray.cgColor;
+        bottomToolBar.layer.shadowOffset = CGSize(width: 0, height: -6)
+        bottomToolBar.layer.shadowOpacity = 0.1;
         fetchColors()
         tableView.reloadData()
-        
     }
     
     deinit {
@@ -263,6 +265,9 @@ class ColorDetailViewController: UIViewController {
     @IBAction func jumpToSetting(_ sender: UIBarButtonItem) {
         let sb = UIStoryboard(name: "ProjectSettingViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! BaseNavigationController
+        if let settingVC = vc.topViewController as? ProjectSettingViewController{
+            settingVC.project = project
+        }
         present(vc, animated: true, completion: nil)
     }
     
@@ -299,9 +304,21 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        if let managedContext = managedContext{
-            delete(indexPath: indexPath, context: managedContext)
-            tableView.reloadData()
+//        if let managedContext = managedContext{
+//            delete(indexPath: indexPath, context: managedContext)
+//            tableView.reloadData()
+//        }
+        if editingStyle == .delete{
+            let vc = DeleteColorAlertController {
+                [weak self] in
+                if let strongSelf = self{
+                    if let managedContext = strongSelf.managedContext{
+                        strongSelf.delete(indexPath: indexPath, context: managedContext)
+                        strongSelf.tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+            }
+            present(vc, animated: true, completion: nil)
         }
     }
     

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,20 +32,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSv-zZ-fjf">
+                        <rect key="frame" x="16" y="33" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="LSv-zZ-fjf" secondAttribute="height" multiplier="1:1" id="H26-Oe-96J"/>
+                        </constraints>
+                        <state key="normal" image="icon_collect_null"/>
+                        <connections>
+                            <action selector="likeBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="E76-4k-7cR"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="LSv-zZ-fjf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="A52-9V-v6w"/>
                     <constraint firstItem="X2n-l7-c3w" firstAttribute="top" secondItem="tvb-if-TFY" secondAttribute="bottom" constant="10" id="F0p-RL-DdW"/>
                     <constraint firstItem="tvb-if-TFY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="G0u-Xp-CtA"/>
+                    <constraint firstItem="LSv-zZ-fjf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="e1m-kK-KzO"/>
                     <constraint firstAttribute="trailing" secondItem="tvb-if-TFY" secondAttribute="trailing" constant="16" id="iL7-1n-jYG"/>
                     <constraint firstAttribute="trailing" secondItem="X2n-l7-c3w" secondAttribute="trailing" constant="16" id="iyl-a2-8Wc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="collectButton" destination="LSv-zZ-fjf" id="iwo-mb-Fv8"/>
                 <outlet property="hexColorLabel" destination="X2n-l7-c3w" id="DG1-qs-EF4"/>
                 <outlet property="titleLabel" destination="tvb-if-TFY" id="cKA-MJ-Vt0"/>
             </connections>
-            <point key="canvasLocation" x="-540" y="-9"/>
+            <point key="canvasLocation" x="-625" y="-3"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_collect_null" width="30" height="30"/>
+    </resources>
 </document>

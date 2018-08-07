@@ -53,6 +53,16 @@
             </objects>
             <point key="canvasLocation" x="-354" y="902"/>
         </scene>
+        <!--MyViewController-->
+        <scene sceneID="VHI-gi-7p1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyViewController" id="dFZ-e6-kes" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="k8E-cq-LHB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgk-Tw-tXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="739"/>
+        </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="jPY-N6-vAT">
             <objects>
@@ -76,35 +86,19 @@
         <scene sceneID="9xi-wk-y2W">
             <objects>
                 <navigationController id="BY2-KB-ifF" customClass="BaseNavigationController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="hcz-V5-7L7"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_about" id="hcz-V5-7L7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hyC-Lz-zfB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="cgp-5k-88S" kind="relationship" relationship="rootViewController" id="2if-eS-aXt"/>
+                        <segue destination="dFZ-e6-kes" kind="relationship" relationship="rootViewController" id="g3w-7g-Vg2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IS2-H4-VmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="577" y="191"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nqG-WO-8Xu">
-            <objects>
-                <viewController id="cgp-5k-88S" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="if0-pZ-TOD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ATm-Fu-cH0"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="t1w-ay-2kX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9by-4p-RJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="577" y="902"/>
         </scene>
         <!--Base Tab Bar Controller-->
         <scene sceneID="GOi-QF-sTX">
@@ -126,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_about" width="30" height="30"/>
         <image name="icon_card" width="30" height="30"/>
     </resources>
 </document>

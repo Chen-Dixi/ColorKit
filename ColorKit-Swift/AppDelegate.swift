@@ -17,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let appVersion = UserDefaults.standard.string(forKey: "appVersion")
+        let infoDictionary = Bundle.main.infoDictionary!
+        let currentVersion = infoDictionary["CFBundleShortVersionString"] as! String
+        
+        if appVersion == nil || appVersion != currentVersion{
+            UserDefaults.standard.set(currentVersion, forKey: "appVersion")
+            
+            
+            
+        }
+        
         return true
     }
 
@@ -105,5 +117,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var selectionFeedbackGenerator:UISelectionFeedbackGenerator = {
         return  UISelectionFeedbackGenerator()
     }()
+    
+    lazy var notificationFeedbackGenerator:UINotificationFeedbackGenerator = {
+       return UINotificationFeedbackGenerator()
+    }()
+    
+    
 }
 

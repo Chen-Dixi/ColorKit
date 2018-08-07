@@ -25,6 +25,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         for item in tabBar.items!{
             item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
         }
+        
         delegate = self
     }
 

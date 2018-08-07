@@ -19,12 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiR-UQ-bvl" customClass="CapsuleSliderView" customModule="ColorKit_Swift" customModuleProvider="target">
-                                <rect key="frame" x="155" y="279.5" width="64" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiR-UQ-bvl" customClass="TextFieldAndButtonView" customModule="ColorKit_Swift" customModuleProvider="target">
+                                <rect key="frame" x="27" y="327.5" width="320" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="xiR-UQ-bvl" secondAttribute="height" multiplier="1:2" id="MgB-v1-nUe"/>
-                                    <constraint firstAttribute="height" constant="128" id="k7R-fa-rEB"/>
+                                    <constraint firstAttribute="width" secondItem="xiR-UQ-bvl" secondAttribute="height" multiplier="10:1" id="MgB-v1-nUe"/>
+                                    <constraint firstAttribute="height" constant="32" id="k7R-fa-rEB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
@@ -32,6 +32,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
                                         <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
+                                        <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -44,7 +47,7 @@
                         <viewLayoutGuide key="safeArea" id="U7U-Ex-kWT"/>
                     </view>
                     <connections>
-                        <outlet property="slider" destination="xiR-UQ-bvl" id="Inq-Yn-nsE"/>
+                        <outlet property="badgeBorder" destination="xiR-UQ-bvl" id="0f1-7F-Mc0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekQ-CZ-tLS" userLabel="First Responder" sceneMemberID="firstResponder"/>

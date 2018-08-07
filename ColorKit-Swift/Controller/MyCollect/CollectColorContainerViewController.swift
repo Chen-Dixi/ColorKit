@@ -8,37 +8,31 @@
 
 import UIKit
 
-class ColorContainerViewController: BaseViewController {
+class CollectColorContainerViewController: BaseViewController {
 
     private var project:Project!
     
-    private var tableVC:ColorDetailViewController!
-    private var cardVC:ColorCardViewController!
+    private var tableVC:CollectColorDetailViewController!
+    private var cardVC:CollectColorCardViewController!
     private var childSubView:[UIView] = []
     private var currenViewIndex:Int = 1
     
     
-    init(project:Project){
-        self.project = project
-        super.init(nibName: nil, bundle: nil)
-    }
+
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        navigationItem.title  = "收藏"
         // Do any additional setup after loading the view.
         setupUI()
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshProject), name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
+        
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
+        
     }
 
     override func viewWillLayoutSubviews() {
@@ -51,12 +45,12 @@ class ColorContainerViewController: BaseViewController {
     }
     
     private func setupUI(){
-        let sb1 = UIStoryboard(name: "ColorDetailViewController", bundle: nil)
-        tableVC = sb1.instantiateInitialViewController() as! ColorDetailViewController
-        tableVC.project = project
-        let sb2 = UIStoryboard(name: "ColorCardViewController", bundle: nil)
-        cardVC = sb2.instantiateInitialViewController() as! ColorCardViewController
-        cardVC.project = project
+        let sb1 = UIStoryboard(name: "CollectColorDetailViewController", bundle: nil)
+        tableVC = sb1.instantiateInitialViewController() as! CollectColorDetailViewController
+        
+        let sb2 = UIStoryboard(name: "CollectColorCardViewController", bundle: nil)
+        cardVC = sb2.instantiateInitialViewController() as! CollectColorCardViewController
+        
         view.addSubview(cardVC.view)
         childSubView.append(cardVC.view)
         view.addSubview(tableVC.view)
@@ -64,8 +58,8 @@ class ColorContainerViewController: BaseViewController {
         addChildViewController(tableVC)
         addChildViewController(cardVC)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加色卡", style: .plain, target: self, action: #selector(add))
-        navigationItem.title = project.name
+        
+        
         
     }
     
@@ -73,15 +67,7 @@ class ColorContainerViewController: BaseViewController {
         tableVC.view.frame = self.view.bounds
         cardVC.view.frame = self.view.bounds
     }
-    @objc
-    func add(){
-        let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! CreateColorViewController
-        vc.pickerType = .create
-        vc.project = project
-        vc.nextSeq = Int32(tableVC.colors.count)
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    
     
     @objc
     func switchVC(){
@@ -96,10 +82,7 @@ class ColorContainerViewController: BaseViewController {
         }
     }
     
-    @objc
-    func refreshProject(){
-        navigationItem.title = project.name
-    }
+    
     /*
     // MARK: - Navigation
 

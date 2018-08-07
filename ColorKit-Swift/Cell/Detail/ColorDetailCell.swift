@@ -13,6 +13,16 @@ class ColorDetailCell: UITableViewCell {
     @IBOutlet weak var hexColorLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var collectButton: UIButton!{
+        didSet{
+            collectButton.setImage(UIImage(named: "badge_heart"), for: .normal)
+            collectButton.setImage(UIImage(named: "icon_collect_save"), for: .selected)
+        }
+    }
+    
+    var color:Color?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -51,7 +61,16 @@ class ColorDetailCell: UITableViewCell {
         backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
         titleLabel.text = name
         titleLabel.textColor = average>labelColorThreshold ? UIColor.black : UIColor.white
+        collectButton.tintColor = average>labelColorThreshold ? UIColor.black : UIColor.white
+        collectButton.isSelected = color.collect //收藏按钮
+        self.color = color
     }
     
+    @IBAction func likeBtnClick(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        color?.collect = sender.isSelected
+        color?.collectDate = Date()
+        saveContext()
+    }
     
 }

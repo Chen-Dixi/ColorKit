@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>badge</key>
+	<array>
+		<string>badge_android</string>
+		<string>badge_apple</string>
+		<string>badge_game</string>
+		<string>badge_camera</string>
+		<string>badge_music</string>
+		<string>badge_palette</string>
+		<string>badge_ball</string>
+		<string>badge_pet</string>
+		<string>badge_plane</string>
+		<string>badge_star</string>
+		<string>badge_steve</string>
+		<string>badge_tech</string>
+		<string>badge_wine</string>
+		<string>badge_bubble</string>
+		<string>badge_heart</string>
+	</array>
+</dict>
+</plist>

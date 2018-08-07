@@ -58,8 +58,7 @@ class ViewController: BaseViewController {
         impactFeedbackGenerator?.prepare()
         selectionFeedbackGenerator?.prepare()
         tableView.registerNibOf(ColorTitleCell.self);
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
         tableView.addGestureRecognizer(longPressGesture)
         
@@ -189,6 +188,7 @@ class ViewController: BaseViewController {
     deinit {
         impactFeedbackGenerator = nil
         selectionFeedbackGenerator = nil
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
     }
     
     
@@ -275,6 +275,12 @@ class ViewController: BaseViewController {
         }
     }
     
+    @objc
+    func refreshData(){
+        fetchProject()
+        tableView.reloadData()
+    }
+    
 }
 
 extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate{
@@ -290,9 +296,17 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        if let managedContext = managedContext{
-            delete(indexPath: indexPath, context: managedContext)
-            tableView.reloadData()
+        if editingStyle == .delete{
+            let vc = DeleteProjectAlertController {
+                [weak self] in
+                if let strongSelf = self{
+                    if let managedContext = strongSelf.managedContext{
+                        strongSelf.delete(indexPath: indexPath, context: managedContext)
+                        strongSelf.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+                    }
+                }
+            }
+            present(vc, animated: true, completion: nil)
         }
     }
     
@@ -319,7 +333,7 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         
         let cell : ColorTitleCell = tableView.dequeueReusableCell();
         cell.titleLabel.text = projects[indexPath.row].name
-        cell.iconImageView.image = UIImage(named: "badge_game")
+        cell.iconImageView.image = UIImage(named: projects[indexPath.row].badgeName ?? "badge_game")
         return cell
     }
     

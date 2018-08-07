@@ -13,6 +13,7 @@ import CoreData
 public enum ColorPickerType: Int{
     case create
     case edit
+    case view
 }
 
 class CreateColorViewController: BaseViewController {
@@ -74,6 +75,9 @@ class CreateColorViewController: BaseViewController {
         }
         updateFrame()
         
+        if pickerType == .view{
+            navigationItem.rightBarButtonItem = nil
+        }
         
     }
 
@@ -148,6 +152,7 @@ class CreateColorViewController: BaseViewController {
             newColor.setValue(g, forKey: "g")
             newColor.setValue(b, forKey: "b")
             newColor.setValue(project, forKey: "project")
+            newColor.setValue(false, forKey: "collect")
             if let seq = nextSeq{
                 newColor.setValue(seq, forKey: "seq")
             }
