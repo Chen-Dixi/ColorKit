@@ -87,20 +87,49 @@ class MyViewController: UITableViewController {
                 
             case .Review:
                 //弹出评论
-                break
+                jumpToComment()
                 
             case .Share:
                 //分享app
-                break
+                shareMyApp()
             case .About:
                 //弹出关于界面
-                break
+                jumpToAbount()
             }
         }
     }
 
-  
+    func jumpToComment(){
+        let strLoc = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1422973826";
+        if let url = URL(string: strLoc){
+            if UIApplication.shared.canOpenURL(url){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    func shareMyApp(){
+        let text = "小颜 配色笔记"
+        let image = UIImage(named: "App_Icon")
+        let url = URL(string: "https://itunes.apple.com/app/id1422973826")
+        let items = [text,image ?? "nil",url ?? "nil"] as [Any]
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {
+            activity, success, items, error in
+            
+            print(success)
+            
+            
+        }
+        present(activityVC, animated: true, completion: nil)
+    }
 
+    func jumpToAbount(){
+        let sb = UIStoryboard(name: "AboutViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! BaseViewController
+        vc.navigationItem.title = "关于「小颜」"
+        navigationController?.pushViewController(vc, animated: true)
+    }
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

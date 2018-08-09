@@ -25,6 +25,7 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "updateData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "reorderData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tableviewChanged), name: NSNotification.Name(rawValue: "tableviewChanged"), object: nil)
         cardSwiper.delegate = self
         cardSwiper.datasource = self
         // Do any additional setup after loading the view.
@@ -42,6 +43,7 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "updateData"), object: nil)
          NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "reorderData"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "tableviewChanged"), object: nil)
     }
     /*
     // MARK: - Navigation
@@ -101,5 +103,8 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
         cardSwiper.reloadData()
     }
     
-    
+    @objc
+    func tableviewChanged(){
+        cardSwiper.reloadData()
+    }
 }

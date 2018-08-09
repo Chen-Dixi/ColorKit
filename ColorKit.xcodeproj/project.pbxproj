@@ -82,6 +82,7 @@
 		4CC47596211211A9008A135C /* ProjectSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC47595211211A9008A135C /* ProjectSettingViewController.storyboard */; };
 		4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F80B210DED5B00F9C294 /* SnapKit.framework */; };
 		4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */; };
+		4CF20D6E21198080005C5E0D /* AboutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF20D6D21198080005C5E0D /* AboutViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +203,7 @@
 		4CC47595211211A9008A135C /* ProjectSettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectSettingViewController.storyboard; sourceTree = "<group>"; };
 		4CE2F80B210DED5B00F9C294 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorViewController.swift; sourceTree = "<group>"; };
+		4CF20D6D21198080005C5E0D /* AboutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 		4C17260A209B6AE000A1919D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4CF20D6C2119805E005C5E0D /* AboutColorKit */,
 				4C21B1F52118592600C90659 /* Me */,
 				4C21B1E621181B4500C90659 /* MyCollect */,
 				4C8B96972116055300860DB3 /* Alert */,
@@ -544,6 +547,14 @@
 				4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */,
 			);
 			path = AppendColor;
+			sourceTree = "<group>";
+		};
+		4CF20D6C2119805E005C5E0D /* AboutColorKit */ = {
+			isa = PBXGroup;
+			children = (
+				4CF20D6D21198080005C5E0D /* AboutViewController.storyboard */,
+			);
+			path = AboutColorKit;
 			sourceTree = "<group>";
 		};
 		4CF6993E209D53C5003A659A /* Extension */ = {
@@ -744,6 +755,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF20D6E21198080005C5E0D /* AboutViewController.storyboard in Resources */,
 				4CC475912111EA3C008A135C /* Bades.xcassets in Resources */,
 				4C0FDAA621135805007979CC /* badge_list.plist in Resources */,
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
@@ -1162,7 +1174,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "ColorKit-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1190,7 +1202,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "ColorKit-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

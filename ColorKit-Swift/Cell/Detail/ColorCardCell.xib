@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-av-oj0">
-                        <rect key="frame" x="30" y="30" width="279" height="34"/>
+                        <rect key="frame" x="30" y="30" width="65" height="34"/>
                         <accessibility key="accessibilityConfiguration" identifier="nameLbl"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="24"/>
                         <nil key="textColor"/>
@@ -50,13 +51,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-Au-66Z">
+                        <rect key="frame" x="279" y="32" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="6Cu-Au-66Z" secondAttribute="height" multiplier="1:1" id="3Zo-ua-pyS"/>
+                        </constraints>
+                        <state key="normal" image="icon_collect_null"/>
+                        <connections>
+                            <action selector="collectBtnClick:" destination="YrG-n3-lce" eventType="touchUpInside" id="qsO-o5-HRa"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Xft-ev-GOu" firstAttribute="top" secondItem="jPK-kZ-9MJ" secondAttribute="bottom" constant="15" id="6xj-Lr-71S"/>
+                <constraint firstItem="hur-jY-jUf" firstAttribute="trailing" secondItem="6Cu-Au-66Z" secondAttribute="trailing" constant="30" id="BaA-rl-VYr"/>
                 <constraint firstItem="Sxb-h1-ZeR" firstAttribute="top" secondItem="Uvg-av-oj0" secondAttribute="bottom" constant="20" id="GeB-y4-yPo"/>
                 <constraint firstItem="jPK-kZ-9MJ" firstAttribute="leading" secondItem="Yav-ZB-YZq" secondAttribute="leading" id="LNg-o8-nLC"/>
+                <constraint firstItem="6Cu-Au-66Z" firstAttribute="centerY" secondItem="Uvg-av-oj0" secondAttribute="centerY" id="Npf-cz-DwU"/>
                 <constraint firstItem="Uvg-av-oj0" firstAttribute="top" secondItem="YrG-n3-lce" secondAttribute="top" constant="30" id="YnN-QA-IJm"/>
                 <constraint firstItem="jPK-kZ-9MJ" firstAttribute="top" secondItem="Yav-ZB-YZq" secondAttribute="bottom" constant="15" id="cMj-mV-fZf"/>
                 <constraint firstAttribute="trailing" secondItem="Sxb-h1-ZeR" secondAttribute="trailing" constant="30" id="ctE-mT-De4"/>
@@ -65,18 +78,22 @@
                 <constraint firstItem="Xft-ev-GOu" firstAttribute="leading" secondItem="jPK-kZ-9MJ" secondAttribute="leading" id="nYB-go-b8i"/>
                 <constraint firstItem="Uvg-av-oj0" firstAttribute="leading" secondItem="YrG-n3-lce" secondAttribute="leading" constant="30" id="qLS-qO-m1Y"/>
                 <constraint firstItem="Sxb-h1-ZeR" firstAttribute="leading" secondItem="YrG-n3-lce" secondAttribute="leading" constant="30" id="u6G-Uv-0id"/>
-                <constraint firstAttribute="trailing" secondItem="Uvg-av-oj0" secondAttribute="trailing" constant="30" id="vQR-CJ-LM6"/>
+                <constraint firstItem="6Cu-Au-66Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uvg-av-oj0" secondAttribute="trailing" constant="30" id="vQR-CJ-LM6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hur-jY-jUf"/>
             <size key="customSize" width="339" height="431"/>
             <connections>
                 <outlet property="blueValueLabel" destination="Xft-ev-GOu" id="qsk-6L-ZZq"/>
+                <outlet property="collectButton" destination="6Cu-Au-66Z" id="1dA-6r-9fJ"/>
                 <outlet property="greenValueLabel" destination="jPK-kZ-9MJ" id="C7x-BX-GqD"/>
                 <outlet property="nameLabel" destination="Uvg-av-oj0" id="fk2-wx-xbd"/>
                 <outlet property="redValueLabel" destination="Yav-ZB-YZq" id="tni-1n-Vda"/>
                 <outlet property="valueLabel" destination="Sxb-h1-ZeR" id="zsR-qk-Suy"/>
             </connections>
-            <point key="canvasLocation" x="-145" y="85"/>
+            <point key="canvasLocation" x="-145.5" y="84.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icon_collect_null" width="30" height="30"/>
+    </resources>
 </document>

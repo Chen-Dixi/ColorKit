@@ -19,6 +19,7 @@ struct Font_Light {
     static let Size_20=UIFont(name: "PingFangSC-Light",size: 20)
     static let Size_17=UIFont(name: "PingFangSC-Light",size: 17)
     static let Size_16=UIFont(name: "PingFangSC-Light",size: 16)
+    static let Size_18=UIFont(name: "PingFangSC-Light",size: 18)
     static let Size_15=UIFont(name: "PingFangSC-Light",size: 15)
     static let Size_13=UIFont(name: "PingFangSC-Light",size: 13)
     static let Size_12=UIFont(name: "PingFangSC-Light",size: 12)

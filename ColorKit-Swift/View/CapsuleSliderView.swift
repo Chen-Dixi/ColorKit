@@ -20,6 +20,7 @@ class CapsuleSliderView: UIView {
     var capsuleMaskView:UIView!
     var opacityView:UIView!
     var valueLabel = UILabel()
+    var titleLabel = UILabel()
     var slidingCallback:(Int)->Void = {_ in }
     private var startPosition:CGPoint?
     private var currentPosition:CGPoint?
@@ -48,6 +49,13 @@ class CapsuleSliderView: UIView {
         slidingCallback = callback
         opacityView.backgroundColor = color
         
+    }
+    
+    convenience  init(frame: CGRect, startValue originValue:Int, color:UIColor, title:String, slidingCallback callback:@escaping (Int)->Void) {
+        self.init(frame: frame, startValue: originValue)
+        slidingCallback = callback
+        opacityView.backgroundColor = color
+        titleLabel.text = title
     }
     
     convenience init(frame:CGRect, startValue originValue:Int){
@@ -85,9 +93,23 @@ class CapsuleSliderView: UIView {
         lastValue = currentValue
         
         addSubview(valueLabel)
+        addSubview(titleLabel)
         valueLabel.font = Font_Light.Size_16
         valueLabel.textColor = UIColor(red:155/255, green:155/255,blue:155/255,alpha:1.00)
         valueLabel.textAlignment = .center
+        titleLabel.font = Font_Light.Size_18
+        titleLabel.textColor = UIColor.lightGray
+        titleLabel.textAlignment = .center
+        
+        valueLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(capsuleMaskView.snp.centerX)
+            make.bottom.equalTo(capsuleMaskView.snp.top).offset(-3)
+        }
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(capsuleMaskView.snp.centerX)
+            make.top.equalTo(capsuleMaskView.snp.bottom).offset(2)
+        }
+
     }
     
     public func setCorderRaduis(radius:CGFloat){
@@ -98,11 +120,7 @@ class CapsuleSliderView: UIView {
     override func layoutSubviews() {
         capsuleMaskView.frame = bounds
         
-        valueLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(capsuleMaskView.snp.centerX)
-            make.bottom.equalTo(capsuleMaskView.snp.top).offset(-3)
-        }
-        let y = bounds.height * (1 - CGFloat(currentValue)/CGFloat(maxValue))
+                let y = bounds.height * (1 - CGFloat(currentValue)/CGFloat(maxValue))
         opacityView.frame = CGRect(x: 0, y:y, width: bounds.width, height: bounds.height-y)
         valueLabel.text = "\(currentValue)"
         slidingCallback(currentValue)
@@ -141,7 +159,6 @@ class CapsuleSliderView: UIView {
     public func  setBarValue(value:Int){
         lastValue = value
         currentValue = value
-    
     }
     
     

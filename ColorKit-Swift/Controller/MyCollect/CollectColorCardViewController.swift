@@ -78,7 +78,7 @@ class CollectColorCardViewController: BaseViewController, VerticalCardSwiperDele
         let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ColorCardCell", for: index) as! ColorCardCell
         
         cardCell.setColorInfo(color:  colors[index])
-        
+        cardCell.collectButton.isHidden = true
         
         return cardCell
     }

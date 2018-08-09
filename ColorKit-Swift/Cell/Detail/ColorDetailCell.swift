@@ -17,7 +17,7 @@ class ColorDetailCell: UITableViewCell {
     @IBOutlet weak var collectButton: UIButton!{
         didSet{
             collectButton.setImage(UIImage(named: "badge_heart"), for: .normal)
-            collectButton.setImage(UIImage(named: "icon_collect_save"), for: .selected)
+            collectButton.setImage(UIImage(named: "icon_heart_solid"), for: .selected)
         }
     }
     
@@ -71,6 +71,7 @@ class ColorDetailCell: UITableViewCell {
         color?.collect = sender.isSelected
         color?.collectDate = Date()
         saveContext()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tableviewChanged"), object: nil)
     }
     
 }

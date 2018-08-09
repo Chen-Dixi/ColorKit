@@ -19,6 +19,14 @@ class ColorCardCell : CardCell{
     @IBOutlet weak var greenValueLabel: UILabel!
     @IBOutlet weak var blueValueLabel: UILabel!
     
+    @IBOutlet weak var collectButton: UIButton!{
+        didSet{
+            collectButton.setImage(UIImage(named: "badge_heart"), for: .normal)
+            collectButton.setImage(UIImage(named: "icon_heart_solid"), for: .selected)
+        }
+    }
+    
+    var color:Color?
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -58,6 +66,16 @@ class ColorCardCell : CardCell{
         blueValueLabel.text = "B:  \(blue32)"
         blueValueLabel.textColor = average > labelColorThreshold ? UIColor.black : UIColor.white
         
-        
+        collectButton.tintColor = average > labelColorThreshold ? UIColor.black : UIColor.white
+        collectButton.isSelected = color.collect //收藏按钮
+        self.color = color
+    }
+    
+    @IBAction func collectBtnClick(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        color?.collect = sender.isSelected
+        color?.collectDate = Date()
+        saveContext()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cardviewChanged"), object: nil)
     }
 }

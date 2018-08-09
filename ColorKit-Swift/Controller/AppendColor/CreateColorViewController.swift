@@ -40,14 +40,14 @@ class CreateColorViewController: BaseViewController {
         // Do any additional setup after loading the view.
         colorBoardView = UIView(frame: CGRect.zero)
         
-        redSliderView = CapsuleSliderView(frame: CGRect.zero, startValue: 0,color: UIColor.ColorKitRed(), slidingCallback: {[weak self] (redValue) in
+        redSliderView = CapsuleSliderView(frame: CGRect.zero, startValue: 0,color: UIColor.ColorKitRed(), title:"R",slidingCallback: {[weak self] (redValue) in
             if let strongSelf = self{
                 strongSelf.r = CGFloat(redValue)
                 strongSelf.colorBoardView.backgroundColor = UIColor(red: strongSelf.r/255, green: strongSelf.g/255, blue: strongSelf.b/255, alpha: 1.0)
             }
         })
         
-        greenSliderView = CapsuleSliderView(frame: CGRect.zero, startValue: 0,color: UIColor.ColorKitGreen(), slidingCallback: {[weak self] (greenValue) in
+        greenSliderView = CapsuleSliderView(frame: CGRect.zero, startValue: 0,color: UIColor.ColorKitGreen(), title:"G", slidingCallback: {[weak self] (greenValue) in
             if let strongSelf = self{
                 strongSelf.g = CGFloat(greenValue)
                 strongSelf.colorBoardView.backgroundColor = UIColor(red: strongSelf.r/255, green: strongSelf.g/255, blue: strongSelf.b/255, alpha: 1.0)
@@ -55,7 +55,7 @@ class CreateColorViewController: BaseViewController {
             
         })
         
-        blueSliderView = CapsuleSliderView(frame: CGRect.zero, startValue: 0,color: UIColor.ColorKitBlue(), slidingCallback: {[weak self] (blueValue) in
+        blueSliderView = CapsuleSliderView(frame: CGRect.zero, startValue: 0,color: UIColor.ColorKitBlue(), title:"B", slidingCallback: {[weak self] (blueValue) in
             if let strongSelf = self{
                 strongSelf.b = CGFloat(blueValue)
                 strongSelf.colorBoardView.backgroundColor = UIColor(red: strongSelf.r/255, green: strongSelf.g/255, blue: strongSelf.b/255, alpha: 1.0)

@@ -38,6 +38,7 @@ class ColorDetailViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "updateData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(test), name: NSNotification.Name(rawValue: "cardviewChanged"), object: nil)
         // Do any additional setup after loading the view.
         tableView.registerNibOf(ColorDetailCell.self);
         tableView.backgroundColor = UIColor.TableViewBackgroundColor()
@@ -55,6 +56,7 @@ class ColorDetailViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "updateData"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cardviewChanged"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -258,6 +260,11 @@ class ColorDetailViewController: UIViewController {
     @objc
     func refreshData(){
         fetchColors()
+        tableView.reloadData()
+    }
+    
+    @objc
+    func test(){
         tableView.reloadData()
     }
     

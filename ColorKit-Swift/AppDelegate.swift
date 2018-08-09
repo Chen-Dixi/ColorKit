@@ -13,8 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -23,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let currentVersion = infoDictionary["CFBundleShortVersionString"] as! String
         
         if appVersion == nil || appVersion != currentVersion{
+            //版本有更新
             UserDefaults.standard.set(currentVersion, forKey: "appVersion")
-            
-            
-            
+            //版本更新，色卡又是空的就创建初识项目和颜色
+            createThemeData()
         }
         
         return true
@@ -122,6 +121,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        return UINotificationFeedbackGenerator()
     }()
     
+    func createThemeData(){
+        let managedContext = persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Project>(entityName: "Project")
+        var projects:[Project] = []
+        do {
+            projects = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        if projects.isEmpty{
+            let entity =
+                NSEntityDescription.entity(forEntityName: "Project",
+                                           in: managedContext)!
+            let project = Project(entity: entity, insertInto: managedContext)
+            project.name = "小颜"
+            project.seq = Int32(0)
+            project.badgeName = "badge_palette"
+            saveContext()
+            let colorEntity =
+                NSEntityDescription.entity(forEntityName: "Color",
+                                           in: managedContext)!
+            let redColor = Color(entity: colorEntity, insertInto: managedContext)
+            
+            redColor.setValue("小颜红", forKey: "name")
+            redColor.setValue(Int32(192), forKey: "r")
+            redColor.setValue(Int32(10), forKey: "g")
+            redColor.setValue(Int32(23), forKey: "b")
+            redColor.setValue(project, forKey: "project")
+            redColor.setValue(false, forKey: "collect")
+            redColor.setValue(0, forKey: "seq")
+            let blueColor = Color(entity: colorEntity, insertInto: managedContext)
+            
+            blueColor.setValue("小颜蓝", forKey: "name")
+            blueColor.setValue(Int32(125), forKey: "r")
+            blueColor.setValue(Int32(190), forKey: "g")
+            blueColor.setValue(Int32(240), forKey: "b")
+            blueColor.setValue(project, forKey: "project")
+            blueColor.setValue(false, forKey: "collect")
+            blueColor.setValue(1, forKey: "seq")
+            saveContext()
+        }
+    }
     
 }
 
