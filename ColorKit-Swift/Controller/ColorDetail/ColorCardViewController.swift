@@ -26,13 +26,14 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "updateData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "reorderData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(tableviewChanged), name: NSNotification.Name(rawValue: "tableviewChanged"), object: nil)
+        
         cardSwiper.delegate = self
         cardSwiper.datasource = self
         // Do any additional setup after loading the view.
         
         cardSwiper.register(nib: UINib(nibName: "ColorCardCell", bundle: nil), forCellWithReuseIdentifier: "ColorCardCell")
-        fetchColors()
-        cardSwiper.reloadData()
+        
+        refreshData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,17 +95,35 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
     
     
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: CellSwipeDirection){
+        let vc = DeleteColorAlertController(block: {
+                [weak self] in
+                if let strongSelf = self{
+                    strongSelf.delete(color: strongSelf.colors[index])
+                    strongSelf.colors.remove(at: index)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cardviewDelete"), object: nil)
+                }
+            }, cancelBlock: {
+                [weak self] in
+                if let strongSelf = self{
+                    strongSelf.refreshData()
+                }
+        })
+        present(vc, animated: true, completion: nil)
+        
+    }
+    
+    func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: CellSwipeDirection) {
         
     }
     
     @objc
     func refreshData(){
         fetchColors()
-        cardSwiper.reloadData()
+        cardSwiper.fixReloadData()
     }
     
     @objc
     func tableviewChanged(){
-        cardSwiper.reloadData()
+        cardSwiper.fixReloadData()
     }
 }

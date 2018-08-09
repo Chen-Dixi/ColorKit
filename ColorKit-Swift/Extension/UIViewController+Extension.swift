@@ -62,4 +62,18 @@ extension UIViewController{
         
         appDelegate.saveContext()
     }
+    
+    func delete(color:Color){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        context.delete(color)
+        
+        appDelegate.saveContext()
+    }
 }
+
+

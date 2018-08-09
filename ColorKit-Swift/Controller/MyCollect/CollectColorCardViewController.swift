@@ -30,7 +30,7 @@ class CollectColorCardViewController: BaseViewController, VerticalCardSwiperDele
         
         cardSwiper.register(nib: UINib(nibName: "ColorCardCell", bundle: nil), forCellWithReuseIdentifier: "ColorCardCell")
         fetchColors()
-        cardSwiper.reloadData()
+        cardSwiper.fixReloadData()
     }
 
     override func didReceiveMemoryWarning() {

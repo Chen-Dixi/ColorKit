@@ -253,6 +253,11 @@ extension VerticalCardSwiper: UICollectionViewDelegate, UICollectionViewDataSour
         verticalCardSwiperView.reloadData()
     }
     
+    public func fixReloadData(){
+        numberOfCards = datasource?.numberOfCards(verticalCardSwiperView: self.verticalCardSwiperView) ?? 0
+        verticalCardSwiperView.reloadData()
+    }
+    
     /**
      Register a class for use in creating new CardCells.
      Prior to calling the dequeueReusableCell(withReuseIdentifier:for:) method of the collection view,
@@ -291,7 +296,7 @@ extension VerticalCardSwiper: UICollectionViewDelegate, UICollectionViewDataSour
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        numberOfCards = datasource?.numberOfCards(verticalCardSwiperView: self.verticalCardSwiperView) ?? 0
+       //numberOfCards = datasource?.numberOfCards(verticalCardSwiperView: self.verticalCardSwiperView) ?? 0
         return self.numberOfCards
     }
     

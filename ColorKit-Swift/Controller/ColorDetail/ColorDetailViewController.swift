@@ -26,18 +26,23 @@ class ColorDetailViewController: UIViewController {
         }
     }
     
+    private var toolBarDisappearTimer:Timer?
+    
+    
     public var colors:[Color] = []
     var project:Project!
     
     
     var managedContext:NSManagedObjectContext?
     
-    private var oldOffset:CGFloat = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "updateData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "cardviewDelete"), object: nil)
+
         NotificationCenter.default.addObserver(self, selector: #selector(test), name: NSNotification.Name(rawValue: "cardviewChanged"), object: nil)
         // Do any additional setup after loading the view.
         tableView.registerNibOf(ColorDetailCell.self);
@@ -50,6 +55,7 @@ class ColorDetailViewController: UIViewController {
         bottomToolBar.layer.shadowColor = UIColor.lightGray.cgColor;
         bottomToolBar.layer.shadowOffset = CGSize(width: 0, height: -6)
         bottomToolBar.layer.shadowOpacity = 0.1;
+        toolBarDisappearTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(tooBarDisapear), userInfo: nil, repeats: false)
         fetchColors()
         tableView.reloadData()
     }
@@ -57,6 +63,7 @@ class ColorDetailViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "updateData"), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cardviewChanged"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cardviewDelete"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -278,6 +285,16 @@ class ColorDetailViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    //MARK: - toolBar disapear
+    @objc
+    func tooBarDisapear(){
+        UIView.animate(withDuration: 0.4, animations: {
+            self.bottomToolBar.alpha = 0
+        }){ (finished) in
+            self.bottomToolBar.isHidden = true
+        }
+    }
+    
 }
 
 extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
@@ -346,30 +363,25 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y > oldOffset){
-            //上滑 消失toolbar
-            UIView.animate(withDuration: 0.4, animations: {
-                if !self.bottomToolBar.isHidden{
-                    self.bottomToolBar.alpha = 0
-                }
-            }) { (finished) in
-                self.bottomToolBar.isHidden = true
-            }
+        
+        if self.bottomToolBar.isHidden{
             
-        }else{
-            //下滑 显示toolbar
+            self.bottomToolBar.isHidden = false
+            self.bottomToolBar.alpha = 0
+            
             UIView.animate(withDuration: 0.4, animations: {
-                if self.bottomToolBar.isHidden{
+                
                     self.bottomToolBar.alpha = 1
-                }
-            }){ (finished) in
-                self.bottomToolBar.isHidden = false
+                
+            }){
+               (finished) in
+                self.toolBarDisappearTimer?.invalidate()
+                 self.toolBarDisappearTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.tooBarDisapear), userInfo: nil, repeats: false)
             }
-            
+
         }
-        
-        
-        
-        oldOffset = scrollView.contentOffset.y
+            //下滑 显示toolbar
     }
+    
+    
 }

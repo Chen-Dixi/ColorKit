@@ -70,6 +70,7 @@
 		4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */; };
 		4C62C100210CB54000682437 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62C0FF210CB54000682437 /* CommonUtil.swift */; };
 		4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C65366A209D426E006DFA0E /* BaseNavigationController.swift */; };
+		4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C66CE2B211C19F000AF248C /* KeyboardMan.framework */; };
 		4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */; };
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
 		4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */; };
@@ -191,6 +192,7 @@
 		4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAndButtonView.swift; sourceTree = "<group>"; };
 		4C62C0FF210CB54000682437 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		4C65366A209D426E006DFA0E /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		4C66CE2B211C19F000AF248C /* KeyboardMan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardMan.framework; path = Carthage/Build/iOS/KeyboardMan.framework; sourceTree = "<group>"; };
 		4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSliderView.swift; sourceTree = "<group>"; };
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test1ViewController.swift; path = Test/Test1ViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */,
+				4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +538,7 @@
 		4CE2F80A210DED5B00F9C294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C66CE2B211C19F000AF248C /* KeyboardMan.framework */,
 				4CE2F80B210DED5B00F9C294 /* SnapKit.framework */,
 			);
 			name = Frameworks;
@@ -809,6 +813,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeyboardMan.framework",
 			);
 			outputPaths = (
 			);

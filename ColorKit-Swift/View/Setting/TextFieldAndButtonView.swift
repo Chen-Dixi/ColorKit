@@ -71,20 +71,21 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
     func updateFrame(){
         inputTextField.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.snp.centerY)
-            make.left.equalTo(self.snp.left).offset(4)
+            make.left.equalTo(self.snp.left).offset(9)
             make.right.equalTo(confirmButton.snp.left).offset(-4)
             make.width.equalTo(bounds.width*0.8)
             make.height.equalTo(confirmButton.snp.height)
         }
         confirmButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.snp.centerY)
-            make.right.equalTo(self.snp.right).offset(-4)
-            make.top.equalTo(self.snp.top).offset(4)
+            make.right.equalTo(self.snp.right).offset(-5)
+            make.top.equalTo(self.snp.top).offset(5)
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (inputTextField.text == ""){
+            confirmButton.shake(direction: .horizontal, times: 4, interval: 0.05, delta: 3, completion: nil)
             invokeNotificationFeedback(type: UINotificationFeedbackType.error)
             
             return false
@@ -115,6 +116,7 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
             inputTextField.resignFirstResponder()
             buttonConfirmCallback(inputTextField.text!)
         }else{
+            confirmButton.shake(direction: .horizontal, times: 4, interval: 0.05, delta: 3, completion: nil)
             invokeNotificationFeedback(type: .error)
         }
         
@@ -125,5 +127,10 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
         inputTextField.becomeFirstResponder()
     }
     
-    
+    override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        inputTextField.resignFirstResponder()
+        return true
+    }
+        
 }

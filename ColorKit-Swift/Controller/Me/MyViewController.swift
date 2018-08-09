@@ -109,6 +109,7 @@ class MyViewController: UITableViewController {
     }
     
     func shareMyApp(){
+        invokeSelectionFeedback()
         let text = "小颜 配色笔记"
         let image = UIImage(named: "App_Icon")
         let url = URL(string: "https://itunes.apple.com/app/id1422973826")
@@ -116,10 +117,6 @@ class MyViewController: UITableViewController {
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
         activityVC.completionWithItemsHandler = {
             activity, success, items, error in
-            
-            print(success)
-            
-            
         }
         present(activityVC, animated: true, completion: nil)
     }

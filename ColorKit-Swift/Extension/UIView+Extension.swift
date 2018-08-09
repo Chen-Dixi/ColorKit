@@ -7,6 +7,13 @@
 //
 
 import UIKit
+public enum ShakeDirection: Int
+{
+    case horizontal
+    case vertical
+}
+
+
 
 extension UIView{
     func snapshotImage()->UIImage?{
@@ -69,4 +76,40 @@ extension UIView{
         
         appDelegate.saveContext()
     }
+    
+    func setBottomY(_ y:CGFloat){
+        var frame = self.frame
+        frame.origin.y = y-frame.height
+        self.frame = frame
+    }
+    
+    func shake(direction: ShakeDirection = .horizontal, times: Int = 5, interval: TimeInterval = 0.1, delta: CGFloat = 2, completion: (() -> Void)? = nil)
+    {
+        UIView.animate(withDuration: interval, animations: {
+            
+            switch direction
+            {
+            case .horizontal:
+                self.layer.setAffineTransform(CGAffineTransform(translationX: delta, y: 0))
+            case .vertical:
+                self.layer.setAffineTransform(CGAffineTransform(translationX: 0, y: delta))
+            }
+        }) { (finish) in
+            
+            if times == 0
+            {
+                UIView.animate(withDuration: interval, animations: {
+                    self.layer.setAffineTransform(CGAffineTransform.identity)
+                }, completion: { (finish) in
+                    completion?()
+                })
+            }
+            else
+            {
+                self.shake(direction: direction, times: times - 1, interval: interval, delta: -delta, completion: completion)
+            }
+        }
+    }
 }
+
+

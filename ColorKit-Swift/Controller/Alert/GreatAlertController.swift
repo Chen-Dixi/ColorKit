@@ -42,4 +42,14 @@ class DeleteColorAlertController: GreatAlertController {
         }))
         self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
     }
+    convenience init(block : @escaping ()->Void ,cancelBlock: @escaping ()->Void) {
+        self.init(title: "确定要删除此色卡吗", message: nil)
+        // 如何使用
+        self.addAction(UIAlertAction(title: "删除", style: .destructive, handler: { _ in
+            block()
+        }))
+        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+            cancelBlock()
+        }))
+    }
 }

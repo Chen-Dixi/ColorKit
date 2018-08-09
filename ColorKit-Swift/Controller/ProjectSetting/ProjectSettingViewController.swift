@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KeyboardMan
 class ProjectSettingViewController: UITableViewController {
 
     
@@ -19,11 +19,19 @@ class ProjectSettingViewController: UITableViewController {
     var badgeboardView:BadgeBoardView!
     var titleInputView:TextFieldAndButtonView!
     
-    lazy var blackMaskView:UIView = {
+    lazy var badgeBlackMaskView:UIView = {
         let blackMask = UIView(frame: UIScreen.main.bounds)
-        blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         return blackMask
     }()
+    
+    lazy var titleBlackMaskView:UIView = {
+        let blackMask = UIView(frame: UIScreen.main.bounds)
+        blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        return blackMask
+    }()
+    
+    let keyboardMan = KeyboardMan()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,32 +42,47 @@ class ProjectSettingViewController: UITableViewController {
         // Do any additional setup after loading the view.
         projectNameLabel.text = project?.name
         badgeImageView.image = UIImage(named: project?.badgeName ?? "badge_game")
-        badgeboardView = BadgeBoardView(frame: CGRect(x: screenWidth*0.05,y: screenHeight-(36+screenWidth*0.9), width: screenWidth*0.9, height: screenWidth*0.9) ){
+        badgeboardView = BadgeBoardView(frame: CGRect(x: screenWidth*0.05,y: screenHeight, width: screenWidth*0.9, height: screenWidth*0.9) ){
             [weak self] ( badge_name) in
             if let strongSelf = self{
                 strongSelf.project?.badgeName = badge_name
                 strongSelf.saveContext()
                 strongSelf.badgeImageView.image = UIImage(named: badge_name)
-                strongSelf.tapHandler()// removeFromSubview
+                strongSelf.tapHandler2()// removeFromSubview
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
             }
         }
-        titleInputView = TextFieldAndButtonView(frame: CGRect(x: screenWidth*0.05, y: 90, width: screenWidth*0.9, height: 64) ) {
+        titleInputView = TextFieldAndButtonView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 45) ) {
             [weak self] (name) in
             if let strongSelf = self{
                 strongSelf.project?.name = name
                 strongSelf.saveContext()
                 strongSelf.projectNameLabel.text = name
-                strongSelf.tapHandler()// removeFromSubview
+                strongSelf.tapHandler1()// removeFromSubview
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
             }
         }
         
         badgeboardView.layer.cornerRadius = 8
-        titleInputView.layer.cornerRadius = 8
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
-        blackMaskView.addGestureRecognizer(tapGesture)
-
+        
+        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(tapHandler1))
+        titleBlackMaskView.addGestureRecognizer(tapGesture1)
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(tapHandler2))
+        badgeBlackMaskView.addGestureRecognizer(tapGesture2)
+//        
+        keyboardMan.animateWhenKeyboardAppear  = { [weak self] appearPostIndex, keyboardHeight, keyboardHeightIncrement in
+            
+            if let strongSelf = self{
+                strongSelf.titleInputView.setBottomY(screenHeight-keyboardHeight)
+            }
+        }
+        
+        keyboardMan.animateWhenKeyboardDisappear = { [weak self] keyboardHeight in
+            if let strongSelf = self{
+                strongSelf.titleInputView.frame.origin.y = screenHeight
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,22 +141,50 @@ class ProjectSettingViewController: UITableViewController {
     }
     
     func showNameInputComponent(){
-        view.window?.addSubview(blackMaskView)
-        blackMaskView.addSubview(titleInputView)
+        view.window?.addSubview(titleBlackMaskView)
+        
+        titleBlackMaskView.addSubview(titleInputView)
+        titleInputView.setBottomY(screenHeight)
         titleInputView.displayText = project?.name
         titleInputView.initState()
+        UIView.animate(withDuration: 0.3) {
+            self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        }
     }
     
     func showBadgeSelector(){
-        view.window?.addSubview(blackMaskView)
-        blackMaskView.addSubview(badgeboardView)
+        view.window?.addSubview(badgeBlackMaskView)
+        badgeBlackMaskView.addSubview(badgeboardView)
+        UIView.animate(withDuration: 0.3) {
+            self.badgeboardView.frame.origin.y = screenHeight-(36+screenWidth*0.9)
+            self.badgeBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        }
     }
     
     @objc
-    func tapHandler(){
-        badgeboardView.removeFromSuperview()
-        titleInputView.removeFromSuperview()
-        blackMaskView.removeFromSuperview()
+    func tapHandler1(){
+        titleInputView.resignFirstResponder()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        }) { (finished) in
+            self.titleInputView.removeFromSuperview()
+            self.titleBlackMaskView.removeFromSuperview()
+        }
+        
+    }
+    
+    @objc
+    func tapHandler2(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.badgeboardView.frame.origin.y = screenHeight
+            self.badgeBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        }) { (finished) in
+            self.badgeboardView.removeFromSuperview()
+            self.badgeBlackMaskView.removeFromSuperview()
+        }
+        
+        
     }
     
     @IBAction func finishAndDismiss(_ sender: UIBarButtonItem) {
