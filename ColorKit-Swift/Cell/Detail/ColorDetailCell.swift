@@ -55,7 +55,7 @@ class ColorDetailCell: UITableViewCell {
         let g :CGFloat = CGFloat(green32)/255.0
         let b :CGFloat = CGFloat(blue32)/255.0
         
-        let average = (r+g+b)/3.0
+        let average = (r+g+b)
         hexColorLabel.textColor = average>labelColorThreshold ? UIColor.black : UIColor.white
         hexColorLabel.text = CommonUtil.hexColorString(red: red32, green: green32, blue: blue32)
         backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)

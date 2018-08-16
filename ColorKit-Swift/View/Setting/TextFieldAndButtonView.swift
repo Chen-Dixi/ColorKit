@@ -85,8 +85,8 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (inputTextField.text == ""){
-            confirmButton.shake(direction: .horizontal, times: 4, interval: 0.05, delta: 3, completion: nil)
-            invokeNotificationFeedback(type: UINotificationFeedbackType.error)
+            confirmButton.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+            invokeNotificationFeedback(type: UINotificationFeedbackType.warning)
             
             return false
         }else{
@@ -116,8 +116,8 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
             inputTextField.resignFirstResponder()
             buttonConfirmCallback(inputTextField.text!)
         }else{
-            confirmButton.shake(direction: .horizontal, times: 4, interval: 0.05, delta: 3, completion: nil)
-            invokeNotificationFeedback(type: .error)
+            confirmButton.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+            invokeNotificationFeedback(type: .warning)
         }
         
     }

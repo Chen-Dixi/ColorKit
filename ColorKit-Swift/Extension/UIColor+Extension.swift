@@ -41,6 +41,13 @@ extension UIColor{
         return UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.00)
     }
     
-    
+    class func rgbColorFromHex(rgb:Int) ->UIColor {
+        
+        return UIColor(red: ((CGFloat)((rgb & 0xFF0000) >> 16)) / 255.0,
+                       green: ((CGFloat)((rgb & 0xFF00) >> 8)) / 255.0,
+                       blue: ((CGFloat)(rgb & 0xFF)) / 255.0,
+                       alpha: 1.0)
+    }
+
     
 }

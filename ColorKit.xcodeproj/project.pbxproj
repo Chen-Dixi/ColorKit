@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C010C6D211D37C3008F84F8 /* CardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C010C6C211D37C3008F84F8 /* CardPreview.swift */; };
+		4C010C6F211D37E7008F84F8 /* CardPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C010C6E211D37E7008F84F8 /* CardPreview.xib */; };
+		4C010C72211D3C01008F84F8 /* CreateColorFromImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C010C70211D3C01008F84F8 /* CreateColorFromImageViewController.swift */; };
+		4C010C75211DCFB5008F84F8 /* CreateColorFromImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C010C74211DCFB5008F84F8 /* CreateColorFromImageViewController.storyboard */; };
 		4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7DC020B85DED006E4C25 /* Constant.swift */; };
 		4C0FDAA621135805007979CC /* badge_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0FDAA521135805007979CC /* badge_list.plist */; };
 		4C0FDAA821135915007979CC /* BadgeBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0FDAA721135915007979CC /* BadgeBoardView.swift */; };
@@ -30,6 +34,7 @@
 		4C21B1F421184E0400C90659 /* CollectColorDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */; };
 		4C21B1F72118595600C90659 /* MyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B1F62118595600C90659 /* MyViewController.storyboard */; };
 		4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21B1F8211859E000C90659 /* MyViewController.swift */; };
+		4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C324C2D212272AA00FF69FA /* ColorPinView.swift */; };
 		4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */; };
 		4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */; };
 		4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D120A34DF4006257E2 /* UIColor+Extension.swift */; };
@@ -37,6 +42,10 @@
 		4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D620A35327006257E2 /* NibLoadable.swift */; };
 		4C3B62D920A35327006257E2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D720A35327006257E2 /* Reusable.swift */; };
 		4C3B80EE211090B800B9AC58 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B80ED211090B800B9AC58 /* BaseTabBarController.swift */; };
+		4C3DAC5B21256ABC00F2DBCE /* OpenColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DAC5A21256ABC00F2DBCE /* OpenColorCardTransition.swift */; };
+		4C3DAC5E21256BD100F2DBCE /* ColorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DAC5D21256BD100F2DBCE /* ColorInfoViewController.swift */; };
+		4C3DAC6021256C3D00F2DBCE /* ColorInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3DAC5F21256C3D00F2DBCE /* ColorInfoViewController.storyboard */; };
+		4C3DAC6221259D5B00F2DBCE /* CloseColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DAC6121259D5B00F2DBCE /* CloseColorCardTransition.swift */; };
 		4C3DD136210F521700723C34 /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DD135210F521700723C34 /* SafeDispatch.swift */; };
 		4C4081412109A83E009BBD8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081402109A83E009BBD8C /* AppDelegate.m */; };
 		4C4081442109A83E009BBD8C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081432109A83E009BBD8C /* ViewController.m */; };
@@ -68,6 +77,7 @@
 		4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */; };
 		4C5CB1EB21141329006DB543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EA21141329006DB543 /* Assets.xcassets */; };
 		4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */; };
+		4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FC7F6211EE91E0078873A /* ChooseColorImageView.swift */; };
 		4C62C100210CB54000682437 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62C0FF210CB54000682437 /* CommonUtil.swift */; };
 		4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C65366A209D426E006DFA0E /* BaseNavigationController.swift */; };
 		4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C66CE2B211C19F000AF248C /* KeyboardMan.framework */; };
@@ -111,6 +121,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C010C6C211D37C3008F84F8 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
+		4C010C6E211D37E7008F84F8 /* CardPreview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardPreview.xib; sourceTree = "<group>"; };
+		4C010C70211D3C01008F84F8 /* CreateColorFromImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorFromImageViewController.swift; sourceTree = "<group>"; };
+		4C010C74211DCFB5008F84F8 /* CreateColorFromImageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateColorFromImageViewController.storyboard; sourceTree = "<group>"; };
 		4C0D7DC020B85DED006E4C25 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4C0FDAA521135805007979CC /* badge_list.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = badge_list.plist; sourceTree = "<group>"; };
 		4C0FDAA721135915007979CC /* BadgeBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBoardView.swift; sourceTree = "<group>"; };
@@ -145,6 +159,7 @@
 		4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectColorDetailViewController.storyboard; sourceTree = "<group>"; };
 		4C21B1F62118595600C90659 /* MyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyViewController.storyboard; sourceTree = "<group>"; };
 		4C21B1F8211859E000C90659 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		4C324C2D212272AA00FF69FA /* ColorPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPinView.swift; sourceTree = "<group>"; };
 		4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTitleCell.swift; sourceTree = "<group>"; };
 		4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTitleCell.xib; sourceTree = "<group>"; };
 		4C3B62D120A34DF4006257E2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -152,6 +167,10 @@
 		4C3B62D620A35327006257E2 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		4C3B62D720A35327006257E2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4C3B80ED211090B800B9AC58 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		4C3DAC5A21256ABC00F2DBCE /* OpenColorCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenColorCardTransition.swift; sourceTree = "<group>"; };
+		4C3DAC5D21256BD100F2DBCE /* ColorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoViewController.swift; sourceTree = "<group>"; };
+		4C3DAC5F21256C3D00F2DBCE /* ColorInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorInfoViewController.storyboard; sourceTree = "<group>"; };
+		4C3DAC6121259D5B00F2DBCE /* CloseColorCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseColorCardTransition.swift; sourceTree = "<group>"; };
 		4C3DD135210F521700723C34 /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafeDispatch.swift; path = ../../../../../dev/XiaoDi/XiaoDiKit/Helpers/SafeDispatch.swift; sourceTree = "<group>"; };
 		4C40813D2109A83E009BBD8C /* ColorKit-Objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorKit-Objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C40813F2109A83E009BBD8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +209,7 @@
 		4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorDetailCell.xib; sourceTree = "<group>"; };
 		4C5CB1EA21141329006DB543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAndButtonView.swift; sourceTree = "<group>"; };
+		4C5FC7F6211EE91E0078873A /* ChooseColorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorImageView.swift; sourceTree = "<group>"; };
 		4C62C0FF210CB54000682437 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		4C65366A209D426E006DFA0E /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		4C66CE2B211C19F000AF248C /* KeyboardMan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardMan.framework; path = Carthage/Build/iOS/KeyboardMan.framework; sourceTree = "<group>"; };
@@ -256,6 +276,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C010C6B211D3747008F84F8 /* PickColor */ = {
+			isa = PBXGroup;
+			children = (
+				4C010C6C211D37C3008F84F8 /* CardPreview.swift */,
+				4C010C6E211D37E7008F84F8 /* CardPreview.xib */,
+				4C5FC7F6211EE91E0078873A /* ChooseColorImageView.swift */,
+				4C324C2D212272AA00FF69FA /* ColorPinView.swift */,
+			);
+			path = PickColor;
+			sourceTree = "<group>";
+		};
 		4C0D7DBF20B85DD6006E4C25 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +394,7 @@
 		4C17260A209B6AE000A1919D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C3DAC5C21256BB200F2DBCE /* ColorInfo */,
 				4CF20D6C2119805E005C5E0D /* AboutColorKit */,
 				4C21B1F52118592600C90659 /* Me */,
 				4C21B1E621181B4500C90659 /* MyCollect */,
@@ -413,6 +445,8 @@
 			children = (
 				4C3B62D620A35327006257E2 /* NibLoadable.swift */,
 				4C3B62D720A35327006257E2 /* Reusable.swift */,
+				4C3DAC5A21256ABC00F2DBCE /* OpenColorCardTransition.swift */,
+				4C3DAC6121259D5B00F2DBCE /* CloseColorCardTransition.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -423,6 +457,15 @@
 				4C3B80ED211090B800B9AC58 /* BaseTabBarController.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		4C3DAC5C21256BB200F2DBCE /* ColorInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DAC5D21256BD100F2DBCE /* ColorInfoViewController.swift */,
+				4C3DAC5F21256C3D00F2DBCE /* ColorInfoViewController.storyboard */,
+			);
+			path = ColorInfo;
 			sourceTree = "<group>";
 		};
 		4C3DD134210F51F700723C34 /* Helper */ = {
@@ -511,6 +554,7 @@
 		4C7C0EEE210EDA19002B4880 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4C010C6B211D3747008F84F8 /* PickColor */,
 				4C0FDAA42113571F007979CC /* Setting */,
 				4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */,
 				4C7C0EF1210EDC7C002B4880 /* Test.storyboard */,
@@ -549,6 +593,8 @@
 			children = (
 				4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */,
 				4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */,
+				4C010C70211D3C01008F84F8 /* CreateColorFromImageViewController.swift */,
+				4C010C74211DCFB5008F84F8 /* CreateColorFromImageViewController.storyboard */,
 			);
 			path = AppendColor;
 			sourceTree = "<group>";
@@ -762,6 +808,7 @@
 				4CF20D6E21198080005C5E0D /* AboutViewController.storyboard in Resources */,
 				4CC475912111EA3C008A135C /* Bades.xcassets in Resources */,
 				4C0FDAA621135805007979CC /* badge_list.plist in Resources */,
+				4C3DAC6021256C3D00F2DBCE /* ColorInfoViewController.storyboard in Resources */,
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
 				4C45C220210C20AD0048DAE8 /* ColorCardViewController.storyboard in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
@@ -769,12 +816,14 @@
 				4C5CB1EB21141329006DB543 /* Assets.xcassets in Resources */,
 				4C21B1F72118595600C90659 /* MyViewController.storyboard in Resources */,
 				4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */,
+				4C010C75211DCFB5008F84F8 /* CreateColorFromImageViewController.storyboard in Resources */,
 				4C21B1F221184D5C00C90659 /* CollectColorCardViewController.storyboard in Resources */,
 				4CC47596211211A9008A135C /* ProjectSettingViewController.storyboard in Resources */,
 				4C21B1F421184E0400C90659 /* CollectColorDetailViewController.storyboard in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */,
 				4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */,
+				4C010C6F211D37E7008F84F8 /* CardPreview.xib in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,8 +896,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C21B1EC21181E9E00C90659 /* CollectColorDetailViewController.swift in Sources */,
+				4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */,
 				4C21B1EF21181E9E00C90659 /* CollectColorCardViewController.swift in Sources */,
 				4C21B1F021181E9E00C90659 /* CollectColorContainerViewController.swift in Sources */,
+				4C3DAC5E21256BD100F2DBCE /* ColorInfoViewController.swift in Sources */,
 				4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */,
 				4C45C22F210C36AC0048DAE8 /* VerticalCardSwiperView.swift in Sources */,
 				4C45C235210C36AC0048DAE8 /* PanDirection.swift in Sources */,
@@ -862,11 +913,13 @@
 				4C45C238210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift in Sources */,
 				4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */,
 				4C45C23A210C407E0048DAE8 /* ColorCardCell.swift in Sources */,
+				4C010C6D211D37C3008F84F8 /* CardPreview.swift in Sources */,
 				4C3B62D920A35327006257E2 /* Reusable.swift in Sources */,
 				4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */,
 				4C1725F1209B65D800A1919D /* ColorKit_Swift.xcdatamodeld in Sources */,
 				4C45C231210C36AC0048DAE8 /* VerticalCardSwiperFlowLayout.swift in Sources */,
 				4C4081652109BDB9009BBD8C /* UIView+Extension.swift in Sources */,
+				4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */,
 				4C3B80EE211090B800B9AC58 /* BaseTabBarController.swift in Sources */,
 				4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */,
 				4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */,
@@ -884,10 +937,13 @@
 				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
 				4CC4758D2111B812008A135C /* UIImage+Extension.swift in Sources */,
 				4C3DD136210F521700723C34 /* SafeDispatch.swift in Sources */,
+				4C010C72211D3C01008F84F8 /* CreateColorFromImageViewController.swift in Sources */,
+				4C3DAC6221259D5B00F2DBCE /* CloseColorCardTransition.swift in Sources */,
 				4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */,
 				4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */,
 				4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
+				4C3DAC5B21256ABC00F2DBCE /* OpenColorCardTransition.swift in Sources */,
 				4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

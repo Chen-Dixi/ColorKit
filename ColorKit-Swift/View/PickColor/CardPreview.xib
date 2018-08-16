@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CardPreview" customModule="ColorKit_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="119"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uey-Hg-U9w">
+                    <rect key="frame" x="334.5" y="62" width="71.5" height="24"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击此处编辑标题" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orq-73-Pgf" userLabel="Title">
+                    <rect key="frame" x="246" y="24" width="160" height="28"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uey-Hg-U9w" firstAttribute="top" secondItem="Orq-73-Pgf" secondAttribute="bottom" constant="10" id="3UE-Nr-2WA"/>
+                <constraint firstItem="Orq-73-Pgf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="DLt-5V-lwA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Orq-73-Pgf" secondAttribute="trailing" constant="16" id="lv3-aQ-u6M"/>
+                <constraint firstItem="uey-Hg-U9w" firstAttribute="trailing" secondItem="Orq-73-Pgf" secondAttribute="trailing" id="njG-1u-CQ7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="hexLabel" destination="uey-Hg-U9w" id="fiE-7E-Azy"/>
+                <outlet property="titleLabel" destination="Orq-73-Pgf" id="9d0-dl-8k1"/>
+            </connections>
+            <point key="canvasLocation" x="55" y="4.5"/>
+        </view>
+    </objects>
+</document>

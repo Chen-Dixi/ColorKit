@@ -93,6 +93,9 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
         return colors.count
     }
     
+    func didSelectItem(verticalCardSwiperView: VerticalCardSwiperView, index: Int) {
+        
+    }
     
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: CellSwipeDirection){
         let vc = DeleteColorAlertController(block: {

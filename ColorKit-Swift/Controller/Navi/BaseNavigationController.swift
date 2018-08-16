@@ -65,6 +65,8 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
     
     
     
+    
+    
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         interactivePopGestureRecognizer?.isEnabled = true
     }

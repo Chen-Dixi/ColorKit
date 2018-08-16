@@ -53,3 +53,29 @@ class DeleteColorAlertController: GreatAlertController {
         }))
     }
 }
+
+class ChooseColorPickerAlertController: GreatAlertController{
+    convenience init(rgbBlock : @escaping ()->Void ,imageBlock: @escaping ()->Void) {
+        self.init(title: "选择获取色卡的方式", message: nil)
+        // 如何使用
+        self.addAction(UIAlertAction(title: "RGB", style: .default, handler: { _ in
+            rgbBlock()
+        }))
+        self.addAction(UIAlertAction(title: "从图片中获取", style: .default, handler: { _ in
+            imageBlock()
+        }))
+        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+    }
+}
+
+class UIImagePickerAlertController:GreatAlertController{
+    convenience init(fromLibrary : @escaping ()->Void ,fromCamera: @escaping ()->Void) {
+        self.init(title: nil, message: nil)
+        // 如何使用
+        self.addAction(UIAlertAction(title: "从相册选择", style: .default, handler: { _ in
+            fromLibrary()
+        }))
+       
+        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+    }
+}

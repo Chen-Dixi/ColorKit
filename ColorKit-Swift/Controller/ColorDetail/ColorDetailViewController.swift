@@ -48,6 +48,7 @@ class ColorDetailViewController: UIViewController {
         tableView.registerNibOf(ColorDetailCell.self);
         tableView.backgroundColor = UIColor.TableViewBackgroundColor()
         
+        
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
         tableView.addGestureRecognizer(longPressGesture)
            // UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.plain, target: self, action:#selector(self.addColor) )
@@ -297,7 +298,7 @@ class ColorDetailViewController: UIViewController {
     
 }
 
-extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
+extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, UIViewControllerTransitioningDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -310,18 +311,22 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         defer{
             tableView.deselectRow(at: indexPath, animated: false)
         }
-        let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! CreateColorViewController
-        vc.color = colors[indexPath.row]
-        vc.pickerType = .edit
-        navigationController?.pushViewController(vc, animated: true)
-        
+//        let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
+//        let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+//        vc.color = colors[indexPath.row]
+//        vc.pickerType = .edit
+//
+//        navigationController?.pushViewController(vc, animated: true)
+
+        let sb = UIStoryboard(name: "ColorInfoViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
+        vc.tobackgroundColor = (tableView.cellForRow(at: indexPath) as! ColorDetailCell).backgroundColor
+        vc.transitioningDelegate = self
+        present(vc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ColorDetailCell = tableView.dequeueReusableCell();
-        //cell.setBackgroundColor(color: colors[indexPath.row])
-       
         cell.setColorInfo(color: colors[indexPath.row])
         return cell
     }
@@ -382,6 +387,12 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         }
             //下滑 显示toolbar
     }
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return OpenColorCardTransition()
+    }
     
-    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return CloseColorCardTransition()
+    }
+   
 }

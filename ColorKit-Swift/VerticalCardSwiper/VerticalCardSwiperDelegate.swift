@@ -62,4 +62,6 @@ import UIKit
      - returns: The size of each card for its respective index as a CGSize.
     */
     @objc optional func sizeForItem(verticalCardSwiperView: VerticalCardSwiperView, index: Int) -> CGSize
+    
+    @objc optional func didSelectItem(verticalCardSwiperView:VerticalCardSwiperView, index:Int)
 }

@@ -75,12 +75,29 @@ class ColorContainerViewController: BaseViewController {
     }
     @objc
     func add(){
-        let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! CreateColorViewController
-        vc.pickerType = .create
-        vc.project = project
-        vc.nextSeq = Int32(tableVC.colors.count)
-        navigationController?.pushViewController(vc, animated: true)
+        let alertVC = ChooseColorPickerAlertController(rgbBlock: {
+            [weak self] in
+            if let strongSelf = self{
+                let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+                vc.pickerType = .create
+                vc.project = strongSelf.project
+                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
+                strongSelf.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }, imageBlock: {
+            [weak self] in
+            if let strongSelf = self{
+                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! CreateColorFromImageViewController
+
+                vc.project = strongSelf.project
+                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
+                strongSelf.navigationController?.pushViewController(vc, animated: true)
+            }
+        })
+        present(alertVC, animated: true, completion: nil)
     }
     
     @objc

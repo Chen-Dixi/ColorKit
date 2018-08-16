@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 extension UIViewController{
     
     func invokeSelectionFeedback(){
@@ -63,6 +63,8 @@ extension UIViewController{
         appDelegate.saveContext()
     }
     
+    //MARK: - ColorKit Transaction
+    
     func delete(color:Color){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             return
@@ -74,6 +76,8 @@ extension UIViewController{
         
         appDelegate.saveContext()
     }
+    
+    
 }
 
 

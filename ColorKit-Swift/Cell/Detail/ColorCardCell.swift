@@ -50,7 +50,7 @@ class ColorCardCell : CardCell{
         let g :CGFloat = CGFloat(green32)/255.0
         let b :CGFloat = CGFloat(blue32)/255.0
         
-        let average = (r+g+b)/3.0
+        let average = r+g+b
         valueLabel.textColor = average>labelColorThreshold ? UIColor.black : UIColor.white
         self.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
         valueLabel.text = CommonUtil.hexColorString(red: red32, green: green32, blue: blue32)
