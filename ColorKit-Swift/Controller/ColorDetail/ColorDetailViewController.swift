@@ -321,7 +321,7 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         let sb = UIStoryboard(name: "ColorInfoViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
         vc.tobackgroundColor = (tableView.cellForRow(at: indexPath) as! ColorDetailCell).backgroundColor
-        vc.transitioningDelegate = self
+        
         present(vc, animated: true, completion: nil)
     }
     
@@ -391,8 +391,12 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         return OpenColorCardTransition()
     }
     
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CloseColorCardTransition()
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return CloseColorCardInteractiveTransition()
     }
    
 }

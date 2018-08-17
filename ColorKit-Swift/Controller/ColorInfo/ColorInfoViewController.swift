@@ -11,14 +11,17 @@ import UIKit
 class ColorInfoViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
     var tobackgroundColor:UIColor?
-    
+    var interactiveTransitionController:CloseColorCardInteractiveTransition!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        transitioningDelegate = self
+        modalPresentationStyle = .custom
         if let tobackgroundColor = tobackgroundColor{
             view.backgroundColor = tobackgroundColor
         }
+        
+        interactiveTransitionController = CloseColorCardInteractiveTransition()
+        interactiveTransitionController.addPanGesture(for: self)
         // Do any additional setup after loading the view.
     }
 
@@ -50,7 +53,11 @@ class ColorInfoViewController: UIViewController,UIViewControllerTransitioningDel
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return OpenColorCardTransition()
+        return CloseColorCardTransition()
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactiveTransitionController.interaction ? interactiveTransitionController:nil
     }
     
 }

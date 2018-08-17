@@ -33,4 +33,6 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
         }
         
     }
+    
+    
 }
