@@ -12,12 +12,14 @@ class ColorContainerViewController: BaseViewController {
 
     private var project:Project!
     
-    private var tableVC:ColorDetailViewController!
-    private var cardVC:ColorCardViewController!
+     var tableVC:ColorDetailViewController!
+     var cardVC:ColorCardViewController!
     private var childSubView:[UIView] = []
-    private var currenViewIndex:Int = 1
-    
-    
+    var currenViewIndex:Int = 0
+    private var switchvcBtnItem:UIBarButtonItem!
+    private var addColorBtnItem :UIBarButtonItem!
+    private var isListView:Bool = true
+    private var switchvcBtnItemImage:[UIImage] = [UIImage(named: "icon_card_view")!,UIImage(named: "icon_list_view")!]
     init(project:Project){
         self.project = project
         super.init(nibName: nil, bundle: nil)
@@ -29,8 +31,6 @@ class ColorContainerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         // Do any additional setup after loading the view.
         setupUI()
@@ -58,14 +58,22 @@ class ColorContainerViewController: BaseViewController {
         cardVC = sb2.instantiateInitialViewController() as! ColorCardViewController
         cardVC.project = project
         view.addSubview(cardVC.view)
-        childSubView.append(cardVC.view)
         view.addSubview(tableVC.view)
         childSubView.append(tableVC.view)
+        childSubView.append(cardVC.view)
         addChildViewController(tableVC)
         addChildViewController(cardVC)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加色卡", style: .plain, target: self, action: #selector(add))
+        switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
+        switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        
+        addColorBtnItem = UIBarButtonItem(image: UIImage(named: "icon_add_square"), style: .plain, target: self, action: #selector(add))
+        addColorBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        navigationItem.rightBarButtonItems = [switchvcBtnItem,addColorBtnItem]
+        
+        
         navigationItem.title = project.name
+        
         
     }
     
@@ -73,16 +81,19 @@ class ColorContainerViewController: BaseViewController {
         tableVC.view.frame = self.view.bounds
         cardVC.view.frame = self.view.bounds
     }
+    
     @objc
     func add(){
         let alertVC = ChooseColorPickerAlertController(rgbBlock: {
             [weak self] in
             if let strongSelf = self{
-                let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
-                let vc = sb.instantiateInitialViewController() as! CreateColorViewController
-                vc.pickerType = .create
+//                let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
+//                let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+//                vc.pickerType = .create
+//                vc.project = strongSelf.project
+//                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
+                let vc = NewCreateColorViewController()
                 vc.project = strongSelf.project
-                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
                 strongSelf.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -100,17 +111,19 @@ class ColorContainerViewController: BaseViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    @objc
-    func switchVC(){
-        currenViewIndex = 1-currenViewIndex
-        view.bringSubview(toFront: childSubView[currenViewIndex])
-    }
-    
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if(motion == UIEventSubtype.motionShake){
-            invokeNotificationFeedback(type: .success)
+        if motion == .motionShake{
             switchVC()
         }
+    }
+    
+    @objc
+    func switchVC(){
+        
+        invokeSelectionFeedback()
+        currenViewIndex = 1-currenViewIndex
+        switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
+        view.bringSubview(toFront: childSubView[currenViewIndex])
     }
     
     @objc

@@ -12,7 +12,7 @@ let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 let footerFrame1 = CGRect(x: 0, y: 0, width: screenWidth, height: 48)
 let screenRatio = screenHeight / screenWidth
-let labelColorThreshold:CGFloat = 2.3
+let labelColorThreshold:CGFloat = 2.4
 
 struct Font_Light {
     static let Size_24=UIFont(name: "PingFangSC-Light",size: 24)
@@ -26,8 +26,14 @@ struct Font_Light {
     static let Size_11=UIFont(name: "PingFangSC-Light", size: 11)
 }
 struct Font_Regular {
+    static let Size_30=UIFont(name:"PingFangSC-Regular",size: 30)
+    static let Size_24=UIFont(name:"PingFangSC-Regular",size: 24)
     static let Size_17=UIFont(name:"PingFangSC-Regular",size: 17)
     static let Size_15=UIFont(name:"PingFangSC-Regular",size: 15)
     static let Size_11=UIFont(name:"PingFangSC-Regular",size: 11)
     static let Size_12=UIFont(name:"PingFangSC-Regular",size: 12)
+}
+
+struct Font_Hiragino{
+    static let Size_30=UIFont(name:"HiraMinProN-W6",size: 30)
 }

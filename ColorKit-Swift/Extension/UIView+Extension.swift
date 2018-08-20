@@ -24,6 +24,19 @@ extension UIView{
         return image
     }
     
+    func snapshotImageAfterScreenUpdates(afterUpdates:Bool)->UIImage?{
+        if (!self.responds(to: #selector(drawHierarchy(in:afterScreenUpdates:)))) {
+            return self.snapshotImage()
+        }
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0);
+        self.drawHierarchy(in: self.bounds, afterScreenUpdates: afterUpdates)
+        let snap = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return snap;
+    }
+    
+   
+    
     func getClearTextColor(backgroundColor:UIColor) -> UIColor{
         var r:CGFloat = 0;
         var g:CGFloat = 0;

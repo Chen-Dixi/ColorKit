@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                            in: managedContext)!
             let project = Project(entity: entity, insertInto: managedContext)
             project.name = "小颜"
-            project.seq = Int32(0)
+            project.createdAt = Date()
             project.badgeName = "badge_palette"
             saveContext()
             let colorEntity =
@@ -153,8 +153,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redColor.setValue(Int32(10), forKey: "g")
             redColor.setValue(Int32(23), forKey: "b")
             redColor.setValue(project, forKey: "project")
-            redColor.setValue(false, forKey: "collect")
-            redColor.setValue(0, forKey: "seq")
+            redColor.setValue(true, forKey: "collect")
+            redColor.setValue(Date(), forKey: "collectDate")
+            redColor.setValue(Date(), forKey: "createdAt")
             let blueColor = Color(entity: colorEntity, insertInto: managedContext)
             
             blueColor.setValue("小颜蓝", forKey: "name")
@@ -162,8 +163,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blueColor.setValue(Int32(190), forKey: "g")
             blueColor.setValue(Int32(240), forKey: "b")
             blueColor.setValue(project, forKey: "project")
-            blueColor.setValue(false, forKey: "collect")
-            blueColor.setValue(1, forKey: "seq")
+            blueColor.setValue(true, forKey: "collect")
+            blueColor.setValue(Date(), forKey: "collectDate")
+            
+            blueColor.setValue(Date(), forKey: "createdAt")
             saveContext()
         }
     }

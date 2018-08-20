@@ -18,7 +18,7 @@ class CollectColorCardViewController: BaseViewController, VerticalCardSwiperDele
     
     
     @IBOutlet weak var cardSwiper: VerticalCardSwiper!
-    
+    var selectedIndex:IndexPath!
    
     
     override func viewDidLoad() {
@@ -91,6 +91,16 @@ class CollectColorCardViewController: BaseViewController, VerticalCardSwiperDele
     
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: CellSwipeDirection){
         
+    }
+    
+    func didSelectItem(verticalCardSwiperView: VerticalCardSwiperView, index: Int) {
+        selectedIndex = IndexPath(item: index, section: 0)
+        
+        let sb = UIStoryboard(name: "ColorInfoViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
+        vc.tobackgroundColor = (cardSwiper.verticalCardSwiperView.cellForItem(at: IndexPath(item: index, section: 0)))?.backgroundColor
+        vc.color = colors[index]
+        present(vc, animated: true, completion: nil)
     }
     
     @objc

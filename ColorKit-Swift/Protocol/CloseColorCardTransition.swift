@@ -10,32 +10,97 @@ import UIKit
 
 class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.25
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
-        let tovc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
-        let fromview = fromvc?.view
-        let toview = tovc?.view
-        
-        
+        let fromvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! ColorInfoViewController
+        let fromview = fromvc.view
+        fromview?.alpha = 0
         let containerView = transitionContext.containerView
-        containerView.addSubview(toview!)
+        let imageView = UIImageView(image: UIImage.imageWithColor(color: fromvc.tobackgroundColor!))
+        imageView.frame = fromview!.bounds
+        containerView.addSubview(imageView)
         
-        containerView.bringSubview(toFront: fromview!)
-        
-        
-        
-        
-        UIView.animate(withDuration: transitionDuration(using: transitionContext)/2 , animations: {
+        if let tabvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? BaseTabBarController, let navvc = tabvc.selectedViewController as? BaseNavigationController{
+            containerView.insertSubview(tabvc.view, at: 0)
+            if let containervc = navvc.topViewController as? ColorContainerViewController{
             
-            fromview?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            
-        }){ (finished) in
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                
+                
+                if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorDetailViewController{
+                
+    //
+    //            let fromview = fromvc?.view
+    //            let toview = tovc.view
+    //
+                    let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
+                
+                    UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
+                        
+                        imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        
+                    }){ (finished) in
+                            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                        if transitionContext.transitionWasCancelled{
+                            fromview?.alpha = 1
+                            imageView.removeFromSuperview()
+                        }
+                    }
+                }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardViewController{
+                    // 卡片视图的动画
+                    let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
+                    UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
+                        
+                        imageView.frame = cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        
+                    }){ (finished) in
+                        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                        if transitionContext.transitionWasCancelled{
+                            fromview?.alpha = 1
+                            imageView.removeFromSuperview()
+                        }
+                    }
+                    
+                }
+            }else if let containervc = navvc.topViewController as? CollectColorContainerViewController{
+                if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailViewController{
+                    
+                    //
+                    //            let fromview = fromvc?.view
+                    //            let toview = tovc.view
+                    //
+                    let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
+                    
+                    UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
+                        
+                        imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        
+                    }){ (finished) in
+                        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                        if transitionContext.transitionWasCancelled{
+                            fromview?.alpha = 1
+                            imageView.removeFromSuperview()
+                        }
+                    }
+                }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorCardViewController{
+                    // 卡片视图的动画
+                    let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
+                    UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
+                        
+                        imageView.frame = cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        
+                    }){ (finished) in
+                        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                        if transitionContext.transitionWasCancelled{
+                            fromview?.alpha = 1
+                            imageView.removeFromSuperview()
+                        }
+                    }
+                    
+                }
+            }
         }
-        
     }
 }

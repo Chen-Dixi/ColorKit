@@ -55,7 +55,7 @@ class CreateColorFromImageViewController: BaseViewController {
             if let strongSelf = self{
                 strongSelf.colorPreviewCard.titleLabel.text = name
                 strongSelf.tapHandler1()// removeFromSubview
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
+                
             }
         }
         
@@ -172,7 +172,7 @@ class CreateColorFromImageViewController: BaseViewController {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let  cameraPicker = UIImagePickerController()
             cameraPicker.delegate = self
-            cameraPicker.allowsEditing = false
+            cameraPicker.allowsEditing = true
             cameraPicker.sourceType = .camera
             //在需要的地方present出来
             self.present(cameraPicker, animated: true, completion: nil)
@@ -204,9 +204,7 @@ class CreateColorFromImageViewController: BaseViewController {
             newColor.setValue(b, forKey: "b")
             newColor.setValue(project, forKey: "project")
             newColor.setValue(false, forKey: "collect")
-            if let seq = nextSeq{
-                newColor.setValue(seq, forKey: "seq")
-            }
+            newColor.setValue(Date(), forKey: "createdAt")
             
             saveContext()
         
@@ -217,8 +215,12 @@ class CreateColorFromImageViewController: BaseViewController {
 
 extension CreateColorFromImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        var image:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-
+        var image:UIImage!
+        if picker.sourceType == .camera{
+         image = info[UIImagePickerControllerEditedImage] as! UIImage
+        }else{
+            image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        }
         chooseColorImageView.setChoosedImage(image: image)
         scrollview.contentSize = CGSize(width: 0, height: chooseColorImageView.frame.maxY+48)
         dismiss(animated: true, completion: nil)

@@ -15,7 +15,7 @@ class ProjectSettingViewController: UITableViewController {
     @IBOutlet weak var badgeImageView: UIImageView!
     
     var project:Project?
-    
+    var interactiveTransitionController:CloseColorCardInteractiveTransition!
     var badgeboardView:BadgeBoardView!
     var titleInputView:TextFieldAndButtonView!
     
@@ -38,7 +38,8 @@ class ProjectSettingViewController: UITableViewController {
         
         tableView.tableFooterView = UIView(frame: footerFrame1)
         tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
-        
+        interactiveTransitionController = CloseColorCardInteractiveTransition()
+        interactiveTransitionController.addPanGesture(for: self)
         // Do any additional setup after loading the view.
         projectNameLabel.text = project?.name
         badgeImageView.image = UIImage(named: project?.badgeName ?? "badge_game")
@@ -89,6 +90,8 @@ class ProjectSettingViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(motion == UIEventSubtype.motionShake){
@@ -190,5 +193,6 @@ class ProjectSettingViewController: UITableViewController {
     @IBAction func finishAndDismiss(_ sender: UIBarButtonItem) {
          dismiss(animated: true, completion: nil)
     }
+    
     
 }

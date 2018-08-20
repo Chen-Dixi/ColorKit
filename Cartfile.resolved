@@ -1,2 +1,3 @@
 github "nixzhu/KeyboardMan" "1.2.2"
 github "SnapKit/SnapKit" "4.0.0"
+github "facebook/pop" "1.0.10"

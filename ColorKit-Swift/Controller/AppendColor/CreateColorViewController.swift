@@ -153,9 +153,7 @@ class CreateColorViewController: BaseViewController {
             newColor.setValue(b, forKey: "b")
             newColor.setValue(project, forKey: "project")
             newColor.setValue(false, forKey: "collect")
-            if let seq = nextSeq{
-                newColor.setValue(seq, forKey: "seq")
-            }
+            newColor.setValue(Date(), forKey: "createdAt")
             
             do{
                 try managedContext.save()

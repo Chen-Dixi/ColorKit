@@ -28,7 +28,7 @@ class CollectColorDetailViewController: UIViewController {
     
     var managedContext:NSManagedObjectContext?
     
-    
+    var selectedIndex:IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,11 +126,13 @@ extension CollectColorDetailViewController: UITableViewDataSource, UITableViewDe
         defer{
             tableView.deselectRow(at: indexPath, animated: false)
         }
-        let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+        selectedIndex = indexPath
+        
+        let sb = UIStoryboard(name: "ColorInfoViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
+        vc.tobackgroundColor = (tableView.cellForRow(at: indexPath) as! ColorDetailCell).backgroundColor
         vc.color = colors[indexPath.row]
-        vc.pickerType = .view
-        navigationController?.pushViewController(vc, animated: true)
+        present(vc, animated: true, completion: nil)
         
     }
     

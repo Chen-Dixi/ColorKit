@@ -15,7 +15,7 @@ class CollectColorContainerViewController: BaseViewController {
     private var tableVC:CollectColorDetailViewController!
     private var cardVC:CollectColorCardViewController!
     private var childSubView:[UIView] = []
-    private var currenViewIndex:Int = 1
+     var currenViewIndex:Int = 0
     
     
 
@@ -52,9 +52,10 @@ class CollectColorContainerViewController: BaseViewController {
         cardVC = sb2.instantiateInitialViewController() as! CollectColorCardViewController
         
         view.addSubview(cardVC.view)
-        childSubView.append(cardVC.view)
+        
         view.addSubview(tableVC.view)
         childSubView.append(tableVC.view)
+        childSubView.append(cardVC.view)
         addChildViewController(tableVC)
         addChildViewController(cardVC)
         

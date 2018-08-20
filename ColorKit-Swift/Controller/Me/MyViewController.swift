@@ -91,7 +91,9 @@ class MyViewController: UITableViewController {
                 
             case .Share:
                 //分享app
-                shareMyApp()
+                let cell = tableView.cellForRow(at: indexPath)
+                
+                shareMyApp(sourceView: cell)
             case .About:
                 //弹出关于界面
                 jumpToAbount()
@@ -108,7 +110,7 @@ class MyViewController: UITableViewController {
         }
     }
     
-    func shareMyApp(){
+    func shareMyApp(sourceView:UIView?){
         invokeSelectionFeedback()
         let text = "小颜 配色笔记"
         let image = UIImage(named: "App_Icon")
@@ -118,6 +120,8 @@ class MyViewController: UITableViewController {
         activityVC.completionWithItemsHandler = {
             activity, success, items, error in
         }
+        activityVC.popoverPresentationController?.sourceView = sourceView
+        activityVC.popoverPresentationController?.sourceRect = CGRect.zero
         present(activityVC, animated: true, completion: nil)
     }
 

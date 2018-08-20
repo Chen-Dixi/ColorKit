@@ -15,9 +15,11 @@ class CloseColorCardInteractiveTransition: UIPercentDrivenInteractiveTransition 
   
 
     public func addPanGesture(for viewController:UIViewController){
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        
+        let screenEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         self.viewController = viewController
-        viewController.view.addGestureRecognizer(panGesture)
+        screenEdgeGesture.edges = UIRectEdge.left
+        viewController.view.addGestureRecognizer(screenEdgeGesture)
 
     }
     
@@ -25,7 +27,7 @@ class CloseColorCardInteractiveTransition: UIPercentDrivenInteractiveTransition 
     func handlePanGesture(_ panGesture:UIPanGestureRecognizer){
         var percent:CGFloat = 0.0
         let translation = panGesture.translation(in: panGesture.view)
-        let length = sqrt( pow(translation.x, 2)+pow(translation.y, 2) )
+        let length = translation.x
         percent = length/screenWidth
 
         let state = panGesture.state
@@ -37,13 +39,13 @@ class CloseColorCardInteractiveTransition: UIPercentDrivenInteractiveTransition 
             update(percent)
             
         default:
-            
+            interaction = false
             if percent > 0.4{
                 finish()
             }else{
                 cancel()
             }
-            interaction = false
+            
         }
     }
 }

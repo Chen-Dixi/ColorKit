@@ -34,7 +34,7 @@ class ColorDetailViewController: UIViewController {
     
     
     var managedContext:NSManagedObjectContext?
-    
+    var selectedIndex:IndexPath!
     
     
     override func viewDidLoad() {
@@ -105,7 +105,7 @@ class ColorDetailViewController: UIViewController {
         color.setValue(g, forKey: "g")
         color.setValue(b, forKey: "b")
         color.setValue(project, forKey: "project")
-        color.seq = Int32(colors.count)
+        
         do{
             try managedContext.save()
             colors.append(color)
@@ -138,7 +138,7 @@ class ColorDetailViewController: UIViewController {
         let fetchRequest = NSFetchRequest<Color>(entityName: "Color")
         
         fetchRequest.predicate = predicate
-        let sortPredictor = NSSortDescriptor(key: "seq", ascending: true)
+        let sortPredictor = NSSortDescriptor(key: "createdAt", ascending: true)
         fetchRequest.sortDescriptors = [sortPredictor]
         
         do {
@@ -245,7 +245,7 @@ class ColorDetailViewController: UIViewController {
     
     private func swapOrder(source:IndexPath,with target:IndexPath, context managedContext:NSManagedObjectContext){
         let u = colors[source.row],v = colors[target.row]
-        (u.seq , v.seq) = (v.seq,u.seq)
+        (u.createdAt , v.createdAt) = (v.createdAt,u.createdAt)
         do{
             try managedContext.save()
         }  catch let error as NSError {
@@ -298,7 +298,7 @@ class ColorDetailViewController: UIViewController {
     
 }
 
-extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, UIViewControllerTransitioningDelegate{
+extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -318,10 +318,12 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
 //
 //        navigationController?.pushViewController(vc, animated: true)
 
+        selectedIndex = indexPath
+        
         let sb = UIStoryboard(name: "ColorInfoViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
         vc.tobackgroundColor = (tableView.cellForRow(at: indexPath) as! ColorDetailCell).backgroundColor
-        
+        vc.color = colors[indexPath.row]
         present(vc, animated: true, completion: nil)
     }
     
@@ -387,16 +389,6 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         }
             //下滑 显示toolbar
     }
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return OpenColorCardTransition()
-    }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CloseColorCardTransition()
-    }
-    
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return CloseColorCardInteractiveTransition()
-    }
    
 }

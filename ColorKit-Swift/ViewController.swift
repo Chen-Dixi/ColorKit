@@ -76,7 +76,7 @@ class ViewController: BaseViewController {
         guard let managedContext = managedContext else{
             return
         }
-        let sortPredictor = NSSortDescriptor(key: "seq", ascending: true)
+        let sortPredictor = NSSortDescriptor(key: "createdAt", ascending: true)
         let fetchRequest = NSFetchRequest<Project>(entityName: "Project")
         fetchRequest.sortDescriptors = [sortPredictor]
         
@@ -233,7 +233,7 @@ class ViewController: BaseViewController {
                                        in: managedContext)!
         let project = Project(entity: entity, insertInto: managedContext)
         project.name = name
-        project.seq = Int32(projects.count)
+        project.createdAt = Date()
         do{
             try managedContext.save()
             projects.append(project)
@@ -267,7 +267,7 @@ class ViewController: BaseViewController {
     
     private func swapOrder(source:IndexPath,with target:IndexPath, context managedContext:NSManagedObjectContext){
         let u = projects[source.row],v = projects[target.row]
-         (u.seq , v.seq) = (v.seq,u.seq)
+         (u.createdAt , v.createdAt) = (v.createdAt,u.createdAt)
         do{
            try managedContext.save()
         }  catch let error as NSError {

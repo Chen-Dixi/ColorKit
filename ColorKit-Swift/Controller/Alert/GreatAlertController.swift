@@ -75,7 +75,9 @@ class UIImagePickerAlertController:GreatAlertController{
         self.addAction(UIAlertAction(title: "从相册选择", style: .default, handler: { _ in
             fromLibrary()
         }))
-       
+        self.addAction(UIAlertAction(title: "拍照", style: .default, handler: { _ in
+            fromCamera()
+        }))
         self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
     }
 }
