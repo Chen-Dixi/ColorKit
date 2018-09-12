@@ -27,15 +27,9 @@
                                     <constraint firstAttribute="width" constant="180" id="dme-GV-BjU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小颜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-UE-Hbj">
-                                <rect key="frame" x="167.5" y="329.5" width="40" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="配色笔记" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-UE-Hbj">
+                                <rect key="frame" x="147.5" y="329.5" width="80" height="28"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
-                                <color key="textColor" name="navigationTint"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="配色笔记" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbq-hk-e4X">
-                                <rect key="frame" x="164" y="361.5" width="48" height="17"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <color key="textColor" name="navigationTint"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -44,8 +38,6 @@
                         <constraints>
                             <constraint firstItem="htB-v1-2BQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.6" constant="1" id="1nk-VX-3iJ"/>
                             <constraint firstItem="t5o-UE-Hbj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FOt-Hc-1DX"/>
-                            <constraint firstItem="Jbq-hk-e4X" firstAttribute="top" secondItem="t5o-UE-Hbj" secondAttribute="bottom" constant="4" id="TEV-vt-0Ne"/>
-                            <constraint firstItem="Jbq-hk-e4X" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WCR-h0-jWc"/>
                             <constraint firstItem="t5o-UE-Hbj" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="fez-S6-O9y"/>
                             <constraint firstItem="htB-v1-2BQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zie-26-w7N"/>
                         </constraints>

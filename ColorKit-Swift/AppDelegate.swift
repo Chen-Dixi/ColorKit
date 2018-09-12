@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
+        SVProgressHUD.setMaximumDismissTimeInterval(1.5)
+        increateAppRuns()
         
         let appVersion = UserDefaults.standard.string(forKey: "appVersion")
         let infoDictionary = Bundle.main.infoDictionary!
@@ -139,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSEntityDescription.entity(forEntityName: "Project",
                                            in: managedContext)!
             let project = Project(entity: entity, insertInto: managedContext)
-            project.name = "小颜"
+            project.name = "配色笔记"
             project.createdAt = Date()
             project.badgeName = "badge_palette"
             saveContext()
@@ -148,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                            in: managedContext)!
             let redColor = Color(entity: colorEntity, insertInto: managedContext)
             
-            redColor.setValue("小颜红", forKey: "name")
+            redColor.setValue("配色笔记 红", forKey: "name")
             redColor.setValue(Int32(192), forKey: "r")
             redColor.setValue(Int32(10), forKey: "g")
             redColor.setValue(Int32(23), forKey: "b")
@@ -158,7 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redColor.setValue(Date(), forKey: "createdAt")
             let blueColor = Color(entity: colorEntity, insertInto: managedContext)
             
-            blueColor.setValue("小颜蓝", forKey: "name")
+            blueColor.setValue("配色笔记 蓝", forKey: "name")
             blueColor.setValue(Int32(125), forKey: "r")
             blueColor.setValue(Int32(190), forKey: "g")
             blueColor.setValue(Int32(240), forKey: "b")

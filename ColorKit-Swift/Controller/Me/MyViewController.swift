@@ -102,7 +102,7 @@ class MyViewController: UITableViewController {
     }
 
     func jumpToComment(){
-        let strLoc = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1422973826";
+        let strLoc = "https://itunes.apple.com/us/app/twitter/id1422973826?mt=8&action=write-review";
         if let url = URL(string: strLoc){
             if UIApplication.shared.canOpenURL(url){
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -112,7 +112,7 @@ class MyViewController: UITableViewController {
     
     func shareMyApp(sourceView:UIView?){
         invokeSelectionFeedback()
-        let text = "小颜 配色笔记"
+        let text = "配色笔记"
         let image = UIImage(named: "App_Icon")
         let url = URL(string: "https://itunes.apple.com/app/id1422973826")
         let items = [text,image ?? "nil",url ?? "nil"] as [Any]
@@ -128,7 +128,7 @@ class MyViewController: UITableViewController {
     func jumpToAbount(){
         let sb = UIStoryboard(name: "AboutViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! BaseViewController
-        vc.navigationItem.title = "关于「小颜」"
+        vc.navigationItem.title = "关于「配色笔记」"
         navigationController?.pushViewController(vc, animated: true)
     }
     /*

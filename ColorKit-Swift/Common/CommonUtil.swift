@@ -40,4 +40,6 @@ class CommonUtil {
         
         return mean > labelColorThreshold ? UIColor.black : UIColor.white
     }
+    
+    
 }

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +35,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ogF-S8-dhK"/>
                     </view>
-                    <navigationItem key="navigationItem" title="小颜" id="eHq-Px-Mnj">
+                    <navigationItem key="navigationItem" title="配色笔记" id="eHq-Px-Mnj">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="nkQ-0r-L1V">
                             <color key="tintColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>

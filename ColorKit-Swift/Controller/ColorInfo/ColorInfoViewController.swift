@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KeyboardMan
 class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
 
     var tobackgroundColor:UIColor?
@@ -20,7 +20,25 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     
     private var shareBtn:UIButton!
     private var saveBtn:UIButton!
+    private var editBtn:UIButton!
+    
     private var pageControl:UIPageControl!
+    
+    var titleInputView:TextFieldAndButtonView!
+    
+    lazy var titleBlackMaskView:UIView = {
+        let blackMask = UIView(frame: UIScreen.main.bounds)
+        blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        return blackMask
+    }()
+    
+    let keyboardMan = KeyboardMan()
+    
+    /*
+     
+     */
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         transitioningDelegate = self
@@ -99,18 +117,62 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         saveBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         saveBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
         view.addSubview(saveBtn)
+        
         saveBtn.snp.makeConstraints { (make) in
             make.trailing.equalTo(shareBtn.snp.leading).offset(-15)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
             make.width.equalTo(24)
             make.height.equalTo(24)
         }
+        
+        editBtn = UIButton(frame: CGRect.zero)
+        editBtn.setImage(UIImage(named: "icon_edit"), for: UIControlState.normal)
+        editBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
+        editBtn.addTarget(self, action: #selector(showNameInputComponent), for: .touchUpInside)
+        view.addSubview(editBtn)
+        
+        editBtn.snp.makeConstraints { (make) in
+            make.trailing.equalTo(saveBtn.snp.leading).offset(-15)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
+        }
+        
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
             make.width.equalTo(60)
             make.height.equalTo(16)
         }
+        
+        titleInputView = TextFieldAndButtonView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 45) ) {
+            [weak self] (name) in
+            if let strongSelf = self{
+                strongSelf.color.name = name
+                strongSelf.saveContext()
+                strongSelf.updateName()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
+                strongSelf.tapHandler1()// removeFromSubview
+                
+            }
+        }
+        
+        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(tapHandler1))
+        titleBlackMaskView.addGestureRecognizer(tapGesture1)
+        
+        keyboardMan.animateWhenKeyboardAppear  = { [weak self] appearPostIndex, keyboardHeight, keyboardHeightIncrement in
+            
+            if let strongSelf = self{
+                strongSelf.titleInputView.setBottomY(screenHeight-keyboardHeight)
+            }
+        }
+        
+        keyboardMan.animateWhenKeyboardDisappear = { [weak self] keyboardHeight in
+            if let strongSelf = self{
+                strongSelf.titleInputView.frame.origin.y = screenHeight
+            }
+        }
+        
     }
     
    
@@ -143,6 +205,7 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         }else{
             invokeNotificationFeedback(type: .success)
             noticeTop("图片已保存到相册")
+            showReview()
         }
         
     }
@@ -179,6 +242,39 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     @objc
     func tapHandler(_gesture:UITapGestureRecognizer){
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    func showNameInputComponent(){
+        view.window?.addSubview(titleBlackMaskView)
+        
+        titleBlackMaskView.addSubview(titleInputView)
+        titleInputView.setBottomY(screenHeight)
+        titleInputView.displayText = color.name
+        titleInputView.initState()
+        UIView.animate(withDuration: 0.3) {
+            self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        }
+    }
+    
+    @objc
+    func tapHandler1(){
+        titleInputView.resignFirstResponder()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        }) { (finished) in
+            self.titleInputView.removeFromSuperview()
+            self.titleBlackMaskView.removeFromSuperview()
+        }
+    }
+    
+    private func updateName(){
+        for view in colorInfoViews{
+            if let colorInfoView = view as? ColorInfoView{
+                colorInfoView.updateName()
+            }
+        }
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

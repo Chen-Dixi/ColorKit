@@ -88,6 +88,8 @@
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
 		4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */; };
 		4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */; };
+		4C8928C621304873002C59AB /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8928C521304873002C59AB /* UserDefaultsTool.swift */; };
+		4C8B4C7E213942CB00392703 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */; };
 		4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B96982116059A00860DB3 /* GreatAlertController.swift */; };
 		4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */; };
 		4CC4758D2111B812008A135C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758C2111B812008A135C /* UIImage+Extension.swift */; };
@@ -170,6 +172,7 @@
 		4C21B1F62118595600C90659 /* MyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyViewController.storyboard; sourceTree = "<group>"; };
 		4C21B1F8211859E000C90659 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		4C324C2D212272AA00FF69FA /* ColorPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPinView.swift; sourceTree = "<group>"; };
+		4C327F89214936EB003A1982 /* ColorKit-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorKit-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTitleCell.swift; sourceTree = "<group>"; };
 		4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTitleCell.xib; sourceTree = "<group>"; };
 		4C3B62D120A34DF4006257E2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test1ViewController.swift; path = Test/Test1ViewController.swift; sourceTree = "<group>"; };
 		4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateColorViewController.storyboard; sourceTree = "<group>"; };
+		4C8928C521304873002C59AB /* UserDefaultsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTool.swift; sourceTree = "<group>"; };
+		4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		4C8B96982116059A00860DB3 /* GreatAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatAlertController.swift; sourceTree = "<group>"; };
 		4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseColorCardTransition.swift; sourceTree = "<group>"; };
 		4CC4758C2111B812008A135C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -272,6 +277,7 @@
 				4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */,
 				4CEC4083212B104A0003E9F6 /* pop.framework in Frameworks */,
 				4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */,
+				4C8B4C7E213942CB00392703 /* SVProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +409,7 @@
 				4C1725F7209B65D800A1919D /* Info.plist */,
 				4C1725EF209B65D800A1919D /* ColorKit_Swift.xcdatamodeld */,
 				4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */,
+				4C327F89214936EB003A1982 /* ColorKit-Swift-Bridging-Header.h */,
 			);
 			path = "ColorKit-Swift";
 			sourceTree = "<group>";
@@ -499,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				4C3DD135210F521700723C34 /* SafeDispatch.swift */,
+				4C8928C521304873002C59AB /* UserDefaultsTool.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -626,6 +634,7 @@
 		4CE2F80A210DED5B00F9C294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */,
 				4CEC4059212AE2570003E9F6 /* pop.framework */,
 				4CEC4055212ADCAB0003E9F6 /* Slider.framework */,
 				4C66CE2B211C19F000AF248C /* KeyboardMan.framework */,
@@ -923,6 +932,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeyboardMan.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/pop.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			outputPaths = (
 			);
@@ -1009,6 +1019,7 @@
 				4C010C72211D3C01008F84F8 /* CreateColorFromImageViewController.swift in Sources */,
 				4C3DAC6221259D5B00F2DBCE /* CloseColorCardInteractiveTransition.swift in Sources */,
 				4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */,
+				4C8928C621304873002C59AB /* UserDefaultsTool.swift in Sources */,
 				4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */,
 				4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,

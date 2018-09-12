@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 enum ColorInfoStyle:Int{
     case NameAndValue = 3
     case ValueOnly = 2
@@ -40,7 +40,9 @@ class ColorInfoView: UIView {
     var redValueLabel:UILabel!
     var greenValueLabel:UILabel!
     var blueValueLabel:UILabel!
-    
+   
+    var rgbContainer:UIView!
+    private var rgbString = ""
     convenience init(frame:CGRect, entity color:Color, style: ColorInfoStyle){
         self.init(frame: frame)
         self.color = color
@@ -62,7 +64,8 @@ class ColorInfoView: UIView {
         titleLabel = UILabel()
         titleLabel.font = Font_Hiragino.Size_30
         hexLabel = UILabel()
-        
+        hexLabel.font = Font_Regular.Size_17
+        rgbContainer = UIView()
         redValueLabel = UILabel()
         redValueLabel.font = Font_Regular.Size_17
         greenValueLabel = UILabel()
@@ -70,21 +73,32 @@ class ColorInfoView: UIView {
         blueValueLabel = UILabel()
         blueValueLabel.font = Font_Regular.Size_17
         
+        
+        
         addSubview(titleLabel)
         addSubview(hexLabel)
+        addSubview(rgbContainer)
         addSubview(redValueLabel)
         addSubview(greenValueLabel)
         addSubview(blueValueLabel)
+        
+        
         
         titleLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(self.snp.leading).offset(30)
             make.trailing.lessThanOrEqualTo(self.snp.trailing).offset(-30)
             make.top.equalTo(self.snp.top).offset(94)
+            make.height.equalTo(40)
         }
         hexLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(titleLabel.snp.leading)
             make.top.equalTo(titleLabel.snp.bottom).offset(15)
         }
+        
+        let hexTap = UITapGestureRecognizer(target: self, action: #selector(pasteHex))
+        hexLabel.addGestureRecognizer(hexTap)
+        hexLabel.isUserInteractionEnabled = true
+        
         redValueLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(hexLabel.snp.leading)
             make.top.equalTo(hexLabel.snp.bottom).offset(30)
@@ -97,6 +111,16 @@ class ColorInfoView: UIView {
             make.leading.equalTo(greenValueLabel.snp.leading)
             make.top.equalTo(greenValueLabel.snp.bottom).offset(15)
         }
+        rgbContainer.snp.makeConstraints { (make) in
+            make.top.equalTo(redValueLabel.snp.top)
+            make.bottom.equalTo(blueValueLabel.snp.bottom)
+            make.leading.equalTo(redValueLabel.snp.leading)
+            make.trailing.equalTo(redValueLabel.snp.trailing)
+        }
+        
+        let rgbTap = UITapGestureRecognizer(target: self, action: #selector(pasteRGB))
+        rgbContainer.addGestureRecognizer(rgbTap)
+        
     }
     
     private func set(entity color:Color){
@@ -115,7 +139,7 @@ class ColorInfoView: UIView {
         
         
         blueValueLabel.text = "B:  \(blue32)"
-        
+        rgbString = "R:\(red32) G:\(green32) B:\(blue32))"
         let r :CGFloat = CGFloat(red32)/255.0
         
         let g :CGFloat = CGFloat(green32)/255.0
@@ -142,4 +166,31 @@ class ColorInfoView: UIView {
         blueValueLabel.textColor = textColor
     }
 
+    func updateName(){
+        titleLabel.text = color.name
+    }
+    
+    @objc
+    private func pasteHex(){
+        hexLabel.antiMultiplyTouch(delay: 1.5, closure: {})
+        let pas = UIPasteboard.general
+        pas.string = hexLabel.text
+        hexLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+        SVProgressHUD.showSuccess(withStatus: "已经复制色卡颜色HEX值")
+        
+    }
+    
+    @objc
+    private func pasteRGB(){
+        let pas = UIPasteboard.general
+        pas.string = rgbString
+        redValueLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+        greenValueLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+        blueValueLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+        
+        SVProgressHUD.showSuccess(withStatus: "已经复制色卡颜色RGB值")
+        
+    }
+    
+    
 }

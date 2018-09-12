@@ -15,12 +15,10 @@ class CloseColorCardInteractiveTransition: UIPercentDrivenInteractiveTransition 
   
 
     public func addPanGesture(for viewController:UIViewController){
-        
         let screenEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         self.viewController = viewController
         screenEdgeGesture.edges = UIRectEdge.left
         viewController.view.addGestureRecognizer(screenEdgeGesture)
-
     }
     
     @objc
