@@ -10,6 +10,8 @@ import UIKit
 
 class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
 
+    private var centerBtn:UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +27,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         for item in tabBar.items!{
             item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
         }
-        
+        addCenterButton()
         delegate = self
     }
 
@@ -39,5 +41,22 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         invokeSelectionFeedback()
     }
     
+    private func addCenterButton(){
+        centerBtn = UIButton(type: .custom)
+        let image = UIImage(named: "icon_add_center")
+        centerBtn.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        centerBtn.setImage(image, for: .normal)
+        let hDiff:CGFloat=image!.size.height-tabBar.frame.size.height
+        
+        if(hDiff < 0){
+            centerBtn.center=self.tabBar.center
+        }else{
+            var center:CGPoint=self.tabBar.center
+            center.y=center.y-tabBar.frame.size.height*0.2
+            centerBtn.center=center
+        }
+        view.addSubview(centerBtn)
+        
+    }
 
 }

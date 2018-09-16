@@ -9,7 +9,7 @@
 import UIKit
 import KeyboardMan
 import CoreData
-class CreateColorFromImageViewController: BaseViewController {
+class CreateColorFromImageViewController: PresentBaseViewController {
 
     var scrollview:UIScrollView!
     var project: Project!
@@ -95,6 +95,8 @@ class CreateColorFromImageViewController: BaseViewController {
         }
         scrollview.addSubview(chooseColorImageView)
         scrollview.contentSize = CGSize(width: 0, height: chooseColorImageView.frame.maxY + 48 )
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("save", comment: ""), style: .plain, target: self, action: #selector(save))
     }
 
     override func didReceiveMemoryWarning() {
@@ -184,7 +186,8 @@ class CreateColorFromImageViewController: BaseViewController {
         
     }
     
-    @IBAction func save(_ sender: UIBarButtonItem) {
+    @objc
+    private func save(_ sender: UIBarButtonItem) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             return
         }
@@ -209,7 +212,8 @@ class CreateColorFromImageViewController: BaseViewController {
             saveContext()
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }
 

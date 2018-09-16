@@ -19,6 +19,14 @@
 		<string>badge_wine</string>
 		<string>badge_bubble</string>
 		<string>badge_heart</string>
+		<string>badge_weather</string>
+		<string>badge_tag</string>
+		<string>badge_building</string>
+		<string>badge_local</string>
+		<string>badge_plane</string>
+		<string>badge_meditation</string>
+		<string>badge_bike</string>
+		<string>badge_science</string>
 	</array>
 </dict>
 </plist>

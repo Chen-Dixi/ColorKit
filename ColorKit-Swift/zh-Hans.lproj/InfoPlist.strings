@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  ColorKit
+
+  Created by Dixi-Chen on 2018/9/15.
+  Copyright © 2018 Dixi-Chen. All rights reserved.
+*/
+"CFBundleDisplayName" = "配色笔记";
+"NSCameraUsageDescription" = "使用相机，您将可以从拍摄的照片中拾取颜色";
+"NSPhotoLibraryAddUsageDescription" = "将图片保存到相册中，可以将图片当作壁纸使用";
+"NSPhotoLibraryUsageDescription" = "使用相册，您将可以从相册的照片中拾取颜色使用";

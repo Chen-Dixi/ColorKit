@@ -11,7 +11,7 @@ import KeyboardMan
 import Slider
 import CoreData
 
-class NewCreateColorViewController: UIViewController {
+class NewCreateColorViewController: PresentBaseViewController {
     var scrollview:UIScrollView!
     var project: Project!
     var titleInputView:TextFieldAndButtonView!
@@ -137,7 +137,7 @@ class NewCreateColorViewController: UIViewController {
         scrollview.contentSize = CGSize(width: 0, height: blueSlider.frame.maxY + 48)
         
         // Do any additional setup after loading the view.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("save", comment: ""), style: .plain, target: self, action: #selector(save))
     }
 
     @objc
@@ -218,7 +218,7 @@ class NewCreateColorViewController: UIViewController {
         saveContext()
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

@@ -26,13 +26,13 @@ class ViewController: BaseViewController {
     }
     
     @IBAction func addProject(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "添加项目", message: "输入项目名称", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("add project", comment: ""), message: NSLocalizedString("input project name", comment: ""), preferredStyle: .alert)
         alertController.addTextField { (textField) in
-            textField.placeholder = "项目名称"
+            textField.placeholder = NSLocalizedString("project name", comment: "")
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: "好的", style: .default, handler: {
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: {
             action in
             
             let first = alertController.textFields!.first!
@@ -290,9 +290,7 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "删除"
-    }
+
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         

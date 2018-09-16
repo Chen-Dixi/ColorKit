@@ -21,7 +21,7 @@ class ColorCardCell : CardCell{
     
     @IBOutlet weak var collectButton: UIButton!{
         didSet{
-            collectButton.setImage(UIImage(named: "badge_heart"), for: .normal)
+            collectButton.setImage(UIImage(named: "icon_heart"), for: .normal)
             collectButton.setImage(UIImage(named: "icon_heart_solid"), for: .selected)
         }
     }

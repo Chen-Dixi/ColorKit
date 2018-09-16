@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,33 +25,17 @@
                                     <outlet property="delegate" destination="TjH-pq-dCY" id="58k-gj-SrI"/>
                                 </connections>
                             </tableView>
-                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvW-mZ-GZ4">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" image="icon_settings" id="z8e-5g-gLf">
-                                        <color key="tintColor" name="navigationTint"/>
-                                        <connections>
-                                            <action selector="jumpToSetting:" destination="TjH-pq-dCY" id="ba2-JK-u2q"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hvW-mZ-GZ4" firstAttribute="leading" secondItem="SQR-I8-kxo" secondAttribute="leading" id="FoC-qC-O2U"/>
                             <constraint firstItem="SQR-I8-kxo" firstAttribute="bottom" secondItem="jbL-wV-0VB" secondAttribute="bottom" id="HJg-or-oZW"/>
                             <constraint firstItem="SQR-I8-kxo" firstAttribute="trailing" secondItem="jbL-wV-0VB" secondAttribute="trailing" id="Hbm-KX-fdj"/>
                             <constraint firstItem="jbL-wV-0VB" firstAttribute="top" secondItem="SQR-I8-kxo" secondAttribute="top" id="OLq-Ua-jvx"/>
-                            <constraint firstItem="SQR-I8-kxo" firstAttribute="trailing" secondItem="hvW-mZ-GZ4" secondAttribute="trailing" id="iQh-rM-BFJ"/>
-                            <constraint firstItem="SQR-I8-kxo" firstAttribute="bottom" secondItem="hvW-mZ-GZ4" secondAttribute="bottom" id="nBs-FM-Ggj"/>
                             <constraint firstItem="jbL-wV-0VB" firstAttribute="leading" secondItem="SQR-I8-kxo" secondAttribute="leading" id="xvS-fQ-ghr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SQR-I8-kxo"/>
                     </view>
                     <connections>
-                        <outlet property="bottomToolBar" destination="hvW-mZ-GZ4" id="lqs-zh-COp"/>
                         <outlet property="tableView" destination="jbL-wV-0VB" id="4hR-St-aLo"/>
                     </connections>
                 </viewController>
@@ -61,10 +44,4 @@
             <point key="canvasLocation" x="-500" y="58"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon_settings" width="30" height="30"/>
-        <namedColor name="navigationTint">
-            <color red="0.31764705882352939" green="0.32156862745098042" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

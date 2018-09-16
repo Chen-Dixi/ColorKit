@@ -18,6 +18,7 @@ class ColorContainerViewController: BaseViewController {
     var currenViewIndex:Int = 0
     private var switchvcBtnItem:UIBarButtonItem!
     private var addColorBtnItem :UIBarButtonItem!
+    private var moreBtnItem :UIBarButtonItem!
     private var isListView:Bool = true
     private var switchvcBtnItemImage:[UIImage] = [UIImage(named: "icon_card_view")!,UIImage(named: "icon_list_view")!]
     init(project:Project){
@@ -64,12 +65,14 @@ class ColorContainerViewController: BaseViewController {
         addChildViewController(tableVC)
         addChildViewController(cardVC)
         
-        switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
-        switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
-        
+//        switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
+//        switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        moreBtnItem = UIBarButtonItem(image: UIImage(named: "icon_more"), style: .plain, target: self, action: #selector(moreBtn))
+        moreBtnItem.tintColor = UIColor.NavigationBarTintColor()
         addColorBtnItem = UIBarButtonItem(image: UIImage(named: "icon_add_square"), style: .plain, target: self, action: #selector(add))
         addColorBtnItem.tintColor = UIColor.NavigationBarTintColor()
-        navigationItem.rightBarButtonItems = [switchvcBtnItem,addColorBtnItem]
+       
+        navigationItem.rightBarButtonItems = [moreBtnItem,addColorBtnItem]
         
         
         navigationItem.title = project.name
@@ -94,18 +97,23 @@ class ColorContainerViewController: BaseViewController {
 //                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
                 let vc = NewCreateColorViewController()
                 vc.project = strongSelf.project
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                let nav = BaseNavigationController()
+                nav.addChildViewController(vc)
+                strongSelf.present(nav, animated: true, completion: nil)
             }
             
         }, imageBlock: {
             [weak self] in
             if let strongSelf = self{
-                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
-                let vc = sb.instantiateInitialViewController() as! CreateColorFromImageViewController
+//                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
+                let vc = CreateColorFromImageViewController()
 
                 vc.project = strongSelf.project
                 vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                let nav = BaseNavigationController()
+                nav.addChildViewController(vc)
+//                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                strongSelf.present(nav, animated: true, completion: nil)
             }
         })
         present(alertVC, animated: true, completion: nil)
@@ -122,8 +130,31 @@ class ColorContainerViewController: BaseViewController {
         
         invokeSelectionFeedback()
         currenViewIndex = 1-currenViewIndex
-        switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
+        
         view.bringSubview(toFront: childSubView[currenViewIndex])
+    }
+    
+    @objc
+    private func moreBtn(){
+        let alertVC = GreatAlertController(title: nil, message: nil)
+        alertVC.addAction(UIAlertAction(title: NSLocalizedString("Switch View", comment: ""), style: .default, handler: { _ in
+            self.switchVC()
+        }))
+        alertVC.addAction(UIAlertAction(title: NSLocalizedString("Project Setting", comment: ""), style: .default, handler: { (_) in
+            self.jumpToSetting()
+        }))
+        alertVC.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func jumpToSetting() {
+        let sb = UIStoryboard(name: "ProjectSettingViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! BaseNavigationController
+        if let settingVC = vc.topViewController as? ProjectSettingViewController{
+            settingVC.project = project
+        }
+        present(vc, animated: true, completion: nil)
     }
     
     @objc

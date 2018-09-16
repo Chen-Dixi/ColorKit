@@ -21,11 +21,8 @@
                         <viewLayoutGuide key="safeArea" id="Obb-sF-Fk9"/>
                     </view>
                     <navigationItem key="navigationItem" id="zUl-gk-Iaf">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="7HS-1b-3Ea">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="7HS-1b-3Ea">
                             <color key="tintColor" name="navigationTint"/>
-                            <connections>
-                                <action selector="save:" destination="IfP-xf-vX0" id="kkJ-x4-aoW"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>

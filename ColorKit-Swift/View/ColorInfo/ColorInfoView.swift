@@ -139,7 +139,7 @@ class ColorInfoView: UIView {
         
         
         blueValueLabel.text = "B:  \(blue32)"
-        rgbString = "R:\(red32) G:\(green32) B:\(blue32))"
+        rgbString = "R:\(red32) G:\(green32) B:\(blue32)"
         let r :CGFloat = CGFloat(red32)/255.0
         
         let g :CGFloat = CGFloat(green32)/255.0

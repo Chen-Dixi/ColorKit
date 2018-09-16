@@ -14,23 +14,7 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-//        let tovc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
-//        let fromvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
-//        let toview = tovc?.view
-//        let fromview = fromvc?.view
-//        let containerView = transitionContext.containerView
-//        containerView.addSubview(toview!)
-//        containerView.bringSubview(toFront: fromview!)
-//
-//        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-//            fromview?.alpha = 0
-//            fromview?.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
-//            toview?.alpha = 1.0;
-//        }){ (finished) in
-//            fromview?.transform = CGAffineTransform(scaleX: 1, y: 1)
-//            fromview?.alpha = 1
-//            transitionContext.completeTransition(true)
-//        }
+
 
         let tovc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
         let toview = tovc?.view

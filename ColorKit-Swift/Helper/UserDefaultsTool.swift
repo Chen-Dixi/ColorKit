@@ -125,7 +125,7 @@ func increateReviews(){
 
 func showReview(){
     if let numberOfReviews = UserDefaultsTool.numberOfReviews.value{
-        if numberOfReviews < 2{
+        if numberOfReviews < 3{
             SKStoreReviewController.requestReview()
             increateReviews()
         }

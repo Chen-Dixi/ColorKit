@@ -24,31 +24,31 @@ class GreatAlertController: UIAlertController {
 
 class DeleteProjectAlertController: GreatAlertController {
     convenience init(block : @escaping ()->Void ) {
-        self.init(title: "确定要删除此项目吗", message: nil)
+        self.init(title: NSLocalizedString("Are you sure you want to delete this project?", comment: ""), message: nil)
         // 如何使用
-        self.addAction(UIAlertAction(title: "删除", style: .destructive, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: { _ in
             block()
         }))
-        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
     }
 }
 
 class DeleteColorAlertController: GreatAlertController {
     convenience init(block : @escaping ()->Void ) {
-        self.init(title: "确定要删除此色卡吗", message: nil)
+        self.init(title: NSLocalizedString("Are you sure you want to delete this color?", comment: ""), message: nil)
         // 如何使用
-        self.addAction(UIAlertAction(title: "删除", style: .destructive, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: { _ in
             block()
         }))
-        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
     }
     convenience init(block : @escaping ()->Void ,cancelBlock: @escaping ()->Void) {
-        self.init(title: "确定要删除此色卡吗", message: nil)
+        self.init(title: NSLocalizedString("Are you sure you want to delete this color?", comment: ""), message: nil)
         // 如何使用
-        self.addAction(UIAlertAction(title: "删除", style: .destructive, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: { _ in
             block()
         }))
-        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: { _ in
             cancelBlock()
         }))
     }
@@ -56,15 +56,15 @@ class DeleteColorAlertController: GreatAlertController {
 
 class ChooseColorPickerAlertController: GreatAlertController{
     convenience init(rgbBlock : @escaping ()->Void ,imageBlock: @escaping ()->Void) {
-        self.init(title: "选择获取色卡的方式", message: nil)
+        self.init(title: NSLocalizedString("Choose how to get a color", comment: ""), message: nil)
         // 如何使用
         self.addAction(UIAlertAction(title: "RGB", style: .default, handler: { _ in
             rgbBlock()
         }))
-        self.addAction(UIAlertAction(title: "从图片中获取", style: .default, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("From Image", comment: ""), style: .default, handler: { _ in
             imageBlock()
         }))
-        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
     }
 }
 
@@ -72,12 +72,12 @@ class UIImagePickerAlertController:GreatAlertController{
     convenience init(fromLibrary : @escaping ()->Void ,fromCamera: @escaping ()->Void) {
         self.init(title: nil, message: nil)
         // 如何使用
-        self.addAction(UIAlertAction(title: "从相册选择", style: .default, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { _ in
             fromLibrary()
         }))
-        self.addAction(UIAlertAction(title: "拍照", style: .default, handler: { _ in
+        self.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { _ in
             fromCamera()
         }))
-        self.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
     }
 }

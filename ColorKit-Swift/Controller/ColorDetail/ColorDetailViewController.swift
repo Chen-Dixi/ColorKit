@@ -20,13 +20,9 @@ class ColorDetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var bottomToolBar: UIToolbar!{
-        didSet{
-            bottomToolBar.setShadowImage(UIImage(), forToolbarPosition: UIBarPosition.bottom)
-        }
-    }
     
-    private var toolBarDisappearTimer:Timer?
+    
+
     
     
     public var colors:[Color] = []
@@ -53,10 +49,7 @@ class ColorDetailViewController: UIViewController {
         tableView.addGestureRecognizer(longPressGesture)
            // UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.plain, target: self, action:#selector(self.addColor) )
         //navigationItem.rightBarButtonItem = plusButton
-        bottomToolBar.layer.shadowColor = UIColor.lightGray.cgColor;
-        bottomToolBar.layer.shadowOffset = CGSize(width: 0, height: -6)
-        bottomToolBar.layer.shadowOpacity = 0.1;
-        toolBarDisappearTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(tooBarDisapear), userInfo: nil, repeats: false)
+      
         fetchColors()
         tableView.reloadData()
     }
@@ -287,14 +280,7 @@ class ColorDetailViewController: UIViewController {
     }
     
     //MARK: - toolBar disapear
-    @objc
-    func tooBarDisapear(){
-        UIView.animate(withDuration: 0.4, animations: {
-            self.bottomToolBar.alpha = 0
-        }){ (finished) in
-            self.bottomToolBar.isHidden = true
-        }
-    }
+   
     
 }
 
@@ -368,27 +354,7 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
     }
     
     
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if self.bottomToolBar.isHidden{
-            
-            self.bottomToolBar.isHidden = false
-            self.bottomToolBar.alpha = 0
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                
-                    self.bottomToolBar.alpha = 1
-                
-            }){
-               (finished) in
-                self.toolBarDisappearTimer?.invalidate()
-                 self.toolBarDisappearTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.tooBarDisapear), userInfo: nil, repeats: false)
-            }
-
-        }
-            //下滑 显示toolbar
-    }
+   
     
    
 }

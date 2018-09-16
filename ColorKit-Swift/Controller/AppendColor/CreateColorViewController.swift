@@ -16,7 +16,7 @@ public enum ColorPickerType: Int{
     case view
 }
 
-class CreateColorViewController: BaseViewController {
+class CreateColorViewController: PresentBaseViewController {
 
     var colorBoardView:UIView!
     var redSliderView:CapsuleSliderView!

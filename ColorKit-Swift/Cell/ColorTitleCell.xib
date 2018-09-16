@@ -4,11 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +25,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fJR-ja-wL8">
                                 <rect key="frame" x="15.5" y="52" width="30" height="30"/>
-                                <color key="tintColor" name="ThemeRed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fJR-ja-wL8" secondAttribute="height" multiplier="1:1" id="0Gd-aj-aOF"/>
                                     <constraint firstAttribute="width" constant="30" id="9Z6-gm-ABu"/>
@@ -73,9 +70,4 @@
             <point key="canvasLocation" x="-7.5" y="-102"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="ThemeRed">
-            <color red="0.75294117647058822" green="0.039215686274509803" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>
