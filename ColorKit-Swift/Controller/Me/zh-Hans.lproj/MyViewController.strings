@@ -5,8 +5,8 @@
 /* Class = "UITableViewSection"; headerTitle = "其他"; ObjectID = "OXH-c1-cv5"; */
 "OXH-c1-cv5.headerTitle" = "其他";
 
-/* Class = "UILabel"; text = "收藏"; ObjectID = "iXh-Bf-5RA"; */
-"iXh-Bf-5RA.text" = "收藏";
+/* Class = "UILabel"; text = "精选"; ObjectID = "iXh-Bf-5RA"; */
+"iXh-Bf-5RA.text" = "精选";
 
 /* Class = "UILabel"; text = "App Store 评论"; ObjectID = "jC6-Gu-MQv"; */
 "jC6-Gu-MQv.text" = "App Store 评论";

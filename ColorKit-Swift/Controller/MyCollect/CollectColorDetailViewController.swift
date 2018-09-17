@@ -132,6 +132,7 @@ extension CollectColorDetailViewController: UITableViewDataSource, UITableViewDe
         let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
         vc.tobackgroundColor = (tableView.cellForRow(at: indexPath) as! ColorDetailCell).backgroundColor
         vc.color = colors[indexPath.row]
+        vc.colorInfoType = .view
         present(vc, animated: true, completion: nil)
         
     }

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import CoreData
+import SVProgressHUD
 class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private var centerBtn:UIButton!
@@ -56,7 +57,101 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
             centerBtn.center=center
         }
         view.addSubview(centerBtn)
-        
+        centerBtn.addTarget(self, action: #selector(centernBtnClick(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func centernBtnClick(_ sender:UIButton){
+        if let navvc = selectedViewController as? BaseNavigationController{
+            if let containervc = navvc.topViewController as? ColorContainerViewController{
+                //
+                let alertVC = ChooseColorPickerAlertController(rgbBlock: {
+                    [weak self] in
+                    if let strongSelf = self{
+                        //                let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
+                        //                let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+                        //                vc.pickerType = .create
+                        //                vc.project = strongSelf.project
+                        //                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
+                        let vc = NewCreateColorViewController()
+                        vc.project = containervc.project
+                        let nav = BaseNavigationController()
+                        nav.addChildViewController(vc)
+                        strongSelf.present(nav, animated: true, completion: nil)
+                    }
+                    
+                    }, imageBlock: {
+                        [weak self] in
+                        if let strongSelf = self{
+                            //                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
+                            let vc = CreateColorFromImageViewController()
+                            
+                            vc.project = containervc.project
+                            
+                            let nav = BaseNavigationController()
+                            nav.addChildViewController(vc)
+                            //                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                            strongSelf.present(nav, animated: true, completion: nil)
+                        }
+                })
+                present(alertVC, animated: true, completion: nil)
+            }else{
+                var projects:[Project] = []
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+                    return
+                }
+                
+                let managedContext = appDelegate.persistentContainer.viewContext
+                
+                
+                
+                let sortPredictor = NSSortDescriptor(key: "createdAt", ascending: true)
+                let fetchRequest = NSFetchRequest<Project>(entityName: "Project")
+                fetchRequest.sortDescriptors = [sortPredictor]
+                fetchRequest.fetchLimit = 1
+                do {
+                    projects = try managedContext.fetch(fetchRequest)
+                } catch let error as NSError {
+                    print("Could not fetch. \(error), \(error.userInfo)")
+                }
+                
+                guard  projects.count > 0 else{
+                    SVProgressHUD.showError(withStatus: NSLocalizedString("Create a project first", comment: ""))
+                    return
+                }
+                
+                let alertVC = ChooseColorPickerAlertController(rgbBlock: {
+                    [weak self] in
+                    if let strongSelf = self{
+                        //                let sb = UIStoryboard(name: "CreateColorViewController", bundle: nil)
+                        //                let vc = sb.instantiateInitialViewController() as! CreateColorViewController
+                        //                vc.pickerType = .create
+                        //                vc.project = strongSelf.project
+                        //                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
+                        let vc = NewCreateColorViewController()
+                        vc.project = projects[0]
+                        let nav = BaseNavigationController()
+                        nav.addChildViewController(vc)
+                        strongSelf.present(nav, animated: true, completion: nil)
+                    }
+
+                    }, imageBlock: {
+                        [weak self] in
+                        if let strongSelf = self{
+                            //                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
+                            let vc = CreateColorFromImageViewController()
+
+                            vc.project = projects[0]
+
+                            let nav = BaseNavigationController()
+                            nav.addChildViewController(vc)
+                            //                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                            strongSelf.present(nav, animated: true, completion: nil)
+                        }
+                })
+                present(alertVC, animated: true, completion: nil)
+            }
+        }
     }
 
 }

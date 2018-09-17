@@ -21,6 +21,7 @@ class NewCreateColorViewController: PresentBaseViewController {
         return blackMask
     }()
     var colorPreviewCard : CardPreview!
+    var projectBar: ProjectBar!
     var keyboardMan = KeyboardMan()
     
     var redSlider:Slider!
@@ -47,6 +48,11 @@ class NewCreateColorViewController: PresentBaseViewController {
         
         colorPreviewCard.layer.shadowOpacity = 0.8
         scrollview.addSubview(colorPreviewCard)
+        projectBar = UINib(nibName: "ProjectBar", bundle: nil).instantiate(withOwner: nil, options: nil).last as! ProjectBar
+        projectBar.frame = CGRect(x: 1, y: 1, width: screenWidth, height: 40)
+        projectBar.setProject(project)
+        scrollview.addSubview(projectBar)
+
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(showNameInputComponent))
         colorPreviewCard.addGestureRecognizer(tap)

@@ -83,6 +83,20 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
                         transitionContext.completeTransition(true)
                     }
                 }
+            } else if let featureColorView = navvc.topViewController as? FeaturedColorViewController{
+                 let containerView = transitionContext.containerView
+                let cell = featureColorView.tableView.cellForRow(at: featureColorView.selectedIndex)
+                let image = UIImage.imageWithColor(color: cell!.backgroundColor!)
+                let imageView = UIImageView(image:image)
+                imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                containerView.addSubview(imageView)
+                containerView.insertSubview(toview!, at: 0)
+                UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+                    imageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                }) { (finished) in
+                    imageView.isHidden = true
+                    transitionContext.completeTransition(true)
+                }
             }
         }
 

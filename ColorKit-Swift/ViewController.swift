@@ -61,9 +61,13 @@ class ViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
         tableView.addGestureRecognizer(longPressGesture)
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Favorites", comment: ""), style: .plain, target: self, action: #selector(jumpToFavorites))
         fetchProject()
         tableView.reloadData()
+        if projects.count > 0 {
+            let vc = ColorContainerViewController(project: projects[0])
+            navigationController?.pushViewController(vc, animated: false)
+        }
     }
     
     func fetchProject(){
@@ -79,7 +83,6 @@ class ViewController: BaseViewController {
         let sortPredictor = NSSortDescriptor(key: "createdAt", ascending: true)
         let fetchRequest = NSFetchRequest<Project>(entityName: "Project")
         fetchRequest.sortDescriptors = [sortPredictor]
-        
         do {
             projects = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
@@ -281,6 +284,12 @@ class ViewController: BaseViewController {
         tableView.reloadData()
     }
     
+    @objc
+    private func jumpToFavorites(){
+        let vc = CollectColorContainerViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate{
@@ -290,7 +299,7 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         return 1
     }
     
-
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         

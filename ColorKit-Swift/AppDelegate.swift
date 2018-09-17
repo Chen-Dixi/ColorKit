@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             project.name = projectName
             project.createdAt = Date()
             project.badgeName = "badge_palette"
-            saveContext()
+            
             let colorEntity =
                 NSEntityDescription.entity(forEntityName: "Color",
                                            in: managedContext)!

@@ -23,7 +23,7 @@ class MyViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: footerFrame1)
         tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
         tableView.separatorStyle = .none
-        navigationItem.title = "我的"
+        navigationItem.title = NSLocalizedString("Mine", comment: "")
         
     }
 
@@ -70,8 +70,8 @@ class MyViewController: UITableViewController {
             
             switch row {
             case .Collect:
-                //弹出收藏界面
-                let vc = CollectColorContainerViewController()
+                //弹出精选界面
+                let vc = FeaturedColorViewController()
                 navigationController?.pushViewController(vc, animated: true)
             case .Guide:
                 //跳转操作指导界面
@@ -112,7 +112,7 @@ class MyViewController: UITableViewController {
     
     func shareMyApp(sourceView:UIView?){
         invokeSelectionFeedback()
-        let text = "配色笔记"
+        let text = NSLocalizedString("ColorNote", comment: "")
         let image = UIImage(named: "App_Icon")
         let url = URL(string: "https://itunes.apple.com/app/id1422973826")
         let items = [text,image ?? "nil",url ?? "nil"] as [Any]
@@ -128,7 +128,7 @@ class MyViewController: UITableViewController {
     func jumpToAbount(){
         let sb = UIStoryboard(name: "AboutViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! BaseViewController
-        vc.navigationItem.title = "关于「配色笔记」"
+        vc.navigationItem.title = NSLocalizedString("AboutColourNote", comment: "")
         navigationController?.pushViewController(vc, animated: true)
     }
     /*

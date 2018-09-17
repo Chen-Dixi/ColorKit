@@ -32,7 +32,6 @@
 		4C21B1F421184E0400C90659 /* CollectColorDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */; };
 		4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21B1F8211859E000C90659 /* MyViewController.swift */; };
 		4C24EA262149E65300BF658C /* PresentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24EA252149E65300BF658C /* PresentBaseViewController.swift */; };
-		4C24EA29214A255300BF658C /* example_project.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C24EA28214A255300BF658C /* example_project.plist */; };
 		4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C324C2D212272AA00FF69FA /* ColorPinView.swift */; };
 		4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */; };
 		4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */; };
@@ -84,6 +83,17 @@
 		4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FC7F6211EE91E0078873A /* ChooseColorImageView.swift */; };
 		4C62C100210CB54000682437 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62C0FF210CB54000682437 /* CommonUtil.swift */; };
 		4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C65366A209D426E006DFA0E /* BaseNavigationController.swift */; };
+		4C654E34214E70FE00F0EB4F /* ProjectSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C654E36214E70FE00F0EB4F /* ProjectSettingViewController.storyboard */; };
+		4C654E3D214E778400F0EB4F /* example_project.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C654E3F214E778400F0EB4F /* example_project.plist */; };
+		4C654E45214E7B5300F0EB4F /* FeaturedColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E43214E7B5300F0EB4F /* FeaturedColorCell.swift */; };
+		4C654E46214E7B5300F0EB4F /* FeaturedColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C654E44214E7B5300F0EB4F /* FeaturedColorCell.xib */; };
+		4C654E48214E7EB600F0EB4F /* FeaturedColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E47214E7EB600F0EB4F /* FeaturedColorViewController.swift */; };
+		4C654E4A214E7EF400F0EB4F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E49214E7EF400F0EB4F /* BaseTableViewController.swift */; };
+		4C654E53214EA03600F0EB4F /* FeatureColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E52214EA03600F0EB4F /* FeatureColor.swift */; };
+		4C654E55214EA95E00F0EB4F /* FeatureColorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E54214EA95E00F0EB4F /* FeatureColorInfoView.swift */; };
+		4C654E57214EAADD00F0EB4F /* FeatureColorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E56214EAADD00F0EB4F /* FeatureColorInfoViewController.swift */; };
+		4C654E59214EB49500F0EB4F /* ProjectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E58214EB49500F0EB4F /* ProjectBar.swift */; };
+		4C654E5B214EB4B700F0EB4F /* ProjectBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C654E5A214EB4B700F0EB4F /* ProjectBar.xib */; };
 		4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C66CE2B211C19F000AF248C /* KeyboardMan.framework */; };
 		4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */; };
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
@@ -95,7 +105,6 @@
 		4C965922214B82A400541EF2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C965921214B82A400541EF2 /* NotificationCenter.framework */; };
 		4C965925214B82A400541EF2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C965924214B82A400541EF2 /* TodayViewController.swift */; };
 		4C965928214B82A400541EF2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C965926214B82A400541EF2 /* MainInterface.storyboard */; };
-		4C96592C214B82A400541EF2 /* ColorKit-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C965920214B82A400541EF2 /* ColorKit-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */; };
 		4CBD4424214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD4426214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard */; };
 		4CBD442E214D729E00E0B9D1 /* CardPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD4430214D729E00E0B9D1 /* CardPreview.xib */; };
@@ -104,7 +113,7 @@
 		4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */; };
 		4CC475912111EA3C008A135C /* Bades.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC475902111EA3C008A135C /* Bades.xcassets */; };
 		4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4759321121198008A135C /* ProjectSettingViewController.swift */; };
-		4CC47596211211A9008A135C /* ProjectSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC47595211211A9008A135C /* ProjectSettingViewController.storyboard */; };
+		4CD996B3214F37910095F708 /* ColorKit-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C965920214B82A400541EF2 /* ColorKit-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F80B210DED5B00F9C294 /* SnapKit.framework */; };
 		4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */; };
 		4CEC4058212ADD1E0003E9F6 /* NewCreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC4057212ADD1E0003E9F6 /* NewCreateColorViewController.swift */; };
@@ -138,7 +147,7 @@
 			remoteGlobalIDString = 4C40813C2109A83E009BBD8C;
 			remoteInfo = "ColorKit-Objc";
 		};
-		4C96592A214B82A400541EF2 /* PBXContainerItemProxy */ = {
+		4CD996B4214F37910095F708 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4C1725B5209B64F800A1919D /* Project object */;
 			proxyType = 1;
@@ -148,13 +157,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4C965930214B82A400541EF2 /* Embed App Extensions */ = {
+		4CD996B6214F37910095F708 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				4C96592C214B82A400541EF2 /* ColorKit-Widget.appex in Embed App Extensions */,
+				4CD996B3214F37910095F708 /* ColorKit-Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +207,6 @@
 		4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectColorDetailViewController.storyboard; sourceTree = "<group>"; };
 		4C21B1F8211859E000C90659 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		4C24EA252149E65300BF658C /* PresentBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentBaseViewController.swift; sourceTree = "<group>"; };
-		4C24EA28214A255300BF658C /* example_project.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = example_project.plist; sourceTree = "<group>"; };
 		4C2EE91D214C19D1002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4C2EE91E214C19D1002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4C2EE91F214C19D1002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -275,6 +283,23 @@
 		4C5FC7F6211EE91E0078873A /* ChooseColorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorImageView.swift; sourceTree = "<group>"; };
 		4C62C0FF210CB54000682437 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		4C65366A209D426E006DFA0E /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		4C654E35214E70FE00F0EB4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProjectSettingViewController.storyboard; sourceTree = "<group>"; };
+		4C654E38214E710100F0EB4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProjectSettingViewController.strings; sourceTree = "<group>"; };
+		4C654E3A214E710200F0EB4F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProjectSettingViewController.strings"; sourceTree = "<group>"; };
+		4C654E3C214E710300F0EB4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ProjectSettingViewController.strings"; sourceTree = "<group>"; };
+		4C654E3E214E778400F0EB4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/example_project.plist; sourceTree = "<group>"; };
+		4C654E43214E7B5300F0EB4F /* FeaturedColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedColorCell.swift; sourceTree = "<group>"; };
+		4C654E44214E7B5300F0EB4F /* FeaturedColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedColorCell.xib; sourceTree = "<group>"; };
+		4C654E47214E7EB600F0EB4F /* FeaturedColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedColorViewController.swift; sourceTree = "<group>"; };
+		4C654E49214E7EF400F0EB4F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		4C654E4C214E85F000F0EB4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
+		4C654E4E214E85F100F0EB4F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		4C654E50214E85F300F0EB4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		4C654E52214EA03600F0EB4F /* FeatureColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColor.swift; sourceTree = "<group>"; };
+		4C654E54214EA95E00F0EB4F /* FeatureColorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColorInfoView.swift; sourceTree = "<group>"; };
+		4C654E56214EAADD00F0EB4F /* FeatureColorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColorInfoViewController.swift; sourceTree = "<group>"; };
+		4C654E58214EB49500F0EB4F /* ProjectBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBar.swift; sourceTree = "<group>"; };
+		4C654E5A214EB4B700F0EB4F /* ProjectBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectBar.xib; sourceTree = "<group>"; };
 		4C66CE2B211C19F000AF248C /* KeyboardMan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardMan.framework; path = Carthage/Build/iOS/KeyboardMan.framework; sourceTree = "<group>"; };
 		4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSliderView.swift; sourceTree = "<group>"; };
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
@@ -298,14 +323,10 @@
 		4CBD4434214D72A500E0B9D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CardPreview.strings"; sourceTree = "<group>"; };
 		4CBD4436214D72A600E0B9D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CardPreview.strings"; sourceTree = "<group>"; };
 		4CBD4438214D756F00E0B9D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyViewController.storyboard; sourceTree = "<group>"; };
-		4CBD443B214D757100E0B9D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
-		4CBD443D214D757200E0B9D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
-		4CBD443F214D757300E0B9D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
 		4CC4758C2111B812008A135C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4CC475902111EA3C008A135C /* Bades.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bades.xcassets; sourceTree = "<group>"; };
 		4CC4759321121198008A135C /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
-		4CC47595211211A9008A135C /* ProjectSettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectSettingViewController.storyboard; sourceTree = "<group>"; };
 		4CE2F80B210DED5B00F9C294 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorViewController.swift; sourceTree = "<group>"; };
 		4CEC4055212ADCAB0003E9F6 /* Slider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slider.framework; path = Carthage/Build/iOS/Slider.framework; sourceTree = "<group>"; };
@@ -384,6 +405,8 @@
 				4CBD4430214D729E00E0B9D1 /* CardPreview.xib */,
 				4C5FC7F6211EE91E0078873A /* ChooseColorImageView.swift */,
 				4C324C2D212272AA00FF69FA /* ColorPinView.swift */,
+				4C654E58214EB49500F0EB4F /* ProjectBar.swift */,
+				4C654E5A214EB4B700F0EB4F /* ProjectBar.xib */,
 			);
 			path = PickColor;
 			sourceTree = "<group>";
@@ -464,6 +487,7 @@
 		4C1725E7209B65D700A1919D /* ColorKit-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4C654E51214E988B00F0EB4F /* Entity */,
 				4C24EA27214A252D00BF658C /* Resource */,
 				4CEC4079212B026C0003E9F6 /* Sources */,
 				4C424187212877800070350F /* SwiftNotice */,
@@ -503,6 +527,7 @@
 		4C17260A209B6AE000A1919D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C654E41214E7A7300F0EB4F /* Featured */,
 				4C24EA242149E61800BF658C /* Base */,
 				4C3DAC5C21256BB200F2DBCE /* ColorInfo */,
 				4CF20D6C2119805E005C5E0D /* AboutColorKit */,
@@ -544,6 +569,7 @@
 			isa = PBXGroup;
 			children = (
 				4C24EA252149E65300BF658C /* PresentBaseViewController.swift */,
+				4C654E49214E7EF400F0EB4F /* BaseTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -551,7 +577,7 @@
 		4C24EA27214A252D00BF658C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				4C24EA28214A255300BF658C /* example_project.plist */,
+				4C654E3F214E778400F0EB4F /* example_project.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -559,6 +585,7 @@
 		4C3B62CC20A33F66006257E2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4C654E42214E7A9C00F0EB4F /* Featured */,
 				4C4CCC6C20A886C500DAC4C7 /* Detail */,
 				4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */,
 				4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */,
@@ -592,6 +619,7 @@
 			children = (
 				4C3DAC5D21256BD100F2DBCE /* ColorInfoViewController.swift */,
 				4C3DAC5F21256C3D00F2DBCE /* ColorInfoViewController.storyboard */,
+				4C654E56214EAADD00F0EB4F /* FeatureColorInfoViewController.swift */,
 			);
 			path = ColorInfo;
 			sourceTree = "<group>";
@@ -635,6 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				4C42418321280A070070350F /* ColorInfoView.swift */,
+				4C654E54214EA95E00F0EB4F /* FeatureColorInfoView.swift */,
 			);
 			path = ColorInfo;
 			sourceTree = "<group>";
@@ -696,6 +725,31 @@
 			path = Navi;
 			sourceTree = "<group>";
 		};
+		4C654E41214E7A7300F0EB4F /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				4C654E47214E7EB600F0EB4F /* FeaturedColorViewController.swift */,
+			);
+			path = Featured;
+			sourceTree = "<group>";
+		};
+		4C654E42214E7A9C00F0EB4F /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				4C654E43214E7B5300F0EB4F /* FeaturedColorCell.swift */,
+				4C654E44214E7B5300F0EB4F /* FeaturedColorCell.xib */,
+			);
+			path = Featured;
+			sourceTree = "<group>";
+		};
+		4C654E51214E988B00F0EB4F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4C654E52214EA03600F0EB4F /* FeatureColor.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		4C7C0EEE210EDA19002B4880 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,7 +784,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC4759321121198008A135C /* ProjectSettingViewController.swift */,
-				4CC47595211211A9008A135C /* ProjectSettingViewController.storyboard */,
+				4C654E36214E70FE00F0EB4F /* ProjectSettingViewController.storyboard */,
 			);
 			path = ProjectSetting;
 			sourceTree = "<group>";
@@ -838,12 +892,12 @@
 				4C1725E3209B65D700A1919D /* Frameworks */,
 				4C1725E4209B65D700A1919D /* Resources */,
 				4CE2F809210DECB900F9C294 /* ShellScript */,
-				4C965930214B82A400541EF2 /* Embed App Extensions */,
+				4CD996B6214F37910095F708 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4C96592B214B82A400541EF2 /* PBXTargetDependency */,
+				4CD996B5214F37910095F708 /* PBXTargetDependency */,
 			);
 			name = "ColorKit-Swift";
 			productName = "ColorKit-Swift";
@@ -1008,22 +1062,24 @@
 				4C5D94B4214D3EEF0043567C /* Localizable.strings in Resources */,
 				4C0FDAA621135805007979CC /* badge_list.plist in Resources */,
 				4C3DAC6021256C3D00F2DBCE /* ColorInfoViewController.storyboard in Resources */,
+				4C654E46214E7B5300F0EB4F /* FeaturedColorCell.xib in Resources */,
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
 				4C45C220210C20AD0048DAE8 /* ColorCardViewController.storyboard in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
 				4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */,
 				4C5CB1EB21141329006DB543 /* Assets.xcassets in Resources */,
 				4C5D94AD214D3DE00043567C /* InfoPlist.strings in Resources */,
+				4C654E5B214EB4B700F0EB4F /* ProjectBar.xib in Resources */,
 				4CBD4437214D756F00E0B9D1 /* MyViewController.storyboard in Resources */,
 				4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */,
 				4CBD4424214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard in Resources */,
 				4C21B1F221184D5C00C90659 /* CollectColorCardViewController.storyboard in Resources */,
-				4CC47596211211A9008A135C /* ProjectSettingViewController.storyboard in Resources */,
+				4C654E34214E70FE00F0EB4F /* ProjectSettingViewController.storyboard in Resources */,
 				4C21B1F421184E0400C90659 /* CollectColorDetailViewController.storyboard in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */,
 				4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */,
-				4C24EA29214A255300BF658C /* example_project.plist in Resources */,
+				4C654E3D214E778400F0EB4F /* example_project.plist in Resources */,
 				4CBD442E214D729E00E0B9D1 /* CardPreview.xib in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
 			);
@@ -1108,6 +1164,8 @@
 			files = (
 				4C21B1EC21181E9E00C90659 /* CollectColorDetailViewController.swift in Sources */,
 				4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */,
+				4C654E57214EAADD00F0EB4F /* FeatureColorInfoViewController.swift in Sources */,
+				4C654E59214EB49500F0EB4F /* ProjectBar.swift in Sources */,
 				4C21B1EF21181E9E00C90659 /* CollectColorCardViewController.swift in Sources */,
 				4C21B1F021181E9E00C90659 /* CollectColorContainerViewController.swift in Sources */,
 				4CEC4075212AF4930003E9F6 /* SystemCloseTransition.swift in Sources */,
@@ -1118,6 +1176,7 @@
 				4C424186212872240070350F /* UIButton+Extension.swift in Sources */,
 				4C45C22F210C36AC0048DAE8 /* VerticalCardSwiperView.swift in Sources */,
 				4C45C235210C36AC0048DAE8 /* PanDirection.swift in Sources */,
+				4C654E53214EA03600F0EB4F /* FeatureColor.swift in Sources */,
 				4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */,
 				4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */,
 				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
@@ -1132,9 +1191,11 @@
 				4C010C6D211D37C3008F84F8 /* CardPreview.swift in Sources */,
 				4C3B62D920A35327006257E2 /* Reusable.swift in Sources */,
 				4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */,
+				4C654E4A214E7EF400F0EB4F /* BaseTableViewController.swift in Sources */,
 				4CEC4081212B026D0003E9F6 /* ValueView.swift in Sources */,
 				4C1725F1209B65D800A1919D /* ColorKit_Swift.xcdatamodeld in Sources */,
 				4C45C231210C36AC0048DAE8 /* VerticalCardSwiperFlowLayout.swift in Sources */,
+				4C654E55214EA95E00F0EB4F /* FeatureColorInfoView.swift in Sources */,
 				4C4081652109BDB9009BBD8C /* UIView+Extension.swift in Sources */,
 				4CEC407F212B026D0003E9F6 /* Slider.swift in Sources */,
 				4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */,
@@ -1145,6 +1206,7 @@
 				4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */,
 				4C45C230210C36AC0048DAE8 /* CardDelegate.swift in Sources */,
 				4C1725E9209B65D700A1919D /* AppDelegate.swift in Sources */,
+				4C654E45214E7B5300F0EB4F /* FeaturedColorCell.swift in Sources */,
 				4C45C233210C36AC0048DAE8 /* CardCell.swift in Sources */,
 				4C45C236210C36AC0048DAE8 /* VerticalCardSwiperDatasource.swift in Sources */,
 				4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */,
@@ -1165,6 +1227,7 @@
 				4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */,
 				4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
+				4C654E48214E7EB600F0EB4F /* FeaturedColorViewController.swift in Sources */,
 				4C3DAC5B21256ABC00F2DBCE /* OpenColorCardTransition.swift in Sources */,
 				4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */,
 			);
@@ -1223,10 +1286,10 @@
 			target = 4C40813C2109A83E009BBD8C /* ColorKit-Objc */;
 			targetProxy = 4C4081582109A840009BBD8C /* PBXContainerItemProxy */;
 		};
-		4C96592B214B82A400541EF2 /* PBXTargetDependency */ = {
+		4CD996B5214F37910095F708 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4C96591F214B82A400541EF2 /* ColorKit-Widget */;
-			targetProxy = 4C96592A214B82A400541EF2 /* PBXContainerItemProxy */;
+			targetProxy = 4CD996B4214F37910095F708 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1303,6 +1366,25 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		4C654E36214E70FE00F0EB4F /* ProjectSettingViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C654E35214E70FE00F0EB4F /* Base */,
+				4C654E38214E710100F0EB4F /* en */,
+				4C654E3A214E710200F0EB4F /* zh-Hant */,
+				4C654E3C214E710300F0EB4F /* zh-Hans */,
+			);
+			name = ProjectSettingViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		4C654E3F214E778400F0EB4F /* example_project.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C654E3E214E778400F0EB4F /* Base */,
+			);
+			name = example_project.plist;
+			sourceTree = "<group>";
+		};
 		4C965926214B82A400541EF2 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1338,9 +1420,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				4CBD4438214D756F00E0B9D1 /* Base */,
-				4CBD443B214D757100E0B9D1 /* en */,
-				4CBD443D214D757200E0B9D1 /* zh-Hant */,
-				4CBD443F214D757300E0B9D1 /* zh-Hans */,
+				4C654E4C214E85F000F0EB4F /* en */,
+				4C654E4E214E85F100F0EB4F /* zh-Hant */,
+				4C654E50214E85F300F0EB4F /* zh-Hans */,
 			);
 			name = MyViewController.storyboard;
 			sourceTree = "<group>";
@@ -1734,7 +1816,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2GL8UZ838;
 				INFOPLIST_FILE = "ColorKit-Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1758,7 +1840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2GL8UZ838;
 				INFOPLIST_FILE = "ColorKit-Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

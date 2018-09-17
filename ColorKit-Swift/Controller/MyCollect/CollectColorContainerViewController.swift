@@ -28,7 +28,7 @@ class CollectColorContainerViewController: BaseViewController {
         super.viewDidLoad()
         
         
-        navigationItem.title  = "收藏"
+        navigationItem.title  = NSLocalizedString("Favorites", comment: "")
         // Do any additional setup after loading the view.
         setupUI()
         

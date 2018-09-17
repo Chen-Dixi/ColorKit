@@ -1,18 +1,18 @@
 
 /* Class = "UILabel"; text = "分享给朋友"; ObjectID = "NqD-eM-Xvl"; */
-"NqD-eM-Xvl.text" = "分享给朋友";
+"NqD-eM-Xvl.text" = "Share To Friends";
 
 /* Class = "UITableViewSection"; headerTitle = "其他"; ObjectID = "OXH-c1-cv5"; */
-"OXH-c1-cv5.headerTitle" = "其他";
+"OXH-c1-cv5.headerTitle" = "Other";
 
-/* Class = "UILabel"; text = "收藏"; ObjectID = "iXh-Bf-5RA"; */
-"iXh-Bf-5RA.text" = "收藏";
+/* Class = "UILabel"; text = "精选"; ObjectID = "iXh-Bf-5RA"; */
+"iXh-Bf-5RA.text" = "Featured";
 
 /* Class = "UILabel"; text = "App Store 评论"; ObjectID = "jC6-Gu-MQv"; */
-"jC6-Gu-MQv.text" = "App Store 评论";
+"jC6-Gu-MQv.text" = "App Store Review";
 
 /* Class = "UILabel"; text = "关于配色笔记"; ObjectID = "up0-T2-Bm1"; */
-"up0-T2-Bm1.text" = "关于配色笔记";
+"up0-T2-Bm1.text" = "About ColourNote";
 
 /* Class = "UITableViewSection"; headerTitle = "通用"; ObjectID = "wPn-Yi-gEC"; */
-"wPn-Yi-gEC.headerTitle" = "通用";
+"wPn-Yi-gEC.headerTitle" = "General";

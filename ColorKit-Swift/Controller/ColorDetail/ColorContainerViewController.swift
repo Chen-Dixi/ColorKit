@@ -10,7 +10,7 @@ import UIKit
 
 class ColorContainerViewController: BaseViewController {
 
-    private var project:Project!
+    var project:Project!
     
      var tableVC:ColorDetailViewController!
      var cardVC:ColorCardViewController!
@@ -18,7 +18,7 @@ class ColorContainerViewController: BaseViewController {
     var currenViewIndex:Int = 0
     private var switchvcBtnItem:UIBarButtonItem!
     private var addColorBtnItem :UIBarButtonItem!
-    private var moreBtnItem :UIBarButtonItem!
+    private var settingBtnItem :UIBarButtonItem!
     private var isListView:Bool = true
     private var switchvcBtnItemImage:[UIImage] = [UIImage(named: "icon_card_view")!,UIImage(named: "icon_list_view")!]
     init(project:Project){
@@ -65,14 +65,14 @@ class ColorContainerViewController: BaseViewController {
         addChildViewController(tableVC)
         addChildViewController(cardVC)
         
-//        switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
-//        switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
-        moreBtnItem = UIBarButtonItem(image: UIImage(named: "icon_more"), style: .plain, target: self, action: #selector(moreBtn))
-        moreBtnItem.tintColor = UIColor.NavigationBarTintColor()
-        addColorBtnItem = UIBarButtonItem(image: UIImage(named: "icon_add_square"), style: .plain, target: self, action: #selector(add))
-        addColorBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
+        switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        settingBtnItem = UIBarButtonItem(image: UIImage(named: "icon_settings"), style: .plain, target: self, action: #selector(jumpToSetting))
+        settingBtnItem.tintColor = UIColor.NavigationBarTintColor()
+//        addColorBtnItem = UIBarButtonItem(image: UIImage(named: "icon_add_square"), style: .plain, target: self, action: #selector(add))
+//        addColorBtnItem.tintColor = UIColor.NavigationBarTintColor()
        
-        navigationItem.rightBarButtonItems = [moreBtnItem,addColorBtnItem]
+        navigationItem.rightBarButtonItems = [switchvcBtnItem,settingBtnItem]
         
         
         navigationItem.title = project.name
@@ -109,7 +109,7 @@ class ColorContainerViewController: BaseViewController {
                 let vc = CreateColorFromImageViewController()
 
                 vc.project = strongSelf.project
-                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
+                
                 let nav = BaseNavigationController()
                 nav.addChildViewController(vc)
 //                strongSelf.navigationController?.pushViewController(vc, animated: true)
@@ -130,7 +130,7 @@ class ColorContainerViewController: BaseViewController {
         
         invokeSelectionFeedback()
         currenViewIndex = 1-currenViewIndex
-        
+        switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
         view.bringSubview(toFront: childSubView[currenViewIndex])
     }
     

@@ -5,7 +5,7 @@
   Created by Dixi-Chen on 2018/9/15.
   Copyright © 2018 Dixi-Chen. All rights reserved.
 */
-"CFBundleDisplayName" = "ColorNote";
+"CFBundleDisplayName" = "ColourNote";
 "NSCameraUsageDescription" = "With the camera, you will be able to pick colors from the photos you take";
 "NSPhotoLibraryAddUsageDescription" = "Save the image to an album and use it as a wallpaper";
 "NSPhotoLibraryUsageDescription" = "You'll be able to pick up color from photos in your album";

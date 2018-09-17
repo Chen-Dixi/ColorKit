@@ -1,25 +1,17 @@
 //
-//  ColorCardViewController.swift
+//  FeatureColorInfoViewController.swift
 //  ColorKit-Swift
 //
-//  Created by Dixi-Chen on 2018/8/16.
-//  Copyright © 2018年 Dixi-Chen. All rights reserved.
+//  Created by Dixi-Chen on 2018/9/16.
+//  Copyright © 2018 Dixi-Chen. All rights reserved.
 //
 
 import UIKit
-import KeyboardMan
 
-public enum ColorInfoType: Int{
-    
-    case edit
-    case view
-}
-
-class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
-
+class FeatureColorInfoViewController: BaseViewController,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
     var tobackgroundColor:UIColor?
     var interactiveTransitionController:CloseColorCardInteractiveTransition!
-    var color:Color!
+    var color:FeatureColor!
     var scrollView:UIScrollView!
     var colorInfoViews:[UIView] = []
     
@@ -27,24 +19,20 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     public var colorInfoType:ColorInfoType = .edit
     private var shareBtn:UIButton!
     private var saveBtn:UIButton!
-    private var editBtn:UIButton!
+
     
     private var pageControl:UIPageControl!
     
-    var titleInputView:TextFieldAndButtonView!
     
-    lazy var titleBlackMaskView:UIView = {
-        let blackMask = UIView(frame: UIScreen.main.bounds)
-        blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        return blackMask
-    }()
     
-    let keyboardMan = KeyboardMan()
+    
+    
+    
     
     /*
      
      */
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,18 +54,18 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         interactiveTransitionController = CloseColorCardInteractiveTransition()
         interactiveTransitionController.addPanGesture(for: self)
         
-        let colorInfo1 = ColorInfoView(frame: scrollView.bounds, entity: color, style: .NameAndValue)
+        let colorInfo1 = FeatureColorInfoView(frame: scrollView.bounds, entity: color, style: .NameAndValue)
         colorInfoViews.append(colorInfo1)
         
-        let colorInfo2 = ColorInfoView(frame: scrollView.bounds, entity: color, style: .ValueOnly)
+        let colorInfo2 = FeatureColorInfoView(frame: scrollView.bounds, entity: color, style: .ValueOnly)
         colorInfo2.frame.origin = CGPoint(x: scrollView.frame.width ,y: 0)
         colorInfoViews.append(colorInfo2)
         
-        let colorInfo3 = ColorInfoView(frame: scrollView.bounds, entity: color, style: .NameOnly)
+        let colorInfo3 = FeatureColorInfoView(frame: scrollView.bounds, entity: color, style: .NameOnly)
         colorInfo3.frame.origin = CGPoint(x: scrollView.frame.width*2 ,y: 0)
         colorInfoViews.append(colorInfo3)
         
-        let colorInfo4 = ColorInfoView(frame: scrollView.bounds, entity: color, style: .Clear)
+        let colorInfo4 = FeatureColorInfoView(frame: scrollView.bounds, entity: color, style: .Clear)
         colorInfo4.frame.origin = CGPoint(x: scrollView.frame.width*3 ,y: 0)
         colorInfoViews.append(colorInfo4)
         
@@ -101,11 +89,11 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         pageControl.pageIndicatorTintColor = UIColor.lightText
         view.addSubview(pageControl)
         pageControl.defersCurrentPageDisplay = true
-//        let button = UIButton(frame: CGRect(x: buttonWidth*CGFloat(count%col), y: buttonWidth*CGFloat(count/col), width: buttonWidth, height: buttonWidth))
-//        button.setImage(UIImage(named: badge_Names[count]), for: UIControlState.normal)
-//        button.tintColor = UIColor.ColorKitRed()
-//        button.tag = count
-//        button.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
+        //        let button = UIButton(frame: CGRect(x: buttonWidth*CGFloat(count%col), y: buttonWidth*CGFloat(count/col), width: buttonWidth, height: buttonWidth))
+        //        button.setImage(UIImage(named: badge_Names[count]), for: UIControlState.normal)
+        //        button.tintColor = UIColor.ColorKitRed()
+        //        button.tag = count
+        //        button.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
         // Do any additional setup after loading the view.
         
         shareBtn = UIButton(frame: CGRect.zero)
@@ -132,18 +120,6 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
             make.height.equalTo(24)
         }
         
-        editBtn = UIButton(frame: CGRect.zero)
-        editBtn.setImage(UIImage(named: "icon_edit"), for: UIControlState.normal)
-        editBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
-        editBtn.addTarget(self, action: #selector(showNameInputComponent), for: .touchUpInside)
-        view.addSubview(editBtn)
-        
-        editBtn.snp.makeConstraints { (make) in
-            make.trailing.equalTo(saveBtn.snp.leading).offset(-15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
-        }
         
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
@@ -152,41 +128,15 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
             make.height.equalTo(16)
         }
         
-        titleInputView = TextFieldAndButtonView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 45) ) {
-            [weak self] (name) in
-            if let strongSelf = self{
-                strongSelf.color.name = name
-                strongSelf.saveContext()
-                strongSelf.updateName()
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
-                strongSelf.tapHandler1()// removeFromSubview
-                
-            }
-        }
         
-        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(tapHandler1))
-        titleBlackMaskView.addGestureRecognizer(tapGesture1)
         
-        keyboardMan.animateWhenKeyboardAppear  = { [weak self] appearPostIndex, keyboardHeight, keyboardHeightIncrement in
-            
-            if let strongSelf = self{
-                strongSelf.titleInputView.setBottomY(screenHeight-keyboardHeight)
-            }
-        }
+       
         
-        keyboardMan.animateWhenKeyboardDisappear = { [weak self] keyboardHeight in
-            if let strongSelf = self{
-                strongSelf.titleInputView.frame.origin.y = screenHeight
-            }
-        }
-        
-        if colorInfoType == .view{
-            editBtn.isHidden = true
-        }
+      
     }
     
-   
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -219,7 +169,7 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         }
         
     }
-
+    
     @objc
     func shareImage(_ sender:UIButton){
         sender.antiMultiplyTouch(delay: 1, closure: {})
@@ -240,44 +190,21 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     @objc
     func tapHandler(_gesture:UITapGestureRecognizer){
         dismiss(animated: true, completion: nil)
     }
     
-    @objc
-    func showNameInputComponent(){
-        view.window?.addSubview(titleBlackMaskView)
-        
-        titleBlackMaskView.addSubview(titleInputView)
-        titleInputView.setBottomY(screenHeight)
-        titleInputView.displayText = color.name
-        titleInputView.initState()
-        UIView.animate(withDuration: 0.3) {
-            self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        }
-    }
     
-    @objc
-    func tapHandler1(){
-        titleInputView.resignFirstResponder()
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        }) { (finished) in
-            self.titleInputView.removeFromSuperview()
-            self.titleBlackMaskView.removeFromSuperview()
-        }
-    }
     
     private func updateName(){
         for view in colorInfoViews{
@@ -292,7 +219,7 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CloseColorCardTransition()
+        return CloseFeatureColorCardTransition()
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
@@ -303,5 +230,4 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         currentInfoIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
         pageControl.currentPage = currentInfoIndex
     }
-    
 }

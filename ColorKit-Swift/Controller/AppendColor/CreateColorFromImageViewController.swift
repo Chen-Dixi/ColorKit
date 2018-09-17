@@ -13,7 +13,7 @@ class CreateColorFromImageViewController: PresentBaseViewController {
 
     var scrollview:UIScrollView!
     var project: Project!
-    var nextSeq: Int32!
+    
     var titleInputView:TextFieldAndButtonView!
     var titleBlackMaskView:UIView = {
         let blackMask = UIView(frame: UIScreen.main.bounds)
@@ -21,6 +21,7 @@ class CreateColorFromImageViewController: PresentBaseViewController {
         return blackMask
     }()
     var colorPreviewCard : CardPreview!
+    var projectBar: ProjectBar!
     var chooseColorImageView:ChooseColorImageView!
     
     var keyboardMan = KeyboardMan()
@@ -44,7 +45,12 @@ class CreateColorFromImageViewController: PresentBaseViewController {
         colorPreviewCard.layer.shadowOffset = CGSize.zero
         
         colorPreviewCard.layer.shadowOpacity = 0.8
+        
         scrollview.addSubview(colorPreviewCard)
+        projectBar = UINib(nibName: "ProjectBar", bundle: nil).instantiate(withOwner: nil, options: nil).last as! ProjectBar
+        projectBar.frame = CGRect(x: 1, y: 1, width: screenWidth, height: 40)
+        projectBar.setProject(project)
+        scrollview.addSubview(projectBar)
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(showNameInputComponent))
         colorPreviewCard.addGestureRecognizer(tap)

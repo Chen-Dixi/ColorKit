@@ -100,6 +100,7 @@ class CollectColorCardViewController: BaseViewController, VerticalCardSwiperDele
         let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
         vc.tobackgroundColor = (cardSwiper.verticalCardSwiperView.cellForItem(at: IndexPath(item: index, section: 0)))?.backgroundColor
         vc.color = colors[index]
+        vc.colorInfoType = .view
         present(vc, animated: true, completion: nil)
     }
     

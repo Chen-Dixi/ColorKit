@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "图标"; ObjectID = "3Qu-4m-4Kf"; */
+"3Qu-4m-4Kf.text" = "图标";
+
+/* Class = "UITableViewSection"; headerTitle = "项目设置"; ObjectID = "Gqe-9c-vde"; */
+"Gqe-9c-vde.headerTitle" = "项目设置";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "HCx-Dm-4eA"; */
+"HCx-Dm-4eA.text" = "Detail";
+
+/* Class = "UILabel"; text = "名称"; ObjectID = "Jiv-hV-lhb"; */
+"Jiv-hV-lhb.text" = "项目名称";

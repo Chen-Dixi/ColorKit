@@ -66,11 +66,7 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                 }
             }else if let containervc = navvc.topViewController as? CollectColorContainerViewController{
                 if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailViewController{
-                    
-                    //
-                    //            let fromview = fromvc?.view
-                    //            let toview = tovc.view
-                    //
+                   
                     let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
                     
                     UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
@@ -98,7 +94,37 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                             imageView.removeFromSuperview()
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+class CloseFeatureColorCardTransition:CloseColorCardTransition{
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let fromvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! FeatureColorInfoViewController
+        let fromview = fromvc.view
+        fromview?.alpha = 0
+        let containerView = transitionContext.containerView
+        let imageView = UIImageView(image: UIImage.imageWithColor(color: fromvc.tobackgroundColor!))
+        imageView.frame = fromview!.bounds
+        containerView.addSubview(imageView)
+        
+        if let tabvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? BaseTabBarController, let navvc = tabvc.selectedViewController as? BaseNavigationController{
+            containerView.insertSubview(tabvc.view, at: 0)
+            if let featurevc = navvc.topViewController as? FeaturedColorViewController{
+                let cell = featurevc.tableView.cellForRow(at: featurevc.selectedIndex)
+                
+                UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
                     
+                    imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                    
+                }){ (finished) in
+                    transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                    if transitionContext.transitionWasCancelled{
+                        fromview?.alpha = 1
+                        imageView.removeFromSuperview()
+                    }
                 }
             }
         }

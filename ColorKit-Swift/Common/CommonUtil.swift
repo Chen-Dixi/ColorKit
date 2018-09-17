@@ -21,9 +21,9 @@ class CommonUtil {
     }
     
     static func hexColorString(red r:CGFloat,green g:CGFloat ,blue b:CGFloat) -> String?{
-        let red = Int(r*255)
-        let green = Int(g*255)
-        let blue = Int(b*255)
+        let red = Int(r)
+        let green = Int(g)
+        let blue = Int(b)
         let rString = hexSet[red/16] + hexSet[red%16]
         let gString = hexSet[green/16] + hexSet[green%1]
         let bString = hexSet[blue/16] + hexSet[blue%16]
