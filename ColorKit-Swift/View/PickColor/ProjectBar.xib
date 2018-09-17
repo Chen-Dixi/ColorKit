@@ -30,14 +30,23 @@
                     <color key="textColor" name="navigationTint"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="syH-NN-ibF">
+                    <rect key="frame" x="110.5" y="32" width="20" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="Wf7-GP-gLE"/>
+                        <constraint firstAttribute="width" constant="20" id="xMi-vO-SeJ"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="syH-NN-ibF" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Cjv-bH-lwa"/>
                 <constraint firstItem="l5U-AW-Tmu" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="J2w-pG-eAo"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6g1-h3-u40" secondAttribute="trailing" constant="20" id="XR8-dl-5td"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6g1-h3-u40" secondAttribute="trailing" constant="40" id="XR8-dl-5td"/>
                 <constraint firstItem="6g1-h3-u40" firstAttribute="leading" secondItem="l5U-AW-Tmu" secondAttribute="trailing" constant="18" id="eao-64-ZAu"/>
                 <constraint firstItem="6g1-h3-u40" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="hzs-1d-mGG"/>
                 <constraint firstItem="l5U-AW-Tmu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="iO5-ig-Jw0"/>
+                <constraint firstItem="syH-NN-ibF" firstAttribute="leading" secondItem="6g1-h3-u40" secondAttribute="trailing" constant="10" id="y8W-s7-xmt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -49,6 +58,7 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_arrow_down" width="15" height="8"/>
         <namedColor name="navigationTint">
             <color red="0.31764705882352939" green="0.32156862745098042" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

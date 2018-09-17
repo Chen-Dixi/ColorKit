@@ -42,4 +42,22 @@ class CommonUtil {
     }
     
     
+    class func ColorHex(_ color: String) -> (r:Int32,g:Int32,b:Int32)? {
+        if color.count <= 0 || color.count != 7 || color == "(null)" || color == "<null>" {
+            return nil
+        }
+        var red: UInt32 = 0x0
+        var green: UInt32 = 0x0
+        var blue: UInt32 = 0x0
+        let redString = String(color[color.index(color.startIndex, offsetBy: 1)...color.index(color.startIndex, offsetBy: 2)])
+        let greenString = String(color[color.index(color.startIndex, offsetBy: 3)...color.index(color.startIndex, offsetBy: 4)])
+        let blueString = String(color[color.index(color.startIndex, offsetBy: 5)...color.index(color.startIndex, offsetBy: 6)])
+        Scanner(string: redString).scanHexInt32(&red)
+        Scanner(string: greenString).scanHexInt32(&green)
+        Scanner(string: blueString).scanHexInt32(&blue)
+        
+        return (Int32(red),Int32(green),Int32(blue))
+    }
+
 }
+

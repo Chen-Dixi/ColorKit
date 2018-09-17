@@ -36,7 +36,7 @@ class CollectColorDetailViewController: UIViewController {
       
         // Do any additional setup after loading the view.
         tableView.registerNibOf(ColorDetailCell.self);
-        tableView.backgroundColor = UIColor.TableViewBackgroundColor()
+        
         
         
            // UIBarButtonItem(image: UIImage(named: "add"), style: UIBarButtonItemStyle.plain, target: self, action:#selector(self.addColor) )

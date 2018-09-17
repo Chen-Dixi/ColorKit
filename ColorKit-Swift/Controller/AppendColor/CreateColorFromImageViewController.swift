@@ -48,12 +48,14 @@ class CreateColorFromImageViewController: PresentBaseViewController {
         
         scrollview.addSubview(colorPreviewCard)
         projectBar = UINib(nibName: "ProjectBar", bundle: nil).instantiate(withOwner: nil, options: nil).last as! ProjectBar
-        projectBar.frame = CGRect(x: 1, y: 1, width: screenWidth, height: 40)
+        projectBar.frame = CGRect(x: 0, y: statusBarHeight+(navigationController?.navigationBar.frame.height ?? 64), width: screenWidth, height: 40)
         projectBar.setProject(project)
-        scrollview.addSubview(projectBar)
+        view.addSubview(projectBar)
+        let projectTap = UITapGestureRecognizer(target: self, action: #selector(showChooseProjectView))
+        projectBar.addGestureRecognizer(projectTap)
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(showNameInputComponent))
-        colorPreviewCard.addGestureRecognizer(tap)
+        colorPreviewCard.titleLabel.addGestureRecognizer(tap)
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(tapHandler1))
         titleBlackMaskView.addGestureRecognizer(tapGesture1)
         titleInputView = TextFieldAndButtonView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 45) ) {
@@ -134,6 +136,17 @@ class CreateColorFromImageViewController: PresentBaseViewController {
         UIView.animate(withDuration: 0.3) {
             self.titleBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         }
+    }
+    @objc
+    private func showChooseProjectView(){
+        let navi = BaseNavigationController()
+        let chooseProjectVC = ChooseProjectViewController { [weak self](project) in
+            
+            self?.projectBar.setProject(project)
+            self?.project = project
+        }
+        navi.addChildViewController(chooseProjectVC)
+        present(navi, animated: true, completion: nil)
     }
     
     @objc

@@ -121,6 +121,43 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>colors</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>某云音乐 红</string>
+					<key>R</key>
+					<integer>235</integer>
+					<key>G</key>
+					<integer>32</integer>
+					<key>B</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>企鹅音乐 黄</string>
+					<key>R</key>
+					<integer>251</integer>
+					<key>G</key>
+					<integer>199</integer>
+					<key>B</key>
+					<integer>25</integer>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>企鹅音乐 绿</string>
+					<key>R</key>
+					<integer>0</integer>
+					<key>G</key>
+					<integer>176</integer>
+					<key>B</key>
+					<integer>88</integer>
+				</dict>
+			</array>
+			<key>name</key>
+			<string>音乐APP</string>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -10,6 +10,7 @@
 import UIKit
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
+let statusBarHeight = UIApplication.shared.statusBarFrame.height
 let footerFrame1 = CGRect(x: 0, y: 0, width: screenWidth, height: 48)
 let screenRatio = screenHeight / screenWidth
 let labelColorThreshold:CGFloat = 2.4

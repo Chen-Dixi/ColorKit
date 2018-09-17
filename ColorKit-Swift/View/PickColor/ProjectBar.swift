@@ -23,6 +23,7 @@ class ProjectBar: UIView {
     */
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = UIColor.white
     }
     
     func setProject(_ project:Project){

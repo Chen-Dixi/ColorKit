@@ -84,7 +84,7 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (inputTextField.text == ""){
+        if !isLegalContent(){
             confirmButton.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
             invokeNotificationFeedback(type: UINotificationFeedbackType.warning)
             
@@ -100,7 +100,7 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
     
     @objc
     func enableConfirmButton(){
-        if let string = inputTextField.text, string != ""{
+        if isLegalContent(){
             confirmButton.backgroundColor = UIColor.ColorKitBlue()
             
         }else{
@@ -112,7 +112,7 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
     
     @objc
     func confirmClick(){
-        if let string = inputTextField.text, string != ""{
+        if isLegalContent(){
             inputTextField.resignFirstResponder()
             buttonConfirmCallback(inputTextField.text!)
         }else{
@@ -120,6 +120,13 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
             invokeNotificationFeedback(type: .warning)
         }
         
+    }
+    
+    func isLegalContent() -> Bool{
+        if let string = inputTextField.text, string != ""{
+            return true
+        }
+        return false
     }
     
     public func initState(){

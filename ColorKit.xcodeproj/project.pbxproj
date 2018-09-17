@@ -113,7 +113,9 @@
 		4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */; };
 		4CC475912111EA3C008A135C /* Bades.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC475902111EA3C008A135C /* Bades.xcassets */; };
 		4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4759321121198008A135C /* ProjectSettingViewController.swift */; };
-		4CD996B3214F37910095F708 /* ColorKit-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C965920214B82A400541EF2 /* ColorKit-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */; };
+		4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */; };
+		4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996BB214F976B0095F708 /* RegexHelper.swift */; };
 		4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F80B210DED5B00F9C294 /* SnapKit.framework */; };
 		4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */; };
 		4CEC4058212ADD1E0003E9F6 /* NewCreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC4057212ADD1E0003E9F6 /* NewCreateColorViewController.swift */; };
@@ -147,28 +149,7 @@
 			remoteGlobalIDString = 4C40813C2109A83E009BBD8C;
 			remoteInfo = "ColorKit-Objc";
 		};
-		4CD996B4214F37910095F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4C1725B5209B64F800A1919D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4C96591F214B82A400541EF2;
-			remoteInfo = "ColorKit-Widget";
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4CD996B6214F37910095F708 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				4CD996B3214F37910095F708 /* ColorKit-Widget.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4C010C6C211D37C3008F84F8 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
@@ -327,6 +308,9 @@
 		4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4CC475902111EA3C008A135C /* Bades.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bades.xcassets; sourceTree = "<group>"; };
 		4CC4759321121198008A135C /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
+		4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProjectViewController.swift; sourceTree = "<group>"; };
+		4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTextFieldAndButtonView.swift; sourceTree = "<group>"; };
+		4CD996BB214F976B0095F708 /* RegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
 		4CE2F80B210DED5B00F9C294 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorViewController.swift; sourceTree = "<group>"; };
 		4CEC4055212ADCAB0003E9F6 /* Slider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slider.framework; path = Carthage/Build/iOS/Slider.framework; sourceTree = "<group>"; };
@@ -426,6 +410,7 @@
 				4C0FDAA521135805007979CC /* badge_list.plist */,
 				4C0FDAA721135915007979CC /* BadgeBoardView.swift */,
 				4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */,
+				4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -629,6 +614,7 @@
 			children = (
 				4C3DD135210F521700723C34 /* SafeDispatch.swift */,
 				4C8928C521304873002C59AB /* UserDefaultsTool.swift */,
+				4CD996BB214F976B0095F708 /* RegexHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -810,6 +796,7 @@
 				4C010C70211D3C01008F84F8 /* CreateColorFromImageViewController.swift */,
 				4CBD4426214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard */,
 				4CEC4057212ADD1E0003E9F6 /* NewCreateColorViewController.swift */,
+				4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */,
 			);
 			path = AppendColor;
 			sourceTree = "<group>";
@@ -892,12 +879,10 @@
 				4C1725E3209B65D700A1919D /* Frameworks */,
 				4C1725E4209B65D700A1919D /* Resources */,
 				4CE2F809210DECB900F9C294 /* ShellScript */,
-				4CD996B6214F37910095F708 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4CD996B5214F37910095F708 /* PBXTargetDependency */,
 			);
 			name = "ColorKit-Swift";
 			productName = "ColorKit-Swift";
@@ -1182,6 +1167,7 @@
 				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
 				4C45C234210C36AC0048DAE8 /* CellSwipeDirection.swift in Sources */,
 				4C1725EB209B65D800A1919D /* ViewController.swift in Sources */,
+				4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */,
 				4C4241892128778F0070350F /* SwiftNotice.swift in Sources */,
 				4C62C100210CB54000682437 /* CommonUtil.swift in Sources */,
 				4C17260E209B6B8800A1919D /* BaseViewController.swift in Sources */,
@@ -1189,6 +1175,7 @@
 				4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */,
 				4C45C23A210C407E0048DAE8 /* ColorCardCell.swift in Sources */,
 				4C010C6D211D37C3008F84F8 /* CardPreview.swift in Sources */,
+				4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */,
 				4C3B62D920A35327006257E2 /* Reusable.swift in Sources */,
 				4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */,
 				4C654E4A214E7EF400F0EB4F /* BaseTableViewController.swift in Sources */,
@@ -1225,6 +1212,7 @@
 				4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */,
 				4C8928C621304873002C59AB /* UserDefaultsTool.swift in Sources */,
 				4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */,
+				4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */,
 				4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
 				4C654E48214E7EB600F0EB4F /* FeaturedColorViewController.swift in Sources */,
@@ -1285,11 +1273,6 @@
 			isa = PBXTargetDependency;
 			target = 4C40813C2109A83E009BBD8C /* ColorKit-Objc */;
 			targetProxy = 4C4081582109A840009BBD8C /* PBXContainerItemProxy */;
-		};
-		4CD996B5214F37910095F708 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4C96591F214B82A400541EF2 /* ColorKit-Widget */;
-			targetProxy = 4CD996B4214F37910095F708 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1618,7 +1601,6 @@
 		4C172604209B65D900A1919D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1647,7 +1629,6 @@
 		4C172605209B65D900A1919D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

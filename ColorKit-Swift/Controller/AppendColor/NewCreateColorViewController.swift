@@ -15,7 +15,13 @@ class NewCreateColorViewController: PresentBaseViewController {
     var scrollview:UIScrollView!
     var project: Project!
     var titleInputView:TextFieldAndButtonView!
+    var hexInputView:HexColorTextFieldAndButtonView!
     var titleBlackMaskView:UIView = {
+        let blackMask = UIView(frame: UIScreen.main.bounds)
+        blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        return blackMask
+    }()
+    var hexColorBlackMaskView:UIView = {
         let blackMask = UIView(frame: UIScreen.main.bounds)
         blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         return blackMask
@@ -49,15 +55,21 @@ class NewCreateColorViewController: PresentBaseViewController {
         colorPreviewCard.layer.shadowOpacity = 0.8
         scrollview.addSubview(colorPreviewCard)
         projectBar = UINib(nibName: "ProjectBar", bundle: nil).instantiate(withOwner: nil, options: nil).last as! ProjectBar
-        projectBar.frame = CGRect(x: 1, y: 1, width: screenWidth, height: 40)
+        projectBar.frame = CGRect(x: 0, y: statusBarHeight+(navigationController?.navigationBar.frame.height ?? 0   ), width: screenWidth, height: 40)
         projectBar.setProject(project)
-        scrollview.addSubview(projectBar)
-
+        view.addSubview(projectBar)
+        let projectTap = UITapGestureRecognizer(target: self, action: #selector(showChooseProjectView))
+        projectBar.addGestureRecognizer(projectTap)
+        
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(showNameInputComponent))
-        colorPreviewCard.addGestureRecognizer(tap)
+        colorPreviewCard.titleLabel.addGestureRecognizer(tap)
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(showHexInputComponent))
+        colorPreviewCard.hexLabel.addGestureRecognizer(tap2)
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(tapHandler1))
         titleBlackMaskView.addGestureRecognizer(tapGesture1)
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(tapHandler2))
+        hexColorBlackMaskView.addGestureRecognizer(tapGesture2)
         titleInputView = TextFieldAndButtonView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 45) ) {
             [weak self] (name) in
             if let strongSelf = self{
@@ -66,17 +78,32 @@ class NewCreateColorViewController: PresentBaseViewController {
                 
             }
         }
-        
+        hexInputView = HexColorTextFieldAndButtonView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 45) ) {
+            [weak self] (hex) in
+            if let strongSelf = self{
+                
+                let (r,g,b) = CommonUtil.ColorHex(hex) ?? (0,0,0)
+                (strongSelf.r,strongSelf.g,strongSelf.b) = (r,g,b)
+                strongSelf.redSlider.fraction = CGFloat(r)/255
+                strongSelf.greenSlider.fraction = CGFloat(g)/255
+                strongSelf.blueSlider.fraction = CGFloat(b)/255
+                strongSelf.colorPreviewCard.setColor(red: r, green: g, blue: b)
+                strongSelf.tapHandler2()// removeFromSubview
+                
+            }
+        }
         keyboardMan.animateWhenKeyboardAppear  = { [weak self] appearPostIndex, keyboardHeight, keyboardHeightIncrement in
             
             if let strongSelf = self{
                 strongSelf.titleInputView.setBottomY(screenHeight-keyboardHeight)
+                strongSelf.hexInputView.setBottomY(screenHeight-keyboardHeight)
             }
         }
         
         keyboardMan.animateWhenKeyboardDisappear = { [weak self] keyboardHeight in
             if let strongSelf = self{
                 strongSelf.titleInputView.frame.origin.y = screenHeight
+                strongSelf.hexInputView.frame.origin.y = screenHeight
             }
         }
         
@@ -186,6 +213,31 @@ class NewCreateColorViewController: PresentBaseViewController {
     }
     
     @objc
+    func showHexInputComponent(){
+        view.window?.addSubview(hexColorBlackMaskView)
+        
+        hexColorBlackMaskView.addSubview(hexInputView)
+        hexInputView.setBottomY(screenHeight)
+        hexInputView.displayText = colorPreviewCard.hexLabel.text
+        hexInputView.initState()
+        UIView.animate(withDuration: 0.3) {
+            self.hexColorBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        }
+    }
+    
+    @objc
+    private func showChooseProjectView(){
+        let navi = BaseNavigationController()
+        let chooseProjectVC = ChooseProjectViewController { [weak self](project) in
+            
+            self?.projectBar.setProject(project)
+            self?.project = project
+        }
+        navi.addChildViewController(chooseProjectVC)
+        present(navi, animated: true, completion: nil)
+    }
+    
+    @objc
     func tapHandler1(){
         titleInputView.resignFirstResponder()
         
@@ -194,6 +246,19 @@ class NewCreateColorViewController: PresentBaseViewController {
         }) { (finished) in
             self.titleInputView.removeFromSuperview()
             self.titleBlackMaskView.removeFromSuperview()
+        }
+        
+    }
+    
+    @objc
+    func tapHandler2(){
+        hexInputView.resignFirstResponder()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.hexColorBlackMaskView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        }) { (finished) in
+            self.hexInputView.removeFromSuperview()
+            self.hexColorBlackMaskView.removeFromSuperview()
         }
         
     }
