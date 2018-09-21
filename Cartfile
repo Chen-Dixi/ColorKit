@@ -1,5 +1,6 @@
 github "SnapKit/SnapKit" >= 4.0.0
-github "nixzhu/KeyboardMan"
 github "https://github.com/facebook/pop.git"
 github "SVProgressHUD/SVProgressHUD"
+github "nixzhu/KeyboardMan"
+
 

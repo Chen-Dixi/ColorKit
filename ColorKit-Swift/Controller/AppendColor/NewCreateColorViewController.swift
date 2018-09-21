@@ -8,7 +8,7 @@
 
 import UIKit
 import KeyboardMan
-import Slider
+
 import CoreData
 
 class NewCreateColorViewController: PresentBaseViewController {
