@@ -14,6 +14,7 @@ class ColorContainerViewController: BaseViewController {
     
      var tableVC:ColorDetailViewController!
      var cardVC:ColorCardViewController!
+    var cardCollectionVC:ColorCardCollectionViewController!
     private var childSubView:[UIView] = []
     var currenViewIndex:Int = 0
     private var switchvcBtnItem:UIBarButtonItem!
@@ -58,11 +59,21 @@ class ColorContainerViewController: BaseViewController {
         let sb2 = UIStoryboard(name: "ColorCardViewController", bundle: nil)
         cardVC = sb2.instantiateInitialViewController() as! ColorCardViewController
         cardVC.project = project
+        
+        
+        
+        cardCollectionVC = ColorCardCollectionViewController()
+        cardCollectionVC.project = project
+        
         view.addSubview(cardVC.view)
-        view.addSubview(tableVC.view)
-        childSubView.append(tableVC.view)
+        //view.addSubview(tableVC.view)
+        view.addSubview(cardCollectionVC.view)
+        //childSubView.append(tableVC.view)
+        childSubView.append(cardCollectionVC.view)
         childSubView.append(cardVC.view)
-        addChildViewController(tableVC)
+        
+        //addChildViewController(tableVC)
+        addChildViewController(cardCollectionVC)
         addChildViewController(cardVC)
         
         switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))

@@ -117,6 +117,12 @@ extension UIView{
         self.frame = frame
     }
     
+    func setCenterY(_ y:CGFloat){
+        var frame = self.frame
+        frame.origin.y = y-frame.height/2
+        self.frame = frame
+    }
+    
     func getBottomCenterPosition() -> CGPoint{
         
         return CGPoint(x: (frame.maxX+frame.minX) / 2.0, y: frame.maxY)

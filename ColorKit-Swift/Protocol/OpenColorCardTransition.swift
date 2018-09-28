@@ -23,26 +23,36 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
             if let containervc = navvc.topViewController as? ColorContainerViewController{
                 let containerView = transitionContext.containerView
                 
-                if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorDetailViewController{
+                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardCollectionViewController{
                     
-                    let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
-                    let image = UIImage.imageWithColor(color: cell!.backgroundColor!)
-                    let imageView = UIImageView(image:image)
-                    imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
-                    containerView.addSubview(imageView)
+                    var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
+                    
+                    let image = UIImage.imageWithColor(color: cell?.contentView.backgroundColor ?? UIColor.CommonViewBackgroundColor())
+                    let solidImageView = UIImageView(image:image)
+                    solidImageView.frame =  cell?.contentView.convert(cell!.contentView.bounds, to: containerView) ?? CGRect(x: 18, y: screenHeight/2, width: screenWidth-36, height: 100)
+                    solidImageView.layer.cornerRadius = 12
+                    solidImageView.layer.masksToBounds = true
+                    containerView.addSubview(solidImageView)
+                    
                     containerView.insertSubview(toview!, at: 0)
                     UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-                        imageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                        solidImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                        
+                        
                     }) { (finished) in
-                        imageView.isHidden = true
+                        solidImageView.removeFromSuperview()
+                        
                         transitionContext.completeTransition(true)
                     }
                 }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardViewController{
                     // 卡片视图的动画
                     let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
+                    
                     let image = UIImage.imageWithColor(color: cell!.backgroundColor!)
                     let imageView = UIImageView(image:image)
                     imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                    imageView.layer.cornerRadius = 12
+                    imageView.layer.masksToBounds = true
                     containerView.addSubview(imageView)
                     containerView.insertSubview(toview!, at: 0)
                     UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
@@ -55,17 +65,24 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
             } else if let containervc = navvc.topViewController as? CollectColorContainerViewController{
                 let containerView = transitionContext.containerView
                 
-                if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailViewController{
-                    let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
-                    let image = UIImage.imageWithColor(color: cell!.backgroundColor!)
-                    let imageView = UIImageView(image:image)
-                    imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
-                    containerView.addSubview(imageView)
+                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailCollectionViewController{
+                    var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
+                    
+                    let image = UIImage.imageWithColor(color: cell?.contentView.backgroundColor ?? UIColor.CommonViewBackgroundColor())
+                    let solidImageView = UIImageView(image:image)
+                    solidImageView.frame =  cell?.contentView.convert(cell!.contentView.bounds, to: containerView) ?? CGRect(x: 18, y: screenHeight/2, width: screenWidth-36, height: 100)
+                    solidImageView.layer.cornerRadius = 12
+                    solidImageView.layer.masksToBounds = true
+                    containerView.addSubview(solidImageView)
+                    
                     containerView.insertSubview(toview!, at: 0)
                     UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-                        imageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                        solidImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                        
+                        
                     }) { (finished) in
-                        imageView.isHidden = true
+                        solidImageView.removeFromSuperview()
+                        
                         transitionContext.completeTransition(true)
                     }
                 }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorCardViewController{
@@ -74,6 +91,8 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
                     let image = UIImage.imageWithColor(color: cell!.backgroundColor!)
                     let imageView = UIImageView(image:image)
                     imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                    imageView.layer.cornerRadius = 12
+                    imageView.layer.masksToBounds = true
                     containerView.addSubview(imageView)
                     containerView.insertSubview(toview!, at: 0)
                     UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {

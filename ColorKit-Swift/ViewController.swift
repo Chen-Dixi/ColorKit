@@ -8,22 +8,14 @@
 
 import UIKit
 import CoreData
-class ViewController: BaseViewController {
+class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout {
     
     var projects:[Project]=[]
     var managedContext:NSManagedObjectContext?
-    var impactFeedbackGenerator:UIImpactFeedbackGenerator? = UIImpactFeedbackGenerator(style: UIImpactFeedbackStyle.light)
-    var selectionFeedbackGenerator:UISelectionFeedbackGenerator? = UISelectionFeedbackGenerator()
     
-    @IBOutlet weak var tableView: UITableView!{
-        didSet{
-            tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-            tableView.rowHeight = 90
-            tableView.tableFooterView = UIView(frame: footerFrame1)
-            tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
-            
-        }
-    }
+    
+    
+    
     
     @IBAction func addProject(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: NSLocalizedString("add project", comment: ""), message: NSLocalizedString("input project name", comment: ""), preferredStyle: .alert)
@@ -55,15 +47,18 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        impactFeedbackGenerator?.prepare()
-        selectionFeedbackGenerator?.prepare()
-        tableView.registerNibOf(ColorTitleCell.self);
+        collectionView?.bounces = true
+        collectionView?.alwaysBounceVertical = true
+        
+        collectionView?.showsVerticalScrollIndicator = false
+        collectionView?.registerNibOf(ColorTitleCollectionCell.self)
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
-        tableView.addGestureRecognizer(longPressGesture)
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Favorites", comment: ""), style: .plain, target: self, action: #selector(jumpToFavorites))
         fetchProject()
-        tableView.reloadData()
+        collectionView?.reloadData()
         if projects.count > 0 {
             let vc = ColorContainerViewController(project: projects[0])
             navigationController?.pushViewController(vc, animated: false)
@@ -101,128 +96,13 @@ class ViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - draggable tableView
-    private var sourceIndexPath:IndexPath?
-    private var snapshot:UIImageView?
-    private var fingerOffSet:CGSize?
     
-    @objc
-    func longPress(_ longPress:UILongPressGestureRecognizer){
-        let state = longPress.state
-        let position = longPress.location(in: tableView)
-        let indexPath = tableView.indexPathForRow(at: position)
-        
-        
-        switch state {
-        case .began:
-            guard let indexPath = indexPath else{
-                return
-            }
-            if let selectedIndexPath = tableView.indexPathForSelectedRow{
-                tableView.deselectRow(at: selectedIndexPath, animated: false)
-            }
-            tableView.allowsSelection = false;
-            sourceIndexPath = indexPath
-            guard let cell = tableView.cellForRow(at: indexPath) else{
-                return
-            }
-            impactFeedbackGenerator?.impactOccurred()
-            
-            cell.isHighlighted = false
-            snapshot = customSnapshotFromView(cell)
-            let center = cell.center
-            fingerOffSet = CGSize(width: center.x-position.x, height: center.y-position.y)
-            if let snapshot = snapshot{
-                snapshot.center = center
-                tableView.addSubview(snapshot)
-
-                UIView.animate(withDuration: 0.25) {
-                    snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 5.0)
-                    snapshot.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-                    cell.isHidden = true
-                }
-            }
-            
-        case .changed:
-            guard let snapshot = snapshot else{
-                return
-            }
-            guard let fingerOffset = fingerOffSet else{
-                return
-            }
-            let newCenter = CGPoint(x: position.x+fingerOffset.width , y: position.y+fingerOffset.height )
-            snapshot.center = newCenter
-            
-            if let indexPath = indexPath , let sourceIndexPath = sourceIndexPath,let managedContext = managedContext{
-                if indexPath != sourceIndexPath && !isScrollToEdge(){
-                    projects.swapAt(indexPath.row, sourceIndexPath.row)
-                    tableView.beginUpdates()
-                    tableView.moveRow(at: sourceIndexPath, to: indexPath)
-                    swapOrder(source: sourceIndexPath, with: indexPath, context: managedContext)
-                    tableView.endUpdates()
-                    self.selectionFeedbackGenerator?.selectionChanged()
-                    self.sourceIndexPath = indexPath
-                }
-            }
-            
-            
-            
-        default:
-            tableView.allowsSelection = true;
-            if let sourceIndexPath = sourceIndexPath{
-                guard let cell = tableView.cellForRow(at: sourceIndexPath)else{
-                    return
-                }
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.snapshot?.center = cell.center
-                    
-                    self.snapshot?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                }) { (finished) in
-                    cell.isHidden = false
-                    self.sourceIndexPath = nil
-                    self.snapshot?.removeFromSuperview()
-                    self.impactFeedbackGenerator?.impactOccurred()
-                }
-            }
-        }
-        
-    }
-
     deinit {
-        impactFeedbackGenerator = nil
-        selectionFeedbackGenerator = nil
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
     }
     
     
-    /*
-     * 现在不做cell移动到顶部后 tableView 自动滑动
-     */
-    private func isScrollToEdge()->Bool{
-        guard let snapshot = snapshot else {
-            return false
-        }
-        
-        if (snapshot.frame.minY < tableView.contentOffset.y && tableView.contentOffset.y > 0.0) || (snapshot.frame.maxY > tableView.contentOffset.y+tableView.frame.height && tableView.contentOffset.y+tableView.frame.height < tableView.contentSize.height){
-            return true
-        }
-        
-        return false
-    }
     
-    
-    private func customSnapshotFromView(_ inputView:UIView)-> UIImageView{
-        
-        let image = inputView.snapshotImage()
-        
-        let snapshot = UIImageView(image: image)
-        snapshot.layer.masksToBounds = false;
-        snapshot.layer.cornerRadius = 0.0;
-        //snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 0.0)
-        snapshot.layer.shadowRadius = 5.0;
-        snapshot.layer.shadowOpacity = 0.4;
-        return snapshot
-    }
     
     private func add(projectName name:String){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -240,7 +120,7 @@ class ViewController: BaseViewController {
         do{
             try managedContext.save()
             projects.append(project)
-            tableView.reloadData()
+            collectionView?.reloadData()
         } catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -281,7 +161,7 @@ class ViewController: BaseViewController {
     @objc
     func refreshData(){
         fetchProject()
-        tableView.reloadData()
+        collectionView?.reloadData()
     }
     
     @objc
@@ -290,14 +170,10 @@ class ViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-}
 
-extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate{
     
     //MARK: - TableView delegate and datasource
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+   
     
     
     
@@ -309,7 +185,7 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
                 if let strongSelf = self{
                     if let managedContext = strongSelf.managedContext{
                         strongSelf.delete(indexPath: indexPath, context: managedContext)
-                        strongSelf.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+                        strongSelf.collectionView?.deleteItems(at: [indexPath])
                     }
                 }
             }
@@ -317,34 +193,74 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource,UIGestureRec
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
         return projects.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        defer{
-            tableView.deselectRow(at: indexPath, animated: false)
-        }
-        
-        //let sb = UIStoryboard(name: "ColorCardViewController", bundle: nil)
-        //let vc = sb.instantiateInitialViewController() as! ColorCardViewController
-        let vc = ColorContainerViewController(project: projects[indexPath.row])
-        
-        //vc.project = projects[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
-        
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell:ColorCardCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
+//
+//        // Configure the cell
+//        cell.setColorInfo(color: colors[indexPath.item])
+//        return cell
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: screenWidth-36, height: 72)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: collectionViewMinimumLineSpacing, left: 0, bottom: 48, right: 0)
+    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell : ColorTitleCell = tableView.dequeueReusableCell();
-        cell.titleLabel.text = projects[indexPath.row].name
-        cell.iconImageView.image = UIImage(named: projects[indexPath.row].badgeName ?? "badge_game")
+    func collectionView(_ collectionView: UICollectionView!, itemAt fromIndexPath: IndexPath!, willMoveTo toIndexPath: IndexPath!) {
+        invokeSelectionFeedback()
+        projects.swapAt(fromIndexPath.item, toIndexPath.row)
+        let u = projects[fromIndexPath.item],v = projects[toIndexPath.row]
+        (u.createdAt , v.createdAt) = (v.createdAt,u.createdAt)
+        saveContext()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ColorContainerViewController(project: projects[indexPath.item])
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:ColorTitleCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.titleLabel.text = projects[indexPath.item].name
+        cell.badgeImageView.image = UIImage(named: projects[indexPath.item].badgeName ?? "badge_game")
         return cell
     }
     
-    //MARK: - gesture delegate
+    func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, didBeginDraggingItemAt indexPath: IndexPath!) {
+        invokeImpactFeedbackMedium()
+    }
     
+    func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, didEndDraggingItemAt indexPath: IndexPath!) {
+        invokeImpactFeedbackMedium()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+        //delete code
+        let vc = DeleteProjectAlertController {
+            [weak self] in
+            if let strongSelf = self{
+                if let managedContext = strongSelf.managedContext{
+                    strongSelf.delete(indexPath: indexPath, context: managedContext)
+                    strongSelf.collectionView?.deleteItems(at: [indexPath])
+                    
+                }
+            }
+        }
+        present(vc, animated: true, completion: nil)
+    }
 }
 

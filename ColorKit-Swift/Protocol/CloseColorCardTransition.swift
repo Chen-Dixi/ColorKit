@@ -21,6 +21,8 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let containerView = transitionContext.containerView
         let imageView = UIImageView(image: UIImage.imageWithColor(color: fromvc.tobackgroundColor!))
         imageView.frame = fromview!.bounds
+        imageView.layer.cornerRadius = 12
+        imageView.layer.masksToBounds = true
         containerView.addSubview(imageView)
         
         if let tabvc = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? BaseTabBarController, let navvc = tabvc.selectedViewController as? BaseNavigationController{
@@ -29,17 +31,25 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
             
                 
                 
-                if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorDetailViewController{
+                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardCollectionViewController{
                 
     //
     //            let fromview = fromvc?.view
     //            let toview = tovc.view
     //
-                    let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
-                
+                    var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
+                    if cell == nil {
+                        //            self.collectionView.reloadData()
+                        listvc.collectionView?.layoutIfNeeded()
+                        cell = listvc.collectionView?.cellForItem(at:listvc.selectedIndex)
+                        
+                        listvc.collectionView?.selectItem(at: listvc.selectedIndex, animated: false, scrollPosition: .centeredVertically)
+                    }
+                    
+                   
                     UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
                         
-                        imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        imageView.frame =  cell?.contentView.convert(cell!.contentView.bounds, to: containerView) ?? CGRect(x: 18, y: screenHeight/2, width: screenWidth-36, height: 100)
                         
                     }){ (finished) in
                             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -50,10 +60,17 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                     }
                 }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardViewController{
                     // 卡片视图的动画
-                    let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
+                    var cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
+                    if cell == nil {
+                        //            self.collectionView.reloadData()
+                        cardvc.cardSwiper.verticalCardSwiperView.layoutIfNeeded()
+                        cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at:cardvc.selectedIndex)
+                        
+                        cardvc.cardSwiper.verticalCardSwiperView.selectItem(at: cardvc.selectedIndex, animated: false, scrollPosition: .centeredVertically)
+                    }
                     UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
                         
-                        imageView.frame = cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        imageView.frame = cell?.contentView.convert(cell!.contentView.bounds, to: containerView) ?? CGRect(x: screenWidth/2, y: screenHeight/2, width: 0, height: 0)
                         
                     }){ (finished) in
                         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -65,13 +82,21 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                     
                 }
             }else if let containervc = navvc.topViewController as? CollectColorContainerViewController{
-                if let tablevc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailViewController{
+                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailCollectionViewController{
                    
-                    let cell = tablevc.tableView.cellForRow(at: tablevc.selectedIndex)
+                    var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
+                    if cell == nil {
+                        //            self.collectionView.reloadData()
+                        listvc.collectionView?.layoutIfNeeded()
+                        cell = listvc.collectionView?.cellForItem(at:listvc.selectedIndex)
+                        
+                        listvc.collectionView?.selectItem(at: listvc.selectedIndex, animated: false, scrollPosition: .centeredVertically)
+                    }
+                    
                     
                     UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {
                         
-                        imageView.frame =  cell!.contentView.convert(cell!.contentView.bounds, to: containerView)
+                        imageView.frame =  cell?.contentView.convert(cell!.contentView.bounds, to: containerView) ?? CGRect(x: 18, y: screenHeight/2, width: screenWidth-36, height: 100)
                         
                     }){ (finished) in
                         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)

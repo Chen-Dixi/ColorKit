@@ -16,7 +16,7 @@ class FeaturedColorViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = 120
         navigationItem.title = NSLocalizedString("Featured", comment: "")
         tableView.registerNibOf(FeaturedColorCell.self)
         fetchColor()

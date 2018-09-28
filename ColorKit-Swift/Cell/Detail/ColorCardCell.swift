@@ -32,10 +32,13 @@ class ColorCardCell : CardCell{
         super.prepareForReuse()
         
     }
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = 12
+    }
     override func layoutSubviews() {
         
-        self.layer.cornerRadius = 12
+        
         
         super.layoutSubviews()
     }

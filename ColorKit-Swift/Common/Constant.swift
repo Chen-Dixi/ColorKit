@@ -15,6 +15,11 @@ let footerFrame1 = CGRect(x: 0, y: 0, width: screenWidth, height: 48)
 let screenRatio = screenHeight / screenWidth
 let labelColorThreshold:CGFloat = 2.4
 
+let collectionViewWidth = screenWidth*0.35
+let collectionViewMinimumLineSpacing:CGFloat = 18
+let collectionViewInsets = screenWidth*0.1125
+
+
 struct Font_Light {
     static let Size_24=UIFont(name: "PingFangSC-Light",size: 24)
     static let Size_20=UIFont(name: "PingFangSC-Light",size: 20)

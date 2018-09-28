@@ -12,6 +12,11 @@
 		4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7DC020B85DED006E4C25 /* Constant.swift */; };
 		4C0FDAA621135805007979CC /* badge_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0FDAA521135805007979CC /* badge_list.plist */; };
 		4C0FDAA821135915007979CC /* BadgeBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0FDAA721135915007979CC /* BadgeBoardView.swift */; };
+		4C10ADE02154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m */; };
+		4C10ADE22154CD8700273809 /* ColorCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADE12154CD8700273809 /* ColorCardCollectionViewController.swift */; };
+		4C10ADE52154D1E600273809 /* ColorCardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADE32154D1E600273809 /* ColorCardCollectionCell.swift */; };
+		4C10ADE62154D1E600273809 /* ColorCardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C10ADE42154D1E600273809 /* ColorCardCollectionCell.xib */; };
+		4C10ADE82154D23F00273809 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADE72154D23F00273809 /* BaseCollectionViewController.swift */; };
 		4C1725C2209B64F800A1919D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1725C1209B64F800A1919D /* AppDelegate.m */; };
 		4C1725C5209B64F800A1919D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1725C4209B64F800A1919D /* ViewController.m */; };
 		4C1725C7209B64F900A1919D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1725C6209B64F900A1919D /* Assets.xcassets */; };
@@ -102,10 +107,16 @@
 		4C8928C621304873002C59AB /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8928C521304873002C59AB /* UserDefaultsTool.swift */; };
 		4C8B4C7E213942CB00392703 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */; };
 		4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B96982116059A00860DB3 /* GreatAlertController.swift */; };
+		4C92600521553E5C00BF801B /* ColorTitleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92600321553E5C00BF801B /* ColorTitleCollectionCell.swift */; };
+		4C92600621553E5C00BF801B /* ColorTitleCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C92600421553E5C00BF801B /* ColorTitleCollectionCell.xib */; };
 		4C965922214B82A400541EF2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C965921214B82A400541EF2 /* NotificationCenter.framework */; };
 		4C965925214B82A400541EF2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C965924214B82A400541EF2 /* TodayViewController.swift */; };
 		4C965928214B82A400541EF2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C965926214B82A400541EF2 /* MainInterface.storyboard */; };
+		4C995871215B8CC700EA356D /* UIView+ColorOfPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */; };
 		4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */; };
+		4CB529D221580E1A005481DF /* CollectColorDetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB529D121580E1A005481DF /* CollectColorDetailCollectionViewController.swift */; };
+		4CB529D621581A56005481DF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB529D521581A56005481DF /* AboutViewController.swift */; };
+		4CB529D821581B3E005481DF /* AboutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB529D721581B3E005481DF /* AboutViewController.storyboard */; };
 		4CBD4424214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD4426214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard */; };
 		4CBD442E214D729E00E0B9D1 /* CardPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD4430214D729E00E0B9D1 /* CardPreview.xib */; };
 		4CBD4437214D756F00E0B9D1 /* MyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD4439214D756F00E0B9D1 /* MyViewController.storyboard */; };
@@ -113,6 +124,7 @@
 		4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */; };
 		4CC475912111EA3C008A135C /* Bades.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC475902111EA3C008A135C /* Bades.xcassets */; };
 		4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4759321121198008A135C /* ProjectSettingViewController.swift */; };
+		4CC67E6821562F2E007A617A /* BaseSwipeLeftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */; };
 		4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */; };
 		4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */; };
 		4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996BB214F976B0095F708 /* RegexHelper.swift */; };
@@ -124,7 +136,6 @@
 		4CEC4080212B026D0003E9F6 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC407C212B026C0003E9F6 /* Filters.swift */; };
 		4CEC4081212B026D0003E9F6 /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC407D212B026C0003E9F6 /* ValueView.swift */; };
 		4CEC4083212B104A0003E9F6 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC4059212AE2570003E9F6 /* pop.framework */; };
-		4CF20D6E21198080005C5E0D /* AboutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF20D6D21198080005C5E0D /* AboutViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +168,12 @@
 		4C0D7DC020B85DED006E4C25 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4C0FDAA521135805007979CC /* badge_list.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = badge_list.plist; sourceTree = "<group>"; };
 		4C0FDAA721135915007979CC /* BadgeBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBoardView.swift; sourceTree = "<group>"; };
+		4C10ADDE2154C3F100273809 /* LXReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		4C10ADE12154CD8700273809 /* ColorCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCardCollectionViewController.swift; sourceTree = "<group>"; };
+		4C10ADE32154D1E600273809 /* ColorCardCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCardCollectionCell.swift; sourceTree = "<group>"; };
+		4C10ADE42154D1E600273809 /* ColorCardCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCardCollectionCell.xib; sourceTree = "<group>"; };
+		4C10ADE72154D23F00273809 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		4C1725BD209B64F800A1919D /* ColorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1725C0209B64F800A1919D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C1725C1209B64F800A1919D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -289,12 +306,19 @@
 		4C8928C521304873002C59AB /* UserDefaultsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTool.swift; sourceTree = "<group>"; };
 		4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		4C8B96982116059A00860DB3 /* GreatAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatAlertController.swift; sourceTree = "<group>"; };
+		4C92600321553E5C00BF801B /* ColorTitleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTitleCollectionCell.swift; sourceTree = "<group>"; };
+		4C92600421553E5C00BF801B /* ColorTitleCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTitleCollectionCell.xib; sourceTree = "<group>"; };
 		4C965920214B82A400541EF2 /* ColorKit-Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ColorKit-Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C965921214B82A400541EF2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4C965924214B82A400541EF2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		4C965927214B82A400541EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4C965929214B82A400541EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C99586F215B8CAE00EA356D /* UIView+ColorOfPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ColorOfPoint.h"; sourceTree = "<group>"; };
+		4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ColorOfPoint.m"; sourceTree = "<group>"; };
 		4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseColorCardTransition.swift; sourceTree = "<group>"; };
+		4CB529D121580E1A005481DF /* CollectColorDetailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectColorDetailCollectionViewController.swift; sourceTree = "<group>"; };
+		4CB529D521581A56005481DF /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		4CB529D721581B3E005481DF /* AboutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutViewController.storyboard; sourceTree = "<group>"; };
 		4CBD4423214D6F3700E0B9D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4CBD4425214D713300E0B9D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CreateColorFromImageViewController.storyboard; sourceTree = "<group>"; };
 		4CBD442C214D724A00E0B9D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CreateColorFromImageViewController.strings"; sourceTree = "<group>"; };
@@ -308,6 +332,7 @@
 		4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4CC475902111EA3C008A135C /* Bades.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bades.xcassets; sourceTree = "<group>"; };
 		4CC4759321121198008A135C /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
+		4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSwipeLeftCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProjectViewController.swift; sourceTree = "<group>"; };
 		4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTextFieldAndButtonView.swift; sourceTree = "<group>"; };
 		4CD996BB214F976B0095F708 /* RegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
@@ -321,7 +346,6 @@
 		4CEC407B212B026C0003E9F6 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		4CEC407C212B026C0003E9F6 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		4CEC407D212B026C0003E9F6 /* ValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
-		4CF20D6D21198080005C5E0D /* AboutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +437,15 @@
 				4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		4C10ADDD2154C3F100273809 /* LXReorderableCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4C10ADDE2154C3F100273809 /* LXReorderableCollectionViewFlowLayout.h */,
+				4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m */,
+			);
+			path = LXReorderableCollectionViewFlowLayout;
 			sourceTree = "<group>";
 		};
 		4C1725B4209B64F800A1919D = {
@@ -532,6 +565,7 @@
 		4C21B1E621181B4500C90659 /* MyCollect */ = {
 			isa = PBXGroup;
 			children = (
+				4CB529D121580E1A005481DF /* CollectColorDetailCollectionViewController.swift */,
 				4C21B1EB21181CAD00C90659 /* CollectColorDetailViewController.swift */,
 				4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */,
 				4C21B1F121184D5C00C90659 /* CollectColorCardViewController.storyboard */,
@@ -555,6 +589,7 @@
 			children = (
 				4C24EA252149E65300BF658C /* PresentBaseViewController.swift */,
 				4C654E49214E7EF400F0EB4F /* BaseTableViewController.swift */,
+				4C10ADE72154D23F00273809 /* BaseCollectionViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -570,10 +605,13 @@
 		4C3B62CC20A33F66006257E2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4CC67E6621562EFC007A617A /* Base */,
 				4C654E42214E7A9C00F0EB4F /* Featured */,
 				4C4CCC6C20A886C500DAC4C7 /* Detail */,
 				4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */,
 				4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */,
+				4C92600321553E5C00BF801B /* ColorTitleCollectionCell.swift */,
+				4C92600421553E5C00BF801B /* ColorTitleCollectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -683,6 +721,7 @@
 		4C4CCC6720A885DC00DAC4C7 /* ColorDetail */ = {
 			isa = PBXGroup;
 			children = (
+				4C10ADE12154CD8700273809 /* ColorCardCollectionViewController.swift */,
 				4C4CCC6820A8864A00DAC4C7 /* ColorDetailViewController.swift */,
 				4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */,
 				4C45C21F210C20AD0048DAE8 /* ColorCardViewController.storyboard */,
@@ -699,6 +738,8 @@
 				4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */,
 				4C45C23B210C40A00048DAE8 /* ColorCardCell.xib */,
 				4C45C239210C407E0048DAE8 /* ColorCardCell.swift */,
+				4C10ADE32154D1E600273809 /* ColorCardCollectionCell.swift */,
+				4C10ADE42154D1E600273809 /* ColorCardCollectionCell.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -766,6 +807,15 @@
 			path = "ColorKit-Widget";
 			sourceTree = "<group>";
 		};
+		4C99586E215B8C8100EA356D /* ColorOfPoint */ = {
+			isa = PBXGroup;
+			children = (
+				4C99586F215B8CAE00EA356D /* UIView+ColorOfPoint.h */,
+				4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */,
+			);
+			path = ColorOfPoint;
+			sourceTree = "<group>";
+		};
 		4CC475922112117B008A135C /* ProjectSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +823,14 @@
 				4C654E36214E70FE00F0EB4F /* ProjectSettingViewController.storyboard */,
 			);
 			path = ProjectSetting;
+			sourceTree = "<group>";
+		};
+		4CC67E6621562EFC007A617A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		4CE2F80A210DED5B00F9C294 /* Frameworks */ = {
@@ -804,6 +862,8 @@
 		4CEC4079212B026C0003E9F6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4C99586E215B8C8100EA356D /* ColorOfPoint */,
+				4C10ADDD2154C3F100273809 /* LXReorderableCollectionViewFlowLayout */,
 				4CEC407A212B026C0003E9F6 /* Slider.h */,
 				4CEC407B212B026C0003E9F6 /* Slider.swift */,
 				4CEC407C212B026C0003E9F6 /* Filters.swift */,
@@ -815,7 +875,8 @@
 		4CF20D6C2119805E005C5E0D /* AboutColorKit */ = {
 			isa = PBXGroup;
 			children = (
-				4CF20D6D21198080005C5E0D /* AboutViewController.storyboard */,
+				4CB529D521581A56005481DF /* AboutViewController.swift */,
+				4CB529D721581B3E005481DF /* AboutViewController.storyboard */,
 			);
 			path = AboutColorKit;
 			sourceTree = "<group>";
@@ -1042,13 +1103,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF20D6E21198080005C5E0D /* AboutViewController.storyboard in Resources */,
 				4CC475912111EA3C008A135C /* Bades.xcassets in Resources */,
 				4C5D94B4214D3EEF0043567C /* Localizable.strings in Resources */,
 				4C0FDAA621135805007979CC /* badge_list.plist in Resources */,
 				4C3DAC6021256C3D00F2DBCE /* ColorInfoViewController.storyboard in Resources */,
 				4C654E46214E7B5300F0EB4F /* FeaturedColorCell.xib in Resources */,
 				4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */,
+				4CB529D821581B3E005481DF /* AboutViewController.storyboard in Resources */,
 				4C45C220210C20AD0048DAE8 /* ColorCardViewController.storyboard in Resources */,
 				4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */,
 				4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */,
@@ -1057,9 +1118,11 @@
 				4C654E5B214EB4B700F0EB4F /* ProjectBar.xib in Resources */,
 				4CBD4437214D756F00E0B9D1 /* MyViewController.storyboard in Resources */,
 				4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */,
+				4C10ADE62154D1E600273809 /* ColorCardCollectionCell.xib in Resources */,
 				4CBD4424214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard in Resources */,
 				4C21B1F221184D5C00C90659 /* CollectColorCardViewController.storyboard in Resources */,
 				4C654E34214E70FE00F0EB4F /* ProjectSettingViewController.storyboard in Resources */,
+				4C92600621553E5C00BF801B /* ColorTitleCollectionCell.xib in Resources */,
 				4C21B1F421184E0400C90659 /* CollectColorDetailViewController.storyboard in Resources */,
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */,
@@ -1148,6 +1211,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C21B1EC21181E9E00C90659 /* CollectColorDetailViewController.swift in Sources */,
+				4C10ADE52154D1E600273809 /* ColorCardCollectionCell.swift in Sources */,
+				4C995871215B8CC700EA356D /* UIView+ColorOfPoint.m in Sources */,
 				4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */,
 				4C654E57214EAADD00F0EB4F /* FeatureColorInfoViewController.swift in Sources */,
 				4C654E59214EB49500F0EB4F /* ProjectBar.swift in Sources */,
@@ -1161,22 +1226,26 @@
 				4C424186212872240070350F /* UIButton+Extension.swift in Sources */,
 				4C45C22F210C36AC0048DAE8 /* VerticalCardSwiperView.swift in Sources */,
 				4C45C235210C36AC0048DAE8 /* PanDirection.swift in Sources */,
+				4CC67E6821562F2E007A617A /* BaseSwipeLeftCollectionViewCell.swift in Sources */,
 				4C654E53214EA03600F0EB4F /* FeatureColor.swift in Sources */,
 				4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */,
 				4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */,
 				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
+				4CB529D621581A56005481DF /* AboutViewController.swift in Sources */,
 				4C45C234210C36AC0048DAE8 /* CellSwipeDirection.swift in Sources */,
 				4C1725EB209B65D800A1919D /* ViewController.swift in Sources */,
 				4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */,
 				4C4241892128778F0070350F /* SwiftNotice.swift in Sources */,
 				4C62C100210CB54000682437 /* CommonUtil.swift in Sources */,
 				4C17260E209B6B8800A1919D /* BaseViewController.swift in Sources */,
+				4CB529D221580E1A005481DF /* CollectColorDetailCollectionViewController.swift in Sources */,
 				4C45C238210C36AC0048DAE8 /* VerticalCardSwiperDelegate.swift in Sources */,
 				4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */,
 				4C45C23A210C407E0048DAE8 /* ColorCardCell.swift in Sources */,
 				4C010C6D211D37C3008F84F8 /* CardPreview.swift in Sources */,
 				4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */,
 				4C3B62D920A35327006257E2 /* Reusable.swift in Sources */,
+				4C10ADE22154CD8700273809 /* ColorCardCollectionViewController.swift in Sources */,
 				4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */,
 				4C654E4A214E7EF400F0EB4F /* BaseTableViewController.swift in Sources */,
 				4CEC4081212B026D0003E9F6 /* ValueView.swift in Sources */,
@@ -1187,6 +1256,7 @@
 				4CEC407F212B026D0003E9F6 /* Slider.swift in Sources */,
 				4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */,
 				4C3B80EE211090B800B9AC58 /* BaseTabBarController.swift in Sources */,
+				4C92600521553E5C00BF801B /* ColorTitleCollectionCell.swift in Sources */,
 				4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */,
 				4C65366B209D426E006DFA0E /* BaseNavigationController.swift in Sources */,
 				4C0FDAA821135915007979CC /* BadgeBoardView.swift in Sources */,
@@ -1199,6 +1269,7 @@
 				4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */,
 				4CEC4058212ADD1E0003E9F6 /* NewCreateColorViewController.swift in Sources */,
 				4C45C23E210C5EFC0048DAE8 /* ColorContainerViewController.swift in Sources */,
+				4C10ADE82154D23F00273809 /* BaseCollectionViewController.swift in Sources */,
 				4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */,
 				4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */,
 				4C45C237210C36AC0048DAE8 /* Extensions.swift in Sources */,
@@ -1213,6 +1284,7 @@
 				4C8928C621304873002C59AB /* UserDefaultsTool.swift in Sources */,
 				4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */,
 				4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */,
+				4C10ADE02154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m in Sources */,
 				4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
 				4C654E48214E7EB600F0EB4F /* FeaturedColorViewController.swift in Sources */,
@@ -1620,6 +1692,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				"SWIFT_COMPILATION_MODE[arch=*]" = singlefile;
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorKit-Swift/ColorKit-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1648,6 +1722,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorKit-Swift/ColorKit-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

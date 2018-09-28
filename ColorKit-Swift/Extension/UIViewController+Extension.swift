@@ -63,6 +63,19 @@ extension UIViewController{
         appDelegate.saveContext()
     }
     
+    func deleteColorData(color:Color){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        managedContext.delete(color)
+        
+        appDelegate.saveContext()
+        
+    }
+    
     //MARK: - ColorKit Transaction
     
     func delete(color:Color){

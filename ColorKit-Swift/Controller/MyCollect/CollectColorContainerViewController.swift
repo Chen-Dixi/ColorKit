@@ -12,8 +12,9 @@ class CollectColorContainerViewController: BaseViewController {
 
     private var project:Project!
     
-    private var tableVC:CollectColorDetailViewController!
+    private var tableVC:CollectColorDetailCollectionViewController!
     private var cardVC:CollectColorCardViewController!
+    
     private var childSubView:[UIView] = []
      var currenViewIndex:Int = 0
     
@@ -48,8 +49,9 @@ class CollectColorContainerViewController: BaseViewController {
     }
     
     private func setupUI(){
-        let sb1 = UIStoryboard(name: "CollectColorDetailViewController", bundle: nil)
-        tableVC = sb1.instantiateInitialViewController() as! CollectColorDetailViewController
+       
+        tableVC = CollectColorDetailCollectionViewController()
+        
         
         let sb2 = UIStoryboard(name: "CollectColorCardViewController", bundle: nil)
         cardVC = sb2.instantiateInitialViewController() as! CollectColorCardViewController

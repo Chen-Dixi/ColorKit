@@ -1,22 +1,18 @@
 //
-//  BaseTableViewController.swift
+//  AboutViewController.swift
 //  ColorKit-Swift
 //
-//  Created by Dixi-Chen on 2018/9/16.
-//  Copyright © 2018 Dixi-Chen. All rights reserved.
+//  Created by Dixi-Chen on 2018/9/24.
+//  Copyright © 2018年 Dixi-Chen. All rights reserved.
 //
 
 import UIKit
 
-class BaseTableViewController: UITableViewController {
+class AboutViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        
-        tableView.tableFooterView = UIView(frame: footerFrame1)
-        tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,14 +20,10 @@ class BaseTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -82,7 +74,7 @@ class BaseTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     */

@@ -127,7 +127,7 @@ class MyViewController: UITableViewController {
 
     func jumpToAbount(){
         let sb = UIStoryboard(name: "AboutViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! BaseViewController
+        let vc = sb.instantiateInitialViewController() as! AboutViewController
         vc.navigationItem.title = NSLocalizedString("AboutColourNote", comment: "")
         navigationController?.pushViewController(vc, animated: true)
     }

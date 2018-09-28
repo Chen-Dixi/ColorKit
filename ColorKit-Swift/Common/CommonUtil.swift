@@ -58,6 +58,19 @@ class CommonUtil {
         
         return (Int32(red),Int32(green),Int32(blue))
     }
+    
+    class func getBackgroundColorFromColorData(color:Color) -> UIColor{
+        let red32 = color.value(forKey: "r") as! Int32
+        let green32 = color.value(forKey: "g") as! Int32
+        let blue32 = color.value(forKey: "b") as! Int32
+        
+        let r :CGFloat = CGFloat(red32)/255.0
+        
+        let g :CGFloat = CGFloat(green32)/255.0
+        let b :CGFloat = CGFloat(blue32)/255.0
+        
+        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+    }
 
 }
 
