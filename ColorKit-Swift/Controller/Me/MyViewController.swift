@@ -36,6 +36,7 @@ class MyViewController: UITableViewController {
 
     private enum Section: Int {
         case General
+        case Developer
         case Another
         
     }
@@ -44,6 +45,10 @@ class MyViewController: UITableViewController {
         case Collect
         case Guide
         
+    }
+    
+    private enum DeveloperRow: Int {
+        case Weibo
     }
     
     private enum AnotherRow: Int{
@@ -78,6 +83,17 @@ class MyViewController: UITableViewController {
                 break
            
             }
+        case .Developer:
+            guard let row = DeveloperRow(rawValue: indexPath.row) else {
+                return
+                
+            }
+            switch row{
+            case .Weibo:
+                //跳转我的微博
+                jumpToWeiboHomepage()
+                
+            }
         case .Another:
             guard let row = AnotherRow(rawValue: indexPath.row) else {
                return
@@ -104,6 +120,15 @@ class MyViewController: UITableViewController {
     func jumpToComment(){
         let strLoc = "https://itunes.apple.com/us/app/twitter/id1422973826?mt=8&action=write-review";
         if let url = URL(string: strLoc){
+            if UIApplication.shared.canOpenURL(url){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    func jumpToWeiboHomepage(){
+        let weiboLoc = "sinaweibo://userinfo?uid=2626263585"
+        if let url = URL(string: weiboLoc){
             if UIApplication.shared.canOpenURL(url){
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

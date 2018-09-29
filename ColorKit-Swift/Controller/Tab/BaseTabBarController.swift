@@ -50,7 +50,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         let hDiff:CGFloat=image!.size.height-tabBar.frame.size.height
         if hDiff > 0{
             var center:CGPoint=self.tabBar.center
-            center.y=tabBar.center.y - (image?.size.height ?? 54)/2
+            center.y=tabBar.center.y - (image?.size.height ?? 54)/3
             centerBtn.center=center
             
         }else{

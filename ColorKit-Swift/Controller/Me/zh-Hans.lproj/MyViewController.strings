@@ -1,18 +1,24 @@
 
-/* Class = "UILabel"; text = "分享给朋友"; ObjectID = "NqD-eM-Xvl"; */
-"NqD-eM-Xvl.text" = "分享给朋友";
+/* Class = "UILabel"; text = "分享给朋友"; ObjectID = "DJO-ZU-iwu"; */
+"DJO-ZU-iwu.text" = "分享给朋友";
 
-/* Class = "UITableViewSection"; headerTitle = "其他"; ObjectID = "OXH-c1-cv5"; */
-"OXH-c1-cv5.headerTitle" = "其他";
+/* Class = "UILabel"; text = "关于配色笔记"; ObjectID = "HaC-g2-K6H"; */
+"HaC-g2-K6H.text" = "关于配色笔记";
+
+/* Class = "UITableViewSection"; headerTitle = "关于作者"; ObjectID = "OXH-c1-cv5"; */
+"OXH-c1-cv5.headerTitle" = "关于作者";
 
 /* Class = "UILabel"; text = "精选"; ObjectID = "iXh-Bf-5RA"; */
 "iXh-Bf-5RA.text" = "精选";
 
-/* Class = "UILabel"; text = "App Store 评论"; ObjectID = "jC6-Gu-MQv"; */
-"jC6-Gu-MQv.text" = "App Store 评论";
+/* Class = "UILabel"; text = "Weibo"; ObjectID = "jC6-Gu-MQv"; */
+"jC6-Gu-MQv.text" = "Weibo";
 
-/* Class = "UILabel"; text = "关于配色笔记"; ObjectID = "up0-T2-Bm1"; */
-"up0-T2-Bm1.text" = "关于配色笔记";
+/* Class = "UITableViewSection"; headerTitle = "其他"; ObjectID = "m3P-uF-uKz"; */
+"m3P-uF-uKz.headerTitle" = "其他";
+
+/* Class = "UILabel"; text = "App Store 评论"; ObjectID = "v8v-lI-Pso"; */
+"v8v-lI-Pso.text" = "App Store 评论";
 
 /* Class = "UITableViewSection"; headerTitle = "通用"; ObjectID = "wPn-Yi-gEC"; */
 "wPn-Yi-gEC.headerTitle" = "通用";

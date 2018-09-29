@@ -124,6 +124,7 @@
 		4CC4758F2111DAE6008A135C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */; };
 		4CC475912111EA3C008A135C /* Bades.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC475902111EA3C008A135C /* Bades.xcassets */; };
 		4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4759321121198008A135C /* ProjectSettingViewController.swift */; };
+		4CC4FF3F215F2E9900481CF4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC4FF3E215F2E9900481CF4 /* CloudKit.framework */; };
 		4CC67E6821562F2E007A617A /* BaseSwipeLeftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */; };
 		4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */; };
 		4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */; };
@@ -263,6 +264,9 @@
 		4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorDetailViewController.storyboard; sourceTree = "<group>"; };
 		4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailCell.swift; sourceTree = "<group>"; };
 		4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorDetailCell.xib; sourceTree = "<group>"; };
+		4C52A3B4215E2691000139E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
+		4C52A3B6215E2698000139E9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		4C52A3B8215E269B000139E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
 		4C5CB1EA21141329006DB543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAndButtonView.swift; sourceTree = "<group>"; };
 		4C5D94A4214D36BB0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -290,9 +294,6 @@
 		4C654E44214E7B5300F0EB4F /* FeaturedColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedColorCell.xib; sourceTree = "<group>"; };
 		4C654E47214E7EB600F0EB4F /* FeaturedColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedColorViewController.swift; sourceTree = "<group>"; };
 		4C654E49214E7EF400F0EB4F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		4C654E4C214E85F000F0EB4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
-		4C654E4E214E85F100F0EB4F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
-		4C654E50214E85F300F0EB4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
 		4C654E52214EA03600F0EB4F /* FeatureColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColor.swift; sourceTree = "<group>"; };
 		4C654E54214EA95E00F0EB4F /* FeatureColorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColorInfoView.swift; sourceTree = "<group>"; };
 		4C654E56214EAADD00F0EB4F /* FeatureColorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColorInfoViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +333,8 @@
 		4CC4758E2111DAE6008A135C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4CC475902111EA3C008A135C /* Bades.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bades.xcassets; sourceTree = "<group>"; };
 		4CC4759321121198008A135C /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
+		4CC4FF3B215F2E6100481CF4 /* ColorKit-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ColorKit-Swift.entitlements"; sourceTree = "<group>"; };
+		4CC4FF3E215F2E9900481CF4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSwipeLeftCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProjectViewController.swift; sourceTree = "<group>"; };
 		4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTextFieldAndButtonView.swift; sourceTree = "<group>"; };
@@ -367,6 +370,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC4FF3F215F2E9900481CF4 /* CloudKit.framework in Frameworks */,
 				4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */,
 				4CEC4083212B104A0003E9F6 /* pop.framework in Frameworks */,
 				4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */,
@@ -505,6 +509,7 @@
 		4C1725E7209B65D700A1919D /* ColorKit-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4CC4FF3B215F2E6100481CF4 /* ColorKit-Swift.entitlements */,
 				4C654E51214E988B00F0EB4F /* Entity */,
 				4C24EA27214A252D00BF658C /* Resource */,
 				4CEC4079212B026C0003E9F6 /* Sources */,
@@ -836,6 +841,7 @@
 		4CE2F80A210DED5B00F9C294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CC4FF3E215F2E9900481CF4 /* CloudKit.framework */,
 				4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */,
 				4CEC4059212AE2570003E9F6 /* pop.framework */,
 				4CEC4055212ADCAB0003E9F6 /* Slider.framework */,
@@ -1039,6 +1045,14 @@
 					};
 					4C1725E5209B65D700A1919D = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					4C1725FB209B65D900A1919D = {
 						CreatedOnToolsVersion = 9.3;
@@ -1475,9 +1489,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				4CBD4438214D756F00E0B9D1 /* Base */,
-				4C654E4C214E85F000F0EB4F /* en */,
-				4C654E4E214E85F100F0EB4F /* zh-Hant */,
-				4C654E50214E85F300F0EB4F /* zh-Hans */,
+				4C52A3B4215E2691000139E9 /* en */,
+				4C52A3B6215E2698000139E9 /* zh-Hant */,
+				4C52A3B8215E269B000139E9 /* zh-Hans */,
 			);
 			name = MyViewController.storyboard;
 			sourceTree = "<group>";
@@ -1674,6 +1688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ColorKit-Swift/ColorKit-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2GL8UZ838;
@@ -1704,6 +1719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ColorKit-Swift/ColorKit-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2GL8UZ838;
