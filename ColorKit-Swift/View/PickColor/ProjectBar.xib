@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5U-AW-Tmu">
                     <rect key="frame" x="20" y="22.5" width="30" height="30"/>
+                    <color key="tintColor" name="navigationTint"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="2y6-BZ-9Wp"/>
                         <constraint firstAttribute="width" secondItem="l5U-AW-Tmu" secondAttribute="height" multiplier="1:1" id="9Bv-w7-wHg"/>
@@ -31,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="syH-NN-ibF">
-                    <rect key="frame" x="110.5" y="32" width="20" height="10"/>
+                    <rect key="frame" x="110.5" y="32.5" width="20" height="10"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="10" id="Wf7-GP-gLE"/>
                         <constraint firstAttribute="width" constant="20" id="xMi-vO-SeJ"/>

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +22,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zam-1z-hHN">
                         <rect key="frame" x="27" y="51.5" width="30" height="30"/>
+                        <color key="tintColor" name="navigationTint"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Zam-1z-hHN" secondAttribute="height" multiplier="1:1" id="eBQ-sW-7Vc"/>
                             <constraint firstAttribute="width" constant="30" id="hZV-Sx-74c"/>
@@ -67,5 +69,8 @@
     </objects>
     <resources>
         <image name="icon_delete" width="64" height="64"/>
+        <namedColor name="navigationTint">
+            <color red="0.31764705882352939" green="0.32156862745098042" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

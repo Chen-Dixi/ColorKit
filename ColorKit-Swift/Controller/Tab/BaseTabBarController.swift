@@ -47,15 +47,13 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         let image = UIImage(named: "icon_add_center")
         centerBtn.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
         centerBtn.setImage(image, for: .normal)
-        let hDiff:CGFloat=image!.size.height-tabBar.frame.size.height
-        if hDiff > 0{
-            var center:CGPoint=self.tabBar.center
-            center.y=tabBar.center.y - (image?.size.height ?? 54)/3
-            centerBtn.center=center
+       
+        
+        var center:CGPoint=self.tabBar.center
+        center.y=tabBar.frame.minY
+        centerBtn.center=center
             
-        }else{
-            centerBtn.center = tabBar.center
-        }
+        
         
        
         

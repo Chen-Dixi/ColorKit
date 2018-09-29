@@ -27,6 +27,32 @@
 		<string>badge_meditation</string>
 		<string>badge_bike</string>
 		<string>badge_science</string>
+		<string>badge_tieba</string>
+		<string>badge_zhihu</string>
+		<string>badge_taobao</string>
+		<string>badge_alipay</string>
+		<string>badge_weixin</string>
+		<string>badge_pinterest</string>
+		<string>badge_weibo</string>
+		<string>badge_renren</string>
+		<string>badge_twitch</string>
+		<string>badge_twitter</string>
+		<string>badge_dribbble</string>
+		<string>badge_facebook</string>
+		<string>badge_whatsapp</string>
+		<string>badge_instagram</string>
+		<string>badge_linkedin</string>
+		<string>badge_snapchat</string>
+		<string>badge_tumblr</string>
+		<string>badge_slack</string>
+		<string>badge_reddit</string>
+		<string>badge_skype</string>
+		<string>badge_dropbox</string>
+		<string>badge_github</string>
+		<string>badge_python</string>
+		<string>badge_html5</string>
+		<string>badge_playstation</string>
+		<string>badge_xbox</string>
 	</array>
 </dict>
 </plist>

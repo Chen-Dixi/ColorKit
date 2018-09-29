@@ -67,7 +67,7 @@ class BadgeBoardView: UIView {
         while( count < badge_Names.count){
             let button = UIButton(frame: CGRect(x: buttonWidth*CGFloat(count%col), y: buttonWidth*CGFloat(count/col), width: buttonWidth, height: buttonWidth))
             button.setImage(UIImage(named: badge_Names[count]), for: UIControlState.normal)
-            button.tintColor = UIColor.ColorKitRed()
+            button.tintColor = UIColor.NavigationBarTintColor()
             button.tag = count
             button.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
             scrollView.addSubview(button)
