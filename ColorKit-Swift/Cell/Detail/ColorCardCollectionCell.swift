@@ -17,6 +17,9 @@ class ColorCardCollectionCell: BaseSwipeLeftCollectionViewCell {
             collectButton.setImage(UIImage(named: "icon_heart_solid"), for: .selected)
         }
     }
+    
+    @IBOutlet weak var hexLabel: UILabel!
+    
     @IBOutlet weak var deleteBtn: UIButton!
     
     var color:Color?
@@ -61,6 +64,8 @@ class ColorCardCollectionCell: BaseSwipeLeftCollectionViewCell {
         titleLabel.textColor = labelColor
         collectButton.tintColor = labelColor
         collectButton.isSelected = color.collect //收藏按钮
+        hexLabel.text = CommonUtil.hexColorString(red: red32, green: green32, blue: blue32)
+        hexLabel.textColor = labelColor
         self.color = color
     }
     

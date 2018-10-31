@@ -157,37 +157,5 @@ extension UIView{
     }
 }
 
-extension UIImageView{
-    func colorAtPixel(pos:CGPoint) ->UIColor?{
-        if !CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height).contains(pos){
-            return nil
-        }
-        
-        let pointX = trunc(pos.x)
-        let pointY = trunc(pos.y)
-        
-        
-        
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        var pixelData:UnsafeMutablePointer<CGFloat> = UnsafeMutablePointer<CGFloat>.allocate(capacity: 4)
-        let bytesPerPixel = 4
-        let bitsPerCompontent = 8
-        let bytesPerRow = bytesPerPixel * 1
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        let context  = CGContext.init(data: pixelData, width: 1, height: 1, bitsPerComponent: bitsPerCompontent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo:   bitmapInfo.rawValue )
-        
-        //context?.setBlendMode(CGBlendMode.copy)
-        context!.translateBy(x: pointX, y: pointY)
-        
-        layer.render(in: context!)
-        
-        let r = CGFloat(pixelData[0]) / 255.0
-        let g = CGFloat(pixelData[1]) / 255.0
-        let b = CGFloat(pixelData[2]) / 255.0
-        let color = UIColor(red: r, green: g, blue: b, alpha: 1.0)
-        pixelData.deallocate()
-        return color
-    }
-}
+
 

@@ -44,6 +44,14 @@ extension UIImage{
         return image!
     }
     
+    func scaleImage(toScale:CGFloat)->UIImage{
+        UIGraphicsBeginImageContext(CGSize(width:self.size.width * scale, height: self.size.height * scale))
+        draw(in: CGRect(x: 0, y: 0, width: self.size.width * scale, height: self.size.height * scale))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
     func colorAtPixel(pos:CGPoint) ->( red: CGFloat, green: CGFloat,blue:CGFloat)?{
         if !CGRect(x: 0, y: 0, width: size.width, height: size.height).contains(pos){
             return nil

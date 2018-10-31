@@ -23,6 +23,10 @@ class ChooseColorImageView: UIView {
     var imageView:UIImageView!
     var rgbCallback:(Int32,Int32,Int32)->Void = {_,_,_  in }
     var colorCallback:(UIColor)->Void = {_ in}
+    var pixel:[CUnsignedChar] = [0,0,0,0]
+    let colorSpace = CGColorSpaceCreateDeviceRGB()
+    let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+    var context:CGContext!
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -34,6 +38,7 @@ class ChooseColorImageView: UIView {
         setupUI()
     }
     
+   
     func setupUI(){
         cameraIconImageView = UIImageView(image: UIImage(named: "icon_camera"))
         
@@ -41,10 +46,12 @@ class ChooseColorImageView: UIView {
         addSubview(cameraIconImageView)
         backgroundColor = UIColor.white
         imageView = UIImageView()
+        
         pinView = UIImageView(image: UIImage(named: "icon_pin"))
         pinView.frame.size = CGSize(width: 45, height: 45)
         pinView.tintColor = UIColor.white
         pinView.addShadowEffect(shadowOpacity: 0.6, shadowOffset: CGSize.zero)
+        
         cameraIconImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.snp.centerX)
             make.centerY.equalTo(self.snp.centerY)
@@ -52,11 +59,13 @@ class ChooseColorImageView: UIView {
             make.width.equalTo(cameraIconImageView.snp.height)
         }
         
+        
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         panGestureRecognizer.maximumNumberOfTouches = 1
         pinView.addGestureRecognizer(panGestureRecognizer)
         pinView.isUserInteractionEnabled = true
-        
+       
+        context = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
     }
     
     func setChoosedImage(image:UIImage){
@@ -72,11 +81,9 @@ class ChooseColorImageView: UIView {
         
        
         
-        imageScale = image.size.width / frame.width
-        print(imageScale)
+        
+        
         addSubview(imageView)
-        
-        
         
         imageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.snp.centerX)
@@ -84,11 +91,12 @@ class ChooseColorImageView: UIView {
             make.top.equalTo(self.snp.top).offset(0)
             make.left.equalTo(self.snp.left).offset(0)
         }
-//        if let newImage = imageView.snapshotImageAfterScreenUpdates(afterUpdates: true){
-//            imageView.image = newImage
-//            imageScale = newImage.size.width / frame.width
-//            print(imageScale)
-//        }
+        
+        
+        if let newImage = self.imageView.snapshotImageAfterScreenUpdates(afterUpdates: true){
+            imageView.image = newImage
+        }
+        
         
         
         addSubview(pinView)
@@ -105,6 +113,7 @@ class ChooseColorImageView: UIView {
     private var imageScale:CGFloat = 1.0
     private var imageWidth:Int = 0
     var data:UnsafeMutablePointer<UInt8>!
+    var initializeCount:Int=1
     var pixelData:UnsafeMutablePointer<CGFloat>? = nil
     @objc
     func panGesture(_ sender: UIPanGestureRecognizer){
@@ -121,69 +130,28 @@ class ChooseColorImageView: UIView {
                 let x = max(0,min(bounds.width, position.x - locationOffset.x))
                 let y = max(0-pinView.frame.height/2,min(position.y - locationOffset.y,bounds.height-2-pinView.frame.height/2))
                 pinView.center = CGPoint(x:x, y: y)
+                let currentPos = pinView.getBottomCenterPosition()
+                if let (r,g,b) = colorAtPixel(pos: currentPos){
+                    rgbCallback(r,g,b)
+                }
             
-//                if let (r,g,b) = imageView.image?.getPixelColor(pos:CGPoint(x:currentPos.x*imageScale,y:currentPos.y*imageScale)){
-//                    rgbCallback(r,g,b)
-//                }
-            
-//                if let color = imageView.colorAtPixel(pos:currentPos){
-//                    colorCallback(color)
-//                }
             
         default:
-            let currentPos = pinView.getBottomCenterPosition()
-            if let (r,g,b) = colorAtPixel(pos: currentPos){
-                rgbCallback(r,g,b)
-            }
-//            let color = imageView.color(of: currentPos)
-//            print(color)
+            
+
             locationOffset = CGPoint.zero
         }
-    }
-   
-    func loadImagePixelData(){
-        let width = Int(imageView.frame.width)+1
-        let height = Int(imageView.frame.height)+1
-        data = UnsafeMutablePointer<UInt8>.allocate(capacity: width*height)
-        imageView.renderColor(toData: data)
-        
-    }
-   
-    func fillPixelData(image:UIImage){
-        let width  = image.cgImage!.width
-        
-        self.imageWidth = width
-        let height = image.cgImage!.height
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        pixelData = UnsafeMutablePointer<CGFloat>.allocate(capacity: width*height*4)
-        let bytesPerPixel = 4
-        let bitsPerCompontent = 8
-        let bytesPerRow = bytesPerPixel * width
-        
-        let context  = CGContext.init(data: pixelData, width: width, height: height, bitsPerComponent: bitsPerCompontent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo:   CGBitmapInfo.byteOrder32Big.rawValue | CGImageAlphaInfo.premultipliedLast.rawValue )
-        
-        context?.setBlendMode(CGBlendMode.copy)
-        
-        
-        context?.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: width, height: height))
-        
-        
     }
     
     func colorAtPixel( pos:CGPoint) -> ( red: Int32, green: Int32,blue:Int32)?{
 
-        
-        let data = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
-        imageView.color(of: pos, data: data)
-        let r = Int32(data[0])
-        let g = Int32(data[1])
-        let b = Int32(data[2])
+        context.translateBy(x: -pos.x, y: -pos.y)
+        imageView.layer.render(in: context)
+        let r = Int32(pixel[0])
+        let g = Int32(pixel[1])
+        let b = Int32(pixel[2])
+        context.translateBy(x: pos.x, y: pos.y)
         return (r,g,b)
-        
-        
-  
-        
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

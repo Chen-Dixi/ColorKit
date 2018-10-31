@@ -104,7 +104,9 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
             confirmButton.backgroundColor = UIColor.ColorKitBlue()
             
         }else{
-        
+            if let string = inputTextField.text, string == ""{
+                didClearInpuContent()
+            }
             confirmButton.backgroundColor = UIColor.gray
             
         }
@@ -127,6 +129,10 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
             return true
         }
         return false
+    }
+    
+    func didClearInpuContent(){
+        
     }
     
     public func initState(){

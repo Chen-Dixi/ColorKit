@@ -12,7 +12,7 @@
 		4C0D7DC120B85DED006E4C25 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7DC020B85DED006E4C25 /* Constant.swift */; };
 		4C0FDAA621135805007979CC /* badge_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0FDAA521135805007979CC /* badge_list.plist */; };
 		4C0FDAA821135915007979CC /* BadgeBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0FDAA721135915007979CC /* BadgeBoardView.swift */; };
-		4C10ADE02154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m */; };
+		4C10ADE02154C3F200273809 /* LXReorderableCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewDataSource.m */; };
 		4C10ADE22154CD8700273809 /* ColorCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADE12154CD8700273809 /* ColorCardCollectionViewController.swift */; };
 		4C10ADE52154D1E600273809 /* ColorCardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10ADE32154D1E600273809 /* ColorCardCollectionCell.swift */; };
 		4C10ADE62154D1E600273809 /* ColorCardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C10ADE42154D1E600273809 /* ColorCardCollectionCell.xib */; };
@@ -38,6 +38,7 @@
 		4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21B1F8211859E000C90659 /* MyViewController.swift */; };
 		4C24EA262149E65300BF658C /* PresentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24EA252149E65300BF658C /* PresentBaseViewController.swift */; };
 		4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C324C2D212272AA00FF69FA /* ColorPinView.swift */; };
+		4C3AB55A21897C100067A25F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3AB55921897C0F0067A25F /* SwiftyJSON.framework */; };
 		4C3B62CF20A33FC8006257E2 /* ColorTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */; };
 		4C3B62D020A33FC8006257E2 /* ColorTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */; };
 		4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B62D120A34DF4006257E2 /* UIColor+Extension.swift */; };
@@ -81,6 +82,11 @@
 		4C4CCC6B20A8865E00DAC4C7 /* ColorDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6A20A8865E00DAC4C7 /* ColorDetailViewController.storyboard */; };
 		4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6D20A8871F00DAC4C7 /* ColorDetailCell.swift */; };
 		4C4CCC7020A8871F00DAC4C7 /* ColorDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CCC6E20A8871F00DAC4C7 /* ColorDetailCell.xib */; };
+		4C555BC32188A08C0058C8A0 /* HorizontalScrollSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C555BC22188A08C0058C8A0 /* HorizontalScrollSectionController.swift */; };
+		4C555BC62188B1810058C8A0 /* FeatureColorCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C555BC42188B1810058C8A0 /* FeatureColorCardCollectionViewCell.swift */; };
+		4C555BC72188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C555BC52188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib */; };
+		4C555BCA2188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C555BC82188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift */; };
+		4C555BCB2188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C555BC92188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib */; };
 		4C5CB1EB21141329006DB543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EA21141329006DB543 /* Assets.xcassets */; };
 		4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */; };
 		4C5D94AD214D3DE00043567C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D94AF214D3DE00043567C /* InfoPlist.strings */; };
@@ -100,6 +106,12 @@
 		4C654E59214EB49500F0EB4F /* ProjectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C654E58214EB49500F0EB4F /* ProjectBar.swift */; };
 		4C654E5B214EB4B700F0EB4F /* ProjectBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C654E5A214EB4B700F0EB4F /* ProjectBar.xib */; };
 		4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C66CE2B211C19F000AF248C /* KeyboardMan.framework */; };
+		4C6CA69321678F23008D8001 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6CA69221678F23008D8001 /* AudioToolbox.framework */; };
+		4C6CA6952167A1BC008D8001 /* wheels_of_time.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CA69421678F5D008D8001 /* wheels_of_time.caf */; };
+		4C6CC81B21884EB8001DA549 /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC81A21884EB8001DA549 /* NSObject+IGListDiffable.swift */; };
+		4C6CC81D21884F47001DA549 /* FeatureProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC81C21884F47001DA549 /* FeatureProject.swift */; };
+		4C6CC81F21885051001DA549 /* FeaturedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC81E21885051001DA549 /* FeaturedSectionController.swift */; };
+		4C6CC821218853D9001DA549 /* EmbeddedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC820218853D9001DA549 /* EmbeddedCollectionViewCell.swift */; };
 		4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */; };
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
 		4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */; };
@@ -114,6 +126,7 @@
 		4C965928214B82A400541EF2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C965926214B82A400541EF2 /* MainInterface.storyboard */; };
 		4C995871215B8CC700EA356D /* UIView+ColorOfPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */; };
 		4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */; };
+		4CADE0842184BDAA003CA407 /* FeaturedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADE0832184BDAA003CA407 /* FeaturedCollectionViewController.swift */; };
 		4CB529D221580E1A005481DF /* CollectColorDetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB529D121580E1A005481DF /* CollectColorDetailCollectionViewController.swift */; };
 		4CB529D621581A56005481DF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB529D521581A56005481DF /* AboutViewController.swift */; };
 		4CB529D821581B3E005481DF /* AboutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB529D721581B3E005481DF /* AboutViewController.storyboard */; };
@@ -126,6 +139,9 @@
 		4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4759321121198008A135C /* ProjectSettingViewController.swift */; };
 		4CC4FF3F215F2E9900481CF4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC4FF3E215F2E9900481CF4 /* CloudKit.framework */; };
 		4CC67E6821562F2E007A617A /* BaseSwipeLeftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */; };
+		4CD1FD8E2187FD5E005299F4 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD1FD8D2187FD5E005299F4 /* IGListKit.framework */; };
+		4CD1FD9021881107005299F4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD1FD8F21881107005299F4 /* Alamofire.framework */; };
+		4CD1FD922188373E005299F4 /* FeaturedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1FD912188373E005299F4 /* FeaturedLoader.swift */; };
 		4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */; };
 		4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */; };
 		4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996BB214F976B0095F708 /* RegexHelper.swift */; };
@@ -170,7 +186,7 @@
 		4C0FDAA521135805007979CC /* badge_list.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = badge_list.plist; sourceTree = "<group>"; };
 		4C0FDAA721135915007979CC /* BadgeBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBoardView.swift; sourceTree = "<group>"; };
 		4C10ADDE2154C3F100273809 /* LXReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXReorderableCollectionViewDataSource.m; sourceTree = "<group>"; };
 		4C10ADE12154CD8700273809 /* ColorCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCardCollectionViewController.swift; sourceTree = "<group>"; };
 		4C10ADE32154D1E600273809 /* ColorCardCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCardCollectionCell.swift; sourceTree = "<group>"; };
 		4C10ADE42154D1E600273809 /* ColorCardCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCardCollectionCell.xib; sourceTree = "<group>"; };
@@ -214,6 +230,7 @@
 		4C2EE922214C19D2002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		4C324C2D212272AA00FF69FA /* ColorPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPinView.swift; sourceTree = "<group>"; };
 		4C327F89214936EB003A1982 /* ColorKit-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorKit-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C3AB55921897C0F0067A25F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		4C3B62CD20A33FC8006257E2 /* ColorTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTitleCell.swift; sourceTree = "<group>"; };
 		4C3B62CE20A33FC8006257E2 /* ColorTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTitleCell.xib; sourceTree = "<group>"; };
 		4C3B62D120A34DF4006257E2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -267,6 +284,11 @@
 		4C52A3B4215E2691000139E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
 		4C52A3B6215E2698000139E9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
 		4C52A3B8215E269B000139E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		4C555BC22188A08C0058C8A0 /* HorizontalScrollSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollSectionController.swift; sourceTree = "<group>"; };
+		4C555BC42188B1810058C8A0 /* FeatureColorCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColorCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C555BC52188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureColorCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		4C555BC82188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C555BC92188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		4C5CB1EA21141329006DB543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAndButtonView.swift; sourceTree = "<group>"; };
 		4C5D94A4214D36BB0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -300,6 +322,12 @@
 		4C654E58214EB49500F0EB4F /* ProjectBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBar.swift; sourceTree = "<group>"; };
 		4C654E5A214EB4B700F0EB4F /* ProjectBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectBar.xib; sourceTree = "<group>"; };
 		4C66CE2B211C19F000AF248C /* KeyboardMan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardMan.framework; path = Carthage/Build/iOS/KeyboardMan.framework; sourceTree = "<group>"; };
+		4C6CA69221678F23008D8001 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		4C6CA69421678F5D008D8001 /* wheels_of_time.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wheels_of_time.caf; sourceTree = "<group>"; };
+		4C6CC81A21884EB8001DA549 /* NSObject+IGListDiffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+IGListDiffable.swift"; sourceTree = "<group>"; };
+		4C6CC81C21884F47001DA549 /* FeatureProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProject.swift; sourceTree = "<group>"; };
+		4C6CC81E21885051001DA549 /* FeaturedSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedSectionController.swift; sourceTree = "<group>"; };
+		4C6CC820218853D9001DA549 /* EmbeddedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSliderView.swift; sourceTree = "<group>"; };
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test1ViewController.swift; path = Test/Test1ViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +345,8 @@
 		4C99586F215B8CAE00EA356D /* UIView+ColorOfPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ColorOfPoint.h"; sourceTree = "<group>"; };
 		4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ColorOfPoint.m"; sourceTree = "<group>"; };
 		4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseColorCardTransition.swift; sourceTree = "<group>"; };
+		4CADE0812184B505003CA407 /* GlidingCollection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlidingCollection.framework; path = Carthage/Build/iOS/GlidingCollection.framework; sourceTree = "<group>"; };
+		4CADE0832184BDAA003CA407 /* FeaturedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewController.swift; sourceTree = "<group>"; };
 		4CB529D121580E1A005481DF /* CollectColorDetailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectColorDetailCollectionViewController.swift; sourceTree = "<group>"; };
 		4CB529D521581A56005481DF /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4CB529D721581B3E005481DF /* AboutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutViewController.storyboard; sourceTree = "<group>"; };
@@ -336,6 +366,9 @@
 		4CC4FF3B215F2E6100481CF4 /* ColorKit-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ColorKit-Swift.entitlements"; sourceTree = "<group>"; };
 		4CC4FF3E215F2E9900481CF4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		4CC67E6721562F2D007A617A /* BaseSwipeLeftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSwipeLeftCollectionViewCell.swift; sourceTree = "<group>"; };
+		4CD1FD8D2187FD5E005299F4 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
+		4CD1FD8F21881107005299F4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		4CD1FD912188373E005299F4 /* FeaturedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedLoader.swift; sourceTree = "<group>"; };
 		4CD996B7214F49400095F708 /* ChooseProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProjectViewController.swift; sourceTree = "<group>"; };
 		4CD996B9214F95640095F708 /* HexColorTextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTextFieldAndButtonView.swift; sourceTree = "<group>"; };
 		4CD996BB214F976B0095F708 /* RegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
@@ -370,11 +403,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6CA69321678F23008D8001 /* AudioToolbox.framework in Frameworks */,
 				4CC4FF3F215F2E9900481CF4 /* CloudKit.framework in Frameworks */,
 				4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */,
 				4CEC4083212B104A0003E9F6 /* pop.framework in Frameworks */,
+				4CD1FD9021881107005299F4 /* Alamofire.framework in Frameworks */,
 				4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */,
 				4C8B4C7E213942CB00392703 /* SVProgressHUD.framework in Frameworks */,
+				4C3AB55A21897C100067A25F /* SwiftyJSON.framework in Frameworks */,
+				4CD1FD8E2187FD5E005299F4 /* IGListKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				4C10ADDE2154C3F100273809 /* LXReorderableCollectionViewFlowLayout.h */,
-				4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m */,
+				4C10ADDF2154C3F200273809 /* LXReorderableCollectionViewDataSource.m */,
 			);
 			path = LXReorderableCollectionViewFlowLayout;
 			sourceTree = "<group>";
@@ -521,6 +558,7 @@
 				4C3B62D520A352ED006257E2 /* Protocol */,
 				4C3B62CC20A33F66006257E2 /* Cell */,
 				4CF6993E209D53C5003A659A /* Extension */,
+				4CD1FD8C2187FB34005299F4 /* SectionControllers */,
 				4C17260A209B6AE000A1919D /* Controller */,
 				4C1725E8209B65D700A1919D /* AppDelegate.swift */,
 				4C1725EA209B65D800A1919D /* ViewController.swift */,
@@ -602,6 +640,7 @@
 		4C24EA27214A252D00BF658C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4C6CA69421678F5D008D8001 /* wheels_of_time.caf */,
 				4C654E3F214E778400F0EB4F /* example_project.plist */,
 			);
 			path = Resource;
@@ -761,6 +800,7 @@
 			isa = PBXGroup;
 			children = (
 				4C654E47214E7EB600F0EB4F /* FeaturedColorViewController.swift */,
+				4CADE0832184BDAA003CA407 /* FeaturedCollectionViewController.swift */,
 			);
 			path = Featured;
 			sourceTree = "<group>";
@@ -770,6 +810,11 @@
 			children = (
 				4C654E43214E7B5300F0EB4F /* FeaturedColorCell.swift */,
 				4C654E44214E7B5300F0EB4F /* FeaturedColorCell.xib */,
+				4C6CC820218853D9001DA549 /* EmbeddedCollectionViewCell.swift */,
+				4C555BC42188B1810058C8A0 /* FeatureColorCardCollectionViewCell.swift */,
+				4C555BC52188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib */,
+				4C555BC82188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift */,
+				4C555BC92188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib */,
 			);
 			path = Featured;
 			sourceTree = "<group>";
@@ -778,6 +823,9 @@
 			isa = PBXGroup;
 			children = (
 				4C654E52214EA03600F0EB4F /* FeatureColor.swift */,
+				4C6CC81A21884EB8001DA549 /* NSObject+IGListDiffable.swift */,
+				4CD1FD912188373E005299F4 /* FeaturedLoader.swift */,
+				4C6CC81C21884F47001DA549 /* FeatureProject.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -838,9 +886,23 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		4CD1FD8C2187FB34005299F4 /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C6CC81E21885051001DA549 /* FeaturedSectionController.swift */,
+				4C555BC22188A08C0058C8A0 /* HorizontalScrollSectionController.swift */,
+			);
+			path = SectionControllers;
+			sourceTree = "<group>";
+		};
 		4CE2F80A210DED5B00F9C294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C3AB55921897C0F0067A25F /* SwiftyJSON.framework */,
+				4CD1FD8F21881107005299F4 /* Alamofire.framework */,
+				4CD1FD8D2187FD5E005299F4 /* IGListKit.framework */,
+				4CADE0812184B505003CA407 /* GlidingCollection.framework */,
+				4C6CA69221678F23008D8001 /* AudioToolbox.framework */,
 				4CC4FF3E215F2E9900481CF4 /* CloudKit.framework */,
 				4C8B4C7D213942CA00392703 /* SVProgressHUD.framework */,
 				4CEC4059212AE2570003E9F6 /* pop.framework */,
@@ -945,7 +1007,7 @@
 				4C1725E2209B65D700A1919D /* Sources */,
 				4C1725E3209B65D700A1919D /* Frameworks */,
 				4C1725E4209B65D700A1919D /* Resources */,
-				4CE2F809210DECB900F9C294 /* ShellScript */,
+				4CE2F809210DECB900F9C294 /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -1134,6 +1196,7 @@
 				4C45C23C210C40A00048DAE8 /* ColorCardCell.xib in Resources */,
 				4C10ADE62154D1E600273809 /* ColorCardCollectionCell.xib in Resources */,
 				4CBD4424214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard in Resources */,
+				4C555BC72188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib in Resources */,
 				4C21B1F221184D5C00C90659 /* CollectColorCardViewController.storyboard in Resources */,
 				4C654E34214E70FE00F0EB4F /* ProjectSettingViewController.storyboard in Resources */,
 				4C92600621553E5C00BF801B /* ColorTitleCollectionCell.xib in Resources */,
@@ -1141,9 +1204,11 @@
 				4C1725F6209B65D800A1919D /* LaunchScreen.storyboard in Resources */,
 				4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */,
 				4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */,
-				4C654E3D214E778400F0EB4F /* example_project.plist in Resources */,
 				4CBD442E214D729E00E0B9D1 /* CardPreview.xib in Resources */,
+				4C555BCB2188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
+				4C6CA6952167A1BC008D8001 /* wheels_of_time.caf in Resources */,
+				4C654E3D214E778400F0EB4F /* example_project.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,9 +1247,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4CE2F809210DECB900F9C294 /* ShellScript */ = {
+		4CE2F809210DECB900F9C294 /* Carthage Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1192,10 +1257,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KeyboardMan.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/pop.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IGListKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
+			name = "Carthage Script";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
@@ -1226,22 +1295,29 @@
 			files = (
 				4C21B1EC21181E9E00C90659 /* CollectColorDetailViewController.swift in Sources */,
 				4C10ADE52154D1E600273809 /* ColorCardCollectionCell.swift in Sources */,
+				4C6CC81D21884F47001DA549 /* FeatureProject.swift in Sources */,
 				4C995871215B8CC700EA356D /* UIView+ColorOfPoint.m in Sources */,
+				4C6CC81B21884EB8001DA549 /* NSObject+IGListDiffable.swift in Sources */,
 				4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */,
 				4C654E57214EAADD00F0EB4F /* FeatureColorInfoViewController.swift in Sources */,
 				4C654E59214EB49500F0EB4F /* ProjectBar.swift in Sources */,
 				4C21B1EF21181E9E00C90659 /* CollectColorCardViewController.swift in Sources */,
 				4C21B1F021181E9E00C90659 /* CollectColorContainerViewController.swift in Sources */,
+				4C555BC32188A08C0058C8A0 /* HorizontalScrollSectionController.swift in Sources */,
 				4CEC4075212AF4930003E9F6 /* SystemCloseTransition.swift in Sources */,
 				4C42418421280A070070350F /* ColorInfoView.swift in Sources */,
 				4C3DAC5E21256BD100F2DBCE /* ColorInfoViewController.swift in Sources */,
+				4C6CC81F21885051001DA549 /* FeaturedSectionController.swift in Sources */,
 				4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */,
 				4C24EA262149E65300BF658C /* PresentBaseViewController.swift in Sources */,
 				4C424186212872240070350F /* UIButton+Extension.swift in Sources */,
 				4C45C22F210C36AC0048DAE8 /* VerticalCardSwiperView.swift in Sources */,
+				4C555BCA2188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift in Sources */,
 				4C45C235210C36AC0048DAE8 /* PanDirection.swift in Sources */,
 				4CC67E6821562F2E007A617A /* BaseSwipeLeftCollectionViewCell.swift in Sources */,
+				4C6CC821218853D9001DA549 /* EmbeddedCollectionViewCell.swift in Sources */,
 				4C654E53214EA03600F0EB4F /* FeatureColor.swift in Sources */,
+				4C555BC62188B1810058C8A0 /* FeatureColorCardCollectionViewCell.swift in Sources */,
 				4C3B62D220A34DF4006257E2 /* UIColor+Extension.swift in Sources */,
 				4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */,
 				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
@@ -1288,6 +1364,7 @@
 				4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */,
 				4C45C237210C36AC0048DAE8 /* Extensions.swift in Sources */,
 				4C45C222210C20CD0048DAE8 /* ColorCardViewController.swift in Sources */,
+				4CD1FD922188373E005299F4 /* FeaturedLoader.swift in Sources */,
 				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
 				4CEC4080212B026D0003E9F6 /* Filters.swift in Sources */,
 				4CC4758D2111B812008A135C /* UIImage+Extension.swift in Sources */,
@@ -1298,11 +1375,12 @@
 				4C8928C621304873002C59AB /* UserDefaultsTool.swift in Sources */,
 				4CC4759421121198008A135C /* ProjectSettingViewController.swift in Sources */,
 				4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */,
-				4C10ADE02154C3F200273809 /* LXReorderableCollectionViewFlowLayout.m in Sources */,
+				4C10ADE02154C3F200273809 /* LXReorderableCollectionViewDataSource.m in Sources */,
 				4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */,
 				4C3B62D420A352D7006257E2 /* UITableView+Extension.swift in Sources */,
 				4C654E48214E7EB600F0EB4F /* FeaturedColorViewController.swift in Sources */,
 				4C3DAC5B21256ABC00F2DBCE /* OpenColorCardTransition.swift in Sources */,
+				4CADE0842184BDAA003CA407 /* FeaturedCollectionViewController.swift in Sources */,
 				4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

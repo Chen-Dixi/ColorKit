@@ -8,16 +8,14 @@
 
 import Foundation
 import UIKit
-class FeatureColor{
+class FeatureColor: NSObject{
     public var r:CGFloat=0
     public var g:CGFloat=0
     public var b:CGFloat=0
     public var name:String=""
     public var projectName:String=""
     
-    init(){
-        
-    }
+    
     
     init(name:String, r:CGFloat, g:CGFloat, b:CGFloat) {
         self.name = name

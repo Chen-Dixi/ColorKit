@@ -11,11 +11,12 @@ import CoreData
 import SnapKit
 private let reuseIdentifier = "Cell"
 
-class ColorCardCollectionViewController: BaseCollectionViewController,LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout {
+class ColorCardCollectionViewController: BaseCollectionViewController,LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout,BaseSwipeLeftCollectionViewDelegate {
 
     var project:Project!
     fileprivate var colors:[Color] = []
     var selectedIndex:IndexPath! = IndexPath(item: 0, section: 0)
+    private var editingIndexPath:IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -151,6 +152,15 @@ class ColorCardCollectionViewController: BaseCollectionViewController,LXReordera
         vc.tobackgroundColor = CommonUtil.getBackgroundColorFromColorData(color:  colors[indexPath.item])
         vc.color = colors[indexPath.item]
         present(vc, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willEditItemAt indexPath: IndexPath) {
+        if let editingIndexPath = self.editingIndexPath{
+            if let cell = collectionView.cellForItem(at: editingIndexPath) as? BaseSwipeLeftCollectionViewCell{
+                cell.handleTap()
+            }
+        }
+        self.editingIndexPath = indexPath
     }
     
     @objc

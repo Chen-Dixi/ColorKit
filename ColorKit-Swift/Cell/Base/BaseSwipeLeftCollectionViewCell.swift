@@ -8,11 +8,27 @@
 
 import UIKit
 
+@objc protocol BaseSwipeLeftCollectionViewDelegate:UICollectionViewDelegate{
+    @objc optional func collectionView(_ collectionView:UICollectionView, willEditItemAt indexPath:IndexPath)
+}
+
 class BaseSwipeLeftCollectionViewCell: UICollectionViewCell,UIGestureRecognizerDelegate {
     
     private var panGestureRecognizer:UIPanGestureRecognizer!
     private var tapGestureRecognizer:UITapGestureRecognizer!
     private var isEditing:Bool = false
+    var delegate:BaseSwipeLeftCollectionViewDelegate?{
+        get{
+            
+            if let collectionView = self.superview as? UICollectionView{
+                
+                return collectionView.delegate as? BaseSwipeLeftCollectionViewDelegate
+            }else{
+                return nil
+            }
+            
+        }
+    }
     var editable:Bool = true
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,16 +49,38 @@ class BaseSwipeLeftCollectionViewCell: UICollectionViewCell,UIGestureRecognizerD
         if editable {
             switch panGestureRecognizer.state {
             case .began:
-                isEditing = true
-                
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.transform = CGAffineTransform(translationX: -48, y: 0)
-                }) { (finish) in
-                    
+                let Vx = panGestureRecognizer.velocity(in: panGestureRecognizer.view).x
+                let Vy = panGestureRecognizer.velocity(in: panGestureRecognizer.view).y
+                let directVector = (-Vx) / sqrt(pow(Vx, 2)+pow(Vy, 2))
+                if directVector >= 0.8{
+                    willEditCell()
+                }else if directVector <= -0.8{
+                    handleTap()
                 }
             default:
                 break
             }
+        }
+    }
+    
+    private func willEditCell(){
+        if isEditing {
+            return
+        }
+        
+        if let collectionView = self.superview as? UICollectionView,let indexPath:IndexPath = collectionView.indexPathForItem(at: self.center){
+            
+            if let delegate = self.delegate{
+                delegate.collectionView?(collectionView, willEditItemAt: indexPath)
+            }
+        }
+        
+        isEditing = true
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.transform = CGAffineTransform(translationX: -48, y: 0)
+        }) { (finish) in
+            
         }
     }
     
@@ -63,7 +101,7 @@ class BaseSwipeLeftCollectionViewCell: UICollectionViewCell,UIGestureRecognizerD
             
             let Vx = panGestureRecognizer.velocity(in: panGestureRecognizer.view).x
             let Vy = panGestureRecognizer.velocity(in: panGestureRecognizer.view).y
-            return (-Vx) / sqrt(pow(Vx, 2)+pow(Vy, 2)) < 0.8
+            return abs((-Vx) / sqrt(pow(Vx, 2)+pow(Vy, 2))) < 0.8
         }
         
         if tapGestureRecognizer.isEqual(gestureRecognizer){
@@ -80,7 +118,7 @@ class BaseSwipeLeftCollectionViewCell: UICollectionViewCell,UIGestureRecognizerD
         if panGestureRecognizer.isEqual(gestureRecognizer){
             let Vx = panGestureRecognizer.velocity(in: panGestureRecognizer.view).x
             let Vy = panGestureRecognizer.velocity(in: panGestureRecognizer.view).y
-            return (-Vx) / sqrt(pow(Vx, 2)+pow(Vy, 2)) >= 0.8
+            return abs((-Vx) / sqrt(pow(Vx, 2)+pow(Vy, 2))) >= 0.8
         }
         
         if tapGestureRecognizer.isEqual(gestureRecognizer){

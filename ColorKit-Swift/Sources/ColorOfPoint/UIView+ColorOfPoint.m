@@ -33,11 +33,11 @@
     
     //return pixel;
 }
-- (void ) renderColorToData:(unsigned char*) data
+- (void ) renderColorToData:(unsigned char*) data width:(int) width height:(int) height
 {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
-    CGContextRef context = CGBitmapContextCreate(data,self.frame.size.width, self.frame.size.height, 8, 4, colorSpace, kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
+    CGContextRef context = CGBitmapContextCreate(data,width, height, 8, 4, colorSpace, kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
     
     //CGContextTranslateCTM(context, -point.x, -point.y);
     

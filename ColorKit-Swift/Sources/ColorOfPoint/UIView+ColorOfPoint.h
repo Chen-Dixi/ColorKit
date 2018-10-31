@@ -11,5 +11,5 @@
 @interface UIView (ColorOfPoint)
 
 - (void ) colorOfPoint:(CGPoint)point data:(unsigned char * )data;
-- (void ) renderColorToData:(unsigned char*) data;
+- (void ) renderColorToData:(unsigned char*) data width:(int) width height:(int) height;
 @end

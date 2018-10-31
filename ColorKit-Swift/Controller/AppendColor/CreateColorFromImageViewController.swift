@@ -38,7 +38,7 @@ class CreateColorFromImageViewController: PresentBaseViewController {
         scrollview.canCancelContentTouches = false
         view.addSubview(scrollview)
         colorPreviewCard = UINib(nibName: "CardPreview", bundle: nil).instantiate(withOwner: nil, options: nil).last as! CardPreview
-        colorPreviewCard.frame = CGRect(x: screenWidth*0.1, y: 60, width: screenWidth*0.8, height: 120)
+        colorPreviewCard.frame = CGRect(x: screenWidth*0.05, y: 60, width: screenWidth*0.9, height: 120)
         
         colorPreviewCard.layer.cornerRadius = 8
         colorPreviewCard.layer.shadowColor = UIColor.lightGray.cgColor
@@ -80,7 +80,7 @@ class CreateColorFromImageViewController: PresentBaseViewController {
             }
         }
         
-        chooseColorImageView = ChooseColorImageView(frame: CGRect(x: screenWidth*0.1, y: 240, width: 0.8*screenWidth, height: 200))
+        chooseColorImageView = ChooseColorImageView(frame: CGRect(x: screenWidth*0.05, y: 240, width: 0.9*screenWidth, height: 200))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(tapHandler2))
         chooseColorImageView.addGestureRecognizer(tapGesture2)
         
@@ -193,7 +193,7 @@ class CreateColorFromImageViewController: PresentBaseViewController {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let  cameraPicker = UIImagePickerController()
             cameraPicker.delegate = self
-            cameraPicker.allowsEditing = true
+            
             cameraPicker.sourceType = .camera
             //在需要的地方present出来
             self.present(cameraPicker, animated: true, completion: nil)
@@ -238,15 +238,17 @@ class CreateColorFromImageViewController: PresentBaseViewController {
 
 extension CreateColorFromImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
         var image:UIImage!
         if picker.sourceType == .camera{
-         image = info[UIImagePickerControllerEditedImage] as! UIImage
+            image = info[UIImagePickerControllerOriginalImage] as? UIImage
         }else{
-            image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            image = info[UIImagePickerControllerOriginalImage] as? UIImage
         }
+        image = image.scaleImage(toScale: 0.7)
         chooseColorImageView.setChoosedImage(image: image)
         scrollview.contentSize = CGSize(width: 0, height: chooseColorImageView.frame.maxY+48)
-        dismiss(animated: true, completion: nil)
+        
     }
     
     

@@ -47,6 +47,12 @@
                             <action selector="deleteColor:" destination="gTV-IL-0wX" eventType="touchUpInside" id="oGR-Oi-6Qo"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gE-o0-hBW">
+                        <rect key="frame" x="328.5" y="98.5" width="73" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,9 +60,11 @@
                 <constraint firstItem="wZn-5U-hZS" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="J1F-ol-76f"/>
                 <constraint firstItem="C5T-wj-tbn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wZn-5U-hZS" secondAttribute="trailing" constant="18.539999999999999" id="Nn6-Gp-MKm"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="C5T-wj-tbn" secondAttribute="trailing" constant="18.539999999999999" id="SiX-ao-TKa"/>
+                <constraint firstItem="4gE-o0-hBW" firstAttribute="trailing" secondItem="C5T-wj-tbn" secondAttribute="trailing" id="Uy8-aL-7Op"/>
                 <constraint firstItem="5yF-fN-WbV" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="b2l-sT-bS7"/>
                 <constraint firstItem="5yF-fN-WbV" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="trailing" constant="18" id="c3b-JO-5ed"/>
                 <constraint firstItem="C5T-wj-tbn" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="g7P-R5-tvw"/>
+                <constraint firstItem="4gE-o0-hBW" firstAttribute="top" secondItem="C5T-wj-tbn" secondAttribute="bottom" constant="8" id="yba-j5-1Qz"/>
                 <constraint firstItem="wZn-5U-hZS" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="18.539999999999999" id="zsG-kw-x52"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -64,9 +72,10 @@
             <connections>
                 <outlet property="collectButton" destination="wZn-5U-hZS" id="bSA-ZX-dcz"/>
                 <outlet property="deleteBtn" destination="5yF-fN-WbV" id="FTH-gl-9uF"/>
+                <outlet property="hexLabel" destination="4gE-o0-hBW" id="o5d-RB-yiE"/>
                 <outlet property="titleLabel" destination="C5T-wj-tbn" id="dSg-eu-rgH"/>
             </connections>
-            <point key="canvasLocation" x="-21" y="160"/>
+            <point key="canvasLocation" x="187" y="156"/>
         </collectionViewCell>
     </objects>
     <resources>

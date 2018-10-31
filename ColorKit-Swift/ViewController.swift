@@ -8,12 +8,12 @@
 
 import UIKit
 import CoreData
-class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout {
+class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout,BaseSwipeLeftCollectionViewDelegate {
     
     var projects:[Project]=[]
     var managedContext:NSManagedObjectContext?
     
-    
+    private var editingIndexPath:IndexPath?
     
     
     
@@ -49,7 +49,6 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
         // Do any additional setup after loading the view, typically from a nib.
         collectionView?.bounces = true
         collectionView?.alwaysBounceVertical = true
-        
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.registerNibOf(ColorTitleCollectionCell.self)
         collectionView?.dataSource = self
@@ -63,6 +62,7 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
             let vc = ColorContainerViewController(project: projects[0])
             navigationController?.pushViewController(vc, animated: false)
         }
+        
     }
     
     func fetchProject(){
@@ -261,6 +261,15 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
             }
         }
         present(vc, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willEditItemAt indexPath: IndexPath) {
+        if let editingIndexPath = self.editingIndexPath{
+            if let cell = collectionView.cellForItem(at: editingIndexPath) as? BaseSwipeLeftCollectionViewCell{
+                cell.handleTap()
+            }
+        }
+        self.editingIndexPath = indexPath
     }
 }
 

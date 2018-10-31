@@ -24,4 +24,13 @@ class HexColorTextFieldAndButtonView: TextFieldAndButtonView {
         }
         return false
     }
+    
+    override func setupUI() {
+        super.setupUI()
+        inputTextField.keyboardType = .asciiCapable
+    }
+    
+    override func didClearInpuContent() {
+        inputTextField.text = "#"
+    }
 }

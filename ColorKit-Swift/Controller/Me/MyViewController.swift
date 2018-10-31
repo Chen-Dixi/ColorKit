@@ -76,7 +76,7 @@ class MyViewController: UITableViewController {
             switch row {
             case .Collect:
                 //弹出精选界面
-                let vc = FeaturedColorViewController()
+                let vc = FeaturedCollectionViewController()
                 navigationController?.pushViewController(vc, animated: true)
             case .Guide:
                 //跳转操作指导界面
@@ -86,13 +86,13 @@ class MyViewController: UITableViewController {
         case .Developer:
             guard let row = DeveloperRow(rawValue: indexPath.row) else {
                 return
-                
+
             }
             switch row{
             case .Weibo:
                 //跳转我的微博
                 jumpToWeiboHomepage()
-                
+
             }
         case .Another:
             guard let row = AnotherRow(rawValue: indexPath.row) else {

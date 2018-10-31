@@ -135,5 +135,8 @@
         <namedColor name="navigationTint">
             <color red="0.31764705882352939" green="0.32156862745098042" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="navigationTint">
+            <color red="0.31764705882352939" green="0.32156862745098042" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

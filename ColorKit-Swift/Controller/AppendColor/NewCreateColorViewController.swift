@@ -10,6 +10,7 @@ import UIKit
 import KeyboardMan
 
 import CoreData
+import AudioToolbox
 
 class NewCreateColorViewController: PresentBaseViewController {
     var scrollview:UIScrollView!
@@ -33,7 +34,8 @@ class NewCreateColorViewController: PresentBaseViewController {
     var redSlider:Slider!
     var greenSlider:Slider!
     var blueSlider:Slider!
-    
+    var soundId:SystemSoundID=0
+    var isPlaying = false
     private var r:Int32=0
     private var g:Int32=0
     private var b:Int32=0
@@ -162,6 +164,7 @@ class NewCreateColorViewController: PresentBaseViewController {
         blueSlider.shadowBlur = 5
         blueSlider.shadowColor = UIColor(white: 0, alpha: 0.1)
         blueSlider.contentViewColor = UIColor.ColorKitBlue()
+        
         blueSlider.valueViewColor = .white
         blueSlider.addTarget(self, action: #selector(blueSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(blueSlider)
@@ -169,29 +172,64 @@ class NewCreateColorViewController: PresentBaseViewController {
         
         scrollview.contentSize = CGSize(width: 0, height: blueSlider.frame.maxY + 48)
         
+        if let path = Bundle.main.path(forResource: "wheels_of_time", ofType: "caf"){
+            let baseURL = NSURL(fileURLWithPath: path)
+            AudioServicesCreateSystemSoundID(baseURL, &soundId)
+
+        }
+        
         // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("save", comment: ""), style: .plain, target: self, action: #selector(save))
     }
 
+    private var rf :Int32 = 0
     @objc
     func redSliderValueChanged(redSlider:Slider){
         r = Int32(redSlider.fraction*255)
-        
+        if abs(r-rf) >= 5{
+            playSystemSound()
+            rf = r
+        }
         colorPreviewCard.setColor(red: r, green: g, blue: b)
+        
     }
-    
+    private var gf :Int32 = 0
     @objc
     func greenSliderValueChanged(redSlider:Slider){
         g = Int32(redSlider.fraction*255)
-        
         colorPreviewCard.setColor(red: r, green: g, blue: b)
+        if abs(g-gf) >= 5{
+            playSystemSound()
+            gf = g
+        }
     }
-    
+    private var bf :Int32 = 0
     @objc
     func blueSliderValueChanged(redSlider:Slider){
         b = Int32(redSlider.fraction*255)
         
         colorPreviewCard.setColor(red: r, green: g, blue: b)
+        if abs(b-bf) >= 5{
+            playSystemSound()
+            bf = b
+        }
+    }
+    
+    private func playSystemSound(){
+//        if !isPlaying{
+//
+//            print("asd")
+//            AudioServicesPlaySystemSound(soundId)
+//            isPlaying = true
+//        }
+        AudioServicesPlaySystemSound(soundId)
+    }
+    
+    func audioServicesPlaySystemSoundCompleted(soundID: SystemSoundID) {
+        print("Completion")
+        isPlaying = false
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
