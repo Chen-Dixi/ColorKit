@@ -13,7 +13,7 @@ let screenHeight = UIScreen.main.bounds.height
 let statusBarHeight = UIApplication.shared.statusBarFrame.height
 let footerFrame1 = CGRect(x: 0, y: 0, width: screenWidth, height: 48)
 let screenRatio = screenHeight / screenWidth
-let labelColorThreshold:CGFloat = 2.4
+let labelColorThreshold:CGFloat = 2.3
 
 let collectionViewWidth = screenWidth*0.35
 let collectionViewMinimumLineSpacing:CGFloat = 18

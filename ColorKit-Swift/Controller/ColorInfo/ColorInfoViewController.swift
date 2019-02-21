@@ -113,41 +113,41 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         shareBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         shareBtn.addTarget(self, action: #selector(shareImage), for: .touchUpInside)
         view.addSubview(shareBtn)
-        shareBtn.snp.makeConstraints { (make) in
-            make.trailing.equalTo(view.snp.trailing).offset(-15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
-        }
+        
         saveBtn = UIButton(frame: CGRect.zero)
         saveBtn.setImage(UIImage(named: "icon_download"), for: UIControlState.normal)
         saveBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         saveBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
         view.addSubview(saveBtn)
         
-        saveBtn.snp.makeConstraints { (make) in
-            make.trailing.equalTo(shareBtn.snp.leading).offset(-15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
-        }
         
         editBtn = UIButton(frame: CGRect.zero)
         editBtn.setImage(UIImage(named: "icon_edit"), for: UIControlState.normal)
         editBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         editBtn.addTarget(self, action: #selector(showNameInputComponent), for: .touchUpInside)
         view.addSubview(editBtn)
-        
+        saveBtn.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
+        shareBtn.snp.makeConstraints { (make) in
+            make.leading.equalTo(saveBtn.snp.trailing).offset(18.54)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
         editBtn.snp.makeConstraints { (make) in
-            make.trailing.equalTo(saveBtn.snp.leading).offset(-15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
+            make.trailing.equalTo(saveBtn.snp.leading).offset(-18.54)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
         }
         
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
-            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.5)
             make.width.equalTo(60)
             make.height.equalTo(16)
         }
@@ -182,6 +182,9 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         
         if colorInfoType == .view{
             editBtn.isHidden = true
+            saveBtn.snp.makeConstraints { (make) in
+                make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX).offset(-24.27)
+            }
         }
     }
     
@@ -198,13 +201,8 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         let image = colorInfoViews[currentInfoIndex].snapshotImageAfterScreenUpdates(afterUpdates: false)
         
         if let image = image{
-            
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveImageComplete(image:didFinishSavingWithError:contextInfo:)), nil)
-            
-            
         }
-        
-        
     }
     
     @objc
@@ -217,7 +215,6 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
             noticeTop("图片已保存到相册")
             showReview()
         }
-        
     }
 
     @objc

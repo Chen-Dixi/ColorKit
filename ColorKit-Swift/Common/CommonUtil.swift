@@ -8,6 +8,13 @@
 
 import Foundation
 import UIKit
+
+func delay(time: Double = 1, execute work: @escaping @convention(block) () -> Swift.Void) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+        work()
+    }
+}
+
 class CommonUtil {
     
     private static let hexSet =  ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
@@ -25,7 +32,7 @@ class CommonUtil {
         let green = Int(g)
         let blue = Int(b)
         let rString = hexSet[red/16] + hexSet[red%16]
-        let gString = hexSet[green/16] + hexSet[green%1]
+        let gString = hexSet[green/16] + hexSet[green%16]
         let bString = hexSet[blue/16] + hexSet[blue%16]
         return "#"+rString+gString+bString
     }

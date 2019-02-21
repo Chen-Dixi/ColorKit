@@ -1,9 +1,12 @@
 
 /* Class = "UILabel"; text = "分享给朋友"; ObjectID = "DJO-ZU-iwu"; */
-"DJO-ZU-iwu.text" = "Share to Friends";
+"DJO-ZU-iwu.text" = "Share with firends";
 
 /* Class = "UILabel"; text = "关于配色笔记"; ObjectID = "HaC-g2-K6H"; */
 "HaC-g2-K6H.text" = "About ColourNote";
+
+/* Class = "UILabel"; text = "隐私协议"; ObjectID = "LAx-lM-rym"; */
+"LAx-lM-rym.text" = "Privacy Policy";
 
 /* Class = "UITableViewSection"; headerTitle = "关于作者"; ObjectID = "OXH-c1-cv5"; */
 "OXH-c1-cv5.headerTitle" = "Developer";
@@ -15,7 +18,7 @@
 "jC6-Gu-MQv.text" = "Weibo";
 
 /* Class = "UITableViewSection"; headerTitle = "其他"; ObjectID = "m3P-uF-uKz"; */
-"m3P-uF-uKz.headerTitle" = "Other";
+"m3P-uF-uKz.headerTitle" = "Others";
 
 /* Class = "UILabel"; text = "App Store 评论"; ObjectID = "v8v-lI-Pso"; */
 "v8v-lI-Pso.text" = "App Store Review";

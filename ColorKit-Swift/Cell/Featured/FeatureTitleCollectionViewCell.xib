@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,19 +26,40 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mf4-aQ-t5C">
+                        <rect key="frame" x="314" y="27" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="J4r-qB-ROy"/>
+                            <constraint firstAttribute="height" constant="20" id="qwh-vh-GIQ"/>
+                        </constraints>
+                        <color key="tintColor" name="ThemeBlue"/>
+                        <state key="normal" image="icon_download"/>
+                        <connections>
+                            <action selector="download:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n1q-WK-ccP"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Mf4-aQ-t5C" secondAttribute="trailing" constant="20" id="45Y-fH-ApG"/>
                 <constraint firstItem="cz7-z0-hd8" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="53d-Ee-X1N"/>
                 <constraint firstItem="cz7-z0-hd8" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="8Gp-bG-qKI"/>
+                <constraint firstItem="Mf4-aQ-t5C" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="CmX-Ye-BPZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="354" height="74"/>
             <connections>
+                <outlet property="downloadBtn" destination="Mf4-aQ-t5C" id="OQR-ex-hSK"/>
                 <outlet property="titleLabel" destination="cz7-z0-hd8" id="hh2-lG-1vl"/>
             </connections>
             <point key="canvasLocation" x="118.40000000000001" y="137.6311844077961"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icon_download" width="32" height="32"/>
+        <namedColor name="ThemeBlue">
+            <color red="0.49019607843137253" green="0.74509803921568629" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

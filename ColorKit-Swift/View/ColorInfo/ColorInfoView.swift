@@ -176,7 +176,8 @@ class ColorInfoView: UIView {
         let pas = UIPasteboard.general
         pas.string = hexLabel.text
         hexLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
-        SVProgressHUD.showSuccess(withStatus: "已经复制色卡颜色HEX值")
+        noticeTop("已经复制色卡颜色HEX值")
+        
         
     }
     
@@ -187,8 +188,7 @@ class ColorInfoView: UIView {
         redValueLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
         greenValueLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
         blueValueLabel.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
-        
-        SVProgressHUD.showSuccess(withStatus: "已经复制色卡颜色RGB值")
+        noticeTop("已经复制色卡颜色RGB值")
         
     }
     

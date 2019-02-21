@@ -11,8 +11,8 @@ import IGListKit
 
 
 
-class HorizontalScrollSectionController: ListSectionController {
-    private var color:FeatureColor?
+class FeatureHorizontalScrollSectionController: ListSectionController {
+    
     private var project:FeatureProject?
     override init() {
         super.init()
@@ -36,9 +36,9 @@ class HorizontalScrollSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        let cell = collectionContext!.dequeueReusableCell(of: FeatureColorCardCollectionViewCell.self, for: self, at: index)
+        let cell = collectionContext!.dequeueReusableCell(withNibName: "FeatureColorCardCollectionViewCell", bundle: nil, for: self, at: index) as! FeatureColorCardCollectionViewCell
         if let color = project?.colors[index]{
-            cell.backgroundColor = UIColor(red: color.r/255.0, green: color.g/255.0, blue: color.b/255.0, alpha: 1.0)
+            cell.setColor(color)
         }
         return cell
     }

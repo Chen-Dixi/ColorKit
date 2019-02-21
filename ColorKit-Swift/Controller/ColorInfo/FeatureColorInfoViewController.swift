@@ -114,20 +114,24 @@ class FeatureColorInfoViewController: BaseViewController,UIViewControllerTransit
         view.addSubview(saveBtn)
         
         saveBtn.snp.makeConstraints { (make) in
-            make.trailing.equalTo(shareBtn.snp.leading).offset(-15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset((screenWidth-78.54) / 2 )
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
         }
-        
+        shareBtn.snp.makeConstraints { (make) in
+            make.leading.equalTo(saveBtn.snp.trailing).offset(18.54)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
         
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
-            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.5)
             make.width.equalTo(60)
             make.height.equalTo(16)
         }
-        
         
         
        

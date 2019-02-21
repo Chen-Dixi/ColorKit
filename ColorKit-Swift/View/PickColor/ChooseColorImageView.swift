@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-
+// 拾色器控件
 class ChooseColorImageView: UIView {
 
     /*
@@ -63,17 +63,18 @@ class ChooseColorImageView: UIView {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         panGestureRecognizer.maximumNumberOfTouches = 1
         pinView.addGestureRecognizer(panGestureRecognizer)
-        pinView.isUserInteractionEnabled = true
+        pinView.isUserInteractionEnabled = true //UIImageView的这个属性默认是false
        
         context = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
     }
     
-    func setChoosedImage(image:UIImage){
+    func setChoosedImage( image:UIImage){
         imageView.removeFromSuperview()
         pinView.removeFromSuperview()
         imageView = nil
         cameraIconImageView.isHidden = true
         
+        let image = image.scaleImage(toWidth: frame.width)
         imageView = UIImageView(image: image)
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true

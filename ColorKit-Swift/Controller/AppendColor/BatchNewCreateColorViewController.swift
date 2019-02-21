@@ -1,8 +1,8 @@
 //
-//  NewCreateColorViewController.swift
+//  BatchNewCreateColorViewController.swift
 //  ColorKit-Swift
 //
-//  Created by Dixi-Chen on 2018/8/20.
+//  Created by Dixi-Chen on 2018/11/1.
 //  Copyright © 2018年 Dixi-Chen. All rights reserved.
 //
 
@@ -11,8 +11,42 @@ import KeyboardMan
 
 import CoreData
 import AudioToolbox
+import IGListKit
+import SVProgressHUD
 
-class NewCreateColorViewController: PresentBaseViewController {
+private let horizontal_collection_height:CGFloat = 120
+private let slider_minimum_line_space:CGFloat = 30
+class BatchNewCreateColorViewController: PresentBaseViewController {
+
+    lazy var adapter: ListAdapter = {
+        let adapter =  ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+        //adapter.dataSource = self
+        return adapter
+    }()
+    let collectionView:UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 9
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.alwaysBounceVertical = false
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.layer.cornerRadius = 8
+        collectionView.layer.shadowColor = UIColor.lightGray.cgColor
+        collectionView.layer.shadowOffset = CGSize.zero
+        collectionView.layer.shadowOpacity = 0.8
+        
+        collectionView.registerNibOf(BatchCreateColorCollectionCell.self)
+        return collectionView
+    }()
+    
+    var pushBtn:UIButton!
+    //批量添加的东西放在这里面
+    var batchCreateHelper:AppendColorHelper = AppendColorHelper()
+    
     var scrollview:UIScrollView!
     var project: Project!
     var titleInputView:TextFieldAndButtonView!
@@ -45,16 +79,32 @@ class NewCreateColorViewController: PresentBaseViewController {
         scrollview = UIScrollView(frame: view.bounds)
         scrollview.backgroundColor = UIColor.CommonViewBackgroundColor()
         scrollview.alwaysBounceVertical = true
+        scrollview.showsVerticalScrollIndicator = false
         scrollview.canCancelContentTouches = false
         view.addSubview(scrollview)
+        collectionView.frame = CGRect(x: screenWidth*0.05, y: 60, width: screenWidth*0.9, height: horizontal_collection_height)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        scrollview.addSubview(collectionView)
+//        adapter.collectionView = collectionView
+//        adapter.dataSource = self
+        batchCreateHelper.delegate = self
+        //颜色压栈按钮
+        pushBtn = UIButton(type: .custom)
+        pushBtn.setImage(UIImage(named: "icon_up"), for: .normal)
+        pushBtn.addTarget(self, action: #selector(push_color(_:)), for: .touchUpInside)
+        pushBtn.frame = CGRect(x: (screenWidth-45) / 2, y: collectionView.frame.maxY+20, width: 45, height: 45)
+        pushBtn.tintColor = UIColor.ColorKitRed()
+        scrollview.addSubview(pushBtn)
+        
         colorPreviewCard = UINib(nibName: "CardPreview", bundle: nil).instantiate(withOwner: nil, options: nil).last as! CardPreview
-        colorPreviewCard.frame = CGRect(x: screenWidth*0.05, y: 60, width: screenWidth*0.9, height: 120)
+        colorPreviewCard.frame = CGRect(x: screenWidth*0.05, y: pushBtn.frame.maxY+20, width: screenWidth*0.9, height: 100)
         
         colorPreviewCard.layer.cornerRadius = 8
         colorPreviewCard.layer.shadowColor = UIColor.lightGray.cgColor
         colorPreviewCard.layer.shadowOffset = CGSize.zero
-        
         colorPreviewCard.layer.shadowOpacity = 0.8
+        
         
         scrollview.addSubview(colorPreviewCard)
         projectBar = UINib(nibName: "ProjectBar", bundle: nil).instantiate(withOwner: nil, options: nil).last as! ProjectBar
@@ -128,7 +178,7 @@ class NewCreateColorViewController: PresentBaseViewController {
         redSlider.valueViewColor = .white
         redSlider.addTarget(self, action: #selector(redSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(redSlider)
-        redSlider.frame = CGRect(x: screenWidth*0.05, y: 240, width: 0.9*screenWidth, height: 44)
+        redSlider.frame = CGRect(x: screenWidth*0.05, y: colorPreviewCard.frame.maxY+slider_minimum_line_space, width: 0.9*screenWidth, height: 44)
         
         greenSlider = Slider()
         greenSlider.attributedTextForFraction = { fraction in
@@ -148,7 +198,7 @@ class NewCreateColorViewController: PresentBaseViewController {
         greenSlider.valueViewColor = .white
         greenSlider.addTarget(self, action: #selector(greenSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(greenSlider)
-        greenSlider.frame = CGRect(x: screenWidth*0.05, y: redSlider.frame.maxY+50, width: 0.9*screenWidth, height: 44)
+        greenSlider.frame = CGRect(x: screenWidth*0.05, y: redSlider.frame.maxY+slider_minimum_line_space, width: 0.9*screenWidth, height: 44)
         
         blueSlider = Slider()
         blueSlider.attributedTextForFraction = { fraction in
@@ -169,20 +219,21 @@ class NewCreateColorViewController: PresentBaseViewController {
         blueSlider.valueViewColor = .white
         blueSlider.addTarget(self, action: #selector(blueSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(blueSlider)
-        blueSlider.frame = CGRect(x: screenWidth*0.05, y: greenSlider.frame.maxY+50, width: 0.9*screenWidth, height: 44)
+        blueSlider.frame = CGRect(x: screenWidth*0.05, y: greenSlider.frame.maxY+slider_minimum_line_space, width: 0.9*screenWidth, height: 44)
         
         scrollview.contentSize = CGSize(width: 0, height: blueSlider.frame.maxY + 48)
         
         if let path = Bundle.main.path(forResource: "wheels_of_time", ofType: "caf"){
             let baseURL = NSURL(fileURLWithPath: path)
             AudioServicesCreateSystemSoundID(baseURL, &soundId)
-
+            
         }
         
         // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("save", comment: ""), style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
-
+    
     private var rf :Int32 = 0
     @objc
     func redSliderValueChanged(redSlider:Slider){
@@ -217,12 +268,12 @@ class NewCreateColorViewController: PresentBaseViewController {
     }
     
     private func playSystemSound(){
-//        if !isPlaying{
-//
-//            print("asd")
-//            AudioServicesPlaySystemSound(soundId)
-//            isPlaying = true
-//        }
+        //        if !isPlaying{
+        //
+        //            print("asd")
+        //            AudioServicesPlaySystemSound(soundId)
+        //            isPlaying = true
+        //        }
         AudioServicesPlaySystemSound(soundId)
     }
     
@@ -304,40 +355,121 @@ class NewCreateColorViewController: PresentBaseViewController {
     
     @objc
     func save(_ sender: UIBarButtonItem) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+        
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+//            return
+//        }
+//
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//
+//        let entity =
+//            NSEntityDescription.entity(forEntityName: "Color",
+//                                       in: managedContext)!
+//
+//
+//        let newColor = Color(entity: entity, insertInto: managedContext)
+//
+//        newColor.setValue(colorPreviewCard.titleLabel.text!, forKey: "name")
+//        newColor.setValue(r, forKey: "r")
+//        newColor.setValue(g, forKey: "g")
+//        newColor.setValue(b, forKey: "b")
+//        newColor.setValue(project, forKey: "project")
+//        newColor.setValue(false, forKey: "collect")
+//        newColor.setValue(Date(), forKey: "createdAt")
+//
+//        saveContext()
+        SVProgressHUD.show()
+       
+        self.batchCreateHelper.performBatchSave(project) {
+            SVProgressHUD.dismiss()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
+    
+    }
+    
+    @objc func push_color(_ sender:UIButton){
+        let colorItem = MyColor(name: colorPreviewCard.titleLabel.text!, r: r, g: g, b: b)
+        sender.antiMultiplyTouch(delay: 0.2){}//disable 一段时间
+        
+        if batchCreateHelper.colors.count >= 6{
+            //不能再添加了
+            sender.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
+            invokeNotificationFeedback(type: .warning)
+            return
+        }
+        invokeImpactFeedbackMedium()
+        batchCreateHelper.append(colorItem)
+        collectionView.reloadData()
+        collectionView.scrollToItem(at: IndexPath(item: batchCreateHelper.count-1 , section: 0), at: .centeredHorizontally, animated: true)
+    }
+}
+
+extension BatchNewCreateColorViewController: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,AppendColorHelperDelegate{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return batchCreateHelper.colors.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:BatchCreateColorCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.setColor(batchCreateHelper.colors[indexPath.item])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 9, bottom: 0, right: 9)
+    }
+    
+    func helperDidUpdate(helper: AppendColorHelper) {
+        
+    }
+    
+    func helperIsEmpty(isEmpty: Bool) {
+        //改变保存按钮 enabled 状态
+        navigationItem.rightBarButtonItem?.isEnabled = !isEmpty
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (horizontal_collection_height-collectionViewMinimumLineSpacing) / screenRatio, height: horizontal_collection_height-collectionViewMinimumLineSpacing)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+        //delete code
+        invokeImpactFeedbackLight()
+        batchCreateHelper.colors.remove(at: indexPath.item)
+        collectionView.deleteItems(at: [indexPath])
+    }
+}
+/*
+extension BatchNewCreateColorViewController:ListAdapterDataSource, AppendColorHelperDelegate, RemoveSectionControllerDelegate{
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+        return batchCreateHelper.colors
+    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+        let sectionController = CreateSectionHosizontalSectionController()
+        sectionController.delegate = self
+        return sectionController
+    }
+    
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+        return emptyLabel
+        
+    }
+    
+    func helerDidUpdate(helper: AppendColorHelper) {
+        adapter.performUpdates(animated: true)
+    }
+    
+    func removeSectionControllerWantsRemoved(_ sectionController: CreateSectionHosizontalSectionController) {
+       
+        let section = adapter.section(for: sectionController)
+        
+        guard let object = adapter.object(atSection: section) as? MyColor, let index = batchCreateHelper.colors.index(of: object) else {
             return
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let entity =
-            NSEntityDescription.entity(forEntityName: "Color",
-                                       in: managedContext)!
-        
-        
-        let newColor = Color(entity: entity, insertInto: managedContext)
-        
-        newColor.setValue(colorPreviewCard.titleLabel.text!, forKey: "name")
-        newColor.setValue(r, forKey: "r")
-        newColor.setValue(g, forKey: "g")
-        newColor.setValue(b, forKey: "b")
-        newColor.setValue(project, forKey: "project")
-        newColor.setValue(false, forKey: "collect")
-        newColor.setValue(Date(), forKey: "createdAt")
-        
-        saveContext()
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
-        dismiss(animated: true, completion: nil)
+        batchCreateHelper.colors.remove(at: index)
     }
-    /*
-    // MARK: - Navigation
+}*/
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}

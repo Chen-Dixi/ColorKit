@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0dO-Xp-vqW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0dO-Xp-vqW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                                     <color key="textColor" name="navigationTint"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.1.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5l-A7-Z1S">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.2.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5l-A7-Z1S">
                                     <rect key="frame" x="167.5" y="207.5" width="40" height="24"/>
                                     <fontDescription key="fontDescription" name="PingFangSC-Thin" family="PingFang SC" pointSize="17"/>
                                     <color key="textColor" name="navigationTint"/>
@@ -108,7 +108,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpp-hs-JZD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" name="commonBackgroundColor"/>
-                                <mutableString key="text">
+                                <string key="text">
 ——————————=
 fluid-slider
 ——————————=
@@ -149,7 +149,21 @@ KeyboardMan
 ——————————=
 https://github.com/nixzhu/KeyboardMan
 Copyright (c) 2015-2018 nixzhu
-Licensed under MIT license</mutableString>
+Licensed under MIT license
+
+——————————=
+IGListKit
+——————————=
+https://github.com/Instagram/IGListKit
+Copyright (c) 2016-present, Facebook, Inc.
+Licensed under MIT license
+
+——————————=
+Alamofire
+——————————=
+https://github.com/Alamofire/Alamofire
+Copyright (c) 2014-2018 Alamofire Software Foundation (http://alamofire.org/)
+Licensed under MIT license</string>
                                 <color key="textColor" name="navigationTint"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

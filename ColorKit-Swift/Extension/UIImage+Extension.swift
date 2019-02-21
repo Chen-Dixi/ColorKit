@@ -52,6 +52,22 @@ extension UIImage{
         return image!
     }
     
+    func scaleImage(toWidth width: CGFloat)->UIImage{
+        UIGraphicsBeginImageContext(CGSize(width: width, height: width*(size.height / size.width)))
+        draw(in: CGRect(x: 0, y: 0, width: width, height: width*(size.height / size.width) ))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
+    func scaleImage(toHeight height: CGFloat)->UIImage{
+        UIGraphicsBeginImageContext(CGSize(width: height * (size.width/size.height), height: height))
+        draw(in: CGRect(x: 0, y: 0, width: height * (size.width/size.height), height: height ))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
     func colorAtPixel(pos:CGPoint) ->( red: CGFloat, green: CGFloat,blue:CGFloat)?{
         if !CGRect(x: 0, y: 0, width: size.width, height: size.height).contains(pos){
             return nil

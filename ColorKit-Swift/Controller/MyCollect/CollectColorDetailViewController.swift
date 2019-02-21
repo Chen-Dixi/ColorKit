@@ -20,12 +20,7 @@ class CollectColorDetailViewController: UIViewController {
         }
     }
     
-   
-    
     public var colors:[Color] = []
-    
-    
-    
     var managedContext:NSManagedObjectContext?
     
     var selectedIndex:IndexPath!

@@ -5,6 +5,9 @@
 /* Class = "UILabel"; text = "关于配色笔记"; ObjectID = "HaC-g2-K6H"; */
 "HaC-g2-K6H.text" = "關於配色筆記";
 
+/* Class = "UILabel"; text = "隐私协议"; ObjectID = "LAx-lM-rym"; */
+"LAx-lM-rym.text" = "隱私協議";
+
 /* Class = "UITableViewSection"; headerTitle = "关于作者"; ObjectID = "OXH-c1-cv5"; */
 "OXH-c1-cv5.headerTitle" = "關於作者";
 

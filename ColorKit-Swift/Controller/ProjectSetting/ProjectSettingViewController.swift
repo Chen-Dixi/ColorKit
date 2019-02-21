@@ -92,12 +92,13 @@ class ProjectSettingViewController: UITableViewController {
     }
     
     
-    
+    /**
+     *This will cause a bug
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(motion == UIEventSubtype.motionShake){
             dismiss(animated: true, completion: nil)
         }
-    }
+    }*/
     /*
     // MARK: - Navigation
 

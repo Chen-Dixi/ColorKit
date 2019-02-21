@@ -8,13 +8,27 @@
 
 import UIKit
 
+protocol FunctionalCellDelegate:class {
+    func functionButtonDidTap(_ cell:UICollectionViewCell)
+}
+
 class FeatureTitleCollectionViewCell: UICollectionViewCell {
 
+    weak var delegate:FunctionalCellDelegate?
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var downloadBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         backgroundColor = .white
     }
 
+    
+    @IBAction func download(_ sender: UIButton) {
+        sender.antiMultiplyTouch(delay: 0.3) {}
+        delegate?.functionButtonDidTap(self)
+    }
 }

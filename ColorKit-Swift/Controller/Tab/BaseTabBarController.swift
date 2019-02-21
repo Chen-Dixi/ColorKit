@@ -75,7 +75,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                         //                vc.pickerType = .create
                         //                vc.project = strongSelf.project
                         //                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
-                        let vc = NewCreateColorViewController()
+                        let vc = BatchNewCreateColorViewController()
                         vc.project = containervc.project
                         let nav = BaseNavigationController()
                         nav.addChildViewController(vc)
@@ -86,7 +86,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                         [weak self] in
                         if let strongSelf = self{
                             //                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
-                            let vc = CreateColorFromImageViewController()
+                            let vc = BatchCreateColorFromImageViewController()
                             
                             vc.project = containervc.project
                             
@@ -130,7 +130,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                         //                vc.pickerType = .create
                         //                vc.project = strongSelf.project
                         //                vc.nextSeq = Int32(strongSelf.tableVC.colors.count)
-                        let vc = NewCreateColorViewController()
+                        let vc = BatchNewCreateColorViewController()
                         vc.project = projects[0]
                         let nav = BaseNavigationController()
                         nav.addChildViewController(vc)
@@ -141,7 +141,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                         [weak self] in
                         if let strongSelf = self{
                             //                let sb = UIStoryboard(name: "CreateColorFromImageViewController", bundle: nil)
-                            let vc = CreateColorFromImageViewController()
+                            let vc = BatchCreateColorFromImageViewController()
 
                             vc.project = projects[0]
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 class MyViewController: UITableViewController {
 
     
@@ -24,6 +24,9 @@ class MyViewController: UITableViewController {
         tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
         tableView.separatorStyle = .none
         navigationItem.title = NSLocalizedString("Mine", comment: "")
+ 
+        let vc = FeaturedCollectionViewController()
+        navigationController?.pushViewController(vc, animated: false)
         
     }
 
@@ -55,7 +58,7 @@ class MyViewController: UITableViewController {
         case Review
         case Share
         case About
-       
+        case Privacy
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -113,6 +116,8 @@ class MyViewController: UITableViewController {
             case .About:
                 //弹出关于界面
                 jumpToAbount()
+            case .Privacy:
+                jumpToPrivacy()
             }
         }
     }
@@ -155,6 +160,13 @@ class MyViewController: UITableViewController {
         let vc = sb.instantiateInitialViewController() as! AboutViewController
         vc.navigationItem.title = NSLocalizedString("AboutColourNote", comment: "")
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func jumpToPrivacy(){
+        if let url = URL(string: "https://www.freeprivacypolicy.com/privacy/view/17122df332a609563877d7cff2496229"){
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true, completion: nil)
+        }
     }
     /*
     // Override to support editing the table view.

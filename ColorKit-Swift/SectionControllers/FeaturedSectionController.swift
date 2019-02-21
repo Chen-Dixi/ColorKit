@@ -8,7 +8,8 @@
 
 import UIKit
 import IGListKit
-
+import CoreData
+import SVProgressHUD
 let feature_title_row_height:CGFloat = 48
 let feature_horizontal_row_height:CGFloat = 200
 
@@ -68,6 +69,7 @@ class FeaturedSectionController: ListSectionController {
         if index==0{
             let cell = collectionContext?.dequeueReusableCell(withNibName: "FeatureTitleCollectionViewCell", bundle: nil, for: self, at: index) as! FeatureTitleCollectionViewCell
             cell.titleLabel.text = project?.name
+            cell.delegate = self
             return cell
         }else{
             let cell = collectionContext!.dequeueReusableCell(of: EmbeddedCollectionViewCell.self, for: self, at: index) as! EmbeddedCollectionViewCell
@@ -79,7 +81,7 @@ class FeaturedSectionController: ListSectionController {
     }
 }
 
-extension FeaturedSectionController:ListAdapterDataSource{
+extension FeaturedSectionController:ListAdapterDataSource,FunctionalCellDelegate{
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         if let project = project{
             return [project]
@@ -89,10 +91,55 @@ extension FeaturedSectionController:ListAdapterDataSource{
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return HorizontalScrollSectionController()
+        return FeatureHorizontalScrollSectionController()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
+    }
+    
+    func functionButtonDidTap(_ cell: UICollectionViewCell) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Project",
+                                       in: managedContext)!
+        
+        let entity2 =
+            NSEntityDescription.entity(forEntityName: "Color",
+                                       in: managedContext)!
+        SVProgressHUD.show()
+        DispatchQueue.global().async {
+            let project = Project(entity: entity, insertInto: managedContext)
+            project.name = self.project?.name
+            project.createdAt = Date()
+            for color in self.project?.colors ?? []{
+                let newColor = Color(entity: entity2, insertInto: managedContext)
+                
+                newColor.setValue(color.name, forKey: "name")
+                newColor.setValue(color.r, forKey: "r")
+                newColor.setValue(color.g, forKey: "g")
+                newColor.setValue(color.b, forKey: "b")
+                newColor.setValue(project, forKey: "project")
+                newColor.setValue(false, forKey: "collect")
+                newColor.setValue(Date(), forKey: "createdAt")
+                
+            }
+            SafeDispatch.async(forWork: {
+                appDelegate.saveContext()
+                SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Download Success", comment: ""))
+                delay(time: 1, execute: {
+                    SVProgressHUD.dismiss()
+                })
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshProject"), object: nil)
+                //弹出评分框框
+                showReview()
+            })
+        }
+        
     }
 }

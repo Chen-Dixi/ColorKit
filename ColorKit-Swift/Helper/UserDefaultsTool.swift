@@ -11,7 +11,11 @@ import StoreKit
 import UIKit
 
 private let numberOfRunsKey = "numberOfRuns"
-private let numberOfReviewsKey = "numberOfReviews"
+//Debug review Times
+//private let numberOfReviewsKey = "numberOfReviews"
+
+//Release review Times
+private let numberOfReviewsKey = "newNumberOfReviews"
 
 public struct Listener<T>: Hashable {
     
