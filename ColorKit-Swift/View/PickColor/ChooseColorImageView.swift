@@ -74,7 +74,7 @@ class ChooseColorImageView: UIView {
         imageView = nil
         cameraIconImageView.isHidden = true
         
-        let image = image.scaleImage(toWidth: frame.width)
+        let image = image.scaleImage(toWidth: screenWidth)
         imageView = UIImageView(image: image)
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
@@ -129,7 +129,7 @@ class ChooseColorImageView: UIView {
         case .changed:
             
                 let x = max(0,min(bounds.width, position.x - locationOffset.x))
-                let y = max(0-pinView.frame.height/2,min(position.y - locationOffset.y,bounds.height-2-pinView.frame.height/2))
+                let y = max(-pinView.frame.height/2,min(position.y - locationOffset.y,bounds.height-2-pinView.frame.height/2))
                 pinView.center = CGPoint(x:x, y: y)
                 let currentPos = pinView.getBottomCenterPosition()
                 if let (r,g,b) = colorAtPixel(pos: currentPos){

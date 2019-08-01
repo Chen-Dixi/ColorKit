@@ -24,7 +24,7 @@ class SystemCloseTransition: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             fromvc?.view.transform = CGAffineTransform(translationX: 0, y: screenHeight)
         }) { (finished) in
-            transitionContext.completeTransition(transitionContext.transitionWasCancelled)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         
     }

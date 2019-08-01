@@ -49,15 +49,12 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         centerBtn.setImage(image, for: .normal)
        
         
-        var center:CGPoint=self.tabBar.center
-        center.y=tabBar.frame.minY
-        centerBtn.center=center
-            
+
+        var center:CGPoint = CGPoint(x: tabBar.frame.width/2, y: 0)
+        center.y = (image?.size.height ?? 54) / 2 - 10
         
-        
-       
-        
-        view.addSubview(centerBtn)
+        centerBtn.center = center
+        tabBar.addSubview(centerBtn)
         
         centerBtn.addTarget(self, action: #selector(centernBtnClick(_:)), for: .touchUpInside)
     }

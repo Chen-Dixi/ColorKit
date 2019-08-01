@@ -32,6 +32,11 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
             interactivePopGestureRecognizer?.isEnabled = false
         }
         
+        if viewControllers.count == 1{
+            //在这里加一句这个可以实现隐藏TabBar
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        
         super.pushViewController(viewController, animated: animated)
     }
     

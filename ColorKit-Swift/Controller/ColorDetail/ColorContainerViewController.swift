@@ -20,6 +20,7 @@ class ColorContainerViewController: BaseViewController {
     private var switchvcBtnItem:UIBarButtonItem!
     private var addColorBtnItem :UIBarButtonItem!
     private var settingBtnItem :UIBarButtonItem!
+    private var moreBtnItem :UIBarButtonItem!
     private var isListView:Bool = true
     private var switchvcBtnItemImage:[UIImage] = [UIImage(named: "icon_card_view")!,UIImage(named: "icon_list_view")!]
     init(project:Project){
@@ -53,46 +54,44 @@ class ColorContainerViewController: BaseViewController {
     }
     
     private func setupUI(){
-        let sb1 = UIStoryboard(name: "ColorDetailViewController", bundle: nil)
-        tableVC = sb1.instantiateInitialViewController() as! ColorDetailViewController
-        tableVC.project = project
+        
         let sb2 = UIStoryboard(name: "ColorCardViewController", bundle: nil)
         cardVC = sb2.instantiateInitialViewController() as! ColorCardViewController
         cardVC.project = project
-        
-        
         
         cardCollectionVC = ColorCardCollectionViewController()
         cardCollectionVC.project = project
         
         view.addSubview(cardVC.view)
-        //view.addSubview(tableVC.view)
         view.addSubview(cardCollectionVC.view)
-        //childSubView.append(tableVC.view)
+        
         childSubView.append(cardCollectionVC.view)
         childSubView.append(cardVC.view)
-        
-        //addChildViewController(tableVC)
+    
         addChildViewController(cardCollectionVC)
         addChildViewController(cardVC)
         
         switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
         switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
-        settingBtnItem = UIBarButtonItem(image: UIImage(named: "icon_settings"), style: .plain, target: self, action: #selector(jumpToSetting))
-        settingBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        
+        //项目设置barItem
+//        settingBtnItem = UIBarButtonItem(image: UIImage(named: "icon_settings"), style: .plain, target: self, action: #selector(jumpToSetting))
+//        settingBtnItem.tintColor = UIColor.NavigationBarTintColor()
+
+        moreBtnItem = UIBarButtonItem(image: UIImage(named: "icon_more"), style: .plain, target: self, action: #selector(moreBtn))
+        moreBtnItem.tintColor = UIColor.NavigationBarTintColor()
+        
 //        addColorBtnItem = UIBarButtonItem(image: UIImage(named: "icon_add_square"), style: .plain, target: self, action: #selector(add))
 //        addColorBtnItem.tintColor = UIColor.NavigationBarTintColor()
        
-        navigationItem.rightBarButtonItems = [switchvcBtnItem,settingBtnItem]
-        
+        navigationItem.rightBarButtonItems = [switchvcBtnItem,moreBtnItem]
         
         navigationItem.title = project.name
-        
         
     }
     
     private func updateFrame(){
-        tableVC.view.frame = self.view.bounds
+        cardCollectionVC.view.frame = self.view.bounds
         cardVC.view.frame = self.view.bounds
     }
     
@@ -136,19 +135,12 @@ class ColorContainerViewController: BaseViewController {
         }
     }
     
-    @objc
-    func switchVC(){
-        
-        invokeSelectionFeedback()
-        currenViewIndex = 1-currenViewIndex
-        switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
-        view.bringSubview(toFront: childSubView[currenViewIndex])
-    }
+    
     
     @objc
     private func moreBtn(){
         let alertVC = GreatAlertController(title: nil, message: nil)
-        alertVC.addAction(UIAlertAction(title: NSLocalizedString("Switch View", comment: ""), style: .default, handler: { _ in
+        alertVC.addAction(UIAlertAction(title: "Pro 1", style: .default, handler: { _ in
             self.switchVC()
         }))
         alertVC.addAction(UIAlertAction(title: NSLocalizedString("Project Setting", comment: ""), style: .default, handler: { (_) in
@@ -161,11 +153,28 @@ class ColorContainerViewController: BaseViewController {
     @objc
     private func jumpToSetting() {
         let sb = UIStoryboard(name: "ProjectSettingViewController", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! BaseNavigationController
+        let vc = sb.instantiateInitialViewController() as! InteractiveTransitionNavigationController
         if let settingVC = vc.topViewController as? ProjectSettingViewController{
             settingVC.project = project
         }
         present(vc, animated: true, completion: nil)
+    }
+    
+    private func jumpToBlendingView(){
+        let vc = ColorBlendingViewController()
+        present(vc, animated: true, completion: nil)
+    }
+    @objc
+    func switchVC(){
+        invokeSelectionFeedback()
+        currenViewIndex = 1-currenViewIndex
+        switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
+        view.bringSubview(toFront: childSubView[currenViewIndex])
+    }
+    
+    @objc
+    func profunction1(){
+        
     }
     
     @objc

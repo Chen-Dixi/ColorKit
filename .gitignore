@@ -42,6 +42,7 @@ xcuserdata/
 # Carthage/Checkouts
 
 Carthage/Build
+Carthage/
 
 # fastlane
 #

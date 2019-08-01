@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EH2-d1-pbA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EH2-d1-pbA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,7 +63,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzJ-HZ-Lns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-353" y="192"/>
+            <point key="canvasLocation" x="-945" y="190"/>
+        </scene>
+        <!--Base View Controller-->
+        <scene sceneID="4ND-67-yaB">
+            <objects>
+                <viewController id="hpy-4T-Rtu" customClass="BaseViewController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gwx-mg-Dop">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jpa-DL-tRC"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="" id="WTP-bd-fXV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPE-f6-AcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="81" y="247"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="9xi-wk-y2W">
@@ -81,12 +97,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IS2-H4-VmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="191"/>
+            <point key="canvasLocation" x="980" y="189"/>
         </scene>
         <!--Base Tab Bar Controller-->
         <scene sceneID="GOi-QF-sTX">
             <objects>
-                <tabBarController hidesBottomBarWhenPushed="YES" id="EH2-d1-pbA" customClass="BaseTabBarController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="EH2-d1-pbA" customClass="BaseTabBarController" customModule="ColorKit_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v0g-Lv-693">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,6 +110,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ygc-uu-FXt" kind="relationship" relationship="viewControllers" id="gWa-kh-CAV"/>
+                        <segue destination="hpy-4T-Rtu" kind="relationship" relationship="viewControllers" id="r3t-QG-jy4"/>
                         <segue destination="BY2-KB-ifF" kind="relationship" relationship="viewControllers" id="n2N-TG-e9d"/>
                     </connections>
                 </tabBarController>

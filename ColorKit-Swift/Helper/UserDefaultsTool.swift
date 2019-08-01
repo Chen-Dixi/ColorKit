@@ -27,6 +27,10 @@ public struct Listener<T>: Hashable {
     public var hashValue: Int {
         return name.hashValue
     }
+    
+    public func hash(into hasher: inout Hasher){
+        hasher.combine(name)
+    }
 }
 
 public func ==<T>(lhs: Listener<T>, rhs: Listener<T>) -> Bool {

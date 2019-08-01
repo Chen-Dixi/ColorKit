@@ -47,7 +47,7 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
         
         confirmButton.backgroundColor = UIColor.ColorKitBlue()
         
-        confirmButton.setTitle("确认", for: UIControlState.normal)
+        confirmButton.setTitle(NSLocalizedString("OK", comment: ""), for: UIControlState.normal)
         
         confirmButton.layer.cornerRadius = 4
         confirmButton.setImage(UIImage.imageWithColor(color: UIColor.lightGray), for: UIControlState.disabled)

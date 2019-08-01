@@ -21,7 +21,7 @@ class MyViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.tableFooterView = UIView(frame: footerFrame1)
-        tableView.backgroundColor = UIColor.CommonViewBackgroundColor();
+        tableView.backgroundColor = UIColor.CommonViewBackgroundColor()
         tableView.separatorStyle = .none
         navigationItem.title = NSLocalizedString("Mine", comment: "")
  

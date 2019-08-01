@@ -128,19 +128,19 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         view.addSubview(editBtn)
         saveBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
-            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.618)
             make.width.equalTo(30)
             make.height.equalTo(30)
         }
         shareBtn.snp.makeConstraints { (make) in
             make.leading.equalTo(saveBtn.snp.trailing).offset(18.54)
-            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.618)
             make.width.equalTo(30)
             make.height.equalTo(30)
         }
         editBtn.snp.makeConstraints { (make) in
             make.trailing.equalTo(saveBtn.snp.leading).offset(-18.54)
-            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.75)
+            make.centerY.equalTo(view.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.618)
             make.width.equalTo(30)
             make.height.equalTo(30)
         }
@@ -160,7 +160,6 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
                 strongSelf.updateName()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateData"), object: nil)
                 strongSelf.tapHandler1()// removeFromSubview
-                
             }
         }
         
@@ -289,6 +288,7 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+       
         return CloseColorCardTransition()
     }
     

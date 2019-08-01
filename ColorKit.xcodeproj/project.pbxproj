@@ -36,6 +36,7 @@
 		4C21B1F221184D5C00C90659 /* CollectColorCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B1F121184D5C00C90659 /* CollectColorCardViewController.storyboard */; };
 		4C21B1F421184E0400C90659 /* CollectColorDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */; };
 		4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21B1F8211859E000C90659 /* MyViewController.swift */; };
+		4C23455422F059C900E57F7B /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23455322F059C900E57F7B /* SafeDispatch.swift */; };
 		4C24EA262149E65300BF658C /* PresentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24EA252149E65300BF658C /* PresentBaseViewController.swift */; };
 		4C324C2E212272AA00FF69FA /* ColorPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C324C2D212272AA00FF69FA /* ColorPinView.swift */; };
 		4C3AB55A21897C100067A25F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3AB55921897C0F0067A25F /* SwiftyJSON.framework */; };
@@ -50,7 +51,6 @@
 		4C3DAC5E21256BD100F2DBCE /* ColorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DAC5D21256BD100F2DBCE /* ColorInfoViewController.swift */; };
 		4C3DAC6021256C3D00F2DBCE /* ColorInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3DAC5F21256C3D00F2DBCE /* ColorInfoViewController.storyboard */; };
 		4C3DAC6221259D5B00F2DBCE /* CloseColorCardInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DAC6121259D5B00F2DBCE /* CloseColorCardInteractiveTransition.swift */; };
-		4C3DD136210F521700723C34 /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DD135210F521700723C34 /* SafeDispatch.swift */; };
 		4C4081412109A83E009BBD8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081402109A83E009BBD8C /* AppDelegate.m */; };
 		4C4081442109A83E009BBD8C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4081432109A83E009BBD8C /* ViewController.m */; };
 		4C4081472109A83E009BBD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4081452109A83E009BBD8C /* Main.storyboard */; };
@@ -154,6 +154,9 @@
 		4CD996BC214F976B0095F708 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD996BB214F976B0095F708 /* RegexHelper.swift */; };
 		4CE2F80C210DED5B00F9C294 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F80B210DED5B00F9C294 /* SnapKit.framework */; };
 		4CE2F80F210DEDB200F9C294 /* CreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */; };
+		4CE4495F221F975D004C34ED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE4495E221F975D004C34ED /* StoreKit.framework */; };
+		4CE4496122200335004C34ED /* ColorBlendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4496022200335004C34ED /* ColorBlendingViewController.swift */; };
+		4CE4496322200ADB004C34ED /* InteractiveTransitionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4496222200ADB004C34ED /* InteractiveTransitionNavigationController.swift */; };
 		4CEC4058212ADD1E0003E9F6 /* NewCreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC4057212ADD1E0003E9F6 /* NewCreateColorViewController.swift */; };
 		4CEC4075212AF4930003E9F6 /* SystemCloseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC4074212AF4930003E9F6 /* SystemCloseTransition.swift */; };
 		4CEC407F212B026D0003E9F6 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC407B212B026C0003E9F6 /* Slider.swift */; };
@@ -228,6 +231,7 @@
 		4C21B1F121184D5C00C90659 /* CollectColorCardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectColorCardViewController.storyboard; sourceTree = "<group>"; };
 		4C21B1F321184E0400C90659 /* CollectColorDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectColorDetailViewController.storyboard; sourceTree = "<group>"; };
 		4C21B1F8211859E000C90659 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		4C23455322F059C900E57F7B /* SafeDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
 		4C24EA252149E65300BF658C /* PresentBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentBaseViewController.swift; sourceTree = "<group>"; };
 		4C2EE91D214C19D1002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4C2EE91E214C19D1002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -249,7 +253,6 @@
 		4C3DAC5D21256BD100F2DBCE /* ColorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoViewController.swift; sourceTree = "<group>"; };
 		4C3DAC5F21256C3D00F2DBCE /* ColorInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorInfoViewController.storyboard; sourceTree = "<group>"; };
 		4C3DAC6121259D5B00F2DBCE /* CloseColorCardInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseColorCardInteractiveTransition.swift; sourceTree = "<group>"; };
-		4C3DD135210F521700723C34 /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafeDispatch.swift; path = ../../../../../dev/XiaoDi/XiaoDiKit/Helpers/SafeDispatch.swift; sourceTree = "<group>"; };
 		4C40813D2109A83E009BBD8C /* ColorKit-Objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorKit-Objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C40813F2109A83E009BBD8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C4081402109A83E009BBD8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -388,6 +391,9 @@
 		4CD996BB214F976B0095F708 /* RegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
 		4CE2F80B210DED5B00F9C294 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4CE2F80E210DEDB200F9C294 /* CreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorViewController.swift; sourceTree = "<group>"; };
+		4CE4495E221F975D004C34ED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		4CE4496022200335004C34ED /* ColorBlendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendingViewController.swift; sourceTree = "<group>"; };
+		4CE4496222200ADB004C34ED /* InteractiveTransitionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitionNavigationController.swift; sourceTree = "<group>"; };
 		4CEC4055212ADCAB0003E9F6 /* Slider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slider.framework; path = Carthage/Build/iOS/Slider.framework; sourceTree = "<group>"; };
 		4CEC4057212ADD1E0003E9F6 /* NewCreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCreateColorViewController.swift; sourceTree = "<group>"; };
 		4CEC4059212AE2570003E9F6 /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = Carthage/Build/iOS/pop.framework; sourceTree = "<group>"; };
@@ -424,6 +430,7 @@
 				4CD1FD9021881107005299F4 /* Alamofire.framework in Frameworks */,
 				4C66CE56211C213400AF248C /* KeyboardMan.framework in Frameworks */,
 				4C8B4C7E213942CB00392703 /* SVProgressHUD.framework in Frameworks */,
+				4CE4495F221F975D004C34ED /* StoreKit.framework in Frameworks */,
 				4C3AB55A21897C100067A25F /* SwiftyJSON.framework in Frameworks */,
 				4CD1FD8E2187FD5E005299F4 /* IGListKit.framework in Frameworks */,
 			);
@@ -602,7 +609,7 @@
 		4C17260A209B6AE000A1919D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4CC18FA421AEDCE400D728FD /* Export */,
+				4CC18FA421AEDCE400D728FD /* WholeScheme */,
 				4C654E41214E7A7300F0EB4F /* Featured */,
 				4C24EA242149E61800BF658C /* Base */,
 				4C3DAC5C21256BB200F2DBCE /* ColorInfo */,
@@ -710,9 +717,9 @@
 		4C3DD134210F51F700723C34 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				4C3DD135210F521700723C34 /* SafeDispatch.swift */,
 				4C8928C521304873002C59AB /* UserDefaultsTool.swift */,
 				4CD996BB214F976B0095F708 /* RegexHelper.swift */,
+				4C23455322F059C900E57F7B /* SafeDispatch.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -816,6 +823,7 @@
 			isa = PBXGroup;
 			children = (
 				4C65366A209D426E006DFA0E /* BaseNavigationController.swift */,
+				4CE4496222200ADB004C34ED /* InteractiveTransitionNavigationController.swift */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -904,11 +912,12 @@
 			path = ColorOfPoint;
 			sourceTree = "<group>";
 		};
-		4CC18FA421AEDCE400D728FD /* Export */ = {
+		4CC18FA421AEDCE400D728FD /* WholeScheme */ = {
 			isa = PBXGroup;
 			children = (
+				4CE4496022200335004C34ED /* ColorBlendingViewController.swift */,
 			);
-			path = Export;
+			path = WholeScheme;
 			sourceTree = "<group>";
 		};
 		4CC475922112117B008A135C /* ProjectSetting */ = {
@@ -941,6 +950,7 @@
 		4CE2F80A210DED5B00F9C294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CE4495E221F975D004C34ED /* StoreKit.framework */,
 				4C3AB55921897C0F0067A25F /* SwiftyJSON.framework */,
 				4CD1FD8F21881107005299F4 /* Alamofire.framework */,
 				4CD1FD8D2187FD5E005299F4 /* IGListKit.framework */,
@@ -1153,6 +1163,9 @@
 					4C1725E5209B65D700A1919D = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1295,7 +1308,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		4CE2F809210DECB900F9C294 /* Carthage Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1310,7 +1323,7 @@
 			name = "Carthage Script";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
@@ -1372,6 +1385,7 @@
 				4C4CCC6920A8864A00DAC4C7 /* ColorDetailViewController.swift in Sources */,
 				4CB529D621581A56005481DF /* AboutViewController.swift in Sources */,
 				4C45C234210C36AC0048DAE8 /* CellSwipeDirection.swift in Sources */,
+				4CE4496122200335004C34ED /* ColorBlendingViewController.swift in Sources */,
 				4C1725EB209B65D800A1919D /* ViewController.swift in Sources */,
 				4CD996BA214F95640095F708 /* HexColorTextFieldAndButtonView.swift in Sources */,
 				4C4241892128778F0070350F /* SwiftNotice.swift in Sources */,
@@ -1382,6 +1396,7 @@
 				4C3B62D820A35327006257E2 /* NibLoadable.swift in Sources */,
 				4C45C23A210C407E0048DAE8 /* ColorCardCell.swift in Sources */,
 				4C010C6D211D37C3008F84F8 /* CardPreview.swift in Sources */,
+				4C23455422F059C900E57F7B /* SafeDispatch.swift in Sources */,
 				4CD996B8214F49400095F708 /* ChooseProjectViewController.swift in Sources */,
 				4C3B62D920A35327006257E2 /* Reusable.swift in Sources */,
 				4C10ADE22154CD8700273809 /* ColorCardCollectionViewController.swift in Sources */,
@@ -1415,11 +1430,11 @@
 				4C21B1F9211859E000C90659 /* MyViewController.swift in Sources */,
 				4C45C237210C36AC0048DAE8 /* Extensions.swift in Sources */,
 				4C45C222210C20CD0048DAE8 /* ColorCardViewController.swift in Sources */,
+				4CE4496322200ADB004C34ED /* InteractiveTransitionNavigationController.swift in Sources */,
 				4CD1FD922188373E005299F4 /* FeaturedLoader.swift in Sources */,
 				4C4CCC6F20A8871F00DAC4C7 /* ColorDetailCell.swift in Sources */,
 				4CEC4080212B026D0003E9F6 /* Filters.swift in Sources */,
 				4CC4758D2111B812008A135C /* UIImage+Extension.swift in Sources */,
-				4C3DD136210F521700723C34 /* SafeDispatch.swift in Sources */,
 				4C010C72211D3C01008F84F8 /* CreateColorFromImageViewController.swift in Sources */,
 				4C3DAC6221259D5B00F2DBCE /* CloseColorCardInteractiveTransition.swift in Sources */,
 				4C45C232210C36AC0048DAE8 /* VerticalCardSwiper.swift in Sources */,

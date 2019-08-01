@@ -58,11 +58,13 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Favorites", comment: ""), style: .plain, target: self, action: #selector(jumpToFavorites))
         fetchProject()
         collectionView?.reloadData()
+        /**
+        * 打开App默认进入第一个项目
+        */
         if projects.count > 0 {
             let vc = ColorContainerViewController(project: projects[0])
             navigationController?.pushViewController(vc, animated: false)
         }
-        
     }
     
     func fetchProject(){
