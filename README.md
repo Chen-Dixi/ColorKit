@@ -10,4 +10,4 @@
 [snapshot1]:assets/IMG_1818.PNG
 [snapshot2]:assets/IMG_1817.PNG
 [snapshot3]:assets/IMG_0662.PNG
-[snapshot4]:assets/IMG_1821.PNG
+[snapshot4]:assets/IMG_1821.JPG
