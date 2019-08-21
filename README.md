@@ -1,4 +1,4 @@
-#ColorKit
+# ColorKit
 配色笔记 项目颜色搭配笔记本: [App Store link](https://itunes.apple.com/cn/app/id1422973826)
 
 ## 截图
