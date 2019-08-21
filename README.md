@@ -1,3 +1,5 @@
+![banner]
+
 # ColorKit
 配色笔记 项目颜色搭配笔记本: [App Store link](https://itunes.apple.com/cn/app/id1422973826)
 
@@ -11,6 +13,7 @@
 [snapshot2]:assets/IMG_1817.PNG
 [snapshot3]:assets/IMG_0662.PNG
 [snapshot4]:assets/IMG_1821.JPG
+[banner]:assets/banner.png
 
 ## Support Us
 
