@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  ColorKit
+
+  Created by Dixi-Chen on 2018/9/15.
+  Copyright © 2018 Dixi-Chen. All rights reserved.
+*/
+"Switch View" = "Switch View";
+"Project Setting" = "Setting";
+"cancel" = "Cancel";
+"delete" = "Delete";
+"save" = "Save";
+"Are you sure you want to delete this project?" = "Are you sure you want to delete this project?";
+"Are you sure you want to delete this color?" = "Are you sure you want to delete this color?";
+"Choose how to get a color" = "Choose how to get a color";
+"From Image" = "From Image";
+"Photo Library" = "Photo Library";
+"Camera" = "Camera";
+"ok" = "ok";
+"add project" = "Add Project";
+"input project name" = "input project name";
+"project name" = "Project Name";
+"ColorNote" = "ColourNote";
+"Chongqing Metro" = "Chongqing Metro";
+"Line1" = "Line 1";
+"Line2" = "Line 2";
+"Line3" = "Line 3";
+"Line4" = "Line 4";
+"Line5" = "Line 5";
+"Line6" = "Line 6";
+"Line7" = "Line 7";
+"Line8" = "Line 8";
+"Line9" = "Line 9";
+"Line10" = "Line 10";
+"LoopLine" = "Loop Line";
+"Favorites" = "Favorites";
+"Mine" = "Mine";
+"AboutColourNote" = "About「ColourNote」";
+"Featured" = "Featured";
+"Create a project first" = "Create a project first";
+"Download Success" = "Download Success";
+"OK" = "OK";
+

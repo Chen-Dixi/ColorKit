@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  ColorKit
+
+  Created by Dixi-Chen on 2018/9/15.
+  Copyright © 2018 Dixi-Chen. All rights reserved.
+*/
+"Switch View" = "切換視圖";
+"Project Setting" = "項目設置";
+"cancel" = "取消";
+"delete" = "刪除";
+"save" = "保存";
+"Are you sure you want to delete this project?" = "確定要刪除此項目嗎";
+"Are you sure you want to delete this color?" = "確定要刪除此色卡嗎";
+"Choose how to get a color" = "選擇獲取色卡的方式";
+"From Image" = "從圖片中獲取";
+"Photo Library" = "從相冊選擇";
+"Camera" = "拍照";
+"ok" = "好的";
+"add project" = "添加項目";
+"input project name" = "輸入項目名稱";
+"project name" = "項目名稱";
+"ColorNote" = "配色筆記";
+"Line1" = "一號線";
+"Line2" = "二號線";
+"Line3" = "三號線";
+"Line4" = "四號線";
+"Line5" = "五號線";
+"Line6" = "六號線";
+"Line7" = "七號線";
+"Line8" = "八號線";
+"Line9" = "九號線";
+"Line10" = "十號線";
+"LoopLine" = "環線";
+"Favorites" = "收藏";
+"Mine" = "我的";
+"AboutColourNote" = "關於「配色筆記」";
+"Featured" = "精選";
+"Create a project first" = "請先創建一個項目";
+"Download Success" = "下載成功";
+"OK" = "確認";

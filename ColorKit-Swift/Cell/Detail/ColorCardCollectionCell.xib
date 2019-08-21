@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ColorCardCollectionCell" customModule="ColorKit_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="161"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="161"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-5U-hZS">
+                        <rect key="frame" x="18.5" y="65.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wZn-5U-hZS" secondAttribute="height" multiplier="1:1" id="GO5-uw-kfR"/>
+                            <constraint firstAttribute="width" constant="30" id="gAm-6Y-eUK"/>
+                        </constraints>
+                        <state key="normal" image="icon_collect_null"/>
+                        <connections>
+                            <action selector="likeBtnClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jBU-d8-7Io"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5T-wj-tbn">
+                        <rect key="frame" x="355.5" y="70.5" width="46" height="20"/>
+                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yF-fN-WbV" userLabel="Delete">
+                        <rect key="frame" x="438" y="65.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="wTI-QJ-fG0"/>
+                            <constraint firstAttribute="width" constant="30" id="xEA-L1-fLi"/>
+                        </constraints>
+                        <state key="normal" image="icon_delete"/>
+                        <connections>
+                            <action selector="deleteColor:" destination="gTV-IL-0wX" eventType="touchUpInside" id="oGR-Oi-6Qo"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gE-o0-hBW">
+                        <rect key="frame" x="328.5" y="98.5" width="73" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="wZn-5U-hZS" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="J1F-ol-76f"/>
+                <constraint firstItem="C5T-wj-tbn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wZn-5U-hZS" secondAttribute="trailing" constant="18.539999999999999" id="Nn6-Gp-MKm"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="C5T-wj-tbn" secondAttribute="trailing" constant="18.539999999999999" id="SiX-ao-TKa"/>
+                <constraint firstItem="4gE-o0-hBW" firstAttribute="trailing" secondItem="C5T-wj-tbn" secondAttribute="trailing" id="Uy8-aL-7Op"/>
+                <constraint firstItem="5yF-fN-WbV" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="b2l-sT-bS7"/>
+                <constraint firstItem="5yF-fN-WbV" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="trailing" constant="18" id="c3b-JO-5ed"/>
+                <constraint firstItem="C5T-wj-tbn" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="g7P-R5-tvw"/>
+                <constraint firstItem="4gE-o0-hBW" firstAttribute="top" secondItem="C5T-wj-tbn" secondAttribute="bottom" constant="8" id="yba-j5-1Qz"/>
+                <constraint firstItem="wZn-5U-hZS" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="18.539999999999999" id="zsG-kw-x52"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="420" height="161"/>
+            <connections>
+                <outlet property="collectButton" destination="wZn-5U-hZS" id="bSA-ZX-dcz"/>
+                <outlet property="deleteBtn" destination="5yF-fN-WbV" id="FTH-gl-9uF"/>
+                <outlet property="hexLabel" destination="4gE-o0-hBW" id="o5d-RB-yiE"/>
+                <outlet property="titleLabel" destination="C5T-wj-tbn" id="dSg-eu-rgH"/>
+            </connections>
+            <point key="canvasLocation" x="187" y="156"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_collect_null" width="30" height="30"/>
+        <image name="icon_delete" width="64" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,10 @@
+github "SnapKit/SnapKit" >= 4.0.0
+github "https://github.com/facebook/pop.git"
+github "SVProgressHUD/SVProgressHUD"
+github "nixzhu/KeyboardMan"
+github "Instagram/IGListKit" ~> 3.0
+github "Alamofire/Alamofire" ~> 4.7
+github "SwiftyJSON/SwiftyJSON" ~> 4.0
+
+
+

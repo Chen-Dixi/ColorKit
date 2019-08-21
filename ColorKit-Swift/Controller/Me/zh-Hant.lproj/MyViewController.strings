@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "分享给朋友"; ObjectID = "DJO-ZU-iwu"; */
+"DJO-ZU-iwu.text" = "分享給朋友";
+
+/* Class = "UILabel"; text = "关于配色笔记"; ObjectID = "HaC-g2-K6H"; */
+"HaC-g2-K6H.text" = "關於配色筆記";
+
+/* Class = "UILabel"; text = "隐私协议"; ObjectID = "LAx-lM-rym"; */
+"LAx-lM-rym.text" = "隱私協議";
+
+/* Class = "UITableViewSection"; headerTitle = "关于作者"; ObjectID = "OXH-c1-cv5"; */
+"OXH-c1-cv5.headerTitle" = "關於作者";
+
+/* Class = "UILabel"; text = "精选"; ObjectID = "iXh-Bf-5RA"; */
+"iXh-Bf-5RA.text" = "精選";
+
+/* Class = "UILabel"; text = "Weibo"; ObjectID = "jC6-Gu-MQv"; */
+"jC6-Gu-MQv.text" = "Weibo";
+
+/* Class = "UITableViewSection"; headerTitle = "其他"; ObjectID = "m3P-uF-uKz"; */
+"m3P-uF-uKz.headerTitle" = "其他";
+
+/* Class = "UILabel"; text = "App Store 评论"; ObjectID = "v8v-lI-Pso"; */
+"v8v-lI-Pso.text" = "App Store 評論";
+
+/* Class = "UITableViewSection"; headerTitle = "通用"; ObjectID = "wPn-Yi-gEC"; */
+"wPn-Yi-gEC.headerTitle" = "通用";
