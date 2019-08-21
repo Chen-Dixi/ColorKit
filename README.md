@@ -1,7 +1,7 @@
 # ColorKit
 配色笔记 项目颜色搭配笔记本: [App Store link](https://itunes.apple.com/cn/app/id1422973826)
 
-## 截图
+## Snapshot
 
 | | | | |
 | :--: | :------------: | :------------: | :--: |
@@ -11,3 +11,10 @@
 [snapshot2]:assets/IMG_1817.PNG
 [snapshot3]:assets/IMG_0662.PNG
 [snapshot4]:assets/IMG_1821.JPG
+
+## Support Us
+
+The development covers a lot of complicated work, costing not only money but also time. These are the way to support
+
+- If you found it valuable, give us a star, ite means a lot to me.
+- Donate with Alipay through the sponsor button above this repository.
