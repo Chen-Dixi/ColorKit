@@ -16,5 +16,5 @@
 
 The development covers a lot of complicated work, costing not only money but also time. These are the way to support
 
-- If you found it valuable, give us a star, it means a lot to me.
+- If you found it valuable, give a star, it means a lot to me.
 - Donate with Alipay through the sponsor button above this repository.
