@@ -20,5 +20,5 @@
 The development covers a lot of complicated work, costing not only money but also time. These are the way to support
 
 - If you found it valuable, give a star, it means a lot to me.
-- Download this App on App Store for free and leave a rating score.
+- Download this App on App Store for free and leave a rating score.[App Store link](https://itunes.apple.com/cn/app/id1422973826)
 - Donate with Alipay through the sponsor button above this repository.
