@@ -5,7 +5,6 @@
 //  Created by Dmitry Nesterenko on 16/10/2017.
 //  Copyright Ramotion Inc. All rights reserved.
 //
-
 import UIKit
 import pop
 
@@ -63,17 +62,17 @@ class ValueView : UIView {
             return textLabel.attributedText
         }
         set {
-			if let newValue = newValue {
-				// apply centered horizontal alignment
-				let string = newValue.mutableCopy() as! NSMutableAttributedString
-				let paragraph = (string.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSParagraphStyle ?? NSParagraphStyle()).mutableCopy() as! NSMutableParagraphStyle
-				paragraph.alignment = .center
-				string.addAttribute(.paragraphStyle, value: paragraph, range: NSMakeRange(0, string.length))
-				textLabel.attributedText = string
-			} else {
-				textLabel.attributedText = nil
-			}
-		}
+            if let newValue = newValue {
+                // apply centered horizontal alignment
+                let string = newValue.mutableCopy() as! NSMutableAttributedString
+                let paragraph = (string.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSParagraphStyle ?? NSParagraphStyle()).mutableCopy() as! NSMutableParagraphStyle
+                paragraph.alignment = .center
+                string.addAttribute(.paragraphStyle, value: paragraph, range: NSMakeRange(0, string.length))
+                textLabel.attributedText = string
+            } else {
+                textLabel.attributedText = nil
+            }
+        }
     }
     
     // MARK: - Laying out Subviews

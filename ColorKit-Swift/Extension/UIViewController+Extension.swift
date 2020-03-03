@@ -46,7 +46,7 @@ extension UIViewController{
         impactFeedbackGenerator.impactOccurred()
     }
     
-    func invokeNotificationFeedback(type:UINotificationFeedbackType ){
+    func invokeNotificationFeedback(type:UINotificationFeedbackGenerator.FeedbackType ){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             return
         }

@@ -272,7 +272,7 @@ class NewCreateColorViewController: PresentBaseViewController {
             self?.projectBar.setProject(project)
             self?.project = project
         }
-        navi.addChildViewController(chooseProjectVC)
+        navi.addChild(chooseProjectVC)
         present(navi, animated: true, completion: nil)
     }
     

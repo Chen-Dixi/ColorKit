@@ -15,7 +15,18 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.1</string>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ColourKit</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>12</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -39,6 +50,10 @@
 	<string>将图片保存到相册中，可以将图片当作壁纸使用</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>使用相册，您将可以从相册的照片中拾取颜色使用</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FandolSong-Bold.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

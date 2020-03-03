@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ColorContainerViewController: BaseViewController {
 
@@ -68,8 +69,8 @@ class ColorContainerViewController: BaseViewController {
         childSubView.append(cardCollectionVC.view)
         childSubView.append(cardVC.view)
     
-        addChildViewController(cardCollectionVC)
-        addChildViewController(cardVC)
+        addChild(cardCollectionVC)
+        addChild(cardVC)
         
         switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
         switchvcBtnItem.tintColor = UIColor.NavigationBarTintColor()
@@ -80,11 +81,12 @@ class ColorContainerViewController: BaseViewController {
 
         moreBtnItem = UIBarButtonItem(image: UIImage(named: "icon_more"), style: .plain, target: self, action: #selector(moreBtn))
         moreBtnItem.tintColor = UIColor.NavigationBarTintColor()
-        
+//
 //        addColorBtnItem = UIBarButtonItem(image: UIImage(named: "icon_add_square"), style: .plain, target: self, action: #selector(add))
 //        addColorBtnItem.tintColor = UIColor.NavigationBarTintColor()
        
         navigationItem.rightBarButtonItems = [switchvcBtnItem,moreBtnItem]
+        //navigationItem.rightBarButtonItems = [switchvcBtnItem,settingBtnItem]
         
         navigationItem.title = project.name
         
@@ -108,7 +110,7 @@ class ColorContainerViewController: BaseViewController {
                 let vc = NewCreateColorViewController()
                 vc.project = strongSelf.project
                 let nav = BaseNavigationController()
-                nav.addChildViewController(vc)
+                nav.addChild(vc)
                 strongSelf.present(nav, animated: true, completion: nil)
             }
             
@@ -121,7 +123,7 @@ class ColorContainerViewController: BaseViewController {
                 vc.project = strongSelf.project
                 
                 let nav = BaseNavigationController()
-                nav.addChildViewController(vc)
+                nav.addChild(vc)
 //                strongSelf.navigationController?.pushViewController(vc, animated: true)
                 strongSelf.present(nav, animated: true, completion: nil)
             }
@@ -129,9 +131,11 @@ class ColorContainerViewController: BaseViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake{
-            switchVC()
+                switchVC()
         }
     }
     
@@ -140,8 +144,9 @@ class ColorContainerViewController: BaseViewController {
     @objc
     private func moreBtn(){
         let alertVC = GreatAlertController(title: nil, message: nil)
-        alertVC.addAction(UIAlertAction(title: "Pro 1", style: .default, handler: { _ in
-            self.switchVC()
+        alertVC.addAction(UIAlertAction(title: NSLocalizedString("Copy Project Code", comment: "") , style: .default, handler: { _ in
+            //self.switchVC()
+            self.copyCode()
         }))
         alertVC.addAction(UIAlertAction(title: NSLocalizedString("Project Setting", comment: ""), style: .default, handler: { (_) in
             self.jumpToSetting()
@@ -157,6 +162,7 @@ class ColorContainerViewController: BaseViewController {
         if let settingVC = vc.topViewController as? ProjectSettingViewController{
             settingVC.project = project
         }
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
     
@@ -166,14 +172,63 @@ class ColorContainerViewController: BaseViewController {
     }
     @objc
     func switchVC(){
-        invokeSelectionFeedback()
+        invokeNotificationFeedback(type: .success)
         currenViewIndex = 1-currenViewIndex
         switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
-        view.bringSubview(toFront: childSubView[currenViewIndex])
+        view.bringSubviewToFront(childSubView[currenViewIndex])
     }
     
-    @objc
-    func profunction1(){
+    // 生成项目json口令到剪贴板
+    func copyCode(){
+        var projectJson = "{\"colors\": [{\"name\": \" \", \"r\": 218.0, \"b\": 0.0, \"g\": 58.0}, {\"name\": \" \", \"r\": 226.0, \"b\": 0.0, \"g\": 119.0}, {\"name\": \" \", \"r\": 255.0, \"b\": 0.0, \"g\": 196.0}, {\"name\": \" \",  \"r\": 102.0, \"b\": 42.0, \"g\": 194.0}], \"projectName\": \"重庆大学D1314\"}"
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        var colors:[Color] = []
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let predicate = NSPredicate(format: "project = %@", project)
+        let fetchRequest = NSFetchRequest<Color>(entityName: "Color")
+        
+        fetchRequest.predicate = predicate
+        let sortPredictor = NSSortDescriptor(key: "createdAt", ascending: true)
+        fetchRequest.sortDescriptors = [sortPredictor]
+        
+        do {
+            colors = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        var jsonDict:[String : Any] = ["colors":[],"projectName":project.name]
+        var colorArr:[[String:Any]] = []
+        for color in colors {
+            let red32 = color.value(forKey: "r") as! Int32
+            let green32 = color.value(forKey: "g") as! Int32
+            let blue32 = color.value(forKey: "b") as! Int32
+            let name = color.value(forKey: "name") as? String
+            let r :CGFloat = CGFloat(red32)
+            
+            let g :CGFloat = CGFloat(green32)
+            let b :CGFloat = CGFloat(blue32)
+            
+            let colorinfo:[String:Any] = ["r":r,"g":g,"b":b,"name":name]
+            colorArr.append(colorinfo)
+        }
+        jsonDict["colors"]=colorArr
+        projectJson = getJSONStringFromDictionary(dictionary: jsonDict)
+        print(projectJson)
+        let pas = UIPasteboard.general
+        pas.string = projectJson
+        
+    }
+    
+    func getJSONStringFromDictionary(dictionary:Dictionary<String, Any>) -> String {
+        if (!JSONSerialization.isValidJSONObject(dictionary)) {
+            print("无法解析出JSONString")
+            return ""
+        }
+        let data : NSData! = try? JSONSerialization.data(withJSONObject: dictionary, options: []) as NSData!
+        let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
+        return JSONString! as String
         
     }
     

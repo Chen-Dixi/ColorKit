@@ -186,13 +186,14 @@ class BatchCreateColorFromImageViewController: PresentBaseViewController {
     }
     @objc
     private func showChooseProjectView(){
-        let navi = BaseNavigationController()
+        let navi = InteractiveTransitionNavigationController()
         let chooseProjectVC = ChooseProjectViewController { [weak self](project) in
             
             self?.projectBar.setProject(project)
             self?.project = project
         }
-        navi.addChildViewController(chooseProjectVC)
+        navi.addChild(chooseProjectVC)
+        navi.modalPresentationStyle = .fullScreen
         present(navi, animated: true, completion: nil)
     }
     
@@ -311,16 +312,14 @@ class BatchCreateColorFromImageViewController: PresentBaseViewController {
 }
 
 extension BatchCreateColorFromImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        var image:UIImage!
-        if picker.sourceType == .camera{
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        }else{
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         self.dismiss(animated: true, completion: nil)
-        chooseColorImageView.setChoosedImage(image: image)
+        chooseColorImageView.setChoosedImage(image: selectedImage)
         scrollview.contentSize = CGSize(width: 0, height: chooseColorImageView.frame.maxY+48)
         
     }

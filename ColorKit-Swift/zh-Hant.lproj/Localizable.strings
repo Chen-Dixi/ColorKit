@@ -39,3 +39,6 @@
 "Create a project first" = "請先創建一個項目";
 "Download Success" = "下載成功";
 "OK" = "確認";
+"Copy Project Code" = "複製項目口令";
+"Code Detected" = "識別到專用口令";
+"Do you want to import the data?" = "你想從口令中導入數據嗎?";

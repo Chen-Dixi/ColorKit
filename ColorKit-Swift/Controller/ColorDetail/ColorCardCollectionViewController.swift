@@ -151,6 +151,7 @@ class ColorCardCollectionViewController: BaseCollectionViewController,LXReordera
         let vc = sb.instantiateInitialViewController() as! ColorInfoViewController
         vc.tobackgroundColor = CommonUtil.getBackgroundColorFromColorData(color:  colors[indexPath.item])
         vc.color = colors[indexPath.item]
+        
         present(vc, animated: true, completion: nil)
     }
     

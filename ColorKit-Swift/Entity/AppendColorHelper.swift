@@ -53,6 +53,7 @@ class AppendColorHelper:NSObject{
                 newColor.setValue(Date(), forKey: "createdAt")
                 
             }
+            UserDefaultsTool.recentColorNameInGroup.value = self.colors.last?.name
             SafeDispatch.async(forWork: {
                 appDelegate.saveContext()
                 callback()

@@ -317,7 +317,7 @@ extension VerticalCardSwiper: UICollectionViewDelegate, UICollectionViewDataSour
     fileprivate func setupCollectionView(){
         
         verticalCardSwiperView = VerticalCardSwiperView(frame: self.frame, collectionViewLayout: flowLayout)
-        verticalCardSwiperView.decelerationRate = UIScrollViewDecelerationRateFast
+        verticalCardSwiperView.decelerationRate = UIScrollView.DecelerationRate.fast
         verticalCardSwiperView.backgroundColor = UIColor.clear
         setCardSwiperInsets()
         verticalCardSwiperView.showsVerticalScrollIndicator = false

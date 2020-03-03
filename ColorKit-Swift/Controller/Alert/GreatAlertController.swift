@@ -14,7 +14,7 @@ class GreatAlertController: UIAlertController {
     let alertTintColor = UIColor.NavigationBarTintColor()
     
     convenience init(title: String?, message: String?) {
-        let style: UIAlertControllerStyle = (screenWidth > 500) ? .alert : .actionSheet
+        let style: UIAlertController.Style = (screenWidth > 500) ? .alert : .actionSheet
         self.init(title: title, message: message, preferredStyle: style)
         self.view.tintColor = alertTintColor
     }
@@ -77,6 +77,18 @@ class UIImagePickerAlertController:GreatAlertController{
         }))
         self.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { _ in
             fromCamera()
+        }))
+        self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
+    }
+}
+
+class DetectProjectCodeAlertController: GreatAlertController{
+    convenience init(confirmBlock : @escaping ()->Void ) {
+        self.init(title: NSLocalizedString("Code Detected", comment: ""), message: NSLocalizedString("Do you want to import the data?", comment: ""))
+        // 如何使用
+        
+        self.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in
+            confirmBlock()
         }))
         self.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
     }

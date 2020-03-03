@@ -78,6 +78,10 @@ class CommonUtil {
         
         return UIColor(red: r, green: g, blue: b, alpha: 1.0)
     }
+    
+    class func rgb2cmyk(red r:Int32,green g:Int32 ,blue b:Int32){
+        
+    }
 
 }
 

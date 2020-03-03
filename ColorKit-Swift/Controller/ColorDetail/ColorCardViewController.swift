@@ -43,7 +43,7 @@ class ColorCardViewController: BaseViewController, VerticalCardSwiperDelegate, V
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "updateData"), object: nil)
-         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "reorderData"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "reorderData"), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "tableviewChanged"), object: nil)
     }
     /*

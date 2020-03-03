@@ -176,6 +176,7 @@ class BatchNewCreateColorViewController: PresentBaseViewController {
         redSlider.shadowColor = UIColor(white: 0, alpha: 0.1)
         redSlider.contentViewColor = UIColor.ColorKitRed()
         redSlider.valueViewColor = .white
+        redSlider.isAnimationEnabled = false
         redSlider.addTarget(self, action: #selector(redSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(redSlider)
         redSlider.frame = CGRect(x: screenWidth*0.05, y: colorPreviewCard.frame.maxY+slider_minimum_line_space, width: 0.9*screenWidth, height: 44)
@@ -196,6 +197,7 @@ class BatchNewCreateColorViewController: PresentBaseViewController {
         greenSlider.shadowColor = UIColor(white: 0, alpha: 0.1)
         greenSlider.contentViewColor = UIColor.ColorKitGreen()
         greenSlider.valueViewColor = .white
+        greenSlider.isAnimationEnabled = false
         greenSlider.addTarget(self, action: #selector(greenSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(greenSlider)
         greenSlider.frame = CGRect(x: screenWidth*0.05, y: redSlider.frame.maxY+slider_minimum_line_space, width: 0.9*screenWidth, height: 44)
@@ -215,7 +217,7 @@ class BatchNewCreateColorViewController: PresentBaseViewController {
         blueSlider.shadowBlur = 5
         blueSlider.shadowColor = UIColor(white: 0, alpha: 0.1)
         blueSlider.contentViewColor = UIColor.ColorKitBlue()
-        
+        blueSlider.isAnimationEnabled = false
         blueSlider.valueViewColor = .white
         blueSlider.addTarget(self, action: #selector(blueSliderValueChanged), for: .valueChanged)
         scrollview.addSubview(blueSlider)
@@ -317,13 +319,14 @@ class BatchNewCreateColorViewController: PresentBaseViewController {
     
     @objc
     private func showChooseProjectView(){
-        let navi = BaseNavigationController()
+        let navi = InteractiveTransitionNavigationController()
         let chooseProjectVC = ChooseProjectViewController { [weak self](project) in
             
             self?.projectBar.setProject(project)
             self?.project = project
         }
-        navi.addChildViewController(chooseProjectVC)
+        navi.addChild(chooseProjectVC)
+        navi.modalPresentationStyle = .fullScreen
         present(navi, animated: true, completion: nil)
     }
     

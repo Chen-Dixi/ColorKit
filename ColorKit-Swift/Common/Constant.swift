@@ -41,5 +41,10 @@ struct Font_Regular {
 }
 
 struct Font_Hiragino{
-    static let Size_30=UIFont(name:"HiraMinProN-W6",size: 30)
+    //static let Size_30=UIFont(name:"HiraMinProN-W6",size: 30)
+    static let Size_30=UIFont(name:"FandolSong-Bold",size: 30)
+}
+
+struct Font_FandolSong_Bold{
+    static let Size_30=UIFont(name:"FandolSong-Bold",size: 30)
 }

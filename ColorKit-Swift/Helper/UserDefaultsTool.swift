@@ -16,6 +16,8 @@ private let numberOfRunsKey = "numberOfRuns"
 
 //Release review Times
 private let numberOfReviewsKey = "newNumberOfReviews"
+private let recentColorNameKey = "recentColorNameKey"
+private let numberOfProjectSeqKey = "numberOfProjectSeqKey"
 
 public struct Listener<T>: Hashable {
     
@@ -87,6 +89,8 @@ final public class Listenable<T> {
 
 final public class UserDefaultsTool{
     static let defaults = UserDefaults.standard
+    static let groupDefaults = UserDefaults(suiteName: "group.cdx.ColourKitGroup")
+    
     public class func cleanAllUserDefaults() {
         
         do {
@@ -109,12 +113,39 @@ final public class UserDefaultsTool{
         }
     }()
     
+    public static var numberOfProjectSeq: Listenable<Int> = {
+        let numberOfProjectSeq = defaults.integer(forKey: numberOfProjectSeqKey)
+        
+        return Listenable<Int>( numberOfProjectSeq){
+            numberOfProjectSeq in
+            defaults.set(numberOfProjectSeq, forKey: numberOfProjectSeqKey)
+        }
+    }()
+    
     public static var numberOfReviews: Listenable<Int?> = {
         let numberOfReviews = defaults.integer(forKey: numberOfReviewsKey)
         
         return Listenable<Int?>( numberOfReviews){
             numberOfReviews in
             defaults.set(numberOfReviews, forKey: numberOfReviewsKey)
+        }
+    }()
+    
+    public static var recentColorNameInGroup: Listenable<String?> = {
+        let recentColorName = groupDefaults?.string(forKey: recentColorNameKey)
+        
+        return Listenable<String?>( recentColorName){
+            recentColorName in
+            groupDefaults?.set(recentColorName, forKey: recentColorNameKey)
+        }
+    }()
+    
+    public static var recentRedColor: Listenable<Int?> = {
+        let recentRedColor = groupDefaults?.integer(forKey: "recentRedColor")
+        
+        return Listenable<Int?>(recentRedColor){
+            recentRedColor in
+            groupDefaults?.set(recentRedColor, forKey: "recentRedColor")
         }
     }()
 }
@@ -131,6 +162,9 @@ func increateReviews(){
     }
 }
 
+
+
+//弹出3次打分提醒
 func showReview(){
     if let numberOfReviews = UserDefaultsTool.numberOfReviews.value{
         if numberOfReviews < 3{

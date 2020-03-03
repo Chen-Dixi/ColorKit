@@ -88,6 +88,10 @@
 		4C555BC72188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C555BC52188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib */; };
 		4C555BCA2188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C555BC82188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift */; };
 		4C555BCB2188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C555BC92188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib */; };
+		4C596465234CC0340067633E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C596464234CC0340067633E /* UIColor+Extension.swift */; };
+		4C59646A234CF7440067633E /* FandolSong-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFF0062329537600AE9494 /* FandolSong-Bold.otf */; };
+		4C59646E234CFBBF0067633E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C59646D234CFBBF0067633E /* Constant.swift */; };
+		4C59646F234D6D020067633E /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8928C521304873002C59AB /* UserDefaultsTool.swift */; };
 		4C5CB1EB21141329006DB543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EA21141329006DB543 /* Assets.xcassets */; };
 		4C5CB1ED2114226C006DB543 /* TextFieldAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */; };
 		4C5D94AD214D3DE00043567C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D94AF214D3DE00043567C /* InfoPlist.strings */; };
@@ -113,10 +117,18 @@
 		4C6CC81D21884F47001DA549 /* FeatureProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC81C21884F47001DA549 /* FeatureProject.swift */; };
 		4C6CC81F21885051001DA549 /* FeaturedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC81E21885051001DA549 /* FeaturedSectionController.swift */; };
 		4C6CC821218853D9001DA549 /* EmbeddedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC820218853D9001DA549 /* EmbeddedCollectionViewCell.swift */; };
+		4C6F13BA2356FEAD002C9D3E /* ColorKit_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C1725EF209B65D800A1919D /* ColorKit_Swift.xcdatamodeld */; };
+		4C6F13BC235719A0002C9D3E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F13BB235719A0002C9D3E /* PersistentContainer.swift */; };
+		4C6F13BF23571BB5002C9D3E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F13BE23571BB5002C9D3E /* PersistentContainer.swift */; };
+		4C6F13C1235754BB002C9D3E /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F13C0235754BB002C9D3E /* SafeDispatch.swift */; };
+		4C6F13C3235757AF002C9D3E /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F13C2235757AF002C9D3E /* CommonUtil.swift */; };
 		4C7C0EF0210EDA73002B4880 /* CapsuleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */; };
 		4C7C0EF2210EDC7C002B4880 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF1210EDC7C002B4880 /* Test.storyboard */; };
 		4C7C0EF5210EDF92002B4880 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */; };
 		4C7C0EF7210F095C002B4880 /* CreateColorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */; };
+		4C84D263233C4BAB00089CC3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C965921214B82A400541EF2 /* NotificationCenter.framework */; };
+		4C84D266233C4BAB00089CC3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D265233C4BAB00089CC3 /* TodayViewController.swift */; };
+		4C84D26D233C4BAB00089CC3 /* 配色笔记.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C84D262233C4BAB00089CC3 /* 配色笔记.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4C887B9E218AC896002FC670 /* BatchNewCreateColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C887B9D218AC896002FC670 /* BatchNewCreateColorViewController.swift */; };
 		4C887BA0218AD9F7002FC670 /* AppendColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C887B9F218AD9F7002FC670 /* AppendColorHelper.swift */; };
 		4C887BA2218ADFEF002FC670 /* CreateSectionHosizontalSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C887BA1218ADFEF002FC670 /* CreateSectionHosizontalSectionController.swift */; };
@@ -128,9 +140,6 @@
 		4C8B96992116059A00860DB3 /* GreatAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B96982116059A00860DB3 /* GreatAlertController.swift */; };
 		4C92600521553E5C00BF801B /* ColorTitleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92600321553E5C00BF801B /* ColorTitleCollectionCell.swift */; };
 		4C92600621553E5C00BF801B /* ColorTitleCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C92600421553E5C00BF801B /* ColorTitleCollectionCell.xib */; };
-		4C965922214B82A400541EF2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C965921214B82A400541EF2 /* NotificationCenter.framework */; };
-		4C965925214B82A400541EF2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C965924214B82A400541EF2 /* TodayViewController.swift */; };
-		4C965928214B82A400541EF2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C965926214B82A400541EF2 /* MainInterface.storyboard */; };
 		4C995871215B8CC700EA356D /* UIView+ColorOfPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */; };
 		4C9DE5E42126BAEF0006F877 /* CloseColorCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */; };
 		4CADE0842184BDAA003CA407 /* FeaturedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADE0832184BDAA003CA407 /* FeaturedCollectionViewController.swift */; };
@@ -163,6 +172,7 @@
 		4CEC4080212B026D0003E9F6 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC407C212B026C0003E9F6 /* Filters.swift */; };
 		4CEC4081212B026D0003E9F6 /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC407D212B026C0003E9F6 /* ValueView.swift */; };
 		4CEC4083212B104A0003E9F6 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC4059212AE2570003E9F6 /* pop.framework */; };
+		4CEFF0072329539C00AE9494 /* FandolSong-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFF0062329537600AE9494 /* FandolSong-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,7 +197,38 @@
 			remoteGlobalIDString = 4C40813C2109A83E009BBD8C;
 			remoteInfo = "ColorKit-Objc";
 		};
+		4C84D26B233C4BAB00089CC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C1725B5209B64F800A1919D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C84D261233C4BAB00089CC3;
+			remoteInfo = "ColorKit-Today";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C596468234CCA1C0067633E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C84D26E233C4BAB00089CC3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4C84D26D233C4BAB00089CC3 /* 配色笔记.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4C010C6C211D37C3008F84F8 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
@@ -238,7 +279,6 @@
 		4C2EE91F214C19D1002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4C2EE920214C19D2002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4C2EE921214C19D2002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		4C2EE922214C19D2002F6024 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		4C324C2D212272AA00FF69FA /* ColorPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPinView.swift; sourceTree = "<group>"; };
 		4C327F89214936EB003A1982 /* ColorKit-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorKit-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		4C3AB55921897C0F0067A25F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -297,6 +337,11 @@
 		4C555BC52188B1810058C8A0 /* FeatureColorCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureColorCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		4C555BC82188C2990058C8A0 /* FeatureTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C555BC92188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTitleCollectionViewCell.xib; sourceTree = "<group>"; };
+		4C59645E234CAE870067633E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		4C596461234CAFC50067633E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MyViewController.storyboard; sourceTree = "<group>"; };
+		4C596462234CAFCE0067633E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.storyboard"; sourceTree = "<group>"; };
+		4C596464234CC0340067633E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4C59646D234CFBBF0067633E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4C5CB1EA21141329006DB543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5CB1EC2114226C006DB543 /* TextFieldAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAndButtonView.swift; sourceTree = "<group>"; };
 		4C5D94A4214D36BB0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -304,7 +349,6 @@
 		4C5D94A6214D36BB0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4C5D94A7214D36BB0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		4C5D94A8214D36BC0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		4C5D94A9214D36BC0043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		4C5D94AE214D3DE00043567C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C5D94B0214D3E250043567C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4C5D94B1214D3E270043567C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -336,10 +380,18 @@
 		4C6CC81C21884F47001DA549 /* FeatureProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureProject.swift; sourceTree = "<group>"; };
 		4C6CC81E21885051001DA549 /* FeaturedSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedSectionController.swift; sourceTree = "<group>"; };
 		4C6CC820218853D9001DA549 /* EmbeddedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C6F13BB235719A0002C9D3E /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		4C6F13BE23571BB5002C9D3E /* PersistentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistentContainer.swift; path = "ColorKit-Swift/Helper/PersistentContainer.swift"; sourceTree = SOURCE_ROOT; };
+		4C6F13C0235754BB002C9D3E /* SafeDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
+		4C6F13C2235757AF002C9D3E /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		4C7C0EEF210EDA73002B4880 /* CapsuleSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSliderView.swift; sourceTree = "<group>"; };
 		4C7C0EF1210EDC7C002B4880 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		4C7C0EF4210EDF92002B4880 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test1ViewController.swift; path = Test/Test1ViewController.swift; sourceTree = "<group>"; };
 		4C7C0EF6210F095C002B4880 /* CreateColorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateColorViewController.storyboard; sourceTree = "<group>"; };
+		4C84D262233C4BAB00089CC3 /* 配色笔记.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "配色笔记.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C84D265233C4BAB00089CC3 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4C84D26A233C4BAB00089CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C84D275233C566B00089CC3 /* ColourKit-Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ColourKit-Today.entitlements"; sourceTree = "<group>"; };
 		4C887B9D218AC896002FC670 /* BatchNewCreateColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchNewCreateColorViewController.swift; sourceTree = "<group>"; };
 		4C887B9F218AD9F7002FC670 /* AppendColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppendColorHelper.swift; sourceTree = "<group>"; };
 		4C887BA1218ADFEF002FC670 /* CreateSectionHosizontalSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSectionHosizontalSectionController.swift; sourceTree = "<group>"; };
@@ -351,16 +403,9 @@
 		4C8B96982116059A00860DB3 /* GreatAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatAlertController.swift; sourceTree = "<group>"; };
 		4C92600321553E5C00BF801B /* ColorTitleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTitleCollectionCell.swift; sourceTree = "<group>"; };
 		4C92600421553E5C00BF801B /* ColorTitleCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTitleCollectionCell.xib; sourceTree = "<group>"; };
-		4C965920214B82A400541EF2 /* ColorKit-Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ColorKit-Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C965921214B82A400541EF2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		4C965924214B82A400541EF2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		4C965927214B82A400541EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		4C965929214B82A400541EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C99586F215B8CAE00EA356D /* UIView+ColorOfPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ColorOfPoint.h"; sourceTree = "<group>"; };
 		4C995870215B8CC700EA356D /* UIView+ColorOfPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ColorOfPoint.m"; sourceTree = "<group>"; };
-		4C9B0AA5218BDD1C00640580 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
-		4C9B0AA7218BDD2400640580 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
-		4C9B0AA9218BDD2600640580 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
 		4C9DE5E32126BAEF0006F877 /* CloseColorCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseColorCardTransition.swift; sourceTree = "<group>"; };
 		4CADE0812184B505003CA407 /* GlidingCollection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlidingCollection.framework; path = Carthage/Build/iOS/GlidingCollection.framework; sourceTree = "<group>"; };
 		4CADE0832184BDAA003CA407 /* FeaturedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +447,7 @@
 		4CEC407B212B026C0003E9F6 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		4CEC407C212B026C0003E9F6 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		4CEC407D212B026C0003E9F6 /* ValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
+		4CEFF0062329537600AE9494 /* FandolSong-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FandolSong-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,11 +503,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C96591D214B82A400541EF2 /* Frameworks */ = {
+		4C84D25F233C4BAB00089CC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C965922214B82A400541EF2 /* NotificationCenter.framework in Frameworks */,
+				4C84D263233C4BAB00089CC3 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +565,7 @@
 				4C1725FF209B65D900A1919D /* ColorKit-SwiftTests */,
 				4C40813E2109A83E009BBD8C /* ColorKit-Objc */,
 				4C40815A2109A840009BBD8C /* ColorKit-ObjcTests */,
-				4C965923214B82A400541EF2 /* ColorKit-Widget */,
+				4C84D264233C4BAB00089CC3 /* ColorKit-Today */,
 				4C1725BE209B64F800A1919D /* Products */,
 				4CE2F80A210DED5B00F9C294 /* Frameworks */,
 			);
@@ -534,7 +580,7 @@
 				4C1725FC209B65D900A1919D /* ColorKit-SwiftTests.xctest */,
 				4C40813D2109A83E009BBD8C /* ColorKit-Objc.app */,
 				4C4081572109A840009BBD8C /* ColorKit-ObjcTests.xctest */,
-				4C965920214B82A400541EF2 /* ColorKit-Widget.appex */,
+				4C84D262233C4BAB00089CC3 /* 配色笔记.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -663,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6CA69421678F5D008D8001 /* wheels_of_time.caf */,
+				4CEFF0062329537600AE9494 /* FandolSong-Bold.otf */,
 				4C654E3F214E778400F0EB4F /* example_project.plist */,
 			);
 			path = Resource;
@@ -720,6 +767,7 @@
 				4C8928C521304873002C59AB /* UserDefaultsTool.swift */,
 				4CD996BB214F976B0095F708 /* RegexHelper.swift */,
 				4C23455322F059C900E57F7B /* SafeDispatch.swift */,
+				4C6F13BB235719A0002C9D3E /* PersistentContainer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -819,6 +867,23 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		4C596463234CC01B0067633E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4C596464234CC0340067633E /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4C59646C234CFBAB0067633E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4C59646D234CFBBF0067633E /* Constant.swift */,
+				4C6F13C2235757AF002C9D3E /* CommonUtil.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		4C653669209D4248006DFA0E /* Navi */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,6 +928,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		4C6F13BD23571BAD002C9D3E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4C6F13BE23571BB5002C9D3E /* PersistentContainer.swift */,
+				4C6F13C0235754BB002C9D3E /* SafeDispatch.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		4C7C0EEE210EDA19002B4880 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +948,19 @@
 				4C7C0EF1210EDC7C002B4880 /* Test.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4C84D264233C4BAB00089CC3 /* ColorKit-Today */ = {
+			isa = PBXGroup;
+			children = (
+				4C6F13BD23571BAD002C9D3E /* Helper */,
+				4C59646C234CFBAB0067633E /* Common */,
+				4C596463234CC01B0067633E /* Extension */,
+				4C84D275233C566B00089CC3 /* ColourKit-Today.entitlements */,
+				4C84D265233C4BAB00089CC3 /* TodayViewController.swift */,
+				4C84D26A233C4BAB00089CC3 /* Info.plist */,
+			);
+			path = "ColorKit-Today";
 			sourceTree = "<group>";
 		};
 		4C887BA3218AEC7D002FC670 /* AppendColor */ = {
@@ -891,16 +978,6 @@
 				4C8B96982116059A00860DB3 /* GreatAlertController.swift */,
 			);
 			path = Alert;
-			sourceTree = "<group>";
-		};
-		4C965923214B82A400541EF2 /* ColorKit-Widget */ = {
-			isa = PBXGroup;
-			children = (
-				4C965924214B82A400541EF2 /* TodayViewController.swift */,
-				4C965926214B82A400541EF2 /* MainInterface.storyboard */,
-				4C965929214B82A400541EF2 /* Info.plist */,
-			);
-			path = "ColorKit-Widget";
 			sourceTree = "<group>";
 		};
 		4C99586E215B8C8100EA356D /* ColorOfPoint */ = {
@@ -1063,10 +1140,12 @@
 				4C1725E3209B65D700A1919D /* Frameworks */,
 				4C1725E4209B65D700A1919D /* Resources */,
 				4CE2F809210DECB900F9C294 /* Carthage Script */,
+				4C84D26E233C4BAB00089CC3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4C84D26C233C4BAB00089CC3 /* PBXTargetDependency */,
 			);
 			name = "ColorKit-Swift";
 			productName = "ColorKit-Swift";
@@ -1126,21 +1205,22 @@
 			productReference = 4C4081572109A840009BBD8C /* ColorKit-ObjcTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4C96591F214B82A400541EF2 /* ColorKit-Widget */ = {
+		4C84D261233C4BAB00089CC3 /* ColorKit-Today */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C96592F214B82A400541EF2 /* Build configuration list for PBXNativeTarget "ColorKit-Widget" */;
+			buildConfigurationList = 4C84D271233C4BAB00089CC3 /* Build configuration list for PBXNativeTarget "ColorKit-Today" */;
 			buildPhases = (
-				4C96591C214B82A400541EF2 /* Sources */,
-				4C96591D214B82A400541EF2 /* Frameworks */,
-				4C96591E214B82A400541EF2 /* Resources */,
+				4C84D25E233C4BAB00089CC3 /* Sources */,
+				4C84D25F233C4BAB00089CC3 /* Frameworks */,
+				4C84D260233C4BAB00089CC3 /* Resources */,
+				4C596468234CCA1C0067633E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ColorKit-Widget";
-			productName = "ColorKit-Widget";
-			productReference = 4C965920214B82A400541EF2 /* ColorKit-Widget.appex */;
+			name = "ColorKit-Today";
+			productName = "ColorKit-Today";
+			productReference = 4C84D262233C4BAB00089CC3 /* 配色笔记.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -1149,7 +1229,7 @@
 		4C1725B5209B64F800A1919D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Dixi-Chen";
 				TargetAttributes = {
@@ -1164,13 +1244,13 @@
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1185,8 +1265,8 @@
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 4C40813C2109A83E009BBD8C;
 					};
-					4C96591F214B82A400541EF2 = {
-						CreatedOnToolsVersion = 9.4.1;
+					4C84D261233C4BAB00089CC3 = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
@@ -1211,7 +1291,7 @@
 				4C1725FB209B65D900A1919D /* ColorKit-SwiftTests */,
 				4C40813C2109A83E009BBD8C /* ColorKit-Objc */,
 				4C4081562109A840009BBD8C /* ColorKit-ObjcTests */,
-				4C96591F214B82A400541EF2 /* ColorKit-Widget */,
+				4C84D261233C4BAB00089CC3 /* ColorKit-Today */,
 			);
 		};
 /* End PBXProject section */
@@ -1267,6 +1347,7 @@
 				4C555BCB2188C2990058C8A0 /* FeatureTitleCollectionViewCell.xib in Resources */,
 				4C1725EE209B65D800A1919D /* Main.storyboard in Resources */,
 				4C6CA6952167A1BC008D8001 /* wheels_of_time.caf in Resources */,
+				4CEFF0072329539C00AE9494 /* FandolSong-Bold.otf in Resources */,
 				4C654E3D214E778400F0EB4F /* example_project.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1295,11 +1376,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C96591E214B82A400541EF2 /* Resources */ = {
+		4C84D260233C4BAB00089CC3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C965928214B82A400541EF2 /* MainInterface.storyboard in Resources */,
+				4C59646A234CF7440067633E /* FandolSong-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1356,6 +1437,7 @@
 				4C10ADE52154D1E600273809 /* ColorCardCollectionCell.swift in Sources */,
 				4C6CC81D21884F47001DA549 /* FeatureProject.swift in Sources */,
 				4C995871215B8CC700EA356D /* UIView+ColorOfPoint.m in Sources */,
+				4C6F13BC235719A0002C9D3E /* PersistentContainer.swift in Sources */,
 				4C6CC81B21884EB8001DA549 /* NSObject+IGListDiffable.swift in Sources */,
 				4C5FC7F7211EE91E0078873A /* ChooseColorImageView.swift in Sources */,
 				4C654E57214EAADD00F0EB4F /* FeatureColorInfoViewController.swift in Sources */,
@@ -1479,11 +1561,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C96591C214B82A400541EF2 /* Sources */ = {
+		4C84D25E233C4BAB00089CC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C965925214B82A400541EF2 /* TodayViewController.swift in Sources */,
+				4C84D266233C4BAB00089CC3 /* TodayViewController.swift in Sources */,
+				4C596465234CC0340067633E /* UIColor+Extension.swift in Sources */,
+				4C6F13C3235757AF002C9D3E /* CommonUtil.swift in Sources */,
+				4C6F13C1235754BB002C9D3E /* SafeDispatch.swift in Sources */,
+				4C6F13BF23571BB5002C9D3E /* PersistentContainer.swift in Sources */,
+				4C59646F234D6D020067633E /* UserDefaultsTool.swift in Sources */,
+				4C6F13BA2356FEAD002C9D3E /* ColorKit_Swift.xcdatamodeld in Sources */,
+				4C59646E234CFBBF0067633E /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1504,6 +1593,11 @@
 			isa = PBXTargetDependency;
 			target = 4C40813C2109A83E009BBD8C /* ColorKit-Objc */;
 			targetProxy = 4C4081582109A840009BBD8C /* PBXContainerItemProxy */;
+		};
+		4C84D26C233C4BAB00089CC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C84D261233C4BAB00089CC3 /* ColorKit-Today */;
+			targetProxy = 4C84D26B233C4BAB00089CC3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1599,16 +1693,6 @@
 			name = example_project.plist;
 			sourceTree = "<group>";
 		};
-		4C965926214B82A400541EF2 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C965927214B82A400541EF2 /* Base */,
-				4C2EE922214C19D2002F6024 /* zh-Hans */,
-				4C5D94A9214D36BC0043567C /* zh-Hant */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		4CBD4426214D713300E0B9D1 /* CreateColorFromImageViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1634,9 +1718,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				4CBD4438214D756F00E0B9D1 /* Base */,
-				4C9B0AA5218BDD1C00640580 /* en */,
-				4C9B0AA7218BDD2400640580 /* zh-Hant */,
-				4C9B0AA9218BDD2600640580 /* zh-Hans */,
+				4C59645E234CAE870067633E /* zh-Hans */,
+				4C596461234CAFC50067633E /* en */,
+				4C596462234CAFCE0067633E /* zh-Hant */,
 			);
 			name = MyViewController.storyboard;
 			sourceTree = "<group>";
@@ -1832,10 +1916,12 @@
 		4C172604209B65D900A1919D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ColorKit-Swift/ColorKit-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = A2GL8UZ838;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1848,6 +1934,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cqu.cdx.ColorKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1855,7 +1942,7 @@
 				"SWIFT_COMPILATION_MODE[arch=*]" = singlefile;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorKit-Swift/ColorKit-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1863,10 +1950,12 @@
 		4C172605209B65D900A1919D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ColorKit-Swift/ColorKit-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = A2GL8UZ838;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1879,13 +1968,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cqu.cdx.ColorKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorKit-Swift/ColorKit-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2026,50 +2116,69 @@
 			};
 			name = Release;
 		};
-		4C96592D214B82A400541EF2 /* Debug */ = {
+		4C84D26F233C4BAB00089CC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "ColorKit-Today/ColourKit-Today.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = A2GL8UZ838;
-				INFOPLIST_FILE = "ColorKit-Widget/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "ColorKit-Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cqu.cdx.ColorKit.ColorKit-Widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.3.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "cqu.cdx.ColorKit.ColorKit-Today";
+				PRODUCT_NAME = "配色笔记";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4C96592E214B82A400541EF2 /* Release */ = {
+		4C84D270233C4BAB00089CC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "ColorKit-Today/ColourKit-Today.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = A2GL8UZ838;
-				INFOPLIST_FILE = "ColorKit-Widget/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "ColorKit-Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cqu.cdx.ColorKit.ColorKit-Widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.3.1;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "cqu.cdx.ColorKit.ColorKit-Today";
+				PRODUCT_NAME = "配色笔记";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2141,11 +2250,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C96592F214B82A400541EF2 /* Build configuration list for PBXNativeTarget "ColorKit-Widget" */ = {
+		4C84D271233C4BAB00089CC3 /* Build configuration list for PBXNativeTarget "ColorKit-Today" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C96592D214B82A400541EF2 /* Debug */,
-				4C96592E214B82A400541EF2 /* Release */,
+				4C84D26F233C4BAB00089CC3 /* Debug */,
+				4C84D270233C4BAB00089CC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

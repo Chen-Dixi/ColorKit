@@ -61,8 +61,8 @@ class CollectColorContainerViewController: BaseViewController {
         view.addSubview(tableVC.view)
         childSubView.append(tableVC.view)
         childSubView.append(cardVC.view)
-        addChildViewController(tableVC)
-        addChildViewController(cardVC)
+        addChild(tableVC)
+        addChild(cardVC)
         
         switchvcBtnItem = UIBarButtonItem(image: UIImage(named: "icon_card_view"), style: .plain, target: self, action: #selector(switchVC))
         navigationItem.rightBarButtonItem = switchvcBtnItem
@@ -82,11 +82,11 @@ class CollectColorContainerViewController: BaseViewController {
         
         currenViewIndex = 1-currenViewIndex
         switchvcBtnItem.image = switchvcBtnItemImage[currenViewIndex]
-        view.bringSubview(toFront: childSubView[currenViewIndex])
+        view.bringSubviewToFront(childSubView[currenViewIndex])
     }
     
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if(motion == UIEventSubtype.motionShake){
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if(motion == UIEvent.EventSubtype.motionShake){
             
             switchVC()
         }

@@ -32,7 +32,7 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     private var pageControl:UIPageControl!
     
     var titleInputView:TextFieldAndButtonView!
-    
+    var isAnimateTransitionEnbaled:Bool=true
     lazy var titleBlackMaskView:UIView = {
         let blackMask = UIView(frame: UIScreen.main.bounds)
         blackMask.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -48,8 +48,10 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        transitioningDelegate = self
-        modalPresentationStyle = .custom
+        if isAnimateTransitionEnbaled{
+            transitioningDelegate = self
+            modalPresentationStyle = .custom
+        }
         scrollView = UIScrollView(frame: view.bounds)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler(_gesture:)))
@@ -109,20 +111,20 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         // Do any additional setup after loading the view.
         
         shareBtn = UIButton(frame: CGRect.zero)
-        shareBtn.setImage(UIImage(named: "icon_share"), for: UIControlState.normal)
+        shareBtn.setImage(UIImage(named: "icon_share"), for: UIControl.State.normal)
         shareBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         shareBtn.addTarget(self, action: #selector(shareImage), for: .touchUpInside)
         view.addSubview(shareBtn)
         
         saveBtn = UIButton(frame: CGRect.zero)
-        saveBtn.setImage(UIImage(named: "icon_download"), for: UIControlState.normal)
+        saveBtn.setImage(UIImage(named: "icon_download"), for: UIControl.State.normal)
         saveBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         saveBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
         view.addSubview(saveBtn)
         
         
         editBtn = UIButton(frame: CGRect.zero)
-        editBtn.setImage(UIImage(named: "icon_edit"), for: UIControlState.normal)
+        editBtn.setImage(UIImage(named: "icon_edit"), for: UIControl.State.normal)
         editBtn.tintColor = CommonUtil.getClearTextColor(backgroundColor: tobackgroundColor!)
         editBtn.addTarget(self, action: #selector(showNameInputComponent), for: .touchUpInside)
         view.addSubview(editBtn)
@@ -181,7 +183,8 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         
         if colorInfoType == .view{
             editBtn.isHidden = true
-            saveBtn.snp.makeConstraints { (make) in
+            saveBtn.snp.updateConstraints { (make) in
+                
                 make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX).offset(-24.27)
             }
         }
@@ -283,6 +286,8 @@ class ColorInfoViewController: BaseViewController,UIViewControllerTransitioningD
         }
     }
     
+    
+    // MARK: - UIViewController Transition
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return OpenColorCardTransition()
     }

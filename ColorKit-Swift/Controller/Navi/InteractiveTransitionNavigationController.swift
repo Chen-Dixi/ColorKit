@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//present 这个navigation controller，可以通过左滑dismiss
 class InteractiveTransitionNavigationController: BaseNavigationController,UIViewControllerTransitioningDelegate {
 
     var interactiveTransitionController:CloseColorCardInteractiveTransition!

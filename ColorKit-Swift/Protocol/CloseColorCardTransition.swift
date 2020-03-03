@@ -31,7 +31,7 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
             
                 
                 
-                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardCollectionViewController{
+                if let listvc = containervc.children[containervc.currenViewIndex] as? ColorCardCollectionViewController{
                 
     //
     //            let fromview = fromvc?.view
@@ -58,7 +58,7 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                             imageView.removeFromSuperview()
                         }
                     }
-                }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardViewController{
+                }else if let cardvc = containervc.children[containervc.currenViewIndex] as? ColorCardViewController{
                     // 卡片视图的动画
                     var cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
                     if cell == nil {
@@ -82,7 +82,7 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                     
                 }
             }else if let containervc = navvc.topViewController as? CollectColorContainerViewController{
-                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailCollectionViewController{
+                if let listvc = containervc.children[containervc.currenViewIndex] as? CollectColorDetailCollectionViewController{
                    
                     var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
                     if cell == nil {
@@ -105,7 +105,7 @@ class CloseColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning 
                             imageView.removeFromSuperview()
                         }
                     }
-                }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorCardViewController{
+                }else if let cardvc = containervc.children[containervc.currenViewIndex] as? CollectColorCardViewController{
                     // 卡片视图的动画
                     let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
                     UIView.animate(withDuration: transitionDuration(using: transitionContext) , animations: {

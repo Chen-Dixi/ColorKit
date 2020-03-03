@@ -19,6 +19,7 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         navigationBar.tintColor = UIColor.NavigationBarTintColor()
         navigationBar.shadowImage = UIImage()
         delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,7 +35,7 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
         
         if viewControllers.count == 1{
             //在这里加一句这个可以实现隐藏TabBar
-            viewController.hidesBottomBarWhenPushed = true
+            //viewController.hidesBottomBarWhenPushed = true
         }
         
         super.pushViewController(viewController, animated: animated)
@@ -75,7 +76,7 @@ class BaseNavigationController: UINavigationController, UIGestureRecognizerDeleg
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        let backItem:UIBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        let backItem:UIBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: nil)
         viewController.navigationItem.backBarButtonItem = backItem
     }
 

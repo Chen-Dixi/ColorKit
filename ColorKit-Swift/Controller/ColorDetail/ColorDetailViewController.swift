@@ -319,7 +319,7 @@ extension ColorDetailViewController: UITableViewDataSource, UITableViewDelegate,
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
 //        if let managedContext = managedContext{
 //            delete(indexPath: indexPath, context: managedContext)

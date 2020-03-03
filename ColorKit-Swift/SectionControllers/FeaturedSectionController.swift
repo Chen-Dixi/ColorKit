@@ -117,6 +117,8 @@ extension FeaturedSectionController:ListAdapterDataSource,FunctionalCellDelegate
             let project = Project(entity: entity, insertInto: managedContext)
             project.name = self.project?.name
             project.createdAt = Date()
+            project.seq = Int32(UserDefaultsTool.numberOfProjectSeq.value)
+            UserDefaultsTool.numberOfProjectSeq.value += 1 
             for color in self.project?.colors ?? []{
                 let newColor = Color(entity: entity2, insertInto: managedContext)
                 

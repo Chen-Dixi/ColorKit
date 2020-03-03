@@ -41,17 +41,17 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
         backgroundColor = UIColor.white
         inputTextField = UITextField(frame: CGRect.zero)
         inputTextField.delegate = self
-        inputTextField.clearButtonMode = UITextFieldViewMode.whileEditing
+        inputTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         confirmButton = UIButton(frame: CGRect.zero)
         
         
         confirmButton.backgroundColor = UIColor.ColorKitBlue()
         
-        confirmButton.setTitle(NSLocalizedString("OK", comment: ""), for: UIControlState.normal)
+        confirmButton.setTitle(NSLocalizedString("OK", comment: ""), for: UIControl.State.normal)
         
         confirmButton.layer.cornerRadius = 4
-        confirmButton.setImage(UIImage.imageWithColor(color: UIColor.lightGray), for: UIControlState.disabled)
-        confirmButton.addTarget(self, action: #selector(confirmClick), for: UIControlEvents.touchUpInside)
+        confirmButton.setImage(UIImage.imageWithColor(color: UIColor.lightGray), for: UIControl.State.disabled)
+        confirmButton.addTarget(self, action: #selector(confirmClick), for: UIControl.Event.touchUpInside)
         addSubview(inputTextField)
         addSubview(confirmButton)
         NotificationCenter.default.addObserver(self,
@@ -86,7 +86,7 @@ class TextFieldAndButtonView: UIView ,UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !isLegalContent(){
             confirmButton.shake(direction: .horizontal, times: 2, interval: 0.05, delta: 3, completion: nil)
-            invokeNotificationFeedback(type: UINotificationFeedbackType.warning)
+            invokeNotificationFeedback(type: UINotificationFeedbackGenerator.FeedbackType.warning)
             
             return false
         }else{

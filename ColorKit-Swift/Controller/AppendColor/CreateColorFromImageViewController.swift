@@ -145,7 +145,7 @@ class CreateColorFromImageViewController: PresentBaseViewController {
             self?.projectBar.setProject(project)
             self?.project = project
         }
-        navi.addChildViewController(chooseProjectVC)
+        navi.addChild(chooseProjectVC)
         present(navi, animated: true, completion: nil)
     }
     
@@ -237,15 +237,13 @@ class CreateColorFromImageViewController: PresentBaseViewController {
 }
 
 extension CreateColorFromImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         var image:UIImage!
-        if picker.sourceType == .camera{
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        }else{
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        image = image.scaleImage(toScale: 0.7)
+        image = selectedImage.scaleImage(toScale: 0.7)
         chooseColorImageView.setChoosedImage(image: image)
         scrollview.contentSize = CGSize(width: 0, height: chooseColorImageView.frame.maxY+48)
         

@@ -23,7 +23,7 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
             if let containervc = navvc.topViewController as? ColorContainerViewController{
                 let containerView = transitionContext.containerView
                 
-                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardCollectionViewController{
+                if let listvc = containervc.children[containervc.currenViewIndex] as? ColorCardCollectionViewController{
                     
                     var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
                     
@@ -44,7 +44,7 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
                         
                         transitionContext.completeTransition(true)
                     }
-                }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? ColorCardViewController{
+                }else if let cardvc = containervc.children[containervc.currenViewIndex] as? ColorCardViewController{
                     // 卡片视图的动画
                     let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
                     
@@ -65,7 +65,7 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
             } else if let containervc = navvc.topViewController as? CollectColorContainerViewController{
                 let containerView = transitionContext.containerView
                 
-                if let listvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorDetailCollectionViewController{
+                if let listvc = containervc.children[containervc.currenViewIndex] as? CollectColorDetailCollectionViewController{
                     var cell = listvc.collectionView?.cellForItem(at: listvc.selectedIndex)
                     
                     let image = UIImage.imageWithColor(color: cell?.contentView.backgroundColor ?? UIColor.CommonViewBackgroundColor())
@@ -85,7 +85,7 @@ class OpenColorCardTransition: NSObject, UIViewControllerAnimatedTransitioning{
                         
                         transitionContext.completeTransition(true)
                     }
-                }else if let cardvc = containervc.childViewControllers[containervc.currenViewIndex] as? CollectColorCardViewController{
+                }else if let cardvc = containervc.children[containervc.currenViewIndex] as? CollectColorCardViewController{
                     // 卡片视图的动画
                     let cell = cardvc.cardSwiper.verticalCardSwiperView.cellForItem(at: cardvc.selectedIndex)
                     let image = UIImage.imageWithColor(color: cell!.backgroundColor!)

@@ -26,7 +26,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.layer.shadowOpacity = 0.1;
         
         for item in tabBar.items!{
-            item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
+            item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         }
         addCenterButton()
         delegate = self
@@ -75,7 +75,8 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                         let vc = BatchNewCreateColorViewController()
                         vc.project = containervc.project
                         let nav = BaseNavigationController()
-                        nav.addChildViewController(vc)
+                        nav.addChild(vc)
+                        nav.modalPresentationStyle = .fullScreen
                         strongSelf.present(nav, animated: true, completion: nil)
                     }
                     
@@ -88,8 +89,9 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                             vc.project = containervc.project
                             
                             let nav = BaseNavigationController()
-                            nav.addChildViewController(vc)
+                            nav.addChild(vc)
                             //                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                            nav.modalPresentationStyle = .fullScreen
                             strongSelf.present(nav, animated: true, completion: nil)
                         }
                 })
@@ -130,7 +132,8 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                         let vc = BatchNewCreateColorViewController()
                         vc.project = projects[0]
                         let nav = BaseNavigationController()
-                        nav.addChildViewController(vc)
+                        nav.addChild(vc)
+                        nav.modalPresentationStyle = .fullScreen
                         strongSelf.present(nav, animated: true, completion: nil)
                     }
 
@@ -143,8 +146,9 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
                             vc.project = projects[0]
 
                             let nav = BaseNavigationController()
-                            nav.addChildViewController(vc)
+                            nav.addChild(vc)
                             //                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                            nav.modalPresentationStyle = .fullScreen
                             strongSelf.present(nav, animated: true, completion: nil)
                         }
                 })

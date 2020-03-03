@@ -136,6 +136,11 @@ class MyViewController: UITableViewController {
         if let url = URL(string: weiboLoc){
             if UIApplication.shared.canOpenURL(url){
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }else{
+                if let url = URL(string: "https://www.weibo.com/2626263585/profile?rightmod=1&wvr=6&mod=personinfo"){
+                    let vc = SFSafariViewController(url: url)
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
         }
     }

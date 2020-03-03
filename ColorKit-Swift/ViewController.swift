@@ -85,6 +85,7 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,6 +118,8 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
             NSEntityDescription.entity(forEntityName: "Project",
                                        in: managedContext)!
         let project = Project(entity: entity, insertInto: managedContext)
+        project.seq = Int32(UserDefaultsTool.numberOfProjectSeq.value)
+        UserDefaultsTool.numberOfProjectSeq.value += 1 
         project.name = name
         project.createdAt = Date()
         do{
@@ -179,7 +182,7 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
     
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{
             let vc = DeleteProjectAlertController {
@@ -232,6 +235,7 @@ class ViewController: BaseCollectionViewController,LXReorderableCollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ColorContainerViewController(project: projects[indexPath.item])
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

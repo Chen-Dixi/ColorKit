@@ -5,13 +5,11 @@
 //  Created by Dmitry Nesterenko on 16/10/2017.
 //  Copyright Ramotion Inc. All rights reserved.
 //
-
 import UIKit
 import CoreImage
 
 private let kBlurRadiusDefault: CGFloat = 12
 private let kBlurRadiusIphonePlus: CGFloat = 18 // blur a little bit more to avoid fluid disconnection effect
-
 private func isAnimationAllowed() -> Bool {
     let isUnderHighload: Bool
     if #available(iOS 11.0, *) {
@@ -22,7 +20,7 @@ private func isAnimationAllowed() -> Bool {
     
     let isSimulator = TARGET_OS_SIMULATOR != 0
     
-    return !isSimulator && !ProcessInfo.processInfo.isLowPowerModeEnabled && !UIAccessibilityIsReduceMotionEnabled() && !isUnderHighload
+    return !isSimulator && !ProcessInfo.processInfo.isLowPowerModeEnabled && !UIAccessibility.isReduceMotionEnabled && !isUnderHighload
 }
 
 open class Slider : UIControl {
@@ -40,7 +38,7 @@ open class Slider : UIControl {
     
     // MARK: - Initialization
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
@@ -60,8 +58,8 @@ open class Slider : UIControl {
         addSubview(contentView)
         
         contentView.addSubview(backgroundImageView)
-		contentView.addSubview(minimumImageView)
-		contentView.addSubview(maximumImageView)
+        contentView.addSubview(minimumImageView)
+        contentView.addSubview(maximumImageView)
         contentView.addSubview(minimumLabel)
         contentView.addSubview(maximumLabel)
         contentView.addSubview(valueView)
@@ -81,15 +79,15 @@ open class Slider : UIControl {
     open var fraction: CGFloat = 0 {
         didSet {
             updateValueViewText()
-			layoutValueView()
+            layoutValueView()
         }
     }
 
-	open var showFractionOnlyWhileTracking = false {
-		didSet {
-			updateValueViewText()
-		}
-	}
+    open var showFractionOnlyWhileTracking = false {
+        didSet {
+            updateValueViewText()
+        }
+    }
     
     open var attributedTextForFraction: (CGFloat) -> (NSAttributedString) = { fraction in
         let formatter = NumberFormatter()
@@ -99,14 +97,14 @@ open class Slider : UIControl {
         return NSAttributedString(string: string)
     }
 
-	open var valueViewMargin: CGFloat = ValueView.kLayoutMarginInset {
-		didSet {
-			if valueViewMargin < ValueView.kLayoutMarginInset {
-				valueViewMargin = ValueView.kLayoutMarginInset
-			}
-			layoutValueView()
-		}
-	}
+    open var valueViewMargin: CGFloat = ValueView.kLayoutMarginInset {
+        didSet {
+            if valueViewMargin < ValueView.kLayoutMarginInset {
+                valueViewMargin = ValueView.kLayoutMarginInset
+            }
+            layoutValueView()
+        }
+    }
     
     private let valueView = ValueView()
     
@@ -121,56 +119,54 @@ open class Slider : UIControl {
         valueView.innerFillColor = valueViewColor
     }
 
-	open var isAnimationEnabled = true
-	private(set) open var isSliderTracking = false
+    open var isAnimationEnabled = true
+    private(set) open var isSliderTracking = false
     
     private func updateValueViewText() {
-		if !showFractionOnlyWhileTracking || isSliderTracking {
-			let text = attributedTextForFraction(fraction)
-			valueView.attributedText = text
-		} else {
-			valueView.attributedText = nil
-		}
+        if !showFractionOnlyWhileTracking || isSliderTracking {
+            let text = attributedTextForFraction(fraction)
+            valueView.attributedText = text
+        } else {
+            valueView.attributedText = nil
+        }
     }
 
-	// MARK: - Images
+    // MARK: - Images
+    private let minimumImageView = UIImageView()
+    private let maximumImageView = UIImageView()
 
-	private let minimumImageView = UIImageView()
-	private let maximumImageView = UIImageView()
+    open var imagesMargin: CGFloat = 10 {
+        didSet {
+            layoutImageViews()
+        }
+    }
 
-	open var imagesMargin: CGFloat = 10 {
-		didSet {
-			layoutImageViews()
-		}
-	}
+    open var imagesColor: UIColor? {
+        didSet {
+            minimumImageView.tintColor = imagesColor
+            maximumImageView.tintColor = imagesColor
+        }
+    }
 
-	open var imagesColor: UIColor? {
-		didSet {
-			minimumImageView.tintColor = imagesColor
-			maximumImageView.tintColor = imagesColor
-		}
-	}
+    open func setMinimumImage(_ image: UIImage?) {
+        minimumImageView.image = image?.withRenderingMode(.alwaysTemplate)
+        layoutImageViews()
+    }
 
-	open func setMinimumImage(_ image: UIImage?) {
-		minimumImageView.image = image?.withRenderingMode(.alwaysTemplate)
-		layoutImageViews()
-	}
-
-	open func setMaximumImage(_ image: UIImage?) {
-		maximumImageView.image = image?.withRenderingMode(.alwaysTemplate)
-		layoutImageViews()
-	}
+    open func setMaximumImage(_ image: UIImage?) {
+        maximumImageView.image = image?.withRenderingMode(.alwaysTemplate)
+        layoutImageViews()
+    }
     
     // MARK: - Labels
-
     private let minimumLabel = UILabel()
     private let maximumLabel = UILabel()
 
-	open var labelsMargin: CGFloat = 10 {
-		didSet {
-			layoutLabelsText()
-		}
-	}
+    open var labelsMargin: CGFloat = 10 {
+        didSet {
+            layoutLabelsText()
+        }
+    }
 
     open func setMinimumLabelAttributedText(_ attributedText: NSAttributedString?) {
         minimumLabel.attributedText = attributedText
@@ -186,11 +182,11 @@ open class Slider : UIControl {
     
     private let backgroundImageView = UIImageView()
 
-	open var contentViewCornerRadius: CGFloat = 8 {
-		didSet {
-			layoutBackgroundImage()
-		}
-	}
+    open var contentViewCornerRadius: CGFloat = 8 {
+        didSet {
+            layoutBackgroundImage()
+        }
+    }
     
     open var contentViewColor: UIColor? {
         didSet {
@@ -226,7 +222,7 @@ open class Slider : UIControl {
         filterView.mask?.frame = filterView.bounds
         
         layoutBackgroundImage()
-		layoutImageViews()
+        layoutImageViews()
         layoutLabelsText()
         layoutValueView()
     }
@@ -239,38 +235,38 @@ open class Slider : UIControl {
         maximumLabel.frame = CGRect(x: bounds.maxX - labelsMargin - maximumLabel.bounds.width, y: bounds.midY - maximumLabel.bounds.midY, width: maximumLabel.bounds.width, height: maximumLabel.bounds.height).integral
     }
 
-	private func layoutImageViews() {
-		let imageInset = ValueView.kLayoutMarginInset * 2
-		let imageSize = CGSize(width: bounds.height - imageInset * 2, height: bounds.height - imageInset * 2)
+    private func layoutImageViews() {
+        let imageInset = ValueView.kLayoutMarginInset * 2
+        let imageSize = CGSize(width: bounds.height - imageInset * 2, height: bounds.height - imageInset * 2)
 
-		minimumImageView.frame = CGRect(x: imagesMargin, y: imageInset, width: imageSize.width, height: imageSize.height).integral
-		minimumImageView.contentMode = .left
-		if let image = minimumImageView.image, image.size.width > minimumImageView.bounds.width || image.size.height > minimumImageView.bounds.height {
-			minimumImageView.contentMode = .scaleAspectFit
-		}
+        minimumImageView.frame = CGRect(x: imagesMargin, y: imageInset, width: imageSize.width, height: imageSize.height).integral
+        minimumImageView.contentMode = .left
+        if let image = minimumImageView.image, image.size.width > minimumImageView.bounds.width || image.size.height > minimumImageView.bounds.height {
+            minimumImageView.contentMode = .scaleAspectFit
+        }
 
-		maximumImageView.frame = CGRect(x: bounds.maxX - imagesMargin - imageSize.width, y: imageInset, width: imageSize.width, height: imageSize.height).integral
-		maximumImageView.contentMode = .right
-		if let image = maximumImageView.image, image.size.width > maximumImageView.bounds.width || image.size.height > maximumImageView.bounds.height {
-			maximumImageView.contentMode = .scaleAspectFit
-		}
-	}
+        maximumImageView.frame = CGRect(x: bounds.maxX - imagesMargin - imageSize.width, y: imageInset, width: imageSize.width, height: imageSize.height).integral
+        maximumImageView.contentMode = .right
+        if let image = maximumImageView.image, image.size.width > maximumImageView.bounds.width || image.size.height > maximumImageView.bounds.height {
+            maximumImageView.contentMode = .scaleAspectFit
+        }
+    }
     
     private func layoutBackgroundImage() {
         let inset = UIEdgeInsets(top: min(0, shadowOffset.height - shadowBlur), left: min(0, shadowOffset.width - shadowBlur), bottom: max(0, shadowOffset.height + shadowBlur) * -1, right: max(0, shadowOffset.width + shadowBlur) * -1)
-        backgroundImageView.frame = UIEdgeInsetsInsetRect(self.bounds, inset)
+        backgroundImageView.frame = self.bounds.inset(by: inset)
         backgroundImageView.image = UIGraphicsImageRenderer(bounds: backgroundImageView.bounds).image(actions: { context in
             if let color = shadowColor {
                 context.cgContext.setShadow(offset: shadowOffset, blur: shadowBlur, color: color.cgColor)
             }
             contentViewColor?.setFill()
             let inset = UIEdgeInsets(top: inset.top * -1, left: inset.left * -1, bottom: inset.bottom * -1, right: inset.right * -1)
-            UIBezierPath(roundedRect: UIEdgeInsetsInsetRect(backgroundImageView.bounds, inset), cornerRadius: contentViewCornerRadius).fill()
+            UIBezierPath(roundedRect: backgroundImageView.bounds.inset(by: inset), cornerRadius: contentViewCornerRadius).fill()
         })
     }
     
     private func layoutValueView() {
-        let bounds = UIEdgeInsetsInsetRect(self.contentView.bounds, UIEdgeInsets(top: 0, left: valueViewMargin, bottom: 0, right: valueViewMargin))
+        let bounds = self.contentView.bounds.inset(by: UIEdgeInsets(top: 0, left: valueViewMargin, bottom: 0, right: valueViewMargin))
         let centerX = fraction * bounds.size.width + bounds.minX
         setValueViewPositionX(to: centerX)
     }
@@ -284,7 +280,7 @@ open class Slider : UIControl {
     override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let result = super.beginTracking(touch, with: event)
         let x = touch.location(in: self).x
-		isSliderTracking = true
+        isSliderTracking = true
         fraction = fractionForPositionX(x)
         valueView.animateTrackingBegin()
         sendActions(for: .valueChanged)
@@ -295,7 +291,7 @@ open class Slider : UIControl {
     override open func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let result = super.continueTracking(touch, with: event)
         let x = touch.location(in: self).x
-		isSliderTracking = true
+        isSliderTracking = true
         fraction = fractionForPositionX(x)
         filterView.center.x = valueView.center.x
         sendActions(for: .valueChanged)
@@ -304,22 +300,22 @@ open class Slider : UIControl {
     
     override open func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         super.endTracking(touch, with: event)
-		isSliderTracking = false
+        isSliderTracking = false
         valueView.animateTrackingEnd()
-		updateValueViewText()
+        updateValueViewText()
         didEndTracking?(self)
     }
     
     override open func cancelTracking(with event: UIEvent?) {
         super.cancelTracking(with: event)
-		isSliderTracking = false
+        isSliderTracking = false
         valueView.animateTrackingEnd()
-		updateValueViewText()
+        updateValueViewText()
         didEndTracking?(self)
     }
     
     private func boundsForValueViewCenter() -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: 0, left: valueViewMargin - ValueView.kLayoutMarginInset + valueView.bounds.midX, bottom: 0, right: valueViewMargin - ValueView.kLayoutMarginInset + valueView.bounds.midX))
+        return bounds.inset(by: UIEdgeInsets(top: 0, left: valueViewMargin - ValueView.kLayoutMarginInset + valueView.bounds.midX, bottom: 0, right: valueViewMargin - ValueView.kLayoutMarginInset + valueView.bounds.midX))
     }
     
     private func fractionForPositionX(_ x: CGFloat) -> CGFloat {

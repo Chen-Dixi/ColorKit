@@ -5,7 +5,6 @@
 //  Created by Dmitry Nesterenko on 18/10/2017.
 //  Copyright Ramotion Inc. All rights reserved.
 //
-
 import UIKit
 import CoreImage
 
@@ -60,7 +59,7 @@ class MetaballFilter : CIFilter {
         guard let inputImage = inputImage else { return nil }
 
         // color
-        var image = CIFilter(name: "CIColorControls", withInputParameters: [kCIInputBrightnessKey: 1, kCIInputSaturationKey: 0, kCIInputContrastKey: 0, kCIInputImageKey: inputImage])?.outputImage
+        var image = CIFilter(name: "CIColorControls", parameters: [kCIInputBrightnessKey: 1, kCIInputSaturationKey: 0, kCIInputContrastKey: 0, kCIInputImageKey: inputImage])?.outputImage
         
         // blur
         image = image?.applyingGaussianBlur(sigma: Double(blurRadius))
@@ -76,7 +75,6 @@ class MetaballFilter : CIFilter {
 
         // antialiasing
 //        image = image?.applyingFilter("CIDiskBlur", parameters: [kCIInputRadiusKey: antialiasingRadius])
-
         return image
     }
     

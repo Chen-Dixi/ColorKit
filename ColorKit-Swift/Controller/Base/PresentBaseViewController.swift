@@ -13,7 +13,7 @@ class PresentBaseViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissvc))
-        
+        self.modalPresentationStyle = .fullScreen
         // Do any additional setup after loading the view.
     }
 
@@ -27,8 +27,8 @@ class PresentBaseViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if(motion == UIEventSubtype.motionShake){
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if(motion == UIEvent.EventSubtype.motionShake){
             dismiss(animated: true, completion: nil)
         }
     }
